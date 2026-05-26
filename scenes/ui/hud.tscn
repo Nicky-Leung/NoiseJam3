@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dg0ok5jq1kd4c"]
 
 [ext_resource type="Script" uid="uid://cgrcnxk2kerku" path="res://scripts/hud_scripts/hud.gd" id="1_hqnrr"]
-[ext_resource type="Script" uid="uid://b16gvg4w7ao58" path="res://scenes/ui/flavor_text.gd" id="2_bo48s"]
+[ext_resource type="Script" uid="uid://b16gvg4w7ao58" path="res://scripts/hud_scripts/flavor_text.gd" id="2_bo48s"]
 
 [node name="Hud" type="Control" unique_id=1607470276]
 layout_mode = 3
