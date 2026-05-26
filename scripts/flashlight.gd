@@ -1,12 +1,13 @@
 extends PointLight2D
 
+@onready var cd_timer: Timer = $Cooldown
+@onready var is_on: bool:
+	get: return visible
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func toggle() -> void:
+	if cd_timer.time_left > 0:
+		return
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	look_at(get_global_mouse_position())
-	rotation += deg_to_rad(-40)
+	# add click noise later
+	visible = !visible
+	cd_timer.start()

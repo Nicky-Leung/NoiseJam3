@@ -2,13 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://dkag3nwr7uqd8" path="res://scenes/player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://bmjirkge4y6p8" path="res://scenes/tilemap.tscn" id="2_0xm2m"]
-[ext_resource type="PackedScene" uid="uid://s447nfjehl7g" path="res://scenes/enemy.tscn" id="3_sugp2"]
-[ext_resource type="Script" uid="uid://cqyjp5adkwyjg" path="res://scripts/enemy.gd" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://djvd2vub3v3h1" path="res://scenes/components/interactable.tscn" id="3_sugp2"]
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_jyhfs"]
-vertices = PackedVector2Array(1132.1328, 12.9921875, 1140.8594, 656.02344, 13.0078125, 658.96875, 13.9765625, 12)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(4, 2, 3, 669, 1151, 666, 1142, 3)])
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jyhfs"]
+size = Vector2(200, 20)
 
 [node name="Main" type="Node" unique_id=1616083330]
 
@@ -18,10 +15,10 @@ position = Vector2(61, 64)
 [node name="TileMapLayer" parent="." unique_id=694493410 instance=ExtResource("2_0xm2m")]
 z_index = -1
 
-[node name="Angel" parent="." unique_id=1599280180 node_paths=PackedStringArray("target") instance=ExtResource("3_sugp2")]
-position = Vector2(478, 167)
-script = ExtResource("4_jyhfs")
-target = NodePath("../Player")
+[node name="TestInteractable" type="CollisionShape2D" parent="." unique_id=2020514449]
+position = Vector2(239, 103)
+shape = SubResource("RectangleShape2D_jyhfs")
 
-[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=747465124]
-navigation_polygon = SubResource("NavigationPolygon_jyhfs")
+[node name="Interactable" parent="TestInteractable" unique_id=345271570 node_paths=PackedStringArray("parent_collider") instance=ExtResource("3_sugp2")]
+parent_collider = NodePath("..")
+description = "Does this even work"
