@@ -2,6 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://dkag3nwr7uqd8" path="res://scenes/player.tscn" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://bmjirkge4y6p8" path="res://scenes/tilemap.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://djvd2vub3v3h1" path="res://scenes/interactable.tscn" id="3_sugp2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jyhfs"]
+size = Vector2(200, 20)
 
 [node name="Main" type="Node" unique_id=1616083330]
 
@@ -10,3 +14,12 @@ position = Vector2(61, 64)
 
 [node name="TileMapLayer" parent="." unique_id=694493410 instance=ExtResource("2_0xm2m")]
 z_index = -1
+
+[node name="TestInteractable" type="CollisionShape2D" parent="." unique_id=2020514449]
+position = Vector2(239, 103)
+shape = SubResource("RectangleShape2D_jyhfs")
+
+[node name="Interactable" parent="TestInteractable" unique_id=345271570 node_paths=PackedStringArray("parent_collider") instance=ExtResource("3_sugp2")]
+interact_type = 1
+parent_collider = NodePath("..")
+description = "Does this even work"

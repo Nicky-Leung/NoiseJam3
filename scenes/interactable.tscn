@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://djvd2vub3v3h1"]
+
+[ext_resource type="Script" uid="uid://bb74bdeaolp6i" path="res://scripts/interactable.gd" id="1_56v82"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ij5l6"]
+size = Vector2(50, 50)
+
+[node name="Interactable" type="Area2D" unique_id=345271570]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("1_56v82")
+
+[node name="Hitbox" type="CollisionShape2D" parent="." unique_id=1426273576]
+shape = SubResource("RectangleShape2D_ij5l6")

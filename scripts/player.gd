@@ -46,7 +46,11 @@ func _input(event: InputEvent) -> void:
 
 	input_vector = Input.get_vector(INPUTS.LEFT, INPUTS.RIGHT, INPUTS.UP, INPUTS.DOWN)
 	is_sprinting = Input.is_action_pressed(INPUTS.SPRINT)
+
 	if Input.is_action_just_pressed(INPUTS.TOGGLE_LIGHT):
 		flashlight.toggle()
+
 	if Input.is_action_just_pressed(INPUTS.INTERACT) && interact_ray.is_colliding():
-		print("interact") # later, need to use get_collider() and try and call interact() function that all interactable objects will have
+		var collider = interact_ray.get_collider()
+		if collider.has_method("interact"):
+			collider.interact()
