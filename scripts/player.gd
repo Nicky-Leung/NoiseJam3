@@ -15,13 +15,13 @@ var is_sprinting: bool = false
 var input_vector: Vector2 = Vector2.ZERO
 var facing_direction: Vector2 = Vector2.ZERO
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if velocity.length() > 0:
 		sprite.play("move")
 	else:
 		sprite.play("idle")
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	look_at(get_global_mouse_position())
 	facing_direction = global_position.direction_to(get_global_mouse_position())
 
@@ -44,5 +44,5 @@ func _input(event: InputEvent) -> void:
 	is_sprinting = Input.is_action_pressed(INPUTS.SPRINT)
 	if Input.is_action_just_pressed(INPUTS.TOGGLE_LIGHT):
 		flashlight.toggle()
-		print(flashlight.is_on)
-	# put interact key later
+	if Input.is_action_just_pressed(INPUTS.INTERACT) && interact_ray.is_colliding():
+		print("interact") # later, need to use get_collider() and try and call interact() function that all interactable objects will have
