@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dg0ok5jq1kd4c"]
 
 [ext_resource type="Script" uid="uid://cgrcnxk2kerku" path="res://scripts/hud_scripts/hud.gd" id="1_hqnrr"]
+[ext_resource type="Theme" uid="uid://yfrti8gy2ey2" path="res://resources/Ui.tres" id="2_8qguk"]
 [ext_resource type="Script" uid="uid://b16gvg4w7ao58" path="res://scripts/hud_scripts/flavor_text.gd" id="2_bo48s"]
 
 [node name="Hud" type="Control" unique_id=1607470276]
@@ -14,17 +15,16 @@ script = ExtResource("1_hqnrr")
 
 [node name="FlavorText" type="Label" parent="." unique_id=960609738]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
+anchors_preset = 12
 anchor_top = 1.0
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -71.5
-offset_top = -73.0
-offset_right = 71.5
-offset_bottom = -50.0
+offset_top = -91.0
+offset_bottom = -30.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("2_8qguk")
+theme_override_font_sizes/font_size = 48
 text = "The text goes here"
 horizontal_alignment = 1
 script = ExtResource("2_bo48s")
