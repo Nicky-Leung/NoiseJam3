@@ -9,6 +9,7 @@ extends CharacterBody2D
 @export var walk_speed: int = 100
 @export var sprint_multiplier = 1.5
 @export var backward_speed: int = 75
+@export var turn_rate: float = 7.5
 
 # Runtime variables
 var is_sprinting: bool = false
@@ -21,10 +22,13 @@ func _process(_delta: float) -> void:
 	else:
 		sprite.play("idle")
 
-func _physics_process(_delta: float) -> void:
-	look_at(get_global_mouse_position())
-	facing_direction = global_position.direction_to(get_global_mouse_position())
+func _physics_process(delta: float) -> void:
+	# calculate turning direction
+	var new_direction = facing_direction.lerp(global_position.direction_to(get_global_mouse_position()), turn_rate * delta)
+	rotation = new_direction.angle()
+	facing_direction = new_direction
 
+	# calculate speed
 	var speed = 0
 	if facing_direction.dot(input_vector) >= 0:
 		speed = walk_speed
