@@ -40,7 +40,7 @@ theme_override_constants/shadow_offset_y = 5
 theme_override_constants/outline_size = 10
 theme_override_constants/shadow_outline_size = 5
 theme_override_fonts/font = ExtResource("2_2o76q")
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 80
 text = "Darkwood Ripoff XD"
 
 [node name="Play" type="Button" parent="." unique_id=908539110]

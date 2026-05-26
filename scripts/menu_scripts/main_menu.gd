@@ -9,7 +9,11 @@ func _ready():
 	start.pressed.connect(handle_start)
 	options.pressed.connect(handle_options)
 	credits.pressed.connect(handle_credits)
-	quit.pressed.connect(handle_quit)
+
+	if OS.has_feature("web"): # quitting in browser is equivalent to crashing the game
+		quit.visible = false
+	else:
+		quit.pressed.connect(handle_quit)
 
 func handle_start(): # probably need to do some fade-to-game type thing instead of abrupt cut
 	SCENE_MANAGER.change_scene(SceneManager.Scenes.IN_GAME)
