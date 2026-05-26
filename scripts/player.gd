@@ -54,5 +54,5 @@ func _input(event: InputEvent) -> void:
 
 	if Input.is_action_just_pressed(INPUTS.INTERACT) && interact_ray.is_colliding():
 		var collider = interact_ray.get_collider()
-		if collider.has_method("interact"):
+		if collider is Interactable:
 			collider.interact(self)

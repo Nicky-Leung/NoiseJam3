@@ -1,0 +1,108 @@
+[gd_scene format=3 uid="uid://bua6kh5ywlax3"]
+
+[ext_resource type="Script" uid="uid://85onho8yin1f" path="res://scripts/menu_scripts/main_menu.gd" id="1_2o76q"]
+[ext_resource type="Theme" uid="uid://yfrti8gy2ey2" path="res://resources/Ui.tres" id="1_ovrgc"]
+[ext_resource type="FontFile" uid="uid://co46nf7jowu7a" path="res://assets/fonts/MenuFontsBold.ttf" id="2_2o76q"]
+
+[node name="MainMenu" type="Control" unique_id=1038816390]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2o76q")
+
+[node name="TempBG" type="ColorRect" parent="." unique_id=1804440632]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0.13333334, 1)
+
+[node name="Title" type="Label" parent="." unique_id=2053594734]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -290.0
+offset_top = 64.0
+offset_right = 290.0
+offset_bottom = 146.0
+grow_horizontal = 2
+theme = ExtResource("1_ovrgc")
+theme_override_colors/font_shadow_color = Color(0.8901961, 0, 0.2509804, 0.5411765)
+theme_override_colors/font_outline_color = Color(0.57254905, 0.26666668, 0.09019608, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 10
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("2_2o76q")
+theme_override_font_sizes/font_size = 80
+text = "Darkwood Ripoff XD"
+
+[node name="Play" type="Button" parent="." unique_id=908539110]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -141.5
+offset_top = -114.0
+offset_right = 141.5
+offset_bottom = -34.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ovrgc")
+text = "Start Game"
+
+[node name="Options" type="Button" parent="." unique_id=348577761]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -101.5
+offset_top = -21.5
+offset_right = 101.5
+offset_bottom = 58.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ovrgc")
+text = "Options"
+
+[node name="Credits" type="Button" parent="." unique_id=806160912]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -88.5
+offset_top = 71.0
+offset_right = 88.5
+offset_bottom = 151.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ovrgc")
+text = "Credits"
+
+[node name="Quit" type="Button" parent="." unique_id=1590340992]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -57.5
+offset_top = 163.5
+offset_right = 57.5
+offset_bottom = 243.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ovrgc")
+text = "Quit"

@@ -1,3 +1,29 @@
 [gd_resource type="Theme" format=3 uid="uid://yfrti8gy2ey2"]
 
+[ext_resource type="FontFile" uid="uid://cc2hti4j58qic" path="res://assets/fonts/MenuFonts.ttf" id="1_00s44"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8x2u8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4xx5i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cxymh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sleog"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lk0jq"]
+
 [resource]
+default_font = ExtResource("1_00s44")
+default_font_size = 64
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/colors/font_hover_color = Color(0.44705883, 0.4392157, 0.46666667, 1)
+Button/fonts/font = ExtResource("1_00s44")
+Button/styles/disabled = SubResource("StyleBoxEmpty_8x2u8")
+Button/styles/focus = SubResource("StyleBoxEmpty_4xx5i")
+Button/styles/hover = SubResource("StyleBoxEmpty_cxymh")
+Button/styles/normal = SubResource("StyleBoxEmpty_sleog")
+Button/styles/pressed = SubResource("StyleBoxEmpty_lk0jq")
+HSlider/icons/grabber = null
+HSlider/icons/grabber_highlight = null
+HSlider/styles/grabber_area = null
+HSlider/styles/grabber_area_highlight = null

@@ -1,4 +1,5 @@
 extends Area2D
+class_name Interactable
 
 enum Type {
     DESCRIPTION, # flavor text description
@@ -21,9 +22,9 @@ func _ready():
 func update_desc(new_desc: String):
     description = new_desc
 
-func interact(player: CharacterBody2D):
+func interact(player: Player):
     if interact_type == Type.SIGNALER:
         print("this thing just emitted a signal called " + str(interacted)) # remove later when something actually needs to listen to the emit
         interacted.emit()
     elif interact_type == Type.DESCRIPTION:
-        player.hud.display_flavor_text(description) # assumes correct usage (player has accessible hud component)
+        player.hud.display_flavor_text(description)
