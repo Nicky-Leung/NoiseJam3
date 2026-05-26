@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dvs1p1qihi21c"]
+
+[ext_resource type="Script" uid="uid://3afupig7b6rr" path="res://scripts/flashlight.gd" id="1_nnxok"]
+
+[sub_resource type="Gradient" id="Gradient_4flbx"]
+offsets = PackedFloat32Array(0, 0.84476066, 0.9974127)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_onrkg"]
+gradient = SubResource("Gradient_4flbx")
+fill = 1
+fill_to = Vector2(0.98504275, 1)
+
+[node name="Flashlight" type="PointLight2D" unique_id=1478315337]
+position = Vector2(37.000004, 18)
+scale = Vector2(5, 5)
+color = Color(0.80200225, 0.8002344, 0, 1)
+texture = SubResource("GradientTexture2D_onrkg")
+offset = Vector2(31.399998, 31.2)
+script = ExtResource("1_nnxok")

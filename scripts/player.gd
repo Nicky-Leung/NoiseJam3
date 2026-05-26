@@ -24,3 +24,5 @@ func _process(delta: float) -> void:
 		velocity.y += 1
 
 	position += velocity * speed * delta
+
+	look_at(get_global_mouse_position())

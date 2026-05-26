@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cn1v1brvy4kf6"
-path="res://.godot/imported/mainlevbuild.png-d963511bbb0dbca319fd54349afb621f.ctex"
+uid="uid://yikroy56o67a"
+path="res://.godot/imported/2d_lights_and_shadows_neutral_point_light.webp-dbcbec7692db108e8919185f40d239d0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://mainlevbuild.png"
-dest_files=["res://.godot/imported/mainlevbuild.png-d963511bbb0dbca319fd54349afb621f.ctex"]
+source_file="res://assets/shaders/2d_lights_and_shadows_neutral_point_light.webp"
+dest_files=["res://.godot/imported/2d_lights_and_shadows_neutral_point_light.webp-dbcbec7692db108e8919185f40d239d0.ctex"]
 
 [params]
 

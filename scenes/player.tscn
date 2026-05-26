@@ -2,14 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bavph4h31tkjs" path="res://scripts/player.gd" id="1_4flbx"]
 [ext_resource type="Texture2D" uid="uid://yikroy56o67a" path="res://2d_lights_and_shadows_neutral_point_light.webp" id="2_onrkg"]
-
-[sub_resource type="Gradient" id="Gradient_4flbx"]
-offsets = PackedFloat32Array(0, 0.84476066, 0.9974127)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_onrkg"]
-gradient = SubResource("Gradient_4flbx")
-fill = 1
+[ext_resource type="PackedScene" uid="uid://dvs1p1qihi21c" path="res://flashlight.tscn" id="3_i3pqv"]
 
 [node name="Player" type="Area2D" unique_id=2059054947]
 script = ExtResource("1_4flbx")
@@ -25,9 +18,5 @@ position = Vector2(1, 0)
 color = Color(0.95640343, 0.42603758, 0.9322354, 1)
 polygon = PackedVector2Array(0, 0, 36, 0, 36, 28, 0, 28)
 
-[node name="PointLight2D" type="PointLight2D" parent="." unique_id=504749932]
-position = Vector2(137, 113.5)
-scale = Vector2(3.3125, 2.765625)
-color = Color(0.80200225, 0.8002344, 0, 1)
-energy = 1.76
-texture = SubResource("GradientTexture2D_onrkg")
+[node name="Flashlight" parent="." unique_id=1478315337 instance=ExtResource("3_i3pqv")]
+position = Vector2(36, 14)
