@@ -1,28 +1,39 @@
-extends Area2D
+extends CharacterBody2D
 
-@export var speed: int = 200 
+# Components
+@onready var flashlight = $Flashlight
+@onready var sprite = $Sprite
+@onready var interact_ray = $InteractRay
 
+# Player settings
+@export var walk_speed: int = 100
+@export var sprint_multiplier = 1.5
+@export var backward_speed: int = 75
 
+# Runtime variables
+var is_sprinting: bool = false
+var input_vector: Vector2 = Vector2.ZERO
+var facing_direction: Vector2 = Vector2.ZERO
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	var velocity = Vector2.ZERO
-
-	if Input.is_action_pressed("move_right"):
-		velocity.x += 1
-	if Input.is_action_pressed("move_left"):
-		velocity.x -= 1
-	if Input.is_action_pressed("move_up"):
-		velocity.y -= 1
-	if Input.is_action_pressed("move_down"):
-		velocity.y += 1
-
-	position += velocity * speed * delta
-
+func _physics_process(delta: float) -> void:
 	look_at(get_global_mouse_position())
+	facing_direction = global_position.direction_to(get_global_mouse_position())
+
+	var speed = 0
+	if facing_direction.dot(input_vector) >= 0:
+		speed = walk_speed
+	else:
+		speed = backward_speed
+	if is_sprinting:
+		speed *= sprint_multiplier
+
+	velocity = input_vector * speed
+	move_and_slide()
+
+func _input(event: InputEvent) -> void:
+	if event is not InputEventKey:
+		return
+
+	input_vector = Input.get_vector(INPUTS.LEFT, INPUTS.RIGHT, INPUTS.UP, INPUTS.DOWN)
+	is_sprinting = Input.is_action_pressed(INPUTS.SPRINT)
+	# put interact key later
