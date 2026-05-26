@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://ch6nrwk2usqw"]
+
+[ext_resource type="PackedScene" uid="uid://dkag3nwr7uqd8" path="res://player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://bmjirkge4y6p8" path="res://tilemap.tscn" id="2_0xm2m"]
+
+[node name="Main" type="Node" unique_id=1616083330]
+
+[node name="TileMapLayer" parent="." unique_id=694493410 instance=ExtResource("2_0xm2m")]
+z_index = -1
+
+[node name="Player" parent="." unique_id=2059054947 instance=ExtResource("1_ig7tw")]
+position = Vector2(19, 29)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1023332266]
+color = Color(0, 0, 0, 1)
+energy = 5.04
