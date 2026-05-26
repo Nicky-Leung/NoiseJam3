@@ -31,9 +31,12 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _input(event: InputEvent) -> void:
-	if event is not InputEventKey:
+	if event is not InputEventKey && event is not InputEventMouseButton:
 		return
 
 	input_vector = Input.get_vector(INPUTS.LEFT, INPUTS.RIGHT, INPUTS.UP, INPUTS.DOWN)
 	is_sprinting = Input.is_action_pressed(INPUTS.SPRINT)
+	if Input.is_action_just_pressed(INPUTS.TOGGLE_LIGHT):
+		flashlight.toggle()
+		print(flashlight.is_on)
 	# put interact key later
