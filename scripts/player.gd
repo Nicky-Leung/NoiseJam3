@@ -15,6 +15,12 @@ var is_sprinting: bool = false
 var input_vector: Vector2 = Vector2.ZERO
 var facing_direction: Vector2 = Vector2.ZERO
 
+func _process(delta: float) -> void:
+	if velocity.length() > 0:
+		sprite.play("move")
+	else:
+		sprite.play("idle")
+
 func _physics_process(delta: float) -> void:
 	look_at(get_global_mouse_position())
 	facing_direction = global_position.direction_to(get_global_mouse_position())

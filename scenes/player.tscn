@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://dvs1p1qihi21c" path="res://scenes/flashlight.tscn" id="3_i3pqv"]
 [ext_resource type="Texture2D" uid="uid://bh2v03m0r117w" path="res://assets/sprites/temp_player/spritesheet.png" id="3_tuyoq"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_qlg0r"]
+radius = 19.31
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_fjrip"]
 atlas = ExtResource("3_tuyoq")
 region = Rect2(0, 0, 290, 313)
@@ -189,18 +192,22 @@ animations = [{
 [node name="Player" type="CharacterBody2D" unique_id=628625629]
 script = ExtResource("1_4flbx")
 
+[node name="Hitbox" type="CollisionShape2D" parent="." unique_id=187340476]
+shape = SubResource("CircleShape2D_qlg0r")
+
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=80633472]
+scale = Vector2(0.23, 0.23)
 sprite_frames = SubResource("SpriteFrames_l71n6")
 animation = &"idle"
 
 [node name="SurroundingLight" type="PointLight2D" parent="." unique_id=1932149789]
-position = Vector2(18, 13)
+scale = Vector2(0.355, 0.355)
 color = Color(0.8039216, 0.8, 0, 1)
 energy = 0.19
 texture = ExtResource("2_onrkg")
 
 [node name="Flashlight" parent="." unique_id=1478315337 instance=ExtResource("3_i3pqv")]
-position = Vector2(36, 14)
+rotation = -0.7853982
 
 [node name="InteractRay" type="RayCast2D" parent="." unique_id=1852895450]
-target_position = Vector2(150, 0)
+target_position = Vector2(50, 0)
