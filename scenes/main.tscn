@@ -20,6 +20,5 @@ position = Vector2(239, 103)
 shape = SubResource("RectangleShape2D_jyhfs")
 
 [node name="Interactable" parent="TestInteractable" unique_id=345271570 node_paths=PackedStringArray("parent_collider") instance=ExtResource("3_sugp2")]
-interact_type = 1
 parent_collider = NodePath("..")
 description = "Does this even work"

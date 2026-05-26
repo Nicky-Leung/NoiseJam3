@@ -21,9 +21,9 @@ func _ready():
 func update_desc(new_desc: String):
     description = new_desc
 
-func interact():
+func interact(player: CharacterBody2D):
     if interact_type == Type.SIGNALER:
         print("this thing just emitted a signal called " + str(interacted)) # remove later when something actually needs to listen to the emit
         interacted.emit()
     elif interact_type == Type.DESCRIPTION:
-        print(description) # temp just print onto screen, will need to update HUD later
+        player.hud.display_flavor_text(description) # assumes correct usage (player has accessible hud component)

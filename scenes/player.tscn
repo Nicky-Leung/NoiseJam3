@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://brodtpexkbn2f" path="res://assets/sprites/temp_player/idle.png" id="2_qlg0r"]
 [ext_resource type="PackedScene" uid="uid://dvs1p1qihi21c" path="res://scenes/flashlight.tscn" id="3_i3pqv"]
 [ext_resource type="Texture2D" uid="uid://bh2v03m0r117w" path="res://assets/sprites/temp_player/spritesheet.png" id="3_tuyoq"]
+[ext_resource type="PackedScene" uid="uid://dg0ok5jq1kd4c" path="res://scenes/ui/hud.tscn" id="6_tuyoq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qlg0r"]
 radius = 19.31
@@ -215,3 +216,7 @@ target_position = Vector2(50, 0)
 collision_mask = 8
 hit_from_inside = true
 collide_with_areas = true
+
+[node name="Overlay" type="CanvasLayer" parent="." unique_id=1767384843]
+
+[node name="Hud" parent="Overlay" unique_id=1607470276 instance=ExtResource("6_tuyoq")]
