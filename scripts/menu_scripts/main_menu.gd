@@ -19,7 +19,7 @@ func handle_start(): # probably need to do some fade-to-game type thing instead 
 	SCENE_MANAGER.change_scene(SceneManager.Scenes.IN_GAME)
 
 func handle_options(): # implement options menu
-	print("options opened")
+	SCENE_MANAGER.open_sub_menu(SceneManager.SubMenus.OPTIONS)
 
 func handle_credits(): # implement at the end when all the assets are sorted out
 	print("credits opened")

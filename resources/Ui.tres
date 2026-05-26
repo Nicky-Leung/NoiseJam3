@@ -23,3 +23,7 @@ Button/styles/focus = SubResource("StyleBoxEmpty_4xx5i")
 Button/styles/hover = SubResource("StyleBoxEmpty_cxymh")
 Button/styles/normal = SubResource("StyleBoxEmpty_sleog")
 Button/styles/pressed = SubResource("StyleBoxEmpty_lk0jq")
+HSlider/icons/grabber = null
+HSlider/icons/grabber_highlight = null
+HSlider/styles/grabber_area = null
+HSlider/styles/grabber_area_highlight = null
