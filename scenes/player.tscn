@@ -208,6 +208,7 @@ position_smoothing_speed = 2.0
 script = ExtResource("2_fjrip")
 
 [node name="Footsteps" parent="." unique_id=1515918579 instance=ExtResource("3_smehm")]
+max_polyphony = 3
 step_collection = Array[AudioStream]([ExtResource("5_3v2ag"), ExtResource("6_jej6c")])
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=80633472]
