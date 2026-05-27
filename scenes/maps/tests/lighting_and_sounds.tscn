@@ -152,4 +152,4 @@ position = Vector2(-25, -25)
 occluder = SubResource("OccluderPolygon2D_ob7ho")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=169965248]
-color = Color(0.49654675, 0.4427537, 0.5906846, 0.9647059)
+color = Color(0.10019137, 0.08478504, 0.12660226, 0.9647059)

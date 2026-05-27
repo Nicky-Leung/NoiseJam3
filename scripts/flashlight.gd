@@ -2,16 +2,21 @@ extends PointLight2D
 
 signal coverage_changed(is_active: bool, center: Vector2, radius: float, bounds: Rect2)
 
-
+@onready var base_energy = energy
 @onready var cd_timer: Timer = $Cooldown
 @onready var audio_player = $Click
 @onready var is_on: bool:
 	get: return visible
 
-func _physics_process(delta: float) -> void:
-	if visible:
-		_emit_coverage(true)
+func _physics_process(_delta: float) -> void:
+	if !visible: return
+	_emit_coverage(true)
+	if Engine.get_process_frames() % 5 == 0: try_flicker()
 
+func try_flicker():
+	energy = base_energy
+	if randf() < 0.95: return
+	energy = base_energy - randf() * 2
 
 func toggle() -> void:
 	if cd_timer.time_left > 0:
