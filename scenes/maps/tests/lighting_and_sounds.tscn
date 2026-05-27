@@ -3,12 +3,27 @@
 [ext_resource type="PackedScene" uid="uid://bmjirkge4y6p8" path="res://scenes/tilemap.tscn" id="1_av4ye"]
 [ext_resource type="PackedScene" uid="uid://dkag3nwr7uqd8" path="res://scenes/player.tscn" id="2_ob7ho"]
 [ext_resource type="PackedScene" uid="uid://djvd2vub3v3h1" path="res://scenes/components/interactable.tscn" id="3_vhgv5"]
+[ext_resource type="AudioStream" uid="uid://drmnb1fc0ut8y" path="res://assets/sfx/ambience/dripLoop.mp3" id="4_ob7ho"]
+[ext_resource type="PackedScene" uid="uid://blkdmem371i3" path="res://scenes/components/ambience_zone.tscn" id="5_vhgv5"]
+[ext_resource type="AudioStream" uid="uid://g4wo1uxd5kcy" path="res://assets/sfx/ambience/ambience-1.wav" id="6_y58ir"]
+[ext_resource type="AudioStream" uid="uid://clsj8x672cr5" path="res://assets/sfx/ambience/ambience-2.wav" id="7_0nf5n"]
+[ext_resource type="AudioStream" uid="uid://bbwgblqmo56nv" path="res://assets/sfx/ambience/ambience-3.wav" id="8_f1l1a"]
+[ext_resource type="AudioStream" uid="uid://co5hfk5dqsnlk" path="res://assets/sfx/ambience/ambience-4.wav" id="9_mjy37"]
+[ext_resource type="AudioStream" uid="uid://chlf7madvxwws" path="res://assets/sfx/ambience/ambience-5.wav" id="10_wo87x"]
+[ext_resource type="AudioStream" uid="uid://ckl0e4f45yylo" path="res://assets/sfx/ambience/qubodup-GhostMoan01.mp3" id="11_fokgv"]
+[ext_resource type="AudioStream" uid="uid://4siju6edimw2" path="res://assets/sfx/ambience/qubodup-GhostMoan02.mp3" id="12_ulk06"]
+[ext_resource type="AudioStream" uid="uid://p52o3gxerfkh" path="res://assets/sfx/ambience/qubodup-GhostMoan03.mp3" id="13_5aceh"]
+[ext_resource type="AudioStream" uid="uid://cawh24beog0nm" path="res://assets/sfx/ambience/qubodup-GhostMoan04.mp3" id="14_vs00i"]
+[ext_resource type="AudioStream" uid="uid://cstc8pko8goiw" path="res://assets/sfx/ambience/qubodup-GhostMoan05.mp3" id="15_pwcmo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tpqdd"]
 size = Vector2(50, 50)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ob7ho"]
 polygon = PackedVector2Array(0, 0, 50, 0, 50, 50, 0, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_orjbe"]
+size = Vector2(600, 600)
 
 [node name="LightingAndSounds" type="Node2D" unique_id=1796258794]
 
@@ -153,3 +168,35 @@ occluder = SubResource("OccluderPolygon2D_ob7ho")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=169965248]
 color = Color(0.10019137, 0.08478504, 0.12660226, 0.9647059)
+
+[node name="TestEnvironmentAmbience" type="AudioStreamPlayer2D" parent="." unique_id=62555644]
+position = Vector2(977, 370)
+stream = ExtResource("4_ob7ho")
+autoplay = true
+attenuation = 5.856298
+
+[node name="Zone1" type="Area2D" parent="." unique_id=2102162849]
+position = Vector2(405, 325)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Zone1" unique_id=1970175079]
+shape = SubResource("RectangleShape2D_orjbe")
+
+[node name="AmbienceZone" parent="Zone1" unique_id=998849929 node_paths=PackedStringArray("area2d_sound_zone") instance=ExtResource("5_vhgv5")]
+ambience_collection = Array[AudioStream]([ExtResource("6_y58ir"), ExtResource("7_0nf5n"), ExtResource("8_f1l1a"), ExtResource("9_mjy37"), ExtResource("10_wo87x")])
+area2d_sound_zone = NodePath("..")
+
+[node name="Zone2" type="Area2D" parent="." unique_id=463063999]
+position = Vector2(1028, 325)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Zone2" unique_id=907657410]
+shape = SubResource("RectangleShape2D_orjbe")
+
+[node name="AmbienceZone" parent="Zone2" unique_id=990264859 node_paths=PackedStringArray("area2d_sound_zone") instance=ExtResource("5_vhgv5")]
+ambience_collection = Array[AudioStream]([ExtResource("11_fokgv"), ExtResource("12_ulk06"), ExtResource("13_5aceh"), ExtResource("14_vs00i"), ExtResource("15_pwcmo")])
+area2d_sound_zone = NodePath("..")
