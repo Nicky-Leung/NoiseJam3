@@ -209,6 +209,7 @@ energy = 0.19
 texture = ExtResource("2_onrkg")
 
 [node name="Flashlight" parent="." unique_id=1478315337 instance=ExtResource("3_i3pqv")]
+position = Vector2(18.999998, 0)
 rotation = -0.7853982
 
 [node name="InteractRay" type="RayCast2D" parent="." unique_id=1852895450]

@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://s447nfjehl7g"]
 
 [ext_resource type="Texture2D" uid="uid://wr60h4wc0byl" path="res://assets/image.jpg" id="1_7p1mj"]
+[ext_resource type="Script" uid="uid://cqyjp5adkwyjg" path="res://scripts/enemy.gd" id="1_md0e3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_md0e3"]
 size = Vector2(2, 2)
 
 [node name="Angel" type="CharacterBody2D" unique_id=1599280180]
+script = ExtResource("1_md0e3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1553818521]
 shape = SubResource("RectangleShape2D_md0e3")
