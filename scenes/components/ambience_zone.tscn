@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://blkdmem371i3"]
+
+[ext_resource type="Script" uid="uid://b7x2dbq3n6r4k" path="res://scripts/components/ambience_zone.gd" id="1_urks4"]
+
+[node name="AmbienceZone" type="Node2D" unique_id=173048634]
+script = ExtResource("1_urks4")
+
+[node name="SoundPlayer" type="AudioStreamPlayer2D" parent="." unique_id=570565372]
+attenuation = 2.8284273

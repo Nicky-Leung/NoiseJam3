@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://c2bl8q3eud8na"]
+
+[ext_resource type="Script" uid="uid://cci1bmrjn5oe" path="res://scripts/components/footsteps_sounds.gd" id="1_n50oq"]
+
+[node name="Footsteps" type="AudioStreamPlayer2D" unique_id=1515918579]
+script = ExtResource("1_n50oq")
+
+[node name="Timer" type="Timer" parent="." unique_id=660426993]
+one_shot = true

@@ -6,6 +6,7 @@ class_name Player
 @onready var sprite = $Sprite
 @onready var interact_ray = $InteractRay
 @onready var hud = $Overlay/Hud
+@onready var footsteps = $Footsteps
 
 # Player settings
 @export var walk_speed: int = 100
@@ -40,6 +41,7 @@ func _physics_process(delta: float) -> void:
 		speed *= sprint_multiplier
 
 	velocity = input_vector * speed
+	footsteps.play_steps(velocity.length())
 	move_and_slide()
 
 func _input(event: InputEvent) -> void:
