@@ -5,7 +5,10 @@
 [ext_resource type="Texture2D" uid="uid://yikroy56o67a" path="res://assets/textures/2d_lights_and_shadows_neutral_point_light.webp" id="2_onrkg"]
 [ext_resource type="Texture2D" uid="uid://brodtpexkbn2f" path="res://assets/sprites/temp_player/idle.png" id="2_qlg0r"]
 [ext_resource type="PackedScene" uid="uid://dvs1p1qihi21c" path="res://scenes/flashlight.tscn" id="3_i3pqv"]
+[ext_resource type="PackedScene" uid="uid://c2bl8q3eud8na" path="res://scenes/components/footsteps.tscn" id="3_smehm"]
 [ext_resource type="Texture2D" uid="uid://bh2v03m0r117w" path="res://assets/sprites/temp_player/spritesheet.png" id="3_tuyoq"]
+[ext_resource type="AudioStream" uid="uid://bmilmgknt0h6i" path="res://assets/sfx/player/data_pion-st2-footstep-sfx-323055.mp3" id="5_3v2ag"]
+[ext_resource type="AudioStream" uid="uid://craxmoh663yov" path="res://assets/sfx/player/data_pion-st3-footstep-sfx-323056.mp3" id="6_jej6c"]
 [ext_resource type="PackedScene" uid="uid://dg0ok5jq1kd4c" path="res://scenes/ui/hud.tscn" id="6_tuyoq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qlg0r"]
@@ -203,6 +206,9 @@ zoom = Vector2(1.75, 1.75)
 position_smoothing_enabled = true
 position_smoothing_speed = 2.0
 script = ExtResource("2_fjrip")
+
+[node name="Footsteps" parent="." unique_id=1515918579 instance=ExtResource("3_smehm")]
+step_collection = Array[AudioStream]([ExtResource("5_3v2ag"), ExtResource("6_jej6c")])
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=80633472]
 scale = Vector2(0.23, 0.23)
