@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://cn1v1brvy4kf6" path="res://assets/tileset/mainlevbuild.png" id="1_3xxfk"]
 [ext_resource type="PackedScene" uid="uid://dkag3nwr7uqd8" path="res://scenes/player.tscn" id="2_qrypb"]
-[ext_resource type="Script" uid="uid://cey61go6mmqfw" path="res://scripts/followcamera.gd" id="3_mf42d"]
 [ext_resource type="PackedScene" uid="uid://s447nfjehl7g" path="res://scenes/enemy.tscn" id="4_pkcsw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qrypb"]
@@ -1048,14 +1047,6 @@ tile_set = SubResource("TileSet_mf42d")
 
 [node name="Player" parent="." unique_id=628625629 instance=ExtResource("2_qrypb")]
 position = Vector2(94, 350)
-
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=786866805]
-top_level = true
-position = Vector2(126.999985, 360.99997)
-rotation = 3.1415925
-scale = Vector2(44.57578, 3.3198175)
-zoom = Vector2(3, 3)
-script = ExtResource("3_mf42d")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1640404526]
 color = Color(0.14406255, 0.14406255, 0.14406249, 1)

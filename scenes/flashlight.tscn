@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://3afupig7b6rr" path="res://scripts/flashlight.gd" id="1_nnxok"]
 
 [sub_resource type="Gradient" id="Gradient_4flbx"]
-offsets = PackedFloat32Array(0, 0.84476066, 0.9974127)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1)
+offsets = PackedFloat32Array(0, 0.5481928, 0.71686745, 0.9974127)
+colors = PackedColorArray(1, 1, 1, 1, 0.21590173, 0.2159017, 0.21590179, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_onrkg"]
 gradient = SubResource("Gradient_4flbx")
@@ -13,10 +13,11 @@ fill_to = Vector2(0.98504275, 1)
 
 [node name="Flashlight" type="PointLight2D" unique_id=1478315337]
 scale = Vector2(3, 3)
-color = Color(0.80200225, 0.8002344, 0, 1)
-energy = 2.81
+color = Color(0.8509804, 0.7647059, 0.4862745, 1)
+energy = 3.0
+shadow_enabled = true
 texture = SubResource("GradientTexture2D_onrkg")
-offset = Vector2(31.399998, 31.2)
+texture_scale = 5.0
 script = ExtResource("1_nnxok")
 
 [node name="Cooldown" type="Timer" parent="." unique_id=110221100]

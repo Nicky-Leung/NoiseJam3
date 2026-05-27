@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dkag3nwr7uqd8"]
 
 [ext_resource type="Script" uid="uid://bavph4h31tkjs" path="res://scripts/player.gd" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://cey61go6mmqfw" path="res://scripts/follow_camera.gd" id="2_fjrip"]
 [ext_resource type="Texture2D" uid="uid://yikroy56o67a" path="res://assets/textures/2d_lights_and_shadows_neutral_point_light.webp" id="2_onrkg"]
 [ext_resource type="Texture2D" uid="uid://brodtpexkbn2f" path="res://assets/sprites/temp_player/idle.png" id="2_qlg0r"]
 [ext_resource type="PackedScene" uid="uid://dvs1p1qihi21c" path="res://scenes/flashlight.tscn" id="3_i3pqv"]
@@ -197,6 +198,12 @@ script = ExtResource("1_4flbx")
 [node name="Hitbox" type="CollisionShape2D" parent="." unique_id=187340476]
 shape = SubResource("CircleShape2D_qlg0r")
 
+[node name="Camera" type="Camera2D" parent="." unique_id=1935661433]
+zoom = Vector2(1.75, 1.75)
+position_smoothing_enabled = true
+position_smoothing_speed = 2.0
+script = ExtResource("2_fjrip")
+
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=80633472]
 scale = Vector2(0.23, 0.23)
 sprite_frames = SubResource("SpriteFrames_l71n6")
@@ -204,13 +211,16 @@ animation = &"idle"
 
 [node name="SurroundingLight" type="PointLight2D" parent="." unique_id=1932149789]
 scale = Vector2(0.355, 0.355)
-color = Color(0.8039216, 0.8, 0, 1)
-energy = 0.19
+color = Color(0.8509804, 0.7647059, 0.4862745, 1)
+energy = 3.0
+shadow_enabled = true
 texture = ExtResource("2_onrkg")
+texture_scale = 0.8
 
 [node name="Flashlight" parent="." unique_id=1478315337 instance=ExtResource("3_i3pqv")]
-position = Vector2(18.999998, 0)
 rotation = -0.7853982
+scale = Vector2(0.99999994, 0.99999994)
+offset = Vector2(160, 160)
 
 [node name="InteractRay" type="RayCast2D" parent="." unique_id=1852895450]
 target_position = Vector2(50, 0)
