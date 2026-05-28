@@ -1046,13 +1046,14 @@ tile_map_data = PackedByteArray("AAAAABAAAQAuABoAAAAAABEAAQAuABsAAAAAABIAAQAuABw
 tile_set = SubResource("TileSet_mf42d")
 
 [node name="Player" parent="." unique_id=628625629 instance=ExtResource("2_qrypb")]
-position = Vector2(94, 350)
+position = Vector2(491, 365)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1640404526]
 color = Color(0.14406255, 0.14406255, 0.14406249, 1)
 
 [node name="Angel" parent="." unique_id=1599280180 instance=ExtResource("4_pkcsw")]
-position = Vector2(-33, 350)
+position = Vector2(157, 356)
+scale = Vector2(0.5, 0.5)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=575170977]
 navigation_polygon = SubResource("NavigationPolygon_pkcsw")
