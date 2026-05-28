@@ -1,9 +1,13 @@
 [gd_scene format=3 uid="uid://c2bl8q3eud8na"]
 
 [ext_resource type="Script" uid="uid://cci1bmrjn5oe" path="res://scripts/components/footsteps_sounds.gd" id="1_n50oq"]
+[ext_resource type="PackedScene" uid="uid://dngvwmewl88h1" path="res://scenes/components/enemy_alerter.tscn" id="2_whbvn"]
 
 [node name="Footsteps" type="AudioStreamPlayer2D" unique_id=1515918579]
 script = ExtResource("1_n50oq")
 
 [node name="Timer" type="Timer" parent="." unique_id=660426993]
 one_shot = true
+
+[node name="EnemyAlerter" parent="." unique_id=2007044479 instance=ExtResource("2_whbvn")]
+type = 1

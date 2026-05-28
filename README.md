@@ -1,4 +1,4 @@
-# Asset usage compilation
+# Asset compilation
 
 ## Fonts
 https://www.fontsquirrel.com/fonts/Berylium

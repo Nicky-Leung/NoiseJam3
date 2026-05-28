@@ -25,6 +25,10 @@ polygon = PackedVector2Array(0, 0, 50, 0, 50, 50, 0, 50)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_orjbe"]
 size = Vector2(600, 600)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y58ir"]
+radius = 20.0
+height = 50.0
+
 [node name="LightingAndSounds" type="Node2D" unique_id=1796258794]
 
 [node name="TileMapLayer" parent="." unique_id=694493410 instance=ExtResource("1_av4ye")]
@@ -200,3 +204,11 @@ shape = SubResource("RectangleShape2D_orjbe")
 [node name="AmbienceZone" parent="Zone2" unique_id=990264859 node_paths=PackedStringArray("area2d_sound_zone") instance=ExtResource("5_vhgv5")]
 ambience_collection = Array[AudioStream]([ExtResource("11_fokgv"), ExtResource("12_ulk06"), ExtResource("13_5aceh"), ExtResource("14_vs00i"), ExtResource("15_pwcmo")])
 area2d_sound_zone = NodePath("..")
+
+[node name="DummyEnemy" type="CharacterBody2D" parent="." unique_id=1500032768]
+position = Vector2(329, 69)
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DummyEnemy" unique_id=139284829]
+shape = SubResource("CapsuleShape2D_y58ir")
