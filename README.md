@@ -7,6 +7,11 @@ https://fonts.google.com/specimen/Cormorant+Garamond?preview.text=Radioactive&sp
 ## Music
 https://opengameart.org/content/factory-ambiance
 
+## Shaders
+https://godotshaders.com/shader/glitch-effect-shader-for-godot-engine-4/
+https://godotshaders.com/shader/dissolve-add-details-pixel-art/
+https://godotshaders.com/shader/retro-gameps1-shader/
+
 
 ## Sound Effects
 https://opengameart.org/content/scary-ghost-1

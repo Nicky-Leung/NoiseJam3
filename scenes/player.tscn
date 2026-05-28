@@ -229,7 +229,7 @@ texture_scale = 0.8
 [node name="Flashlight" parent="." unique_id=1478315337 instance=ExtResource("3_i3pqv")]
 rotation = -0.7853982
 scale = Vector2(0.99999994, 0.99999994)
-offset = Vector2(160, 160)
+offset = Vector2(255, 255)
 
 [node name="InteractRay" type="RayCast2D" parent="." unique_id=1852895450]
 target_position = Vector2(50, 0)

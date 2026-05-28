@@ -18,7 +18,7 @@ color = Color(0.8509804, 0.7647059, 0.4862745, 1)
 energy = 3.0
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_onrkg")
-texture_scale = 5.0
+texture_scale = 8.0
 script = ExtResource("1_nnxok")
 
 [node name="Cooldown" type="Timer" parent="." unique_id=110221100]

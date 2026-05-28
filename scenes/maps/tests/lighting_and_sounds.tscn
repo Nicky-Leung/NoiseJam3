@@ -15,6 +15,8 @@
 [ext_resource type="AudioStream" uid="uid://p52o3gxerfkh" path="res://assets/sfx/ambience/qubodup-GhostMoan03.mp3" id="13_5aceh"]
 [ext_resource type="AudioStream" uid="uid://cawh24beog0nm" path="res://assets/sfx/ambience/qubodup-GhostMoan04.mp3" id="14_vs00i"]
 [ext_resource type="AudioStream" uid="uid://cstc8pko8goiw" path="res://assets/sfx/ambience/qubodup-GhostMoan05.mp3" id="15_pwcmo"]
+[ext_resource type="PackedScene" uid="uid://do8ik56rbksw7" path="res://scenes/environment_objects/censored_sin.tscn" id="16_0nf5n"]
+[ext_resource type="Shader" uid="uid://c7m63o73qxpdk" path="res://resources/shaders/retro_filter.gdshader" id="17_f1l1a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tpqdd"]
 size = Vector2(50, 50)
@@ -28,6 +30,19 @@ size = Vector2(600, 600)
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y58ir"]
 radius = 20.0
 height = 50.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mjy37"]
+shader = ExtResource("17_f1l1a")
+shader_parameter/resolution_x = 320
+shader_parameter/resolution_y = 240
+shader_parameter/color_bit_depth = 4
+shader_parameter/dither_strength = 0.03
+shader_parameter/jitter_amount = 0.001
+shader_parameter/jitter_speed = 1.2
+shader_parameter/jitter_frequency = 10.0
+shader_parameter/chromatic_aberration_strength = 0.015
+shader_parameter/vignette_strength = 0.8
+shader_parameter/vignette_radius = 0.9
 
 [node name="LightingAndSounds" type="Node2D" unique_id=1796258794]
 
@@ -212,3 +227,16 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DummyEnemy" unique_id=139284829]
 shape = SubResource("CapsuleShape2D_y58ir")
+
+[node name="CensoredSin" parent="." unique_id=1865245503 instance=ExtResource("16_0nf5n")]
+position = Vector2(461, 418)
+
+[node name="Shaders" type="CanvasLayer" parent="." unique_id=1828645710]
+
+[node name="Retro" type="ColorRect" parent="Shaders" unique_id=926938697]
+material = SubResource("ShaderMaterial_mjy37")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
