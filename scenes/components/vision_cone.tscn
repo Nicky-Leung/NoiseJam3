@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://t5keqhpx2c2x"]
+
+[ext_resource type="Script" uid="uid://dkiqbp01xfu1r" path="res://scripts/components/enemy_vision_cone.gd" id="1_rs7rw"]
+
+[node name="VisionCone" type="Node2D" unique_id=1495805894]
+script = ExtResource("1_rs7rw")
+
+[node name="Ray1" type="RayCast2D" parent="." unique_id=1788663373]
+target_position = Vector2(50, 0)
+
+[node name="Ray2" type="RayCast2D" parent="." unique_id=778389915]
+target_position = Vector2(50, 0)
+
+[node name="Ray3" type="RayCast2D" parent="." unique_id=1825573957]
+target_position = Vector2(50, 0)
+
+[node name="Ray4" type="RayCast2D" parent="." unique_id=1450429659]
+target_position = Vector2(50, 0)
+
+[node name="Ray5" type="RayCast2D" parent="." unique_id=1533453831]
+target_position = Vector2(50, 0)
+
+[node name="Ray6" type="RayCast2D" parent="." unique_id=2076202177]
+target_position = Vector2(50, 0)
+
+[node name="Ray7" type="RayCast2D" parent="." unique_id=42103514]
+target_position = Vector2(50, 0)
+
+[node name="Ray8" type="RayCast2D" parent="." unique_id=26459961]
+target_position = Vector2(50, 0)
+
+[node name="Ray9" type="RayCast2D" parent="." unique_id=906205587]
+target_position = Vector2(50, 0)
+
+[node name="Ray10" type="RayCast2D" parent="." unique_id=64096442]
+target_position = Vector2(50, 0)

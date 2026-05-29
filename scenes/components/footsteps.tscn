@@ -3,11 +3,14 @@
 [ext_resource type="Script" uid="uid://cci1bmrjn5oe" path="res://scripts/components/footsteps_sounds.gd" id="1_n50oq"]
 [ext_resource type="PackedScene" uid="uid://dngvwmewl88h1" path="res://scenes/components/enemy_alerter.tscn" id="2_whbvn"]
 
-[node name="Footsteps" type="AudioStreamPlayer2D" unique_id=1515918579]
+[sub_resource type="CircleShape2D" id="CircleShape2D_whbvn"]
+
+[node name="Footsteps" type="AudioStreamPlayer2D" unique_id=1515918579 node_paths=PackedStringArray("alerter")]
 script = ExtResource("1_n50oq")
+alerter = NodePath("EnemyAlerter")
 
 [node name="Timer" type="Timer" parent="." unique_id=660426993]
 one_shot = true
 
 [node name="EnemyAlerter" parent="." unique_id=2007044479 instance=ExtResource("2_whbvn")]
-type = 1
+alerter_shape = SubResource("CircleShape2D_whbvn")

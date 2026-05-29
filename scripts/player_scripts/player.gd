@@ -1,6 +1,9 @@
 extends CharacterBody2D
 class_name Player
 
+# Signals
+signal player_died(killer: Enemy)
+
 # Components
 @onready var flashlight = $Flashlight
 @onready var sprite = $Sprite
@@ -9,12 +12,14 @@ class_name Player
 @onready var footsteps = $Footsteps
 
 # Player settings
+@export var max_health = 50
 @export var walk_speed: int = 100
 @export var sprint_multiplier = 1.5
 @export var backward_speed: int = 75
 @export var turn_rate: float = 7.5
 
 # Runtime variables
+var health: int = max_health
 var is_sprinting: bool = false
 var input_vector: Vector2 = Vector2.ZERO
 var facing_direction: Vector2 = Vector2.ZERO
@@ -58,3 +63,15 @@ func _input(event: InputEvent) -> void:
 		var collider = interact_ray.get_collider()
 		if collider is Interactable:
 			collider.interact(self)
+
+func heal(amount: int):
+	health = min(max_health, health + amount)
+
+func damage(amount: int): # called for environmental hazards
+	health -= amount
+	if health <= 0: player_died.emit(null)
+
+func attack(amount: int, attacker: Enemy): # called for enemy attacks
+	# add some attack effects later
+	health -= amount
+	if health <= 0: player_died.emit(attacker)

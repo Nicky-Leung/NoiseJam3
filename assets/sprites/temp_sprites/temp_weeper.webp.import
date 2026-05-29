@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://be53dd7qn2t21"
-path="res://.godot/imported/temp_sin.png-fe3d25285bb20f5341e29ef3afdd91bf.ctex"
+uid="uid://clfihd1q1h4nr"
+path="res://.godot/imported/temp_weeper.webp-b69c8e51cb2185707ac59be4e95212e6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/temp_sin.png"
-dest_files=["res://.godot/imported/temp_sin.png-fe3d25285bb20f5341e29ef3afdd91bf.ctex"]
+source_file="res://assets/sprites/temp_sprites/temp_weeper.webp"
+dest_files=["res://.godot/imported/temp_weeper.webp-b69c8e51cb2185707ac59be4e95212e6.ctex"]
 
 [params]
 

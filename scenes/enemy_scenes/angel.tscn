@@ -1,32 +1,32 @@
 [gd_scene format=3 uid="uid://s447nfjehl7g"]
 
-[ext_resource type="Script" uid="uid://cqyjp5adkwyjg" path="res://scripts/enemy.gd" id="1_md0e3"]
-[ext_resource type="Texture2D" uid="uid://pqq1x0vaoh1p" path="res://assets/sprites/SpriteAngel.png" id="2_md0e3"]
+[ext_resource type="Script" uid="uid://c84850gjgulbo" path="res://scripts/angel.gd" id="1_8owf6"]
+[ext_resource type="Texture2D" uid="uid://pqq1x0vaoh1p" path="res://assets/sprites/SpriteAngel.png" id="2_6gyu6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_md0e3"]
 size = Vector2(2, 2)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_whldq"]
-atlas = ExtResource("2_md0e3")
+atlas = ExtResource("2_6gyu6")
 region = Rect2(11, 0, 1078, 806)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_deem3"]
-atlas = ExtResource("2_md0e3")
+atlas = ExtResource("2_6gyu6")
 region = Rect2(1089, 0, 1078, 806)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y5l0u"]
-atlas = ExtResource("2_md0e3")
+atlas = ExtResource("2_6gyu6")
 region = Rect2(2167, 0, 1078, 806)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5lhwv"]
-atlas = ExtResource("2_md0e3")
+atlas = ExtResource("2_6gyu6")
 region = Rect2(3245, 0, 1078, 806)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_och72"]
-atlas = ExtResource("2_md0e3")
+atlas = ExtResource("2_6gyu6")
 region = Rect2(4323, 0, 1078, 806)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_4ra3w"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_dum8j"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -50,14 +50,14 @@ animations = [{
 }]
 
 [node name="Angel" type="CharacterBody2D" unique_id=1599280180]
-script = ExtResource("1_md0e3")
+script = ExtResource("1_8owf6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1553818521]
 shape = SubResource("RectangleShape2D_md0e3")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1700016301]
 
-[node name="Body" type="AnimatedSprite2D" parent="." unique_id=1643036648]
-scale = Vector2(0.5, 0.5)
-sprite_frames = SubResource("SpriteFrames_4ra3w")
-frame_progress = 0.017242642
+[node name="Body" type="AnimatedSprite2D" parent="." unique_id=865283464]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_dum8j")
+frame_progress = 0.30642027

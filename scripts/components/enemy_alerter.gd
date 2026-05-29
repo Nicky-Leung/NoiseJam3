@@ -2,30 +2,41 @@ extends Area2D
 class_name EnemyAlerter
 
 enum Type {
-    VISUAL, # to alert ememies via sight
-    SOUND, # to alert enemies via sound
-    ALWAYS # always alert enemies
+	SOUND,
+	VISUAL
 }
 
-@export var type: Type = Type.ALWAYS
 @export var alerter_shape: Shape2D = null
 @export var player: Player = null
+@export var type: Type = Type.SOUND
 
+@onready var in_range_enemies: Array[Enemy] = []
 @onready var hitbox: CollisionShape2D = $Hitbox
 @onready var shape: Shape2D:
-    get: return hitbox.shape
+	get: return hitbox.shape
 
 func _ready():
-    hitbox.shape = alerter_shape if alerter_shape != null else hitbox.shape
-    body_entered.connect(notify_enemy)
+	hitbox.shape = alerter_shape if alerter_shape != null else hitbox.shape
+	body_entered.connect(on_body_entered)
+
+func _physics_process(_delta):
+	if type == Type.SOUND: return
+	for enemy in in_range_enemies:
+		if in_view(enemy): enemy.alert_visual(player)
 
 func enable(do_enable: bool):
-    monitoring = do_enable
+	monitoring = do_enable
 
-func notify_enemy(body: Node2D):
-    if body is not Enemy: return
+func on_body_entered(body: Node2D):
+	if body is not Enemy: return
+	if type == Type.SOUND: body.alert_sound(player)
+	else: in_range_enemies.append(body as Enemy)
 
-    # TODO: enemy should implement a function called alert(player: Player, alerter: EnemyAlerter), different enemies will have their own implementation on what to do
-    # or call it notify
-    # enemy.alert(player, self)
-    print("alerted " + str(body))
+func on_body_exited(body: Node2D): # might need to determine later if necessary to unalert enemy
+	if body is not Enemy || type == Type.SOUND: return
+	in_range_enemies.remove_at(in_range_enemies.find(body as Enemy))
+
+func in_view(enemy: Enemy) -> bool:
+	var space2d = get_world_2d().direct_space_state
+	var query = PhysicsRayQueryParameters2D.create(player.global_position, enemy.global_position, PHYS_LAYERS.TERRAIN)
+	return space2d.intersect_ray(query).is_empty()
