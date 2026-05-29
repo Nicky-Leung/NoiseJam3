@@ -1,8 +1,8 @@
 [gd_scene format=4 uid="uid://nmrrplcac3p8"]
 
 [ext_resource type="Texture2D" uid="uid://cn1v1brvy4kf6" path="res://assets/tileset/mainlevbuild.png" id="1_3xxfk"]
-[ext_resource type="PackedScene" uid="uid://dkag3nwr7uqd8" path="res://scenes/player.tscn" id="2_qrypb"]
-[ext_resource type="PackedScene" uid="uid://s447nfjehl7g" path="res://scenes/enemy.tscn" id="4_pkcsw"]
+[ext_resource type="PackedScene" uid="uid://dkag3nwr7uqd8" path="res://scenes/player_scenes/player.tscn" id="2_qrypb"]
+[ext_resource type="PackedScene" uid="uid://s447nfjehl7g" path="res://scenes/enemy_scenes/enemy.tscn" id="4_pkcsw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qrypb"]
 texture = ExtResource("1_3xxfk")

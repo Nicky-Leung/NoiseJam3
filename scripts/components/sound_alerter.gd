@@ -1,13 +1,6 @@
 extends Area2D
-class_name EnemyAlerter
+class_name SoundAlerter
 
-enum Type {
-    VISUAL, # to alert ememies via sight
-    SOUND, # to alert enemies via sound
-    ALWAYS # always alert enemies
-}
-
-@export var type: Type = Type.ALWAYS
 @export var alerter_shape: Shape2D = null
 @export var player: Player = null
 
@@ -25,7 +18,7 @@ func enable(do_enable: bool):
 func notify_enemy(body: Node2D):
     if body is not Enemy: return
 
-    # TODO: enemy should implement a function called alert(player: Player, alerter: EnemyAlerter), different enemies will have their own implementation on what to do
+    # TODO: enemy should implement a function called alert(location: Vector2), different enemies will have their own implementation on what to do
     # or call it notify
     # enemy.alert(player, self)
     print("alerted " + str(body))
