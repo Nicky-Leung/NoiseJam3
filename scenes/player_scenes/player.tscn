@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://bmilmgknt0h6i" path="res://assets/sfx/player/data_pion-st2-footstep-sfx-323055.mp3" id="5_3v2ag"]
 [ext_resource type="AudioStream" uid="uid://craxmoh663yov" path="res://assets/sfx/player/data_pion-st3-footstep-sfx-323056.mp3" id="6_jej6c"]
 [ext_resource type="PackedScene" uid="uid://dg0ok5jq1kd4c" path="res://scenes/ui/hud.tscn" id="6_tuyoq"]
+[ext_resource type="PackedScene" uid="uid://t5keqhpx2c2x" path="res://scenes/components/vision_cone.tscn" id="10_mm880"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qlg0r"]
 radius = 19.31
@@ -230,6 +231,11 @@ texture_scale = 0.8
 rotation = -0.7853982
 scale = Vector2(0.99999994, 0.99999994)
 offset = Vector2(255, 255)
+
+[node name="VisionCone" parent="Flashlight" unique_id=1495805894 instance=ExtResource("10_mm880")]
+rotation = 0.7853982
+cone_length = 500.0
+detect_type = 0
 
 [node name="InteractRay" type="RayCast2D" parent="." unique_id=1852895450]
 target_position = Vector2(50, 0)
