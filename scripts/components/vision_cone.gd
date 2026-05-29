@@ -8,6 +8,7 @@ enum DetectType {
 	BOTH
 }
 
+@export var holder: Node2D = null
 @export var cone_arc: float = 45
 @export var cone_length: float = 300
 @export var detect_type: DetectType = DetectType.PLAYER
@@ -30,16 +31,15 @@ func _ready():
 		ray.target_position = direction * cone_length
 		direction = direction.rotated(deg_to_rad(cone_arc * -2 / (ray_list.size() - 1)))
 
-		print(ray.target_position)
-
 func _physics_process(_delta):
 	var encountered = []
 	for ray in ray_list:
 		var collider = ray.get_collider()
 		if collider is Enemy && !encountered.has(collider):
+			print(collider)
 			encountered.append(collider)
 			body_in_view.emit(collider)
-			# enemy.alert(), decide later
+			collider.alert_visual(holder)
 		elif collider is Player && !encountered.has(collider):
 			encountered.append(collider)
 			body_in_view.emit(collider)

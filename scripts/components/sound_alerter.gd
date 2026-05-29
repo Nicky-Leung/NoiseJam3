@@ -17,8 +17,4 @@ func enable(do_enable: bool):
 
 func notify_enemy(body: Node2D):
     if body is not Enemy: return
-
-    # TODO: enemy should implement a function called alert(location: Vector2), different enemies will have their own implementation on what to do
-    # or call it notify
-    # enemy.alert(player, self)
-    print("alerted " + str(body))
+    body.alert_sound(player)

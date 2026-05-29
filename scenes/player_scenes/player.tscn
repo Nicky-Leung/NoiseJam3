@@ -232,8 +232,9 @@ rotation = -0.7853982
 scale = Vector2(0.99999994, 0.99999994)
 offset = Vector2(255, 255)
 
-[node name="VisionCone" parent="Flashlight" unique_id=1495805894 instance=ExtResource("10_mm880")]
+[node name="VisionCone" parent="Flashlight" unique_id=1495805894 node_paths=PackedStringArray("holder") instance=ExtResource("10_mm880")]
 rotation = 0.7853982
+holder = NodePath("../..")
 cone_length = 500.0
 detect_type = 0
 

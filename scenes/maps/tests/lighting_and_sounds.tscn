@@ -17,6 +17,7 @@
 [ext_resource type="AudioStream" uid="uid://cstc8pko8goiw" path="res://assets/sfx/ambience/qubodup-GhostMoan05.mp3" id="15_pwcmo"]
 [ext_resource type="PackedScene" uid="uid://do8ik56rbksw7" path="res://scenes/environment_objects/censored_sin.tscn" id="16_0nf5n"]
 [ext_resource type="Shader" uid="uid://c7m63o73qxpdk" path="res://resources/shaders/retro_filter.gdshader" id="17_f1l1a"]
+[ext_resource type="PackedScene" uid="uid://wieit1tmn5r1" path="res://scenes/enemy_scenes/weeping_angel.tscn" id="18_mjy37"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tpqdd"]
 size = Vector2(50, 50)
@@ -240,3 +241,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="WeepingAngel" parent="." unique_id=1401698208 instance=ExtResource("18_mjy37")]
+position = Vector2(484, 83)
