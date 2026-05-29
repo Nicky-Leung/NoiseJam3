@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://3afupig7b6rr" path="res://scripts/flashlight.gd" id="1_nnxok"]
 [ext_resource type="AudioStream" uid="uid://7ldo62k5xfg0" path="res://assets/sfx/player/flashlightSFX.mp3" id="2_0ywi5"]
+[ext_resource type="PackedScene" uid="uid://dngvwmewl88h1" path="res://scenes/components/enemy_alerter.tscn" id="3_js4p4"]
 
 [sub_resource type="Gradient" id="Gradient_4flbx"]
 offsets = PackedFloat32Array(0, 0.5481928, 0.71686745, 0.9974127)
@@ -11,6 +12,9 @@ colors = PackedColorArray(1, 1, 1, 1, 0.21590173, 0.2159017, 0.21590179, 1, 0, 0
 gradient = SubResource("Gradient_4flbx")
 fill = 1
 fill_to = Vector2(0.98504275, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lmp5q"]
+size = Vector2(510, 510)
 
 [node name="Flashlight" type="PointLight2D" unique_id=1478315337]
 scale = Vector2(3, 3)
@@ -27,3 +31,8 @@ one_shot = true
 
 [node name="Click" type="AudioStreamPlayer2D" parent="." unique_id=1958669061]
 stream = ExtResource("2_0ywi5")
+
+[node name="EnemyAlerter" parent="." unique_id=2007044479 instance=ExtResource("3_js4p4")]
+position = Vector2(255, 255)
+alerter_shape = SubResource("RectangleShape2D_lmp5q")
+type = 1

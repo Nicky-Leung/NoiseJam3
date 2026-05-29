@@ -1,7 +1,7 @@
 extends AudioStreamPlayer2D
 
 @export var step_collection: Array[AudioStream]
-@export var alerter: SoundAlerter = null
+@export var alerter: EnemyAlerter = null
 @onready var timer: Timer = $Timer
 
 var area_tween: Tween = null
