@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://s447nfjehl7g"]
 
-[ext_resource type="Script" uid="uid://cqyjp5adkwyjg" path="res://scripts/angel.gd" id="1_mtvsi"]
+[ext_resource type="Script" uid="uid://c84850gjgulbo" path="res://scripts/angel.gd" id="1_8owf6"]
 [ext_resource type="Texture2D" uid="uid://pqq1x0vaoh1p" path="res://assets/sprites/SpriteAngel.png" id="2_6gyu6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_md0e3"]
@@ -50,7 +50,7 @@ animations = [{
 }]
 
 [node name="Angel" type="CharacterBody2D" unique_id=1599280180]
-script = ExtResource("1_mtvsi")
+script = ExtResource("1_8owf6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1553818521]
 shape = SubResource("RectangleShape2D_md0e3")

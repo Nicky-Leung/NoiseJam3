@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://do8ik56rbksw7"]
 
 [ext_resource type="Script" uid="uid://t5jui6nv7gqg" path="res://scripts/environment_object_scripts/censored_sin.gd" id="1_4j56h"]
-[ext_resource type="Texture2D" uid="uid://be53dd7qn2t21" path="res://assets/sprites/temp_sin.png" id="1_ouwut"]
+[ext_resource type="Texture2D" uid="uid://be53dd7qn2t21" path="res://assets/sprites/temp_sprites/temp_sin.png" id="1_ouwut"]
 [ext_resource type="Shader" uid="uid://depf50voukhc4" path="res://resources/shaders/glitch_effect.gdshader" id="2_2t3yp"]
 [ext_resource type="PackedScene" uid="uid://djvd2vub3v3h1" path="res://scenes/components/interactable.tscn" id="4_n0bo8"]
 
