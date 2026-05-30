@@ -18,6 +18,7 @@ enum Type {
 func _ready():
 	hitbox.shape = alerter_shape if alerter_shape != null else hitbox.shape
 	body_entered.connect(on_body_entered)
+	body_exited.connect(on_body_exited)
 
 func _physics_process(_delta):
 	if type == Type.SOUND: return
@@ -26,6 +27,7 @@ func _physics_process(_delta):
 
 func enable(do_enable: bool):
 	monitoring = do_enable
+	if !do_enable: in_range_enemies.clear()
 
 func on_body_entered(body: Node2D):
 	if body is not Enemy: return
