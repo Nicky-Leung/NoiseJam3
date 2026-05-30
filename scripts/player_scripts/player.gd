@@ -10,6 +10,8 @@ signal player_died(killer: Enemy)
 @onready var interact_ray = $InteractRay
 @onready var hud = $Overlay/Hud
 @onready var footsteps = $Footsteps
+@onready var i_frame = $IFrameTimer
+@onready var hurtSFX = $HurtSFX
 
 # Player settings
 @export var max_health = 50
@@ -72,6 +74,18 @@ func damage(amount: int): # called for environmental hazards
 	if health <= 0: player_died.emit(null)
 
 func attack(amount: int, attacker: Enemy): # called for enemy attacks
-	# add some attack effects later
+	if i_frame.time_left > 0 || health <= 0: return
+
+	i_frame.start()
+	HELPERS.play_audio(hurtSFX, 0.8, 0.9)
+
+	var tween = create_tween()
+	tween.tween_property(self, "modulate", Color.RED, i_frame.wait_time / 2)
+	tween.tween_property(self, "modulate", Color.WHITE, i_frame.wait_time / 3)
+	tween.play()
+
 	health -= amount
-	if health <= 0: player_died.emit(attacker)
+	if health <= 0:
+		player_died.emit(attacker)
+		print("player died to " + str(attacker))
+		return

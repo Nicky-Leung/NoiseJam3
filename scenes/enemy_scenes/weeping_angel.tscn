@@ -2,9 +2,12 @@
 
 [ext_resource type="Script" uid="uid://i4j86agfeha0" path="res://scripts/enemy_scripts/weeping_angel.gd" id="1_sj8lc"]
 [ext_resource type="Texture2D" uid="uid://clfihd1q1h4nr" path="res://assets/sprites/temp_sprites/temp_weeper.webp" id="1_vk0b1"]
+[ext_resource type="PackedScene" uid="uid://c2bl8q3eud8na" path="res://scenes/components/footsteps.tscn" id="3_30g08"]
+[ext_resource type="AudioStream" uid="uid://c0u1ntdbbdbdd" path="res://assets/sfx/enemies/weeping_angel_step.mp3" id="4_88yls"]
+[ext_resource type="AudioStream" uid="uid://dxo24a4vxlnn4" path="res://assets/sfx/enemies/weeping_angel_step2.mp3" id="5_88yls"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sj8lc"]
-radius = 20.0
+radius = 38.62
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sj8lc"]
 animations = [{
@@ -17,14 +20,21 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="WeepingAngel" type="CharacterBody2D" unique_id=1401698208 node_paths=PackedStringArray("animated_sprite")]
+[node name="WeepingAngel" type="CharacterBody2D" unique_id=1401698208 node_paths=PackedStringArray("nav_agent", "animated_sprite")]
 collision_layer = 4
-collision_mask = 3
+collision_mask = 7
 script = ExtResource("1_sj8lc")
+nav_agent = NodePath("Nav")
 animated_sprite = NodePath("Sprite")
+collides_with_others = true
+attack_damage = 25
+acceleration = 50
+base_speed = 250
 
 [node name="Hitbox" type="CollisionShape2D" parent="." unique_id=971928762]
 shape = SubResource("CircleShape2D_sj8lc")
+
+[node name="Nav" type="NavigationAgent2D" parent="." unique_id=385335287]
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1019686959]
 scale = Vector2(0.08, 0.08)
@@ -32,3 +42,8 @@ sprite_frames = SubResource("SpriteFrames_sj8lc")
 
 [node name="AttackRay" type="RayCast2D" parent="." unique_id=14913786]
 target_position = Vector2(50, 0)
+collision_mask = 3
+
+[node name="Footsteps" parent="." unique_id=1515918579 instance=ExtResource("3_30g08")]
+max_polyphony = 3
+step_collection = Array[AudioStream]([ExtResource("4_88yls"), ExtResource("5_88yls")])

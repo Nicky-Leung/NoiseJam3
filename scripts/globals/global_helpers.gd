@@ -12,7 +12,5 @@ func play_audio(audio: AudioStreamPlayer2D, lower: float = 0, upper: float = 0, 
 
     if upper == lower: audio.play()
     else:
-        var original_pitch = audio.pitch_scale
         audio.pitch_scale = randf_range(lower, upper)
         audio.play()
-        audio.pitch_scale = original_pitch
