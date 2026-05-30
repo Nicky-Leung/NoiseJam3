@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://i4j86agfeha0" path="res://scripts/enemy_scripts/weeping_angel.gd" id="1_sj8lc"]
 [ext_resource type="Texture2D" uid="uid://clfihd1q1h4nr" path="res://assets/sprites/temp_sprites/temp_weeper.webp" id="1_vk0b1"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vk0b1"]
-height = 75.86
+[sub_resource type="CircleShape2D" id="CircleShape2D_sj8lc"]
+radius = 20.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sj8lc"]
 animations = [{
@@ -24,7 +24,7 @@ script = ExtResource("1_sj8lc")
 animated_sprite = NodePath("Sprite")
 
 [node name="Hitbox" type="CollisionShape2D" parent="." unique_id=971928762]
-shape = SubResource("CapsuleShape2D_vk0b1")
+shape = SubResource("CircleShape2D_sj8lc")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1019686959]
 scale = Vector2(0.08, 0.08)
