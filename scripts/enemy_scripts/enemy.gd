@@ -63,3 +63,4 @@ func turn_process(delta):
 	var new_direction = face_direction.lerp(move_direction, turn_rate * delta)
 	rotation = new_direction.angle()
 	face_direction = new_direction
+

@@ -1,11 +1,24 @@
 [gd_scene format=3 uid="uid://mc4pqmu22xeh"]
 
+[ext_resource type="Script" uid="uid://kpt6husunei7" path="res://scripts/environment_object_scripts/trap.gd" id="1_dpilp"]
 [ext_resource type="Texture2D" uid="uid://b7v3q3g4rwb88" path="res://assets/tileset/trap.tres" id="1_ohle1"]
 
-[node name="Trap" type="Node2D" unique_id=1966564478]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ohle1"]
+size = Vector2(40, 43)
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1958015705]
+[node name="Trap" type="Area2D" unique_id=2109121698]
+collision_mask = 8
+script = ExtResource("1_dpilp")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1096568531]
 texture_filter = 1
 position = Vector2(21.785435, 21.118488)
 scale = Vector2(2.8286085, 3.1259303)
 texture = ExtResource("1_ohle1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1707762326]
+position = Vector2(22, 21.5)
+shape = SubResource("RectangleShape2D_ohle1")
+
+[node name="StunTimer" type="Timer" parent="." unique_id=1062461909]
+wait_time = 2.0

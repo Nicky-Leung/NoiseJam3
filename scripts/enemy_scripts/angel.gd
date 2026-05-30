@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Angel
 
 @export var SPEED:int = 100
 @export var ACCELERATION: int = 20
@@ -15,7 +16,14 @@ extends CharacterBody2D
 
 @onready var is_in_light: bool = false
 
+@onready var is_stunned: bool = false
+
+
 func _ready() -> void:
+
+	collision_mask = PHYS_LAYERS.TERRAIN + PHYS_LAYERS.PLAYER
+	collision_layer = PHYS_LAYERS.ENEMY
+
 	nav_agent.path_desired_distance = 100.0
 	nav_agent.target_desired_distance = 1.0
 	nav_agent.path_max_distance = 500.0
@@ -24,6 +32,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+
 	set_movement_target()
 
 	if is_in_light:
@@ -36,7 +45,7 @@ func _physics_process(delta: float) -> void:
 	var direction :Vector2 = (nav_agent.get_next_path_position() - global_position).normalized()
 	change_direction(direction.x)
 	
-	if not nav_agent.is_target_reached():
+	if not nav_agent.is_target_reached() and not is_stunned:
 		if direction != Vector2.ZERO:
 			velocity = velocity.move_toward(direction * SPEED, ACCELERATION * delta)
 		else:
@@ -65,3 +74,9 @@ func _on_flashlight_coverage_changed(is_active: bool, center: Vector2, radius: f
 			is_in_light = true
 	else:
 		is_in_light = false
+
+func trigger_stun(stun_time: float) -> void:
+	is_stunned = true
+	velocity = Vector2.ZERO
+	await get_tree().create_timer(stun_time).timeout
+	is_stunned = false
