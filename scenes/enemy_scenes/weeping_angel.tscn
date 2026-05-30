@@ -27,6 +27,7 @@ script = ExtResource("1_sj8lc")
 nav_agent = NodePath("Nav")
 animated_sprite = NodePath("Sprite")
 collides_with_others = true
+attack_damage = 25
 acceleration = 50
 base_speed = 250
 
@@ -41,6 +42,7 @@ sprite_frames = SubResource("SpriteFrames_sj8lc")
 
 [node name="AttackRay" type="RayCast2D" parent="." unique_id=14913786]
 target_position = Vector2(50, 0)
+collision_mask = 3
 
 [node name="Footsteps" parent="." unique_id=1515918579 instance=ExtResource("3_30g08")]
 max_polyphony = 3
