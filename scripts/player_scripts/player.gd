@@ -4,6 +4,7 @@ class_name Player
 # Signals
 signal player_died(killer: Enemy)
 
+
 # Components
 @onready var flashlight = $Flashlight
 @onready var sprite = $Sprite
@@ -12,6 +13,8 @@ signal player_died(killer: Enemy)
 @onready var footsteps = $Footsteps
 @onready var i_frame = $IFrameTimer
 @onready var hurtSFX = $HurtSFX
+
+@onready var trap_scene : PackedScene = preload("res://scenes/environment_objects/trap.tscn")
 
 # Player settings
 @export var max_health = 50
@@ -65,6 +68,8 @@ func _input(event: InputEvent) -> void:
 		var collider = interact_ray.get_collider()
 		if collider is Interactable:
 			collider.interact(self)
+	if Input.is_action_just_pressed(INPUTS.PLACE_OBJECT):
+		place_trap()
 
 func heal(amount: int):
 	health = min(max_health, health + amount)
@@ -73,6 +78,10 @@ func damage(amount: int): # called for environmental hazards
 	health -= amount
 	if health <= 0: player_died.emit(null)
 
+func place_trap():
+	var trap = trap_scene.instantiate()
+	trap.global_position = global_position + facing_direction * 16
+	get_parent().add_child(trap)
 func attack(amount: int, attacker: Enemy): # called for enemy attacks
 	if i_frame.time_left > 0 || health <= 0: return
 

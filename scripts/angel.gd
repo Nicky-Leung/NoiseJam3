@@ -20,7 +20,7 @@ func _ready() -> void:
 	nav_agent.target_desired_distance = 1.0
 	nav_agent.path_max_distance = 500.0
 	set_movement_target()
-	flashlight.coverage_changed.connect(_on_flashlight_coverage_changed)
+	# flashlight.coverage_changed.connect(_on_flashlight_coverage_changed)
 
 
 func _physics_process(delta: float) -> void:

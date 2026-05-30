@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://mc4pqmu22xeh"]
+
+[ext_resource type="Texture2D" uid="uid://b7v3q3g4rwb88" path="res://assets/tileset/trap.tres" id="1_ohle1"]
+
+[node name="Trap" type="Node2D" unique_id=1966564478]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1958015705]
+texture_filter = 1
+position = Vector2(21.785435, 21.118488)
+scale = Vector2(2.8286085, 3.1259303)
+texture = ExtResource("1_ohle1")

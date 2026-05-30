@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" format=3 uid="uid://b7v3q3g4rwb88"]
+
+[ext_resource type="Texture2D" uid="uid://x6p5tbhrkbmu" path="res://assets/tileset/trap_plate.png" id="1_e8sjg"]
+
+[resource]
+atlas = ExtResource("1_e8sjg")
+region = Rect2(32.56726, 128.86803, 15.421722, 14.650635)
