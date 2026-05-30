@@ -213,11 +213,12 @@ zoom = Vector2(1.75, 1.75)
 position_smoothing_enabled = true
 script = ExtResource("2_fjrip")
 
-[node name="Footsteps" parent="." unique_id=1515918579 instance=ExtResource("3_smehm")]
+[node name="Footsteps" parent="." unique_id=1515918579 node_paths=PackedStringArray("alerter") instance=ExtResource("3_smehm")]
 max_polyphony = 3
 step_collection = Array[AudioStream]([ExtResource("5_3v2ag"), ExtResource("6_jej6c")])
+alerter = NodePath("EnemyAlerter")
 
-[node name="EnemyAlerter" parent="Footsteps" index="1" unique_id=2007044479 node_paths=PackedStringArray("player")]
+[node name="EnemyAlerter" parent="Footsteps" unique_id=2007044479 node_paths=PackedStringArray("player") instance=ExtResource("9_mm880")]
 player = NodePath("../..")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=80633472]
@@ -257,5 +258,4 @@ collide_with_areas = true
 
 [node name="Hud" parent="Overlay" unique_id=1607470276 instance=ExtResource("6_tuyoq")]
 
-[editable path="Footsteps"]
 [editable path="Flashlight"]

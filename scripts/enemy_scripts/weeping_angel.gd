@@ -10,7 +10,7 @@ func _ready():
 func _physics_process(delta):
     if !is_active || in_light: return
     chase(delta)
-    footsteps.play_steps(velocity.length() * 2)
+    footsteps.play_steps(velocity.length() * 2, 0.1, 1.1, 1.2)
 
 func alert_visual(alerter: Node2D) -> void:
     super(alerter)

@@ -13,7 +13,6 @@ https://godotshaders.com/shader/dissolve-add-details-pixel-art/
 https://godotshaders.com/shader/retro-gameps1-shader/
 https://godotshaders.com/shader/2d-wind-sway-tree-grass-motion-shader/
 
-
 ## Sound Effects
 https://opengameart.org/content/scary-ghost-1
 https://opengameart.org/content/dripping-water-loop
@@ -24,3 +23,5 @@ https://pixabay.com/sound-effects/film-special-effects-flashlight-102291/
 https://pixabay.com/sound-effects/film-special-effects-st3-footstep-sfx-323056/
 https://pixabay.com/sound-effects/film-special-effects-st1-footstep-sfx-323053/
 https://pixabay.com/sound-effects/film-special-effects-st2-footstep-sfx-323055/
+https://pixabay.com/sound-effects/film-special-effects-footstep-1-83098/
+https://pixabay.com/sound-effects/film-special-effects-walk-on-dirt-1-291981/
