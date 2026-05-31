@@ -247,12 +247,10 @@ grow_vertical = 2
 [node name="WeepingAngel" parent="." unique_id=1401698208 node_paths=PackedStringArray("player") instance=ExtResource("18_mjy37")]
 position = Vector2(484, 83)
 player = NodePath("../Player")
-is_active = true
 
 [node name="WeepingAngel2" parent="." unique_id=1557746182 node_paths=PackedStringArray("player") instance=ExtResource("18_mjy37")]
 position = Vector2(432, 82)
 player = NodePath("../Player")
-is_active = true
 
 [node name="NavRegion" type="NavigationRegion2D" parent="." unique_id=1920235981]
 navigation_polygon = SubResource("NavigationPolygon_mjy37")
