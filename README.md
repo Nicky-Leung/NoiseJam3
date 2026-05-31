@@ -26,3 +26,5 @@ https://pixabay.com/sound-effects/film-special-effects-st2-footstep-sfx-323055/
 https://pixabay.com/sound-effects/film-special-effects-footstep-1-83098/
 https://pixabay.com/sound-effects/film-special-effects-walk-on-dirt-1-291981/
 https://pixabay.com/sound-effects/people-ough-47202/
+https://pixabay.com/sound-effects/film-special-effects-wooden-trunk-latch-2-183945/
+https://pixabay.com/sound-effects/film-special-effects-electricity-106510/
