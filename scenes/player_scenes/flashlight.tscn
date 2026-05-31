@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dvs1p1qihi21c"]
 
-[ext_resource type="Script" uid="uid://3afupig7b6rr" path="res://scripts/flashlight.gd" id="1_nnxok"]
+[ext_resource type="Script" uid="uid://3afupig7b6rr" path="res://scripts/player_scripts/flashlight.gd" id="1_nnxok"]
 [ext_resource type="AudioStream" uid="uid://7ldo62k5xfg0" path="res://assets/sfx/player/flashlightClickSFX.mp3" id="2_0ywi5"]
 [ext_resource type="AudioStream" uid="uid://d3bgm2irip0hc" path="res://assets/sfx/player/flashlightDiesSFX.mp3" id="3_8j6qg"]
 [ext_resource type="PackedScene" uid="uid://dngvwmewl88h1" path="res://scenes/components/enemy_alerter.tscn" id="3_js4p4"]

@@ -27,7 +27,6 @@ func _physics_process(delta: float) -> void:
 	if Engine.get_process_frames() % 5 == 0: try_flicker()
 	battery_time -= delta
 	if battery_time <= 0: disable_light()
-	print(battery_time)
 
 func try_flicker():
 	energy = base_energy
