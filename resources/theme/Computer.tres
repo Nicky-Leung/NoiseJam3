@@ -1,0 +1,6 @@
+[gd_resource type="Theme" format=3 uid="uid://bwpuvmjqs3tsb"]
+
+[ext_resource type="FontFile" uid="uid://dsrok7cjhe6wk" path="res://assets/fonts/GoogleSans-VariableFont_GRAD,opsz,wght.ttf" id="1_qpb65"]
+
+[resource]
+default_font = ExtResource("1_qpb65")
