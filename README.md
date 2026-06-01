@@ -28,3 +28,4 @@ https://pixabay.com/sound-effects/film-special-effects-walk-on-dirt-1-291981/
 https://pixabay.com/sound-effects/people-ough-47202/
 https://pixabay.com/sound-effects/film-special-effects-wooden-trunk-latch-2-183945/
 https://pixabay.com/sound-effects/film-special-effects-electricity-106510/
+https://pixabay.com/sound-effects/film-special-effects-item-equip-6904/
