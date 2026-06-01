@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://wieit1tmn5r1" path="res://scenes/enemy_scenes/weeping_angel.tscn" id="18_mjy37"]
 [ext_resource type="PackedScene" uid="uid://cfslgv17irrxe" path="res://scenes/environment_objects/pickup.tscn" id="19_fokgv"]
 [ext_resource type="Texture2D" uid="uid://w04cal3dr7pr" path="res://assets/sprites/temp_sprites/temp_battery.png" id="20_ulk06"]
+[ext_resource type="Texture2D" uid="uid://dpfwj0h6ppeh6" path="res://assets/sprites/temp_sprites/temp_medkit.png" id="21_ulk06"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tpqdd"]
 size = Vector2(50, 50)
@@ -260,5 +261,10 @@ navigation_polygon = SubResource("NavigationPolygon_mjy37")
 [node name="Pickup" parent="." unique_id=1314714567 instance=ExtResource("19_fokgv")]
 position = Vector2(56, 249)
 item_sprite = ExtResource("20_ulk06")
+
+[node name="Pickup2" parent="." unique_id=1995029907 instance=ExtResource("19_fokgv")]
+position = Vector2(270, 50)
+item = 1
+item_sprite = ExtResource("21_ulk06")
 
 [editable path="CensoredSin"]

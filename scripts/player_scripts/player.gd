@@ -12,6 +12,7 @@ signal player_died(killer: Enemy)
 @onready var footsteps = $Footsteps
 @onready var i_frame = $IFrameTimer
 @onready var hurtSFX = $HurtSFX
+@onready var healSFX = $HealSFX
 
 @onready var trap_scene : PackedScene = preload("res://scenes/environment_objects/trap.tscn")
 
@@ -22,9 +23,11 @@ signal player_died(killer: Enemy)
 @export var backward_speed: int = 75
 @export var turn_rate: float = 7.5
 @export var max_batteries: int = 3
+@export var max_medkits: int = 3
 
 # Runtime variables
 var battery_count: int = 3 # IMPORTANT: FOR TESTING THIS IS > 0, BUT IN ACTUAL GAMEPLAY WE START WITH 0
+var medkit_count: int = 3 # IMPORTANT: FOR TESTING THIS IS > 0, BUT IN ACTUAL GAMEPLAY WE START WITH 0
 var health: int = max_health
 var is_sprinting: bool = false
 var input_vector: Vector2 = Vector2.ZERO
@@ -71,13 +74,21 @@ func _input(event: InputEvent) -> void:
 		if collider is Interactable:
 			collider.interact(self)
 
-
-func heal(amount: int):
-	health = min(max_health, health + amount)
+func use_medkit():
+	if medkit_count <= 0: return
+	medkit_count -= 1
+	health = max_health
+	HELPERS.play_audio(healSFX, 0.9, 1.1)
 
 func damage(amount: int): # called for environmental hazards
 	health -= amount
 	if health <= 0: player_died.emit(null)
+
+func try_add_medkit() -> bool:
+	if medkit_count == max_medkits:
+		return false
+	medkit_count += 1
+	return true
 
 func try_add_battery() -> bool: # assumes items on floor only ever 1
 	if battery_count == max_batteries:

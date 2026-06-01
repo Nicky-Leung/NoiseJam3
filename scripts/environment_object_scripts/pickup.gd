@@ -19,10 +19,8 @@ func _ready():
 
 func on_interacted(player: Player):
     var was_added_to_inv = false
-    if item == Item.BATTERY:
-        was_added_to_inv = player.try_add_battery()
-    if item == Item.MEDKIT: # example implementation of new items
-        print("Not yet implemented")
+    if item == Item.BATTERY: was_added_to_inv = player.try_add_battery()
+    elif item == Item.MEDKIT: was_added_to_inv = player.try_add_medkit()
 
     if was_added_to_inv:
         visible = false
@@ -35,4 +33,4 @@ func on_interacted(player: Player):
         delay.tween_callback(queue_free)
     else:
         # probably put some UI saying inventory is full, for now just print it
-        print("Cannot add " + str(item) + " because inventory is full")
+        print("Cannot add " + str(Item.keys()[item]) + " because inventory is full")
