@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cfslgv17irrxe"]
+
+[ext_resource type="Script" uid="uid://lnguabibsh3j" path="res://scripts/environment_object_scripts/pickup.gd" id="1_koryl"]
+[ext_resource type="Texture2D" uid="uid://w04cal3dr7pr" path="res://assets/sprites/temp_sprites/temp_battery.png" id="1_uepp6"]
+[ext_resource type="PackedScene" uid="uid://djvd2vub3v3h1" path="res://scenes/components/interactable.tscn" id="3_rvfja"]
+[ext_resource type="AudioStream" uid="uid://j8f856qehmwg" path="res://assets/sfx/interactables/Pickup.mp3" id="4_rvfja"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t6jt8"]
+size = Vector2(30, 30)
+
+[node name="Pickup" type="Node2D" unique_id=1314714567]
+script = ExtResource("1_koryl")
+
+[node name="Hitbox" type="CollisionShape2D" parent="." unique_id=1963607040]
+shape = SubResource("RectangleShape2D_t6jt8")
+
+[node name="Sprite" type="TextureRect" parent="." unique_id=998879655]
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+texture = ExtResource("1_uepp6")
+expand_mode = 2
+
+[node name="Interactable" parent="." unique_id=345271570 node_paths=PackedStringArray("parent_collider") instance=ExtResource("3_rvfja")]
+interact_type = 1
+parent_collider = NodePath("../Hitbox")
+
+[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="." unique_id=550040666]
+stream = ExtResource("4_rvfja")

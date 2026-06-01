@@ -18,6 +18,8 @@
 [ext_resource type="PackedScene" uid="uid://do8ik56rbksw7" path="res://scenes/environment_objects/censored_sin.tscn" id="16_0nf5n"]
 [ext_resource type="Shader" uid="uid://c7m63o73qxpdk" path="res://resources/shaders/retro_filter.gdshader" id="17_f1l1a"]
 [ext_resource type="PackedScene" uid="uid://wieit1tmn5r1" path="res://scenes/enemy_scenes/weeping_angel.tscn" id="18_mjy37"]
+[ext_resource type="PackedScene" uid="uid://cfslgv17irrxe" path="res://scenes/environment_objects/pickup.tscn" id="19_fokgv"]
+[ext_resource type="Texture2D" uid="uid://w04cal3dr7pr" path="res://assets/sprites/temp_sprites/temp_battery.png" id="20_ulk06"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tpqdd"]
 size = Vector2(50, 50)
@@ -28,7 +30,7 @@ polygon = PackedVector2Array(0, 0, 50, 0, 50, 50, 0, 50)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_orjbe"]
 size = Vector2(600, 600)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_mjy37"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_5aceh"]
 viewport_path = NodePath("SpriteViewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mjy37"]
@@ -230,7 +232,7 @@ area2d_sound_zone = NodePath("..")
 position = Vector2(461, 418)
 
 [node name="Sprite" parent="CensoredSin" index="0" unique_id=1821370934]
-texture = SubResource("ViewportTexture_mjy37")
+texture = SubResource("ViewportTexture_5aceh")
 
 [node name="Collider" parent="CensoredSin" index="2" unique_id=1785174278 groups=["navigation_polygon_source_geometry_group"]]
 
@@ -254,5 +256,9 @@ player = NodePath("../Player")
 
 [node name="NavRegion" type="NavigationRegion2D" parent="." unique_id=1920235981]
 navigation_polygon = SubResource("NavigationPolygon_mjy37")
+
+[node name="Pickup" parent="." unique_id=1314714567 instance=ExtResource("19_fokgv")]
+position = Vector2(56, 249)
+item_sprite = ExtResource("20_ulk06")
 
 [editable path="CensoredSin"]

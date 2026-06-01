@@ -4,7 +4,6 @@ class_name Player
 # Signals
 signal player_died(killer: Enemy)
 
-
 # Components
 @onready var flashlight = $Flashlight
 @onready var sprite = $Sprite
@@ -80,11 +79,12 @@ func damage(amount: int): # called for environmental hazards
 	health -= amount
 	if health <= 0: player_died.emit(null)
 
-func add_battery(): # assumes items on floor only ever 1
+func try_add_battery() -> bool: # assumes items on floor only ever 1
 	if battery_count == max_batteries:
 		# add some ui on screen saying inventory full
-		return
+		return false
 	battery_count += 1
+	return true
 
 func replace_battery():
 	if battery_count <= 0: return
