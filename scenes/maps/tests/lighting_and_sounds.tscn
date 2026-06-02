@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://cfslgv17irrxe" path="res://scenes/environment_objects/pickup.tscn" id="19_fokgv"]
 [ext_resource type="Texture2D" uid="uid://w04cal3dr7pr" path="res://assets/sprites/temp_sprites/temp_battery.png" id="20_ulk06"]
 [ext_resource type="Texture2D" uid="uid://dpfwj0h6ppeh6" path="res://assets/sprites/temp_sprites/temp_medkit.png" id="21_ulk06"]
+[ext_resource type="PackedScene" uid="uid://y6qgwf18h0bh" path="res://scenes/environment_objects/readable.tscn" id="22_5aceh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tpqdd"]
 size = Vector2(50, 50)
@@ -266,5 +267,17 @@ item_sprite = ExtResource("20_ulk06")
 position = Vector2(270, 50)
 item = 1
 item_sprite = ExtResource("21_ulk06")
+
+[node name="Readable" parent="." unique_id=536321432 node_paths=PackedStringArray("readable_menu") instance=ExtResource("22_5aceh")]
+position = Vector2(277, 189)
+type = 0
+readable_menu = NodePath("TestReadableMenu")
+
+[node name="TestReadableMenu" type="ColorRect" parent="Readable" unique_id=1177342948]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [editable path="CensoredSin"]

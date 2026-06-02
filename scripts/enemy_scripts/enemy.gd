@@ -29,6 +29,7 @@ func _ready():
 	collision_layer = PHYS_LAYERS.ENEMY
 	if collides_with_others: collision_mask += PHYS_LAYERS.ENEMY
 	nav_check_stagger = randi() % frames_per_nav_check
+	z_index = 1
 
 func _process(_delta):
 	# hide enemy if they aren't in light

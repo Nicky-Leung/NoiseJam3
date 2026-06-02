@@ -30,3 +30,5 @@ https://pixabay.com/sound-effects/film-special-effects-wooden-trunk-latch-2-1839
 https://pixabay.com/sound-effects/film-special-effects-electricity-106510/
 https://pixabay.com/sound-effects/film-special-effects-item-equip-6904/
 https://pixabay.com/sound-effects/film-special-effects-duct-tape-1-86753/
+https://pixabay.com/sound-effects/film-special-effects-paper-rustle-81855/
+https://pixabay.com/sound-effects/film-special-effects-system-notification-199277/

@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://y6qgwf18h0bh"]
+
+[ext_resource type="Script" uid="uid://cpwco7jvql2gv" path="res://scripts/environment_object_scripts/readable.gd" id="1_pnsxv"]
+[ext_resource type="Texture2D" uid="uid://b1l4h8kjqwmut" path="res://assets/sprites/temp_sprites/temp_computer.png" id="2_lb1ue"]
+[ext_resource type="PackedScene" uid="uid://djvd2vub3v3h1" path="res://scenes/components/interactable.tscn" id="2_pnsxv"]
+[ext_resource type="Texture2D" uid="uid://hgfh8r2t8ip3" path="res://assets/sprites/temp_sprites/temp_paper.webp" id="2_tq7c0"]
+[ext_resource type="AudioStream" uid="uid://j8f856qehmwg" path="res://assets/sfx/interactables/Pickup.mp3" id="3_tq7c0"]
+[ext_resource type="AudioStream" uid="uid://qr0rdtoht6er" path="res://assets/sfx/interactables/Paper.mp3" id="4_sjbxu"]
+[ext_resource type="AudioStream" uid="uid://ymfrd7h3mx75" path="res://assets/sfx/interactables/Electronic.mp3" id="5_byus5"]
+[ext_resource type="Theme" uid="uid://yfrti8gy2ey2" path="res://resources/Ui.tres" id="8_4gyic"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6l41s"]
+size = Vector2(30, 30)
+
+[node name="Readable" type="Node2D" unique_id=536321432]
+script = ExtResource("1_pnsxv")
+default_electronic_sprite = ExtResource("2_lb1ue")
+default_paper_sprite = ExtResource("2_tq7c0")
+default_paper_SFX = ExtResource("4_sjbxu")
+default_electronic_SFX = ExtResource("5_byus5")
+
+[node name="Hitbox" type="CollisionShape2D" parent="." unique_id=1669113291]
+shape = SubResource("RectangleShape2D_6l41s")
+
+[node name="Sprite" type="TextureRect" parent="." unique_id=921244058]
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+texture = ExtResource("2_tq7c0")
+expand_mode = 2
+
+[node name="Interactable" parent="." unique_id=345271570 node_paths=PackedStringArray("parent_collider") instance=ExtResource("2_pnsxv")]
+interact_type = 1
+parent_collider = NodePath("../Hitbox")
+
+[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="." unique_id=50971136]
+process_mode = 3
+stream = ExtResource("3_tq7c0")
+
+[node name="Menu" type="CanvasLayer" parent="." unique_id=619575758]
+
+[node name="Close" type="Button" parent="Menu" unique_id=259765203]
+process_mode = 2
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -90.0
+offset_top = 20.0
+offset_right = -30.0
+offset_bottom = 140.0
+grow_horizontal = 0
+theme = ExtResource("8_4gyic")
+theme_override_font_sizes/font_size = 96
+text = "X"
