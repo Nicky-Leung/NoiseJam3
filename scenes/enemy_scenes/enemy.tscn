@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://s447nfjehl7g"]
 
-[ext_resource type="Script" uid="uid://c84850gjgulbo" path="res://scripts/angel.gd" id="1_adu1b"]
+[ext_resource type="Script" uid="uid://bx48qd0705hn0" path="res://scripts/enemy_scripts/angel.gd" id="1_adu1b"]
 [ext_resource type="Texture2D" uid="uid://pqq1x0vaoh1p" path="res://assets/sprites/SpriteAngel.png" id="2_md0e3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_md0e3"]

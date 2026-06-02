@@ -1,0 +1,93 @@
+[gd_scene format=3 uid="uid://dl10r8p0e5jr0"]
+
+[ext_resource type="VideoStream" uid="uid://cyikafd4omiqg" path="res://assets/video/Menu.ogv" id="1_gv756"]
+[ext_resource type="Script" uid="uid://85onho8yin1f" path="res://scripts/menu_scripts/main_menu.gd" id="1_pvkhk"]
+[ext_resource type="Texture2D" uid="uid://lisbjrs4wgj7" path="res://assets/video/START_SELECT.png" id="2_gv756"]
+[ext_resource type="Texture2D" uid="uid://xooh1qv0b76e" path="res://assets/video/START.png" id="3_bt1pb"]
+[ext_resource type="Texture2D" uid="uid://bfv56ut20bnf" path="res://assets/video/OPTIONS.png" id="4_xysw7"]
+[ext_resource type="Texture2D" uid="uid://d3xnx0d13qng5" path="res://assets/video/OPTIONS_SELECT.png" id="5_gosx4"]
+[ext_resource type="Texture2D" uid="uid://8mv82xr4ibn0" path="res://assets/video/CREDITS.png" id="6_2645v"]
+[ext_resource type="Texture2D" uid="uid://bxity1o0ypa7j" path="res://assets/video/CREDITS_SELECT.png" id="7_s5nif"]
+[ext_resource type="Texture2D" uid="uid://belnjlphg3xst" path="res://assets/video/QUIT.png" id="8_i2v0a"]
+[ext_resource type="Texture2D" uid="uid://c4bvwvdrh0p1b" path="res://assets/video/QUIT_SELECT.png" id="9_pj32k"]
+[ext_resource type="Shader" uid="uid://bbe32t51umhq4" path="res://scenes/menus/vcr.gdshader" id="11_bt1pb"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xysw7"]
+shader = ExtResource("11_bt1pb")
+shader_parameter/wiggle = 0.03
+shader_parameter/wiggle_speed = 25.0
+shader_parameter/smear = 1.0
+shader_parameter/blur_samples = 15
+
+[node name="Menu" type="Node2D" unique_id=831864903]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=442549833]
+clip_contents = true
+offset_left = -449.0
+offset_top = -258.0
+offset_right = 1680.0
+offset_bottom = 900.0
+stream = ExtResource("1_gv756")
+volume_db = 0.6699997
+autoplay = true
+expand = true
+loop = true
+
+[node name="ButtonManager" type="Control" parent="." unique_id=1387493838]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_pvkhk")
+
+[node name="Start" type="TextureButton" parent="ButtonManager" unique_id=1698095337]
+layout_mode = 0
+offset_left = 432.0
+offset_top = 276.0
+offset_right = 783.0
+offset_bottom = 428.0
+scale = Vector2(0.8, 0.8)
+texture_normal = ExtResource("2_gv756")
+texture_pressed = ExtResource("2_gv756")
+texture_hover = ExtResource("3_bt1pb")
+
+[node name="Options" type="TextureButton" parent="ButtonManager" unique_id=944229493]
+layout_mode = 0
+offset_left = 386.0
+offset_top = 366.0
+offset_right = 844.0
+offset_bottom = 518.0
+scale = Vector2(0.8, 0.8)
+texture_normal = ExtResource("4_xysw7")
+texture_pressed = ExtResource("4_xysw7")
+texture_hover = ExtResource("5_gosx4")
+
+[node name="Credits" type="TextureButton" parent="ButtonManager" unique_id=222915983]
+layout_mode = 0
+offset_left = 403.0
+offset_top = 474.0
+offset_right = 820.0
+offset_bottom = 576.0
+scale = Vector2(0.8, 0.8)
+texture_normal = ExtResource("6_2645v")
+texture_pressed = ExtResource("6_2645v")
+texture_hover = ExtResource("7_s5nif")
+
+[node name="Quit" type="TextureButton" parent="ButtonManager" unique_id=1527294607]
+layout_mode = 0
+offset_left = 474.0
+offset_top = 567.0
+offset_right = 709.0
+offset_bottom = 652.0
+scale = Vector2(0.8, 0.8)
+texture_normal = ExtResource("8_i2v0a")
+texture_pressed = ExtResource("8_i2v0a")
+texture_hover = ExtResource("9_pj32k")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=408787430]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1647539593]
+material = SubResource("ShaderMaterial_xysw7")
+offset_right = 1145.0
+offset_bottom = 643.0
+mouse_filter = 2
