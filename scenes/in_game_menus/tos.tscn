@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://02xt4kn4ab4p"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_60w45"]
+bg_color = Color(0.6, 0.6, 0.6, 0.654902)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 20
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
+[node name="Tos" type="Control" unique_id=2108980038]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1647512134]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -45.0
+offset_right = 80.0
+offset_bottom = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_60w45")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=125467184]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer" unique_id=731715444]
+layout_mode = 2
+text = "Terms of Service Update"
+
+[node name="Label2" type="Label" parent="PanelContainer/VBoxContainer" unique_id=1326321573]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+text = "AGREEMENT TO TERMS
+
+These Terms and Conditions constitute a legally binding agreement made between you, whether personally or on behalf of an entity (“you”) and [business entity name] (“we,” “us” or “our”), concerning your access to and use of the [website name.com] website as well as any other media form, media channel, mobile website or mobile application related, linked, or otherwise connected thereto (collectively, the “Site”).
+
+You agree that by accessing the Site, you have read, understood, and agree to be bound by all of these Terms and Conditions. If you do not agree with all of these Terms and Conditions, then you are expressly prohibited from using the Site and you must discontinue use immediately.s"
+autowrap_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer" unique_id=1521415588]
+layout_mode = 2
+alignment = 2
+
+[node name="CheckBox" type="CheckBox" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=237295511]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=1589425069]
+layout_mode = 2
+text = "I agree   "
+
+[node name="Button2" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=2142920323]
+layout_mode = 2
+text = "Enter"

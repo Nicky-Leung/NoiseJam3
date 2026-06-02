@@ -6,7 +6,7 @@ extends Node
 
 
 @onready var current_scene: Node
-@onready var ui_root: Node = $UIRoot
+@onready var ui_root: Node = $CenterContainer/UIRoot
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -18,7 +18,7 @@ func _process(delta: float) -> void:
 	pass
 
 func change_game_state(state: PasswordFlow.GameState):
-	 if current_scene:
+	if current_scene:
 		current_scene.queue_free()
 	
 	match state:
@@ -28,4 +28,6 @@ func change_game_state(state: PasswordFlow.GameState):
 		PasswordFlow.GameState.FORGOT_PASSWORD:
 			current_scene = forgot_password_scene.instantiate()
 			ui_root.add_child(current_scene)
-			current_scene.action_requested.connect(func(action): change_game_state(action))
+		
+		
+	current_scene.action_requested.connect(func(action): change_game_state(action))
