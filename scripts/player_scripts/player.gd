@@ -24,10 +24,12 @@ signal player_died(killer: Enemy)
 @export var turn_rate: float = 7.5
 @export var max_batteries: int = 3
 @export var max_medkits: int = 3
+@export var max_traps: int = 3
 
 # Runtime variables
 var battery_count: int = 3 # IMPORTANT: FOR TESTING THIS IS > 0, BUT IN ACTUAL GAMEPLAY WE START WITH 0
 var medkit_count: int = 3 # IMPORTANT: FOR TESTING THIS IS > 0, BUT IN ACTUAL GAMEPLAY WE START WITH 0
+var trap_count: int = 1 # IMPORTANT: FOR TESTING THIS IS > 0, BUT IN ACTUAL GAMEPLAY WE START WITH 0
 var health: int = max_health
 var is_sprinting: bool = false
 var input_vector: Vector2 = Vector2.ZERO
@@ -97,12 +99,21 @@ func try_add_battery() -> bool: # assumes items on floor only ever 1
 	battery_count += 1
 	return true
 
+func try_add_trap() -> bool:
+	if trap_count == max_traps: # only allow 1 trap at a time for now, can change later if we want
+		return false
+	trap_count += 1
+	return true
+
+
 func replace_battery():
 	if battery_count <= 0: return
 	battery_count -= 1
 	flashlight.refill_battery()
 
 func place_trap():
+	if trap_count <= 0: return
+	trap_count -= 1
 	var trap = trap_scene.instantiate()
 	trap.global_position = global_position + facing_direction * 16
 	get_parent().add_child(trap)

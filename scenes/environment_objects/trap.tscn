@@ -2,23 +2,46 @@
 
 [ext_resource type="Script" uid="uid://kpt6husunei7" path="res://scripts/environment_object_scripts/trap.gd" id="1_dpilp"]
 [ext_resource type="Texture2D" uid="uid://b7v3q3g4rwb88" path="res://assets/tileset/trap.tres" id="1_ohle1"]
+[ext_resource type="Script" uid="uid://lnguabibsh3j" path="res://scripts/environment_object_scripts/pickup.gd" id="2_7cvll"]
+[ext_resource type="PackedScene" uid="uid://djvd2vub3v3h1" path="res://scenes/components/interactable.tscn" id="3_mec73"]
+[ext_resource type="AudioStream" uid="uid://j8f856qehmwg" path="res://assets/sfx/interactables/Pickup.mp3" id="4_mvlcn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ohle1"]
 size = Vector2(40, 43)
 
-[node name="Trap" type="Area2D" unique_id=2109121698]
+[node name="Node2D" type="Node2D" unique_id=2123888054]
+position = Vector2(1.9073486e-06, 1.9073486e-06)
+scale = Vector2(0.99999994, 0.99999994)
+script = ExtResource("2_7cvll")
+item = 2
+
+[node name="Interactable" parent="." unique_id=345271570 node_paths=PackedStringArray("parent_collider") instance=ExtResource("3_mec73")]
+position = Vector2(21.999996, 21.999996)
+scale = Vector2(0.9999999, 0.9999999)
+interact_type = 1
+parent_collider = NodePath("../Trap/CollisionShape2D")
+
+[node name="Trap" type="Area2D" parent="." unique_id=2109121698]
+scale = Vector2(0.99999994, 0.99999994)
 collision_mask = 8
 script = ExtResource("1_dpilp")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1096568531]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trap" unique_id=1707762326]
+position = Vector2(21.999998, 21.499998)
+shape = SubResource("RectangleShape2D_ohle1")
+
+[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1368540986]
+position = Vector2(-1.9073486e-06, -1.9073486e-06)
+stream = ExtResource("4_mvlcn")
+
+[node name="Sprite" type="TextureRect" parent="." unique_id=1409398945]
 texture_filter = 1
-position = Vector2(21.785435, 21.118488)
+offset_left = 0.9999981
+offset_top = -1.0000019
+offset_right = 15.999998
+offset_bottom = 12.999998
 scale = Vector2(2.8286085, 3.1259303)
 texture = ExtResource("1_ohle1")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1707762326]
-position = Vector2(22, 21.5)
-shape = SubResource("RectangleShape2D_ohle1")
 
 [node name="StunTimer" type="Timer" parent="." unique_id=1062461909]
 wait_time = 2.0

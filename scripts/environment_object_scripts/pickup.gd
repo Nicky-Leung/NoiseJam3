@@ -2,8 +2,9 @@ extends Node2D
 
 # Add into this when new pickables are added
 enum Item {
-    BATTERY,
-    MEDKIT
+	BATTERY,
+	MEDKIT,
+	TRAP
 }
 
 @export var item: Item = Item.BATTERY
@@ -14,23 +15,24 @@ enum Item {
 @onready var audio_player: AudioStreamPlayer2D = $AudioPlayer
 
 func _ready():
-    sprite.texture = item_sprite
-    interactable.interacted.connect(on_interacted)
+	sprite.texture = item_sprite
+	interactable.interacted.connect(on_interacted)
 
 func on_interacted(player: Player):
-    var was_added_to_inv = false
-    if item == Item.BATTERY: was_added_to_inv = player.try_add_battery()
-    elif item == Item.MEDKIT: was_added_to_inv = player.try_add_medkit()
+	var was_added_to_inv = false
+	if item == Item.BATTERY: was_added_to_inv = player.try_add_battery()
+	elif item == Item.MEDKIT: was_added_to_inv = player.try_add_medkit()
+	elif item == Item.TRAP: was_added_to_inv = player.try_add_trap()
 
-    if was_added_to_inv:
-        visible = false
-        interactable.enable(false)
-        HELPERS.play_audio(audio_player, 0.9, 1.1, 10)
+	if was_added_to_inv:
+		visible = false
+		interactable.enable(false)
+		HELPERS.play_audio(audio_player, 0.9, 1.1, 10)
 
-        # debate if just want to hide it, or actually delete it
-        var delay = create_tween()
-        delay.tween_interval(audio_player.stream.get_length())
-        delay.tween_callback(queue_free)
-    else:
-        # probably put some UI saying inventory is full, for now just print it
-        print("Cannot add " + str(Item.keys()[item]) + " because inventory is full")
+		# debate if just want to hide it, or actually delete it
+		var delay = create_tween()
+		delay.tween_interval(audio_player.stream.get_length())
+		delay.tween_callback(queue_free)
+	else:
+		# probably put some UI saying inventory is full, for now just print it
+		print("Cannot add " + str(Item.keys()[item]) + " because inventory is full")
