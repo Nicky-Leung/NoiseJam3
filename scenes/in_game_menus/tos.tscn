@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://02xt4kn4ab4p"]
 
+[ext_resource type="Script" uid="uid://mbli4ik8o5jk" path="res://scripts/minigame/password/tos.gd" id="1_6kqc1"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_60w45"]
 bg_color = Color(0.6, 0.6, 0.6, 0.654902)
 corner_radius_top_left = 5
@@ -19,6 +21,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_6kqc1")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=1647512134]
 layout_mode = 1
@@ -63,6 +66,7 @@ layout_mode = 2
 layout_mode = 2
 text = "I agree   "
 
-[node name="Button2" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=2142920323]
+[node name="Enter" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=2142920323]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Enter"

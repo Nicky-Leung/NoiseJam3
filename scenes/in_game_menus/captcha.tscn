@@ -2,6 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://bwpuvmjqs3tsb" path="res://resources/theme/Computer.tres" id="1_ialu2"]
 [ext_resource type="FontFile" uid="uid://hcag880c0r41" path="res://assets/fonts/CormorantGaramond-VariableFont_wght.ttf" id="1_jlo1u"]
+[ext_resource type="Script" uid="uid://cvecudm0hpc4p" path="res://scripts/minigame/password/captcha.gd" id="2_g677q"]
 [ext_resource type="Texture2D" uid="uid://cbv5qo7twpajn" path="res://assets/ui/Captcha.jpeg" id="2_lql4j"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ppks2"]
@@ -26,6 +27,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_ialu2")
+script = ExtResource("2_g677q")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=652578431]
 layout_mode = 1
@@ -61,6 +63,7 @@ theme_override_fonts/font = ExtResource("1_jlo1u")
 layout_mode = 2
 alignment = 2
 
-[node name="Button2" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=1846543605]
+[node name="Enter" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer" unique_id=1846543605]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Enter"

@@ -3,6 +3,8 @@ extends Node
 
 @onready var enter_password_scene = load("res://scenes/in_game_menus/enter_password.tscn")
 @onready var forgot_password_scene = load("res://scenes/in_game_menus/forgot_password.tscn")
+@onready var captcha_scene = load("res://scenes/in_game_menus/captcha.tscn")
+@onready var tos_scene = load("res://scenes/in_game_menus/tos.tscn")
 
 
 @onready var current_scene: Node
@@ -28,6 +30,13 @@ func change_game_state(state: PasswordFlow.GameState):
 		PasswordFlow.GameState.FORGOT_PASSWORD:
 			current_scene = forgot_password_scene.instantiate()
 			ui_root.add_child(current_scene)
+		PasswordFlow.GameState.CAPTCHA:
+			current_scene = captcha_scene.instantiate()
+			ui_root.add_child(current_scene)
+		PasswordFlow.GameState.TOS:
+			current_scene = tos_scene.instantiate()
+			ui_root.add_child(current_scene)
+		
 		
 		
 	current_scene.action_requested.connect(func(action): change_game_state(action))
