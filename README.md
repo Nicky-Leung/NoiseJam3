@@ -1,19 +1,23 @@
 # Asset compilation
 
 ## Fonts
+
 https://www.fontsquirrel.com/fonts/Berylium
 https://fonts.google.com/specimen/Cormorant+Garamond?preview.text=Radioactive&specimen.preview.text=Radioactive&categoryFilters=Serif:%2FSerif%2FOld+Style+Garalde
 
 ## Music
+
 https://opengameart.org/content/factory-ambiance
 
 ## Shaders
+
 https://godotshaders.com/shader/glitch-effect-shader-for-godot-engine-4/
 https://godotshaders.com/shader/dissolve-add-details-pixel-art/
 https://godotshaders.com/shader/retro-gameps1-shader/
 https://godotshaders.com/shader/2d-wind-sway-tree-grass-motion-shader/
 
 ## Sound Effects
+
 https://opengameart.org/content/scary-ghost-1
 https://opengameart.org/content/dripping-water-loop
 https://opengameart.org/content/ghost-monster-voice-moaning-growling
