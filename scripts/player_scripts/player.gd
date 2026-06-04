@@ -30,6 +30,11 @@ var is_sprinting: bool = false
 var input_vector: Vector2 = Vector2.ZERO
 var facing_direction: Vector2 = Vector2.ZERO
 
+func _ready():
+	inventory.medkit_consumed.connect(full_heal)
+	inventory.trap_consumed.connect(place_trap)
+	inventory.battery_consumed.connect(replace_battery)
+
 func _process(_delta: float) -> void:
 	if velocity.length() > 0:
 		sprite.play("move")
@@ -70,8 +75,7 @@ func _input(event: InputEvent) -> void:
 		if collider is Interactable:
 			collider.interact(self)
 
-func use_medkit():
-	if !inventory.try_change_medkit(false): return
+func full_heal():
 	health = max_health
 	HELPERS.play_audio(healSFX, 0.9, 1.1)
 
@@ -80,11 +84,9 @@ func damage(amount: int): # called for environmental hazards
 	if health <= 0: player_died.emit(null)
 
 func replace_battery():
-	if !inventory.try_change_battery(false): return
 	flashlight.refill_battery()
 
-func place_trap():
-	if !inventory.try_change_trap(false): return
+func place_trap(): # TODO: Trap isn't placing?
 	var trap = trap_scene.instantiate()
 	trap.global_position = global_position + facing_direction * 16
 	get_parent().add_child(trap)

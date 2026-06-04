@@ -9,6 +9,11 @@ const battery_desc: String = "Use to refill flashlight charge"
 const trap_name: String = "Trap"
 const trap_desc: String = "Use to drop a trap directly under you"
 
+# Signals
+signal medkit_consumed
+signal trap_consumed
+signal battery_consumed
+
 @export var medkit_sprite: Texture2D = null
 @export var battery_sprite: Texture2D = null
 @export var trap_sprite: Texture2D = null
@@ -55,6 +60,7 @@ func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed(INPUTS.EXIT): close()
 	if Input.is_action_just_pressed(INPUTS.LEFT): cycle_left()
 	if Input.is_action_just_pressed(INPUTS.RIGHT): cycle_right()
+	if Input.is_action_just_pressed(INPUTS.INTERACT): _use_selected()
 
 # Inventory functions
 func add_key_item(key_item_name: String, sprite: Texture):
@@ -77,7 +83,7 @@ func try_change_medkit(is_adding: bool) -> bool:
 		if medkit_count == 0: items.erase(medkit_name)
 		return true
 
-func try_change_battery(is_adding: bool) -> bool: # assumes items on floor only ever 1
+func try_change_battery(is_adding: bool) -> bool:
 	if is_adding:
 		if battery_count == max_batteries:
 			# add some ui on screen saying inventory full
@@ -107,8 +113,25 @@ func try_change_trap(is_adding: bool) -> bool:
 		return true
 
 # Helper functions
+func _use_selected():
+	if selected == medkit_name:
+		if try_change_medkit(false):
+			medkit_consumed.emit()
+			close()
+	elif selected == trap_name:
+		if try_change_trap(false):
+			trap_consumed.emit()
+			close()
+	elif selected == battery_name:
+		if try_change_battery(false):
+			battery_consumed.emit()
+			close()
+
 func _set_items(direction: int): # -ve for left, 0 for no move, +ve for right
 	if items.size() == 0:
+		selected = ""
+		name_label.text = ""
+		desc_label.text = ""
 		left_icon.texture = null
 		right_icon.texture = null
 		middle_icon.texture = null
