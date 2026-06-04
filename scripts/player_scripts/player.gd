@@ -5,6 +5,7 @@ class_name Player
 signal player_died(killer: Enemy)
 
 # Components
+@onready var inventory: Inventory = $Overlay/Inventory
 @onready var flashlight = $Flashlight
 @onready var sprite = $Sprite
 @onready var interact_ray = $InteractRay
@@ -61,16 +62,15 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _input(event: InputEvent) -> void:
-	if event is not InputEventKey && event is not InputEventMouseButton:
+	if event is not InputEventKey && event is not InputEventMouseButton: return
+	if inventory.is_open:
+		input_vector = Vector2.ZERO
 		return
 
 	input_vector = Input.get_vector(INPUTS.LEFT, INPUTS.RIGHT, INPUTS.UP, INPUTS.DOWN)
 	is_sprinting = Input.is_action_pressed(INPUTS.SPRINT)
 
 	if Input.is_action_just_pressed(INPUTS.TOGGLE_LIGHT): flashlight.toggle()
-	# if Input.is_action_just_pressed(INPUTS.RELOAD): replace_battery()
-	# if Input.is_action_just_pressed(INPUTS.PLACE_OBJECT): place_trap()
-
 	if Input.is_action_just_pressed(INPUTS.INTERACT) && interact_ray.is_colliding():
 		var collider = interact_ray.get_collider()
 		if collider is Interactable:
