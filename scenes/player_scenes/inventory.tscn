@@ -1,0 +1,120 @@
+[gd_scene format=3 uid="uid://bqkdw6kqtd3kx"]
+
+[ext_resource type="Script" uid="uid://c4q48vb14sfnf" path="res://scripts/player_scripts/inventory.gd" id="1_nfnwa"]
+[ext_resource type="Texture2D" uid="uid://dpfwj0h6ppeh6" path="res://assets/sprites/temp_sprites/temp_medkit.png" id="2_shujo"]
+[ext_resource type="Texture2D" uid="uid://w04cal3dr7pr" path="res://assets/sprites/temp_sprites/temp_battery.png" id="3_37vb7"]
+[ext_resource type="Texture2D" uid="uid://b7v3q3g4rwb88" path="res://assets/tileset/trap.tres" id="4_j21a5"]
+[ext_resource type="Theme" uid="uid://yfrti8gy2ey2" path="res://resources/theme/Ui.tres" id="5_mhtwu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e5pdh"]
+draw_center = false
+border_width_left = 20
+border_width_top = 20
+border_width_right = 20
+border_width_bottom = 20
+border_color = Color(1, 1, 1, 0.77254903)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+corner_detail = 20
+
+[node name="Inventory" type="Control" unique_id=1444212898]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -500.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_nfnwa")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1473806215]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Item1" type="Control" parent="HBoxContainer" unique_id=741351874]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Item1" unique_id=1552766960]
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 300.0
+pivot_offset = Vector2(150, 150)
+texture = ExtResource("2_shujo")
+expand_mode = 2
+
+[node name="Item2" type="Control" parent="HBoxContainer" unique_id=2028101965]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Item2" unique_id=315489053]
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 300.0
+pivot_offset = Vector2(150, 150)
+texture = ExtResource("3_37vb7")
+expand_mode = 2
+
+[node name="Item3" type="Control" parent="HBoxContainer" unique_id=213923705]
+custom_minimum_size = Vector2(300, 300)
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Item3" unique_id=1644241420]
+texture_filter = 1
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 300.0
+pivot_offset = Vector2(150, 150)
+texture = ExtResource("4_j21a5")
+expand_mode = 2
+
+[node name="Selected" type="Panel" parent="." unique_id=1640623136]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_right = 150.0
+offset_bottom = 300.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_e5pdh")
+
+[node name="Type" type="Label" parent="." unique_id=1898448705]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -186.0
+offset_bottom = -106.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("5_mhtwu")
+theme_override_font_sizes/font_size = 48
+text = "Consumable"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Description" type="Label" parent="." unique_id=1309109034]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -108.0
+offset_bottom = -28.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("5_mhtwu")
+text = "Use to refill flashlight charge"
+horizontal_alignment = 1
+vertical_alignment = 1
