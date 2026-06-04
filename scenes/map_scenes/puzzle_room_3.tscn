@@ -1,6 +1,316 @@
 [gd_scene format=4 uid="uid://d7y6roxiu1oy"]
 
 [ext_resource type="TileSet" uid="uid://bfc70hpaf234h" path="res://assets/tileset/main_tile_set.tres" id="1_ryy2w"]
+[ext_resource type="Texture2D" uid="uid://3x1xknm2b2t7" path="res://assets/tileset/walls_floor.png" id="2_wc1j8"]
+[ext_resource type="PackedScene" uid="uid://dkag3nwr7uqd8" path="res://scenes/player_scenes/player.tscn" id="3_0l7ns"]
+[ext_resource type="PackedScene" uid="uid://dgngt1ans4vwq" path="res://scenes/environment_objects/dungeon_door.tscn" id="4_0l7ns"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wc1j8"]
+size = Vector2(353, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r7j0v"]
+size = Vector2(17, 269.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g7mvb"]
+size = Vector2(142, 16)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r7j0v"]
+texture = ExtResource("2_wc1j8")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+12:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+12:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+12:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+10:4/0 = 0
+11:4/0 = 0
+12:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+10:5/0 = 0
+11:5/0 = 0
+12:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+9:6/0 = 0
+12:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+8:7/0 = 0
+9:7/0 = 0
+10:7/0 = 0
+11:7/0 = 0
+12:7/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+6:8/0 = 0
+7:8/0 = 0
+8:8/0 = 0
+9:8/0 = 0
+10:8/0 = 0
+11:8/0 = 0
+12:8/0 = 0
+0:9/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+6:9/0 = 0
+7:9/0 = 0
+8:9/0 = 0
+10:9/0 = 0
+11:9/0 = 0
+12:9/0 = 0
+0:10/0 = 0
+1:10/0 = 0
+2:10/0 = 0
+3:10/0 = 0
+4:10/0 = 0
+6:10/0 = 0
+7:10/0 = 0
+8:10/0 = 0
+10:10/0 = 0
+11:10/0 = 0
+12:10/0 = 0
+0:11/0 = 0
+1:11/0 = 0
+2:11/0 = 0
+3:11/0 = 0
+4:11/0 = 0
+5:11/0 = 0
+6:11/0 = 0
+7:11/0 = 0
+8:11/0 = 0
+10:11/0 = 0
+11:11/0 = 0
+12:11/0 = 0
+0:12/0 = 0
+1:12/0 = 0
+2:12/0 = 0
+3:12/0 = 0
+4:12/0 = 0
+5:12/0 = 0
+6:12/0 = 0
+7:12/0 = 0
+8:12/0 = 0
+10:12/0 = 0
+11:12/0 = 0
+12:12/0 = 0
+0:13/0 = 0
+1:13/0 = 0
+2:13/0 = 0
+3:13/0 = 0
+4:13/0 = 0
+5:13/0 = 0
+6:13/0 = 0
+7:13/0 = 0
+8:13/0 = 0
+10:13/0 = 0
+11:13/0 = 0
+12:13/0 = 0
+0:14/0 = 0
+1:14/0 = 0
+2:14/0 = 0
+3:14/0 = 0
+4:14/0 = 0
+5:14/0 = 0
+6:14/0 = 0
+7:14/0 = 0
+8:14/0 = 0
+0:15/0 = 0
+1:15/0 = 0
+2:15/0 = 0
+3:15/0 = 0
+4:15/0 = 0
+5:15/0 = 0
+6:15/0 = 0
+7:15/0 = 0
+8:15/0 = 0
+9:15/0 = 0
+10:15/0 = 0
+11:15/0 = 0
+12:15/0 = 0
+0:16/0 = 0
+1:16/0 = 0
+2:16/0 = 0
+3:16/0 = 0
+4:16/0 = 0
+5:16/0 = 0
+6:16/0 = 0
+7:16/0 = 0
+8:16/0 = 0
+9:16/0 = 0
+10:16/0 = 0
+11:16/0 = 0
+12:16/0 = 0
+0:17/0 = 0
+1:17/0 = 0
+2:17/0 = 0
+3:17/0 = 0
+4:17/0 = 0
+5:17/0 = 0
+6:17/0 = 0
+7:17/0 = 0
+8:17/0 = 0
+9:17/0 = 0
+10:17/0 = 0
+11:17/0 = 0
+12:17/0 = 0
+0:18/0 = 0
+1:18/0 = 0
+2:18/0 = 0
+3:18/0 = 0
+4:18/0 = 0
+5:18/0 = 0
+6:18/0 = 0
+7:18/0 = 0
+8:18/0 = 0
+9:18/0 = 0
+10:18/0 = 0
+11:18/0 = 0
+12:18/0 = 0
+0:19/0 = 0
+1:19/0 = 0
+2:19/0 = 0
+3:19/0 = 0
+4:19/0 = 0
+5:19/0 = 0
+6:19/0 = 0
+7:19/0 = 0
+8:19/0 = 0
+9:19/0 = 0
+10:19/0 = 0
+11:19/0 = 0
+12:19/0 = 0
+0:20/0 = 0
+1:20/0 = 0
+2:20/0 = 0
+3:20/0 = 0
+4:20/0 = 0
+5:20/0 = 0
+6:20/0 = 0
+7:20/0 = 0
+8:20/0 = 0
+9:20/0 = 0
+10:20/0 = 0
+11:20/0 = 0
+12:20/0 = 0
+0:21/0 = 0
+1:21/0 = 0
+3:21/0 = 0
+4:21/0 = 0
+5:21/0 = 0
+6:21/0 = 0
+7:21/0 = 0
+8:21/0 = 0
+9:21/0 = 0
+10:21/0 = 0
+11:21/0 = 0
+12:21/0 = 0
+0:22/0 = 0
+1:22/0 = 0
+3:22/0 = 0
+4:22/0 = 0
+5:22/0 = 0
+6:22/0 = 0
+7:22/0 = 0
+8:22/0 = 0
+9:22/0 = 0
+10:22/0 = 0
+11:22/0 = 0
+12:22/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_g7mvb"]
+sources/0 = SubResource("TileSetAtlasSource_r7j0v")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0l7ns"]
+size = Vector2(46.75, 36)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_0l7ns"]
+polygon = PackedVector2Array(0, 0, 50, 0, 50, 50, 0, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_as3os"]
+size = Vector2(62.5, 37)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ny5gj"]
+size = Vector2(8, 75)
 
 [node name="PuzzleRoom3" type="Node2D" unique_id=777621045]
 
@@ -11,3 +321,69 @@ tile_set = ExtResource("1_ryy2w")
 [node name="Walls" type="TileMapLayer" parent="." unique_id=1469668918]
 tile_map_data = PackedByteArray("AAAqADEAAgAFAAEAABAqADIAAgACAAQAABAqADMAAgACAAUAABAqADQAAgACAAYAABAqADUAAgACAAQAABAqADYAAgACAAQAABAqADcAAgACAAUAABAqADgAAgACAAYAABAqADkAAgACAAUAABAqADoAAgACAAYAABAqADsAAgACAAQAABAqADwAAgACAAUAABAqAD0AAgACAAYAABAqAD4AAgACAAQAABAqAD8AAgACAAUAABAqAEAAAgACAAYAABAqAEEAAgAIAAEAAAArADEAAgAFAAwAAAArADIAAgAXABEAAAArADMAAgAXABIAAAArADQAAgAXABMAAAArADUAAgAFABAAAAArAEEAAgAFAAMAAAAsADEAAgAJAAwAAAAsADIAAgAJAA0AAAAsADMAAgAJAA4AAAAsADQAAgAJAA8AAAAsADUAAgAJABAAAAAsAEEAAgAFAAMAAAAtADEAAgAKAAwAAAAtADIAAgAKAA0AAAAtADMAAgAKAA4AAAAtADQAAgAKAA8AAAAtADUAAgAKABAAAAAtAEEAAgAGAAMAAAAuADEAAgAFAAwAAAAuADMAAgAFAA4AAAAuADQAAgAFAA8AAAAuADUAAgAFABAAAAAuAEEAAgAHAAMAAAAvADEAAgAIAAwAABAvADIAAgAGAA0AAAAvADMAAgAGAA4AAAAvADQAAgAGAA8AAAAvADUAAgAIABAAABAvAEEAAgAIAAMAAAAwADEAAgAOAAwAAAAwADIAAgAHAA0AAAAwADMAAgAHAA4AAAAwADQAAgAHAA8AAAAwADUAAgAOABAAAAAwAEEAAgAFAAMAAAAxADEAAgAFAAwAAAAxADIAAgAIAA0AAAAxADMAAgAIAA4AAAAxADQAAgAIAA8AAAAxADUAAgAFABAAAAAxAEEAAgAGAAMAAAAyADEAAgANAAwAAAAyADIAAgALAA0AAAAyADMAAgALAA4AAAAyADQAAgALAA8AAAAyADUAAgANABAAAAAyAEEAAgAGAAMAAAAzADEAAgAMAAwAAAAzADIAAgAGABEAAAAzADMAAgAGABIAAAAzADQAAgAGABMAAAAzADUAAgAMABAAAAAzAEEAAgATAAIAAAA0ADEAAgANAAwAAAA0ADIAAgAHABEAAAA0ADMAAgAHABIAAAA0ADQAAgAHABMAAAA0ADUAAgANABAAAAA1ADEAAgAOAAwAAAA1ADIAAgAMABEAAAA1ADMAAgAMABIAAAA1ADQAAgAMABMAAAA1ADUAAgAOABAAAAA2ADEAAgAFAAwAAAA2ADIAAgANABEAAAA2ADMAAgANABIAAAA2ADQAAgANABMAAAA2ADUAAgAFABAAAAA3ADEAAgAGAAwAAAA3ADIAAgAMAA0AAAA3ADMAAgAMAA4AAAA3ADQAAgAMAA8AAAA3ADUAAgAGABAAAAA3AEEAAgAXAAIAAAA4ADEAAgAHAAwAAAA4ADIAAgAOAA0AAAA4ADMAAgAOAA4AAAA4ADQAAgAOAA8AAAA4ADUAAgAHABAAAAA4AEEAAgAFAAMAAAA5ADEAAgAMAAwAAAA5ADIAAgALAA0AAAA5ADMAAgALAA4AAAA5ADQAAgALAA8AAAA5ADUAAgAMABAAAAA5AEEAAgAGAAMAAAA6ADEAAgAIAAwAAAA6ADIAAgAMAA0AAAA6ADMAAgAMAA4AAAA6ADQAAgAMAA8AAAA6ADUAAgAIABAAAAA6AEEAAgAGAAMAAAA7ADEAAgAMAAwAAAA7ADIAAgANAA0AAAA7ADMAAgANAA4AAAA7ADQAAgANAA8AAAA7ADUAAgAMABAAAAA7AEEAAgAGAAMAAAA8ADEAAgANAAwAAAA8ADIAAgAOAA0AAAA8ADMAAgAOAA4AAAA8ADQAAgAOAA8AAAA8ADUAAgANABAAAAA8AEEAAgAFAAMAAAA9ADEAAgAJAAwAAAA9ADIAAgAJAA0AAAA9ADMAAgAJAA4AAAA9ADQAAgAJAA8AAAA9ADUAAgAJABAAAAA9AEEAAgAGAAMAAAA+ADEAAgAKAAwAAAA+ADIAAgAKAA0AAAA+ADMAAgAKAA4AAAA+ADQAAgAKAA8AAAA+ADUAAgAKABAAAAA+AEEAAgAHAAMAAAA/ADEAAgAOAAwAAAA/ADIAAgAaABEAAAA/ADMAAgAaABIAAAA/ADQAAgAaABMAAAA/ADUAAgAOABAAAAA/AEEAAgAIAAMAAABAADEAAgAFAAEAAABAADIAAgACAAQAAABAADMAAgACAAUAAABAADQAAgACAAYAAABAADUAAgACAAQAAABAADYAAgACAAQAAABAADwAAgACAAUAAABAAD0AAgACAAYAAABAAD4AAgACAAQAAABAAD8AAgACAAUAAABAAEAAAgACAAYAAABAAEEAAgALAAEAAAAuADIAAgAFAA0AAAAzAEAAAgATAAEAAAA0AEAAAgAUAAEAAAA1AEAAAgAVAAEAAAA2AEAAAgAWAAEAAAA3AEAAAgAXAAEAAABAADcAAgACAAUAAABAADgAAgACAAYAAABAADkAAgACAAUAAABAADoAAgACAAYAAABAADsAAgACAAQAAAA=")
 tile_set = ExtResource("1_ryy2w")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Walls" unique_id=127828036]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/StaticBody2D" unique_id=1523473215]
+position = Vector2(857.5, 820)
+shape = SubResource("RectangleShape2D_wc1j8")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls/StaticBody2D" unique_id=607476160]
+position = Vector2(681, 919.25)
+shape = SubResource("RectangleShape2D_r7j0v")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Walls/StaticBody2D" unique_id=120515013]
+position = Vector2(1028, 916)
+shape = SubResource("RectangleShape2D_r7j0v")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Walls/StaticBody2D" unique_id=654282536]
+position = Vector2(750, 1048)
+shape = SubResource("RectangleShape2D_g7mvb")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Walls/StaticBody2D" unique_id=278068994]
+position = Vector2(954, 1048)
+shape = SubResource("RectangleShape2D_g7mvb")
+
+[node name="Cell" type="TileMapLayer" parent="." unique_id=47054908]
+tile_map_data = PackedByteArray("AAA+ADkAAAADABAAAAA+ADoAAAADABEAAAA/ADkAAAADABAAAAA/ADoAAAADABEAAAA6ADkAAAADABAAAAA6ADoAAAADABEAAAA5ADkAAAADABAAAAA5ADoAAAADABEAAAA7ADkAAAADABAAAAA8ADgAAAAIABIAAAA9ADgAAAAIABIAAAA7ADgAAAADAA8AAAA7ADoAAAADABEAAAA6ADgAAAADAA8AAAA5ADgAAAADAA8AAAA+ADgAAAADAA8AAAA/ADgAAAADAA8AAABAADgAAAAEAA8AAABAADkAAAAEABAAAABAADoAAAAEABEAAAA4ADUAAAACAA0AAAA4ADYAAAACAA0AAAA4ADcAAAACAA4AAAA4ADgAAAAFAA8AAAA4ADoAAAAFABEAAAA4ADkAAAAFABAAAAA=")
+tile_set = SubResource("TileSet_g7mvb")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Cell" unique_id=2049809937]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Cell/StaticBody2D" unique_id=2036374850]
+position = Vector2(1014, 919)
+shape = SubResource("RectangleShape2D_0l7ns")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Cell/StaticBody2D/CollisionShape2D2" unique_id=452416219]
+position = Vector2(-24, -23)
+scale = Vector2(0.8296773, 0.06276267)
+occluder = SubResource("OccluderPolygon2D_0l7ns")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cell/StaticBody2D" unique_id=293001178]
+position = Vector2(931.75, 918.5)
+shape = SubResource("RectangleShape2D_as3os")
+
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="Cell/StaticBody2D/CollisionShape2D" unique_id=299473167]
+position = Vector2(-23.75, -19.5)
+scale = Vector2(1.6605042, -0.052125953)
+occluder = SubResource("OccluderPolygon2D_0l7ns")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Cell/StaticBody2D" unique_id=1420920208]
+position = Vector2(904, 888)
+shape = SubResource("RectangleShape2D_ny5gj")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Cell/StaticBody2D/CollisionShape2D3" unique_id=188922780]
+position = Vector2(5.000001, -42)
+scale = Vector2(0.24434347, 1.0740416)
+occluder = SubResource("OccluderPolygon2D_0l7ns")
+
+[node name="Player" parent="." unique_id=628625629 instance=ExtResource("3_0l7ns")]
+position = Vector2(882, 1023)
+scale = Vector2(0.6015718, 0.6828813)
+
+[node name="DungeonDoor" parent="." unique_id=641023668 instance=ExtResource("4_0l7ns")]
+position = Vector2(976, 922)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1330082703]
+position = Vector2(486, 477)
+color = Color(0.10019137, 0.08478504, 0.12660226, 0.9647059)

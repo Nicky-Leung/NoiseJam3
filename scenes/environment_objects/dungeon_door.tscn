@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://dgngt1ans4vwq"]
+
+[ext_resource type="Script" uid="uid://bigf6akaflifu" path="res://scripts/environment_object_scripts/dungeon_door.gd" id="1_qqy0x"]
+[ext_resource type="Texture2D" uid="uid://b5b6187mmojc6" path="res://assets/sprites/doors_lever_chest_animation.png" id="1_uqdlo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yiapc"]
+atlas = ExtResource("1_uqdlo")
+region = Rect2(128, 64, 32, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uq7l4"]
+atlas = ExtResource("1_uqdlo")
+region = Rect2(96, 64, 32, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gscjx"]
+atlas = ExtResource("1_uqdlo")
+region = Rect2(64, 64, 32, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8s2n1"]
+atlas = ExtResource("1_uqdlo")
+region = Rect2(32, 64, 32, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4nf7e"]
+atlas = ExtResource("1_uqdlo")
+region = Rect2(0, 64, 32, 31)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nu6q5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yiapc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uq7l4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gscjx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8s2n1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4nf7e")
+}],
+"loop": false,
+"name": &"close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4nf7e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8s2n1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gscjx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uq7l4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yiapc")
+}],
+"loop": false,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uqdlo"]
+size = Vector2(32, 30.739342)
+
+[node name="DungeonDoor" type="AnimatedSprite2D" unique_id=641023668]
+sprite_frames = SubResource("SpriteFrames_nu6q5")
+animation = &"open"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1289417040]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1236766804]
+shape = SubResource("RectangleShape2D_uqdlo")
+
+[node name="Interactable" type="Area2D" parent="." unique_id=1155284340 node_paths=PackedStringArray("parent_collider")]
+collision_layer = 8
+script = ExtResource("1_qqy0x")
+parent_collider = NodePath("../StaticBody2D/CollisionShape2D")
+description = "HI"
+
+[node name="Hitbox" type="CollisionShape2D" parent="Interactable" unique_id=1158793764]
+position = Vector2(0, 13)
+scale = Vector2(1, 1.8800024)
+shape = SubResource("RectangleShape2D_uqdlo")
+
+[connection signal="animation_finished" from="." to="Interactable" method="_on_Door_animation_finished"]
