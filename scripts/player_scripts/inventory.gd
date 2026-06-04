@@ -3,7 +3,7 @@ class_name Inventory
 
 const key_item_desc: String = "Perhaps this could be used somewhere?"
 const medkit_name: String = "MedKit"
-const medkit_desc: String = "Use to fully heal health"
+const medkit_desc: String = "Use to heal to max health"
 const battery_name: String = "Battery"
 const battery_desc: String = "Use to refill flashlight charge"
 const trap_name: String = "Trap"
@@ -148,17 +148,18 @@ func _set_items(direction: int): # -ve for left, 0 for no move, +ve for right
 		middle_icon.texture = items[selected]
 		right_icon.texture = items[keys[right]]
 
+func _to_shown_name(item_name: String) -> String:
+	if item_name == medkit_name: return "%s (%d/%d)" % [item_name, medkit_count, max_medkits]
+	elif item_name == trap_name: return "%s (%d/%d)" % [item_name, trap_count, max_traps]
+	elif item_name == battery_name: return "%s (%d/%d)" % [item_name, battery_count, max_batteries]
+	else: return item_name
+
 func _get_description(item_name: String) -> String:
 	if item_name == medkit_name: return medkit_desc
 	elif item_name == battery_name: return battery_desc
 	elif item_name == trap_name: return trap_desc
+	elif item_name == "": return ""
 	return key_item_desc
-
-func _get_consumable_max(item_name: String) -> int:
-	if item_name == medkit_name: return max_medkits
-	elif item_name == battery_name: return battery_count
-	elif item_name == trap_name: return trap_count
-	return 0
 
 # Tween functions -> do animations first, then figure out logic on how to cycle btn everything
 func cycle_left():
@@ -183,6 +184,8 @@ func cycle_left():
 	add_child(new_L)
 
 	get_node("Container").visible = false
+	name_label.visible = false
+	desc_label.visible = false
 
 	# do animations with duplicates
 	running_tween = create_tween()
@@ -198,6 +201,12 @@ func cycle_left():
 	running_tween.set_parallel(false)
 	running_tween.tween_callback(func():
 		get_node("Container").visible = true
+
+		name_label.text = _to_shown_name(selected)
+		desc_label.text = _get_description(selected)
+		name_label.visible = true
+		desc_label.visible = true
+
 		L.queue_free()
 		M.queue_free()
 		R.queue_free()
@@ -228,6 +237,8 @@ func cycle_right():
 	add_child(new_R)
 
 	get_node("Container").visible = false
+	name_label.visible = false
+	desc_label.visible = false
 
 	# do animations with duplicates
 	running_tween = create_tween()
@@ -243,6 +254,12 @@ func cycle_right():
 	running_tween.set_parallel(false)
 	running_tween.tween_callback(func():
 		get_node("Container").visible = true
+
+		name_label.text = _to_shown_name(selected)
+		desc_label.text = _get_description(selected)
+		name_label.visible = true
+		desc_label.visible = true
+
 		L.queue_free()
 		M.queue_free()
 		R.queue_free()
@@ -254,6 +271,8 @@ func open():
 	if running_tween && running_tween.is_running(): return
 	var original_pos = position
 	position.y = original_pos.y + 400
+	name_label.visible = false
+	desc_label.visible = false
 	visible = true
 
 	_set_items(0)
@@ -262,6 +281,8 @@ func open():
 	running_tween.tween_callback(func():
 		name_label.visible = true
 		desc_label.visible = true
+		name_label.text = _to_shown_name(selected)
+		desc_label.text = _get_description(selected)
 	)
 	running_tween.play()
 
