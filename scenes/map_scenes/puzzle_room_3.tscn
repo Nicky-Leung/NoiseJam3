@@ -3,6 +3,7 @@
 [ext_resource type="TileSet" uid="uid://bfc70hpaf234h" path="res://assets/tileset/main_tile_set.tres" id="1_ryy2w"]
 [ext_resource type="Texture2D" uid="uid://3x1xknm2b2t7" path="res://assets/tileset/walls_floor.png" id="2_wc1j8"]
 [ext_resource type="PackedScene" uid="uid://dkag3nwr7uqd8" path="res://scenes/player_scenes/player.tscn" id="3_0l7ns"]
+[ext_resource type="PackedScene" uid="uid://baot35gh10g7t" path="res://scenes/enemy_scenes/lamb.tscn" id="3_r7j0v"]
 [ext_resource type="PackedScene" uid="uid://dgngt1ans4vwq" path="res://scenes/environment_objects/dungeon_door.tscn" id="4_0l7ns"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wc1j8"]
@@ -367,6 +368,9 @@ shape = SubResource("RectangleShape2D_as3os")
 position = Vector2(-23.75, -19.5)
 scale = Vector2(1.6605042, -0.052125953)
 occluder = SubResource("OccluderPolygon2D_0l7ns")
+
+[node name="CharacterBody2D" parent="Cell/StaticBody2D/CollisionShape2D" unique_id=876160626 instance=ExtResource("3_r7j0v")]
+position = Vector2(-2.75, -53.5)
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Cell/StaticBody2D" unique_id=1420920208]
 position = Vector2(904, 888)
