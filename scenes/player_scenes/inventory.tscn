@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://w04cal3dr7pr" path="res://assets/sprites/temp_sprites/temp_battery.png" id="3_37vb7"]
 [ext_resource type="Texture2D" uid="uid://b7v3q3g4rwb88" path="res://assets/tileset/trap.tres" id="4_j21a5"]
 [ext_resource type="Theme" uid="uid://yfrti8gy2ey2" path="res://resources/theme/Ui.tres" id="5_mhtwu"]
+[ext_resource type="AudioStream" uid="uid://dbou5m8cuagd6" path="res://assets/sfx/player/inventoryOpen.mp3" id="6_37vb7"]
+[ext_resource type="AudioStream" uid="uid://d2ehjbabboygl" path="res://assets/sfx/player/inventorySwipe.mp3" id="6_shujo"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e5pdh"]
 draw_center = false
@@ -32,6 +34,8 @@ script = ExtResource("1_nfnwa")
 medkit_sprite = ExtResource("2_shujo")
 battery_sprite = ExtResource("3_37vb7")
 trap_sprite = ExtResource("4_j21a5")
+swipe_sound = ExtResource("6_shujo")
+open_sound = ExtResource("6_37vb7")
 
 [node name="Container" type="HBoxContainer" parent="." unique_id=1473806215]
 layout_mode = 1
@@ -122,3 +126,7 @@ theme_override_font_sizes/font_size = 48
 text = "Use to refill flashlight charge"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="." unique_id=851056530]
+stream = ExtResource("6_shujo")
+max_polyphony = 3

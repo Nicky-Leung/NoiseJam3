@@ -17,6 +17,8 @@ signal battery_consumed
 @export var medkit_sprite: Texture2D = null
 @export var battery_sprite: Texture2D = null
 @export var trap_sprite: Texture2D = null
+@export var swipe_sound: AudioStream = null
+@export var open_sound: AudioStream = null
 
 # Starting variables
 @export var container_sep: int = 50
@@ -32,6 +34,7 @@ signal battery_consumed
 @onready var left_icon: TextureRect = $Container/Item1/Icon
 @onready var middle_icon: TextureRect = $Container/Item2/Icon
 @onready var right_icon: TextureRect = $Container/Item3/Icon
+@onready var audio_player: AudioStreamPlayer2D = $AudioPlayer
 
 # Run time variables
 var move_length: int = 0
@@ -236,6 +239,8 @@ func cycle_left():
 		new_L.queue_free()
 	)
 	running_tween.play()
+	audio_player.stream = swipe_sound
+	HELPERS.play_audio(audio_player, 0.95, 1.05)
 
 func cycle_right():
 	if (running_tween && running_tween.is_running()) || items.size() <= 1: return
@@ -289,6 +294,8 @@ func cycle_right():
 		new_R.queue_free()
 	)
 	running_tween.play()
+	audio_player.stream = swipe_sound
+	HELPERS.play_audio(audio_player, 0.95, 1.05)
 
 func open():
 	if running_tween && running_tween.is_running(): return
@@ -308,6 +315,8 @@ func open():
 		desc_label.text = _get_description(selected)
 	)
 	running_tween.play()
+	audio_player.stream = open_sound
+	HELPERS.play_audio(audio_player)
 
 func close():
 	if running_tween && running_tween.is_running(): return
