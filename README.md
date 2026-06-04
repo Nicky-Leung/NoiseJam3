@@ -36,6 +36,8 @@ https://pixabay.com/sound-effects/film-special-effects-item-equip-6904/
 https://pixabay.com/sound-effects/film-special-effects-duct-tape-1-86753/
 https://pixabay.com/sound-effects/film-special-effects-paper-rustle-81855/
 https://pixabay.com/sound-effects/film-special-effects-system-notification-199277/
+https://pixabay.com/sound-effects/film-special-effects-whoosh-03-410868/
+https://pixabay.com/sound-effects/film-special-effects-zipper-zip-83542/
 https://freesound.org/people/kwahmah_02/sounds/274752/
 
 #Tiles and Sprites

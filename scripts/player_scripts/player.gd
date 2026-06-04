@@ -5,6 +5,7 @@ class_name Player
 signal player_died(killer: Enemy)
 
 # Components
+@onready var inventory: Inventory = $Overlay/Inventory
 @onready var flashlight = $Flashlight
 @onready var sprite = $Sprite
 @onready var interact_ray = $InteractRay
@@ -22,18 +23,17 @@ signal player_died(killer: Enemy)
 @export var sprint_multiplier = 1.5
 @export var backward_speed: int = 75
 @export var turn_rate: float = 7.5
-@export var max_batteries: int = 3
-@export var max_medkits: int = 3
-@export var max_traps: int = 3
 
 # Runtime variables
-var battery_count: int = 3 # IMPORTANT: FOR TESTING THIS IS > 0, BUT IN ACTUAL GAMEPLAY WE START WITH 0
-var medkit_count: int = 3 # IMPORTANT: FOR TESTING THIS IS > 0, BUT IN ACTUAL GAMEPLAY WE START WITH 0
-var trap_count: int = 1 # IMPORTANT: FOR TESTING THIS IS > 0, BUT IN ACTUAL GAMEPLAY WE START WITH 0
 var health: int = max_health
 var is_sprinting: bool = false
 var input_vector: Vector2 = Vector2.ZERO
 var facing_direction: Vector2 = Vector2.ZERO
+
+func _ready():
+	inventory.medkit_consumed.connect(full_heal)
+	inventory.trap_consumed.connect(place_trap)
+	inventory.battery_consumed.connect(replace_battery)
 
 func _process(_delta: float) -> void:
 	if velocity.length() > 0:
@@ -61,24 +61,21 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _input(event: InputEvent) -> void:
-	if event is not InputEventKey && event is not InputEventMouseButton:
+	if event is not InputEventKey && event is not InputEventMouseButton: return
+	if inventory.is_open:
+		input_vector = Vector2.ZERO
 		return
 
 	input_vector = Input.get_vector(INPUTS.LEFT, INPUTS.RIGHT, INPUTS.UP, INPUTS.DOWN)
 	is_sprinting = Input.is_action_pressed(INPUTS.SPRINT)
 
 	if Input.is_action_just_pressed(INPUTS.TOGGLE_LIGHT): flashlight.toggle()
-	if Input.is_action_just_pressed(INPUTS.RELOAD): replace_battery()
-	if Input.is_action_just_pressed(INPUTS.PLACE_OBJECT): place_trap()
-
 	if Input.is_action_just_pressed(INPUTS.INTERACT) && interact_ray.is_colliding():
 		var collider = interact_ray.get_collider()
 		if collider is Interactable:
 			collider.interact(self)
 
-func use_medkit():
-	if medkit_count <= 0: return
-	medkit_count -= 1
+func full_heal():
 	health = max_health
 	HELPERS.play_audio(healSFX, 0.9, 1.1)
 
@@ -86,34 +83,10 @@ func damage(amount: int): # called for environmental hazards
 	health -= amount
 	if health <= 0: player_died.emit(null)
 
-func try_add_medkit() -> bool:
-	if medkit_count == max_medkits:
-		return false
-	medkit_count += 1
-	return true
-
-func try_add_battery() -> bool: # assumes items on floor only ever 1
-	if battery_count == max_batteries:
-		# add some ui on screen saying inventory full
-		return false
-	battery_count += 1
-	return true
-
-func try_add_trap() -> bool:
-	if trap_count == max_traps: # only allow 1 trap at a time for now, can change later if we want
-		return false
-	trap_count += 1
-	return true
-
-
 func replace_battery():
-	if battery_count <= 0: return
-	battery_count -= 1
 	flashlight.refill_battery()
 
-func place_trap():
-	if trap_count <= 0: return
-	trap_count -= 1
+func place_trap(): # TODO: Trap isn't placing?
 	var trap = trap_scene.instantiate()
 	trap.global_position = global_position + facing_direction * 16
 	get_parent().add_child(trap)

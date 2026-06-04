@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://dg0ok5jq1kd4c" path="res://scenes/ui/hud.tscn" id="6_tuyoq"]
 [ext_resource type="PackedScene" uid="uid://dngvwmewl88h1" path="res://scenes/components/enemy_alerter.tscn" id="9_mm880"]
 [ext_resource type="AudioStream" uid="uid://jydv3l3epbrr" path="res://assets/sfx/player/hurt.mp3" id="12_ou8ok"]
+[ext_resource type="PackedScene" uid="uid://bqkdw6kqtd3kx" path="res://scenes/player_scenes/inventory.tscn" id="12_whhsb"]
 [ext_resource type="AudioStream" uid="uid://bhcvrxywqgqfe" path="res://assets/sfx/player/healSFX.mp3" id="13_5ro12"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qlg0r"]
@@ -260,6 +261,8 @@ collide_with_areas = true
 [node name="Overlay" type="CanvasLayer" parent="." unique_id=1767384843]
 
 [node name="Hud" parent="Overlay" unique_id=1607470276 instance=ExtResource("6_tuyoq")]
+
+[node name="Inventory" parent="Overlay" unique_id=1444212898 instance=ExtResource("12_whhsb")]
 
 [node name="IFrameTimer" type="Timer" parent="." unique_id=19171508]
 wait_time = 1.5
