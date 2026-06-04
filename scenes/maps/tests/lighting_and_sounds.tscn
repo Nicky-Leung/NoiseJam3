@@ -22,6 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://w04cal3dr7pr" path="res://assets/sprites/temp_sprites/temp_battery.png" id="20_ulk06"]
 [ext_resource type="Texture2D" uid="uid://dpfwj0h6ppeh6" path="res://assets/sprites/temp_sprites/temp_medkit.png" id="21_ulk06"]
 [ext_resource type="PackedScene" uid="uid://y6qgwf18h0bh" path="res://scenes/environment_objects/readable.tscn" id="22_5aceh"]
+[ext_resource type="Texture2D" uid="uid://b7v3q3g4rwb88" path="res://assets/tileset/trap.tres" id="23_vs00i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tpqdd"]
 size = Vector2(50, 50)
@@ -32,7 +33,7 @@ polygon = PackedVector2Array(0, 0, 50, 0, 50, 50, 0, 50)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_orjbe"]
 size = Vector2(600, 600)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_5aceh"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_pwcmo"]
 viewport_path = NodePath("SpriteViewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mjy37"]
@@ -234,7 +235,7 @@ area2d_sound_zone = NodePath("..")
 position = Vector2(461, 418)
 
 [node name="Sprite" parent="CensoredSin" index="0" unique_id=1821370934]
-texture = SubResource("ViewportTexture_5aceh")
+texture = SubResource("ViewportTexture_pwcmo")
 
 [node name="Collider" parent="CensoredSin" index="2" unique_id=1785174278 groups=["navigation_polygon_source_geometry_group"]]
 
@@ -267,6 +268,11 @@ item_sprite = ExtResource("20_ulk06")
 position = Vector2(270, 50)
 item = 1
 item_sprite = ExtResource("21_ulk06")
+
+[node name="Pickup3" parent="." unique_id=1449239136 instance=ExtResource("19_fokgv")]
+position = Vector2(159, 116)
+item = 2
+item_sprite = ExtResource("23_vs00i")
 
 [node name="Readable" parent="." unique_id=536321432 node_paths=PackedStringArray("readable_menu") instance=ExtResource("22_5aceh")]
 position = Vector2(277, 189)

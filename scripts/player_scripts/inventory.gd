@@ -14,6 +14,7 @@ const trap_desc: String = "Use to drop a trap directly under you"
 @export var trap_sprite: Texture2D = null
 
 # Starting variables
+@export var container_sep: int = 50
 @export var transitions_time: float = 0.25
 @export var max_batteries: int = 3
 @export var max_medkits: int = 2
@@ -30,7 +31,7 @@ const trap_desc: String = "Use to drop a trap directly under you"
 # Run time variables
 var move_length: int = 0
 var running_tween: Tween = null
-var key_items: Dictionary[String, Texture] = {} # Name of key item + sprite of key item
+var items: Dictionary[String, Texture] = {} # Name of key item + sprite of key item
 var selected: String = ""
 var is_open: bool:
 	get: return visible
@@ -43,7 +44,7 @@ func _ready():
 	visible = false
 	left_icon.scale = Vector2.ONE * 0.5
 	right_icon.scale = Vector2.ONE * 0.5
-	move_length = left_icon.get_parent().custom_minimum_size.x + container.get_theme_constant("separation", "BoxContainer")
+	move_length = left_icon.get_parent().custom_minimum_size.x + container_sep
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed(INPUTS.INVENTORY):
@@ -57,21 +58,23 @@ func _input(_event: InputEvent) -> void:
 
 # Inventory functions
 func add_key_item(key_item_name: String, sprite: Texture):
-	key_items[key_item_name] = sprite
+	items[key_item_name] = sprite
 
 func remove_key_item(key_item_name: String):
-	key_items.erase(key_item_name)
+	items.erase(key_item_name)
 
 func try_change_medkit(is_adding: bool) -> bool:
 	if is_adding:
 		if medkit_count == max_medkits:
 			return false
 		medkit_count += 1
+		if !items.has(medkit_name): items[medkit_name] = medkit_sprite
 		return true
 	else:
 		if medkit_count <= 0:
 			return false
 		medkit_count -= 1
+		if medkit_count == 0: items.erase(medkit_name)
 		return true
 
 func try_change_battery(is_adding: bool) -> bool: # assumes items on floor only ever 1
@@ -80,11 +83,13 @@ func try_change_battery(is_adding: bool) -> bool: # assumes items on floor only 
 			# add some ui on screen saying inventory full
 			return false
 		battery_count += 1
+		if !items.has(battery_name): items[battery_name] = battery_sprite
 		return true
 	else:
 		if battery_count <= 0:
 			return false
 		battery_count -= 1
+		if battery_count == 0: items.erase(battery_name)
 		return true
 
 func try_change_trap(is_adding: bool) -> bool:
@@ -92,14 +97,57 @@ func try_change_trap(is_adding: bool) -> bool:
 		if trap_count == max_traps:
 			return false
 		trap_count += 1
+		if !items.has(trap_name): items[trap_name] = trap_sprite
 		return true
 	else:
 		if trap_count <= 0:
 			return false
 		trap_count -= 1
+		if trap_count == 0: items.erase(trap_name)
 		return true
 
 # Helper functions
+func _set_items(direction: int): # -ve for left, 0 for no move, +ve for right
+	if items.size() == 0:
+		left_icon.texture = null
+		right_icon.texture = null
+		middle_icon.texture = null
+		return
+
+	var previous_selected = selected
+	var keys = items.keys()
+	var prev_index = keys.find(selected)
+
+	if direction < 0 && items.size() > 1:
+		var current_index = prev_index - 1 if prev_index > 0 else items.size() - 1
+		var next_index = current_index - 1 if current_index > 0 else items.size() - 1
+		left_icon.texture = items[keys[next_index]]
+		middle_icon.texture = items[keys[current_index]]
+		right_icon.texture = items[previous_selected]
+		selected = keys[current_index]
+
+	elif direction > 0 && items.size() > 1:
+		var current_index = prev_index + 1 if prev_index < items.size() - 1  else 0
+		var next_index = current_index + 1 if current_index < items.size() - 1 else 0
+		left_icon.texture = items[previous_selected]
+		middle_icon.texture = items[keys[current_index]]
+		right_icon.texture = items[keys[next_index]]
+		selected = keys[current_index]
+
+	else: # assumes this is called before left/right versions are called (always happens cause it's called on inventory open)
+		selected = keys[prev_index] if prev_index != -1 else keys[0]
+		prev_index = 0 if prev_index == -1 else prev_index
+		if items.size() == 1:
+			middle_icon.texture = items[items.keys()[0]]
+			left_icon.texture = null
+			right_icon.texture = null
+			return
+		var left = prev_index - 1 if prev_index > 0 else items.size() - 1
+		var right = prev_index + 1 if prev_index < items.size() - 1 else 0
+		left_icon.texture = items[keys[left]]
+		middle_icon.texture = items[selected]
+		right_icon.texture = items[keys[right]]
+
 func _get_description(item_name: String) -> String:
 	if item_name == medkit_name: return medkit_desc
 	elif item_name == battery_name: return battery_desc
@@ -114,11 +162,13 @@ func _get_consumable_max(item_name: String) -> int:
 
 # Tween functions -> do animations first, then figure out logic on how to cycle btn everything
 func cycle_left():
-	if running_tween && running_tween.is_running(): return
+	if (running_tween && running_tween.is_running()) || items.size() <= 1: return
+
 	# duplicate icons
 	var L = left_icon.duplicate()
 	var M = middle_icon.duplicate()
 	var R = right_icon.duplicate()
+
 	L.position = left_icon.get_parent().position
 	M.position = middle_icon.get_parent().position
 	R.position = right_icon.get_parent().position
@@ -126,12 +176,13 @@ func cycle_left():
 	add_child(M)
 	add_child(R)
 
-	# set underlying icons
+	_set_items(-1)
+	var new_L = left_icon.duplicate()
+	new_L.position = right_icon.get_parent().position + Vector2.LEFT * move_length
+	new_L.scale = Vector2.ZERO
+	add_child(new_L)
+
 	get_node("Container").visible = false
-	var R_texture = right_icon.texture
-	right_icon.texture = middle_icon.texture
-	middle_icon.texture = left_icon.texture
-	left_icon.texture = R_texture
 
 	# do animations with duplicates
 	running_tween = create_tween()
@@ -142,21 +193,26 @@ func cycle_left():
 	running_tween.tween_property(M, "scale", Vector2.ONE * 0.5, transitions_time / 2)
 	running_tween.tween_property(R, "position", R.position + Vector2.RIGHT * move_length, transitions_time / 2)
 	running_tween.tween_property(R, "scale", Vector2.ZERO, transitions_time / 2)
+	running_tween.tween_property(new_L, "position", new_L.position + Vector2.RIGHT * move_length, transitions_time / 2)
+	running_tween.tween_property(new_L, "scale", Vector2.ONE * 0.5, transitions_time / 2)
 	running_tween.set_parallel(false)
 	running_tween.tween_callback(func():
 		get_node("Container").visible = true
 		L.queue_free()
 		M.queue_free()
 		R.queue_free()
+		new_L.queue_free()
 	)
 	running_tween.play()
 
 func cycle_right():
-	if running_tween && running_tween.is_running(): return
+	if (running_tween && running_tween.is_running()) || items.size() <= 1: return
+
 	# duplicate icons
 	var L = left_icon.duplicate()
 	var M = middle_icon.duplicate()
 	var R = right_icon.duplicate()
+
 	L.position = left_icon.get_parent().position
 	M.position = middle_icon.get_parent().position
 	R.position = right_icon.get_parent().position
@@ -165,11 +221,13 @@ func cycle_right():
 	add_child(R)
 
 	# set underlying icons
+	_set_items(1)
+	var new_R = right_icon.duplicate()
+	new_R.position = right_icon.get_parent().position + Vector2.RIGHT * move_length
+	new_R.scale = Vector2.ZERO
+	add_child(new_R)
+
 	get_node("Container").visible = false
-	var L_texture = left_icon.texture
-	left_icon.texture = middle_icon.texture
-	middle_icon.texture = right_icon.texture
-	right_icon.texture = L_texture
 
 	# do animations with duplicates
 	running_tween = create_tween()
@@ -180,12 +238,15 @@ func cycle_right():
 	running_tween.tween_property(M, "scale", Vector2.ONE * 0.5, transitions_time / 2)
 	running_tween.tween_property(R, "position", R.position + Vector2.LEFT * move_length, transitions_time / 2)
 	running_tween.tween_property(R, "scale", Vector2.ONE, transitions_time / 2)
+	running_tween.tween_property(new_R, "position", new_R.position + Vector2.LEFT * move_length, transitions_time / 2)
+	running_tween.tween_property(new_R, "scale", Vector2.ONE * 0.5, transitions_time / 2)
 	running_tween.set_parallel(false)
 	running_tween.tween_callback(func():
 		get_node("Container").visible = true
 		L.queue_free()
 		M.queue_free()
 		R.queue_free()
+		new_R.queue_free()
 	)
 	running_tween.play()
 
@@ -195,6 +256,7 @@ func open():
 	position.y = original_pos.y + 400
 	visible = true
 
+	_set_items(0)
 	running_tween = create_tween()
 	running_tween.tween_property(self, "position", original_pos, transitions_time)
 	running_tween.tween_callback(func():
