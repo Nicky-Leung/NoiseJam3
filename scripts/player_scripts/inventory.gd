@@ -20,13 +20,15 @@ const trap_desc: String = "Use to drop a trap directly under you"
 @export var max_traps: int = 1
 
 # Components
-@onready var name_label = $Name
-@onready var desc_label = $Description
-@onready var left_icon = $Container/Item1/Icon
-@onready var middle_icon = $Container/Item2/Icon
-@onready var right_icon = $Container/Item3/Icon
+@onready var name_label: Label = $Name
+@onready var desc_label: Label = $Description
+@onready var container: HBoxContainer = $Container
+@onready var left_icon: TextureRect = $Container/Item1/Icon
+@onready var middle_icon: TextureRect = $Container/Item2/Icon
+@onready var right_icon: TextureRect = $Container/Item3/Icon
 
 # Run time variables
+var move_length: int = 0
 var running_tween: Tween = null
 var key_items: Dictionary[String, Texture] = {} # Name of key item + sprite of key item
 var selected: String = ""
@@ -41,6 +43,7 @@ func _ready():
 	visible = false
 	left_icon.scale = Vector2.ONE * 0.5
 	right_icon.scale = Vector2.ONE * 0.5
+	move_length = left_icon.get_parent().custom_minimum_size.x + container.get_theme_constant("separation", "BoxContainer")
 
 func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed(INPUTS.INVENTORY):
@@ -112,14 +115,84 @@ func _get_consumable_max(item_name: String) -> int:
 # Tween functions -> do animations first, then figure out logic on how to cycle btn everything
 func cycle_left():
 	if running_tween && running_tween.is_running(): return
+	# duplicate icons
+	var L = left_icon.duplicate()
+	var M = middle_icon.duplicate()
+	var R = right_icon.duplicate()
+	L.position = left_icon.get_parent().position
+	M.position = middle_icon.get_parent().position
+	R.position = right_icon.get_parent().position
+	add_child(L)
+	add_child(M)
+	add_child(R)
+
+	# set underlying icons
+	get_node("Container").visible = false
+	var R_texture = right_icon.texture
+	right_icon.texture = middle_icon.texture
+	middle_icon.texture = left_icon.texture
+	left_icon.texture = R_texture
+
+	# do animations with duplicates
+	running_tween = create_tween()
+	running_tween.set_parallel(true)
+	running_tween.tween_property(L, "position", L.position + Vector2.RIGHT * move_length, transitions_time / 2)
+	running_tween.tween_property(L, "scale", Vector2.ONE, transitions_time / 2)
+	running_tween.tween_property(M, "position", M.position + Vector2.RIGHT * move_length, transitions_time / 2)
+	running_tween.tween_property(M, "scale", Vector2.ONE * 0.5, transitions_time / 2)
+	running_tween.tween_property(R, "position", R.position + Vector2.RIGHT * move_length, transitions_time / 2)
+	running_tween.tween_property(R, "scale", Vector2.ZERO, transitions_time / 2)
+	running_tween.set_parallel(false)
+	running_tween.tween_callback(func():
+		get_node("Container").visible = true
+		L.queue_free()
+		M.queue_free()
+		R.queue_free()
+	)
+	running_tween.play()
 
 func cycle_right():
 	if running_tween && running_tween.is_running(): return
+	# duplicate icons
+	var L = left_icon.duplicate()
+	var M = middle_icon.duplicate()
+	var R = right_icon.duplicate()
+	L.position = left_icon.get_parent().position
+	M.position = middle_icon.get_parent().position
+	R.position = right_icon.get_parent().position
+	add_child(L)
+	add_child(M)
+	add_child(R)
+
+	# set underlying icons
+	get_node("Container").visible = false
+	var L_texture = left_icon.texture
+	left_icon.texture = middle_icon.texture
+	middle_icon.texture = right_icon.texture
+	right_icon.texture = L_texture
+
+	# do animations with duplicates
+	running_tween = create_tween()
+	running_tween.set_parallel(true)
+	running_tween.tween_property(L, "position", L.position + Vector2.LEFT * move_length, transitions_time / 2)
+	running_tween.tween_property(L, "scale", Vector2.ZERO, transitions_time / 2)
+	running_tween.tween_property(M, "position", M.position + Vector2.LEFT * move_length, transitions_time / 2)
+	running_tween.tween_property(M, "scale", Vector2.ONE * 0.5, transitions_time / 2)
+	running_tween.tween_property(R, "position", R.position + Vector2.LEFT * move_length, transitions_time / 2)
+	running_tween.tween_property(R, "scale", Vector2.ONE, transitions_time / 2)
+	running_tween.set_parallel(false)
+	running_tween.tween_callback(func():
+		get_node("Container").visible = true
+		L.queue_free()
+		M.queue_free()
+		R.queue_free()
+	)
+	running_tween.play()
 
 func open():
 	if running_tween && running_tween.is_running(): return
 	var original_pos = position
-	position.y = 1200
+	position.y = original_pos.y + 400
 	visible = true
 
 	running_tween = create_tween()
@@ -137,7 +210,7 @@ func close():
 	desc_label.visible = false
 
 	running_tween = create_tween()
-	running_tween.tween_property(self, "position", original_pos + Vector2.DOWN * 1200, transitions_time)
+	running_tween.tween_property(self, "position", original_pos + Vector2.DOWN * 400, transitions_time)
 	running_tween.tween_callback(func():
 		visible = false
 		position = original_pos

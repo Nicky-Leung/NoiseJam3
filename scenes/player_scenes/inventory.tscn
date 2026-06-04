@@ -51,7 +51,7 @@ layout_mode = 2
 layout_mode = 0
 offset_right = 150.0
 offset_bottom = 150.0
-pivot_offset = Vector2(150, 150)
+pivot_offset = Vector2(75, 75)
 texture = ExtResource("2_shujo")
 expand_mode = 2
 
@@ -63,7 +63,7 @@ layout_mode = 2
 layout_mode = 0
 offset_right = 150.0
 offset_bottom = 150.0
-pivot_offset = Vector2(150, 150)
+pivot_offset = Vector2(75, 75)
 texture = ExtResource("3_37vb7")
 expand_mode = 2
 
@@ -76,7 +76,7 @@ texture_filter = 1
 layout_mode = 0
 offset_right = 150.0
 offset_bottom = 150.0
-pivot_offset = Vector2(150, 150)
+pivot_offset = Vector2(75, 75)
 texture = ExtResource("4_j21a5")
 expand_mode = 2
 
