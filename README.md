@@ -36,3 +36,9 @@ https://pixabay.com/sound-effects/film-special-effects-item-equip-6904/
 https://pixabay.com/sound-effects/film-special-effects-duct-tape-1-86753/
 https://pixabay.com/sound-effects/film-special-effects-paper-rustle-81855/
 https://pixabay.com/sound-effects/film-special-effects-system-notification-199277/
+https://freesound.org/people/kwahmah_02/sounds/274752/
+
+#Tiles and Sprites
+https://craftpix.net/freebies/free-top-down-animals-farm-pixel-art-sprites/
+https://craftpix.net/freebies/free-2d-top-down-pixel-dungeon-asset-pack/
+https://szadiart.itch.io/rogue-fantasy-catacombs
