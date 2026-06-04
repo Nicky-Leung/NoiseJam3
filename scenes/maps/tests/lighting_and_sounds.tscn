@@ -33,7 +33,7 @@ polygon = PackedVector2Array(0, 0, 50, 0, 50, 50, 0, 50)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_orjbe"]
 size = Vector2(600, 600)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_pwcmo"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_vs00i"]
 viewport_path = NodePath("SpriteViewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mjy37"]
@@ -235,7 +235,7 @@ area2d_sound_zone = NodePath("..")
 position = Vector2(461, 418)
 
 [node name="Sprite" parent="CensoredSin" index="0" unique_id=1821370934]
-texture = SubResource("ViewportTexture_pwcmo")
+texture = SubResource("ViewportTexture_vs00i")
 
 [node name="Collider" parent="CensoredSin" index="2" unique_id=1785174278 groups=["navigation_polygon_source_geometry_group"]]
 
@@ -285,5 +285,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Pickup4" parent="." unique_id=596795481 instance=ExtResource("19_fokgv")]
+position = Vector2(95, 377)
+item = 2
+item_sprite = ExtResource("23_vs00i")
+
+[node name="Pickup5" parent="." unique_id=1554122736 instance=ExtResource("19_fokgv")]
+position = Vector2(283, 343)
+item = 1
+item_sprite = ExtResource("21_ulk06")
 
 [editable path="CensoredSin"]
