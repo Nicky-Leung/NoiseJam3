@@ -20,9 +20,9 @@ func _ready():
 
 func on_interacted(player: Player):
 	var was_added_to_inv = false
-	if item == Item.BATTERY: was_added_to_inv = player.try_add_battery()
-	elif item == Item.MEDKIT: was_added_to_inv = player.try_add_medkit()
-	elif item == Item.TRAP: was_added_to_inv = player.try_add_trap()
+	if item == Item.BATTERY: was_added_to_inv = player.inventory.try_change_battery(true)
+	elif item == Item.MEDKIT: was_added_to_inv = player.inventory.try_change_medkit(true)
+	elif item == Item.TRAP: was_added_to_inv = player.inventory.try_change_trap(true)
 
 	if was_added_to_inv:
 		visible = false

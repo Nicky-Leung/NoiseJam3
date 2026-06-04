@@ -29,6 +29,9 @@ offset_top = -275.0
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("1_nfnwa")
+medkit_sprite = ExtResource("2_shujo")
+battery_sprite = ExtResource("3_37vb7")
+trap_sprite = ExtResource("4_j21a5")
 
 [node name="Container" type="HBoxContainer" parent="." unique_id=1473806215]
 layout_mode = 1
@@ -100,7 +103,7 @@ grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("5_mhtwu")
 theme_override_font_sizes/font_size = 32
-text = "Battery"
+text = "Battery (3/3)"
 horizontal_alignment = 1
 vertical_alignment = 1
 

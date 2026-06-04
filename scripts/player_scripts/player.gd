@@ -23,14 +23,8 @@ signal player_died(killer: Enemy)
 @export var sprint_multiplier = 1.5
 @export var backward_speed: int = 75
 @export var turn_rate: float = 7.5
-@export var max_batteries: int = 3
-@export var max_medkits: int = 3
-@export var max_traps: int = 3
 
 # Runtime variables
-var battery_count: int = 3 # IMPORTANT: FOR TESTING THIS IS > 0, BUT IN ACTUAL GAMEPLAY WE START WITH 0
-var medkit_count: int = 3 # IMPORTANT: FOR TESTING THIS IS > 0, BUT IN ACTUAL GAMEPLAY WE START WITH 0
-var trap_count: int = 1 # IMPORTANT: FOR TESTING THIS IS > 0, BUT IN ACTUAL GAMEPLAY WE START WITH 0
 var health: int = max_health
 var is_sprinting: bool = false
 var input_vector: Vector2 = Vector2.ZERO
@@ -77,8 +71,7 @@ func _input(event: InputEvent) -> void:
 			collider.interact(self)
 
 func use_medkit():
-	if medkit_count <= 0: return
-	medkit_count -= 1
+	if !inventory.try_change_medkit(false): return
 	health = max_health
 	HELPERS.play_audio(healSFX, 0.9, 1.1)
 
@@ -86,34 +79,12 @@ func damage(amount: int): # called for environmental hazards
 	health -= amount
 	if health <= 0: player_died.emit(null)
 
-func try_add_medkit() -> bool:
-	if medkit_count == max_medkits:
-		return false
-	medkit_count += 1
-	return true
-
-func try_add_battery() -> bool: # assumes items on floor only ever 1
-	if battery_count == max_batteries:
-		# add some ui on screen saying inventory full
-		return false
-	battery_count += 1
-	return true
-
-func try_add_trap() -> bool:
-	if trap_count == max_traps: # only allow 1 trap at a time for now, can change later if we want
-		return false
-	trap_count += 1
-	return true
-
-
 func replace_battery():
-	if battery_count <= 0: return
-	battery_count -= 1
+	if !inventory.try_change_battery(false): return
 	flashlight.refill_battery()
 
 func place_trap():
-	if trap_count <= 0: return
-	trap_count -= 1
+	if !inventory.try_change_trap(false): return
 	var trap = trap_scene.instantiate()
 	trap.global_position = global_position + facing_direction * 16
 	get_parent().add_child(trap)
