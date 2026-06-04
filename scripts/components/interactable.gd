@@ -24,7 +24,7 @@ func update_desc(new_desc: String):
     description = new_desc
 
 func enable(do_enable):
-    monitorable = do_enable
+    hitbox.disabled = !do_enable
 
 func interact(player: Player):
     if interact_type == Type.SIGNALER:
