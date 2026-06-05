@@ -2,9 +2,11 @@ extends CharacterBody2D
 class_name Enemy
 
 enum State {
-	CHASE, # moving to target (doesnt necessarily have to be player)
+	CHASE, # chasing player
 	PATROL, # following a patrol path
-	IDLE # doing nothing
+	SCOUT, # moving towards a point outside of patrol path
+	RETURN, # moving back to point on patrol path
+	IDLE # doing nothing (not moving)
 }
 
 # components
@@ -72,6 +74,17 @@ func chase(delta: float) -> bool: # default chase behavior implementation subcla
 		velocity = velocity.lerp(move_direction * base_speed, acceleration * delta)
 	return nav_agent.is_target_reached()
 
+func move_to(delta: float, target_pos: Vector2) -> bool:
+	move_and_slide()
+	turn_process(delta)
+	if !can_check_nav(): return false
+	nav_agent.target_position = target_pos
+	move_direction = global_position.direction_to(nav_agent.get_next_path_position())
+
+	if !nav_agent.is_target_reached():
+		velocity = velocity.lerp(move_direction * base_speed, acceleration * delta)
+	return nav_agent.is_target_reached() || !nav_agent.is_target_reachable()
+
 func turn_process(delta):
 	var new_direction = face_direction.lerp(move_direction, turn_rate * delta)
 	rotation = new_direction.angle()
@@ -79,4 +92,3 @@ func turn_process(delta):
 
 func patrol(delta: float) -> void: # assumes pathfollow is not null
 	patrol_path.progress += delta * base_speed
-	print(patrol_path.progress_ratio)
