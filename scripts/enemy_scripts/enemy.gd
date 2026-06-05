@@ -72,11 +72,13 @@ func chase(delta: float) -> bool: # default chase behavior implementation subcla
 
 	if !nav_agent.is_target_reached():
 		velocity = velocity.lerp(move_direction * base_speed, acceleration * delta)
-	return nav_agent.is_target_reached()
+	return nav_agent.is_target_reached() || !nav_agent.is_target_reachable()
+
 
 func move_to(delta: float, target_pos: Vector2) -> bool:
 	move_and_slide()
 	turn_process(delta)
+
 	if !can_check_nav(): return false
 	nav_agent.target_position = target_pos
 	move_direction = global_position.direction_to(nav_agent.get_next_path_position())
@@ -87,7 +89,7 @@ func move_to(delta: float, target_pos: Vector2) -> bool:
 
 func turn_process(delta):
 	var new_direction = face_direction.lerp(move_direction, turn_rate * delta)
-	rotation = new_direction.angle()
+	global_rotation = new_direction.angle()
 	face_direction = new_direction
 
 func patrol(delta: float) -> void: # assumes pathfollow is not null

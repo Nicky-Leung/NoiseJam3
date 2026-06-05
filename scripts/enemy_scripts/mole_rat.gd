@@ -31,12 +31,14 @@ func _physics_process(delta):
         return
 
     elif ai_state == State.SCOUT:
+        nav_agent.target_desired_distance = 50
         var reached = move_to(delta, scout_position)
         if reached:
             ai_state = State.IDLE
             reset_timer.start()
 
     elif ai_state == State.RETURN:
+        nav_agent.target_desired_distance = 1
         var reached = move_to(delta, last_patrol_position)
         if reached: ai_state = State.PATROL
 

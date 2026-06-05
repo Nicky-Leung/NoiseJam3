@@ -28,7 +28,6 @@ animated_sprite = NodePath("Sprite")
 shape = SubResource("CircleShape2D_saobd")
 
 [node name="Nav" type="NavigationAgent2D" parent="." unique_id=1521571511]
-target_desired_distance = 75.0
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1203910543]
 scale = Vector2(0.055, 0.055)
