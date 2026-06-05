@@ -6,6 +6,7 @@ signal body_in_view(player: Player)
 @export var holder: Node2D = null
 @export var cone_arc: float = 45
 @export var cone_length: float = 200
+@export var targeted_position: Vector2 = Vector2.RIGHT * 50
 
 @onready var ray_list: Array[RayCast2D] = []
 
@@ -14,6 +15,7 @@ func _ready():
 	for child in get_children():
 		if child is RayCast2D: ray_list.append(child as RayCast2D)
 
+	ray_list[0].target_position = targeted_position
 	var direction = ray_list[0].target_position.rotated(deg_to_rad(cone_arc) - global_rotation).normalized()
 	for ray in ray_list:
 		# set physics layers
