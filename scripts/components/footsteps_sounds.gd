@@ -14,7 +14,7 @@ func play_steps(speed: float, custom_delay: float = -1, custom_lower: float = 0.
 
 	# determine gap between steps
 	var delay = custom_delay if custom_delay > 0 else 50 / speed
-	timer.wait_time = delay
+	timer.wait_time = min(delay, 1)
 	timer.start()
 
 	# play audio

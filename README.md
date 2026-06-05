@@ -39,6 +39,10 @@ https://pixabay.com/sound-effects/film-special-effects-system-notification-19927
 https://pixabay.com/sound-effects/film-special-effects-whoosh-03-410868/
 https://pixabay.com/sound-effects/film-special-effects-zipper-zip-83542/
 https://freesound.org/people/kwahmah_02/sounds/274752/
+https://pixabay.com/sound-effects/nature-rustling-grass-4-101281/
+https://pixabay.com/sound-effects/nature-rustling-grass-1-101282/
+https://pixabay.com/sound-effects/nature-rustling-grass-2-101283/
+https://pixabay.com/sound-effects/nature-mouse-squeak-261126/
 
 #Tiles and Sprites
 https://craftpix.net/freebies/free-top-down-animals-farm-pixel-art-sprites/

@@ -204,7 +204,6 @@ position = Vector2(-25, -25)
 occluder = SubResource("OccluderPolygon2D_ob7ho")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=169965248]
-visible = false
 color = Color(0.10019137, 0.08478504, 0.12660226, 0.9647059)
 
 [node name="TestEnvironmentAmbience" type="AudioStreamPlayer2D" parent="." unique_id=62555644]
@@ -248,7 +247,6 @@ texture = SubResource("ViewportTexture_pwcmo")
 [node name="Collider" parent="CensoredSin" index="2" unique_id=1785174278 groups=["navigation_polygon_source_geometry_group"]]
 
 [node name="Shaders" type="CanvasLayer" parent="." unique_id=1828645710]
-visible = false
 
 [node name="Retro" type="ColorRect" parent="Shaders" unique_id=926938697]
 material = SubResource("ShaderMaterial_mjy37")
@@ -263,7 +261,6 @@ position = Vector2(797, 88)
 player = NodePath("../Player")
 
 [node name="NavRegion" type="NavigationRegion2D" parent="." unique_id=1920235981]
-visible = false
 navigation_polygon = SubResource("NavigationPolygon_mjy37")
 
 [node name="Pickup" parent="." unique_id=1314714567 instance=ExtResource("19_fokgv")]

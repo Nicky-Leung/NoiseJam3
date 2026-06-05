@@ -8,6 +8,7 @@ extends Enemy
 @onready var reset_timer = $ResetTimer
 @onready var idle_timer = $IdleTimer
 @onready var footsteps = $Footsteps
+@onready var squeak = $Squeak
 
 # Runtime variables
 var scout_position: Vector2 = Vector2.ZERO
@@ -30,9 +31,6 @@ func toggle_active(enable: bool) -> void:
 	if is_active: idle_timer.start()
 	else: idle_timer.stop()
 
-func _process(_delta):
-	pass
-
 func _physics_process(delta):
 	if !is_active: return
 
@@ -40,6 +38,7 @@ func _physics_process(delta):
 		patrol(delta)
 		last_patrol_position = global_position
 		rotation = move_toward(rotation, 0, delta * turn_rate)
+		footsteps.play_steps(base_speed)
 
 	elif ai_state == State.IDLE: # create random movement to appear like scouting nearby
 		if !doing_idle_movement:
@@ -49,10 +48,12 @@ func _physics_process(delta):
 		else:
 			if idle_move_frames > 0: move_forwards()
 			else: look_at_idle_angle(delta)
+			footsteps.play_steps(velocity.length())
 
 	elif ai_state == State.SCOUT:
 		nav_agent.target_desired_distance = 50
 		var reached = move_to(delta, scout_position)
+		footsteps.play_steps(velocity.length())
 		if reached:
 			ai_state = State.IDLE
 			reset_timer.start()
@@ -60,9 +61,12 @@ func _physics_process(delta):
 	elif ai_state == State.RETURN:
 		nav_agent.target_desired_distance = 1
 		var reached = move_to(delta, last_patrol_position)
+		footsteps.play_steps(velocity.length())
 		if reached:
 			ai_state = State.PATROL
 			idle_timer.start()
+
+	if randi() % 10000 == 0: HELPERS.play_audio(squeak, 0.03, 0.1)
 
 func alert_sound(alerter: Node2D) -> void:
 	ai_state = State.SCOUT

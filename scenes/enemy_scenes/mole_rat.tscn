@@ -3,7 +3,11 @@
 [ext_resource type="Texture2D" uid="uid://crlm5b2wcw0bs" path="res://assets/sprites/temp_sprites/temp_mole_rat.png" id="1_77tic"]
 [ext_resource type="Script" uid="uid://b3n0yjfpv8tda" path="res://scripts/enemy_scripts/mole_rat.gd" id="1_i267u"]
 [ext_resource type="PackedScene" uid="uid://c2bl8q3eud8na" path="res://scenes/components/footsteps.tscn" id="2_x6o0x"]
+[ext_resource type="AudioStream" uid="uid://d2lx0gw3la6vk" path="res://assets/sfx/enemies/mole_rat_step1.mp3" id="4_kxrc7"]
+[ext_resource type="AudioStream" uid="uid://ctr55b5b21sah" path="res://assets/sfx/enemies/mole_rat_squeak.mp3" id="5_fo5g2"]
+[ext_resource type="AudioStream" uid="uid://vll2f4xsik7i" path="res://assets/sfx/enemies/mole_rat_step2.mp3" id="5_saobd"]
 [ext_resource type="PackedScene" uid="uid://t5keqhpx2c2x" path="res://scenes/components/vision_cone.tscn" id="5_y8xpa"]
+[ext_resource type="AudioStream" uid="uid://b7ubesihad81q" path="res://assets/sfx/enemies/mole_rat_step3.mp3" id="6_qni71"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_saobd"]
 radius = 38.62
@@ -35,6 +39,7 @@ sprite_frames = SubResource("SpriteFrames_qni71")
 
 [node name="Footsteps" parent="." unique_id=1515918579 instance=ExtResource("2_x6o0x")]
 max_polyphony = 3
+step_collection = Array[AudioStream]([ExtResource("4_kxrc7"), ExtResource("5_saobd"), ExtResource("6_qni71")])
 
 [node name="VisionCone" parent="." unique_id=1495805894 node_paths=PackedStringArray("holder") instance=ExtResource("5_y8xpa")]
 holder = NodePath("..")
@@ -46,3 +51,7 @@ one_shot = true
 [node name="IdleTimer" type="Timer" parent="." unique_id=787625764]
 wait_time = 15.0
 autostart = true
+
+[node name="Squeak" type="AudioStreamPlayer2D" parent="." unique_id=1387080876]
+stream = ExtResource("5_fo5g2")
+max_polyphony = 3
