@@ -20,8 +20,15 @@ func _ready():
 	super()
 	ai_state = State.PATROL
 	reset_timer.wait_time = attention_time
+	vision.body_in_view.connect(on_view)
 	reset_timer.timeout.connect(on_reset_timeout)
 	idle_timer.timeout.connect(on_idle_timeout)
+	if !is_active: idle_timer.stop()
+
+func toggle_active(enable: bool) -> void:
+	super(enable)
+	if is_active: idle_timer.start()
+	else: idle_timer.stop()
 
 func _process(_delta):
 	pass
@@ -75,8 +82,8 @@ func look_at_idle_angle(delta: float):
 	face_direction = new_direction
 	doing_idle_movement = abs(global_rotation - idle_turn_angle) > 0.01
 
-func on_in_view(player: Player):
-	pass
+func on_view(seen_player: Player):
+	if in_light && seen_player.velocity.length() > 0.1: seen_player.attack(attack_damage, self) # give some leeway to velocity
 
 func on_idle_timeout():
 	ai_state = State.IDLE

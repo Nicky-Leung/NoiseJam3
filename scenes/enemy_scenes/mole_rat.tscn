@@ -38,6 +38,7 @@ max_polyphony = 3
 
 [node name="VisionCone" parent="." unique_id=1495805894 node_paths=PackedStringArray("holder") instance=ExtResource("5_y8xpa")]
 holder = NodePath("..")
+cone_length = 50.0
 
 [node name="ResetTimer" type="Timer" parent="." unique_id=1488232071]
 one_shot = true
