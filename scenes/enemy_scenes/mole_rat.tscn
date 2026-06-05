@@ -41,3 +41,7 @@ holder = NodePath("..")
 
 [node name="ResetTimer" type="Timer" parent="." unique_id=1488232071]
 one_shot = true
+
+[node name="IdleTimer" type="Timer" parent="." unique_id=787625764]
+wait_time = 15.0
+autostart = true
