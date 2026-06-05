@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://dpfwj0h6ppeh6" path="res://assets/sprites/temp_sprites/temp_medkit.png" id="21_ulk06"]
 [ext_resource type="PackedScene" uid="uid://y6qgwf18h0bh" path="res://scenes/environment_objects/readable.tscn" id="22_5aceh"]
 [ext_resource type="Texture2D" uid="uid://b7v3q3g4rwb88" path="res://assets/tileset/trap.tres" id="23_vs00i"]
+[ext_resource type="PackedScene" uid="uid://bobg83ssbt5c0" path="res://scenes/enemy_scenes/mole_rat.tscn" id="24_pwcmo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tpqdd"]
 size = Vector2(50, 50)
@@ -33,7 +34,7 @@ polygon = PackedVector2Array(0, 0, 50, 0, 50, 50, 0, 50)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_orjbe"]
 size = Vector2(600, 600)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_vs00i"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_pwcmo"]
 viewport_path = NodePath("SpriteViewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mjy37"]
@@ -54,6 +55,12 @@ vertices = PackedVector2Array(496, 383, 426, 383, 225, 348, 329, 348, 567, 278, 
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(9, 8, 12, 13), PackedInt32Array(10, 9, 0, 14), PackedInt32Array(11, 10, 4), PackedInt32Array(11, 4, 15, 16), PackedInt32Array(17, 11, 16, 18), PackedInt32Array(5, 14, 0, 19, 20), PackedInt32Array(6, 5, 20), PackedInt32Array(6, 20, 21), PackedInt32Array(18, 22, 23, 24), PackedInt32Array(17, 18, 24), PackedInt32Array(17, 24, 25), PackedInt32Array(22, 15, 4), PackedInt32Array(2, 1, 13, 12, 26), PackedInt32Array(26, 12, 17, 27), PackedInt32Array(28, 6, 21, 3, 29), PackedInt32Array(23, 22, 4), PackedInt32Array(3, 19, 0), PackedInt32Array(3, 2, 29), PackedInt32Array(28, 29, 27), PackedInt32Array(28, 27, 17), PackedInt32Array(30, 28, 17), PackedInt32Array(31, 30, 17), PackedInt32Array(31, 17, 25), PackedInt32Array(6, 31, 25, 7), PackedInt32Array(23, 4, 7)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(10, 9, 11, 663, 1146, 665, 1145, 4)])
 source_geometry_mode = 2
+
+[sub_resource type="Curve2D" id="Curve2D_6xjky"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 606, 116, 0, 0, 0, 0, 621, 562, 0, 0, 0, 0, 275, 573, 0, 0, 0, 0, 274, 107, 0, 0, 0, 0, 605, 115)
+}
+point_count = 5
 
 [node name="LightingAndSounds" type="Node2D" unique_id=1796258794]
 
@@ -197,6 +204,7 @@ position = Vector2(-25, -25)
 occluder = SubResource("OccluderPolygon2D_ob7ho")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=169965248]
+visible = false
 color = Color(0.10019137, 0.08478504, 0.12660226, 0.9647059)
 
 [node name="TestEnvironmentAmbience" type="AudioStreamPlayer2D" parent="." unique_id=62555644]
@@ -235,11 +243,12 @@ area2d_sound_zone = NodePath("..")
 position = Vector2(461, 418)
 
 [node name="Sprite" parent="CensoredSin" index="0" unique_id=1821370934]
-texture = SubResource("ViewportTexture_vs00i")
+texture = SubResource("ViewportTexture_pwcmo")
 
 [node name="Collider" parent="CensoredSin" index="2" unique_id=1785174278 groups=["navigation_polygon_source_geometry_group"]]
 
 [node name="Shaders" type="CanvasLayer" parent="." unique_id=1828645710]
+visible = false
 
 [node name="Retro" type="ColorRect" parent="Shaders" unique_id=926938697]
 material = SubResource("ShaderMaterial_mjy37")
@@ -249,15 +258,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="WeepingAngel" parent="." unique_id=1401698208 node_paths=PackedStringArray("player") instance=ExtResource("18_mjy37")]
-position = Vector2(484, 83)
-player = NodePath("../Player")
-
-[node name="WeepingAngel2" parent="." unique_id=1557746182 node_paths=PackedStringArray("player") instance=ExtResource("18_mjy37")]
-position = Vector2(432, 82)
+[node name="WeepingAngel" parent="." unique_id=1557746182 node_paths=PackedStringArray("player") instance=ExtResource("18_mjy37")]
+position = Vector2(797, 88)
 player = NodePath("../Player")
 
 [node name="NavRegion" type="NavigationRegion2D" parent="." unique_id=1920235981]
+visible = false
 navigation_polygon = SubResource("NavigationPolygon_mjy37")
 
 [node name="Pickup" parent="." unique_id=1314714567 instance=ExtResource("19_fokgv")]
@@ -295,5 +301,26 @@ item_sprite = ExtResource("23_vs00i")
 position = Vector2(283, 343)
 item = 1
 item_sprite = ExtResource("21_ulk06")
+
+[node name="MoleRat1" parent="." unique_id=1709345035 node_paths=PackedStringArray("patrol_path") instance=ExtResource("24_pwcmo")]
+position = Vector2(361, 69)
+patrol_path = NodePath("../PatrolPath/MoleRat1Follow")
+is_active = true
+
+[node name="MoleRat2" parent="." unique_id=1228737110 node_paths=PackedStringArray("patrol_path") instance=ExtResource("24_pwcmo")]
+position = Vector2(65, 167)
+patrol_path = NodePath("../PatrolPath/MoleRat2Follow")
+
+[node name="PatrolPath" type="Path2D" parent="." unique_id=836116773]
+curve = SubResource("Curve2D_6xjky")
+
+[node name="MoleRat1Follow" type="PathFollow2D" parent="PatrolPath" unique_id=157550260]
+position = Vector2(606, 116)
+rotation = 1.5371767
+
+[node name="MoleRat2Follow" type="PathFollow2D" parent="PatrolPath" unique_id=268085509]
+position = Vector2(280.62527, 572.82117)
+rotation = 3.1098115
+progress = 786.8148
 
 [editable path="CensoredSin"]
