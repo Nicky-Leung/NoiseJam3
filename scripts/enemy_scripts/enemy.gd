@@ -1,10 +1,17 @@
 extends CharacterBody2D
 class_name Enemy
 
+enum State {
+	CHASE, # moving to target (doesnt necessarily have to be player)
+	PATROL, # following a patrol path
+	IDLE # doing nothing
+}
+
 # components
 @export var player: Player = null # if an enemy needs a player reference on start
 @export var nav_agent: NavigationAgent2D = null
 @export var animated_sprite: AnimatedSprite2D = null
+@export var patrol_path: PathFollow2D = null # add if enemy has a path to patrol
 
 # start state
 @export var collides_with_others: bool = false # check if enemy needs to collider with other enemies
@@ -18,6 +25,7 @@ class_name Enemy
 @export var base_speed: int = 100
 
 # running variables
+var ai_state: State = State.IDLE # state for checks, up to subclasses to incorporate
 var nav_check_stagger = 0 # stagger so not all nav agents check in the same frame
 var in_light: bool = false
 var face_direction: Vector2 = Vector2.ZERO
@@ -30,10 +38,14 @@ func _ready():
 	if collides_with_others: collision_mask += PHYS_LAYERS.ENEMY
 	nav_check_stagger = randi() % frames_per_nav_check
 	z_index = 1
+	if patrol_path != null:
+		global_position = patrol_path.global_position
+		call_deferred("reparent", patrol_path)
 
-func _process(_delta):
+func _process(delta):
 	# hide enemy if they aren't in light
-	modulate = Color.WHITE if in_light else Color.TRANSPARENT
+	var target_alpha = 1 if in_light else 0
+	modulate.a = move_toward(modulate.a, target_alpha, delta * 25)
 	in_light = false
 
 func toggle_active(enable: bool) -> void:
@@ -65,3 +77,6 @@ func turn_process(delta):
 	rotation = new_direction.angle()
 	face_direction = new_direction
 
+func patrol(delta: float) -> void: # assumes pathfollow is not null
+	patrol_path.progress += delta * base_speed
+	print(patrol_path.progress_ratio)

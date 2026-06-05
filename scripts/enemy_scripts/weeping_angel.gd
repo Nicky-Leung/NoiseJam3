@@ -6,9 +6,14 @@ extends Enemy
 func _ready():
     super()
     chase_target = player
+    ai_state = State.CHASE
+
+func _process(delta):
+    super(delta)
+    ai_state = State.CHASE
 
 func _physics_process(delta):
-    if !is_active || in_light: return
+    if !is_active || ai_state != State.CHASE: return
 
     chase(delta)
     try_damage_player()
@@ -16,6 +21,7 @@ func _physics_process(delta):
 
 func alert_visual(alerter: Node2D) -> void:
     super(alerter)
+    ai_state = State.IDLE
 
 func try_damage_player():
     var collider = attack_ray.get_collider()
