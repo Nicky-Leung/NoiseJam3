@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://w04cal3dr7pr"
-path="res://.godot/imported/temp_battery.png-b2fc39295292c59ec7af8dfff1fe0972.ctex"
+uid="uid://co0w164ofa0fi"
+path="res://.godot/imported/zombie_icons.png-07b4ceb346230dac9858af40be398ad0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/temp_sprites/temp_battery.png"
-dest_files=["res://.godot/imported/temp_battery.png-b2fc39295292c59ec7af8dfff1fe0972.ctex"]
+source_file="res://assets/sprites/items/zombie_icons.png"
+dest_files=["res://.godot/imported/zombie_icons.png-07b4ceb346230dac9858af40be398ad0.ctex"]
 
 [params]
 

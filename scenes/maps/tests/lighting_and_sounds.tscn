@@ -19,10 +19,8 @@
 [ext_resource type="Shader" uid="uid://c7m63o73qxpdk" path="res://resources/shaders/retro_filter.gdshader" id="17_f1l1a"]
 [ext_resource type="PackedScene" uid="uid://wieit1tmn5r1" path="res://scenes/enemy_scenes/weeping_angel.tscn" id="18_mjy37"]
 [ext_resource type="PackedScene" uid="uid://cfslgv17irrxe" path="res://scenes/environment_objects/pickup.tscn" id="19_fokgv"]
-[ext_resource type="Texture2D" uid="uid://w04cal3dr7pr" path="res://assets/sprites/temp_sprites/temp_battery.png" id="20_ulk06"]
-[ext_resource type="Texture2D" uid="uid://dpfwj0h6ppeh6" path="res://assets/sprites/temp_sprites/temp_medkit.png" id="21_ulk06"]
+[ext_resource type="Texture2D" uid="uid://co0w164ofa0fi" path="res://assets/sprites/items/zombie_icons.png" id="20_vs00i"]
 [ext_resource type="PackedScene" uid="uid://y6qgwf18h0bh" path="res://scenes/environment_objects/readable.tscn" id="22_5aceh"]
-[ext_resource type="Texture2D" uid="uid://b7v3q3g4rwb88" path="res://assets/tileset/trap.tres" id="23_vs00i"]
 [ext_resource type="Texture2D" uid="uid://be53dd7qn2t21" path="res://assets/sprites/temp_sprites/temp_sin.png" id="24_6xjky"]
 [ext_resource type="PackedScene" uid="uid://bobg83ssbt5c0" path="res://scenes/enemy_scenes/mole_rat.tscn" id="24_pwcmo"]
 
@@ -35,7 +33,7 @@ polygon = PackedVector2Array(0, 0, 50, 0, 50, 50, 0, 50)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_orjbe"]
 size = Vector2(600, 600)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_f6kyv"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_pwcmo"]
 viewport_path = NodePath("SpriteViewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mjy37"]
@@ -56,6 +54,26 @@ vertices = PackedVector2Array(496, 383, 426, 383, 225, 348, 329, 348, 567, 278, 
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(9, 8, 12, 13), PackedInt32Array(10, 9, 0, 14), PackedInt32Array(11, 10, 4), PackedInt32Array(11, 4, 15, 16), PackedInt32Array(17, 11, 16, 18), PackedInt32Array(5, 14, 0, 19, 20), PackedInt32Array(6, 5, 20), PackedInt32Array(6, 20, 21), PackedInt32Array(18, 22, 23, 24), PackedInt32Array(17, 18, 24), PackedInt32Array(17, 24, 25), PackedInt32Array(22, 15, 4), PackedInt32Array(2, 1, 13, 12, 26), PackedInt32Array(26, 12, 17, 27), PackedInt32Array(28, 6, 21, 3, 29), PackedInt32Array(23, 22, 4), PackedInt32Array(3, 19, 0), PackedInt32Array(3, 2, 29), PackedInt32Array(28, 29, 27), PackedInt32Array(28, 27, 17), PackedInt32Array(30, 28, 17), PackedInt32Array(31, 30, 17), PackedInt32Array(31, 17, 25), PackedInt32Array(6, 31, 25, 7), PackedInt32Array(23, 4, 7)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(10, 9, 11, 663, 1146, 665, 1145, 4)])
 source_geometry_mode = 2
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6xjky"]
+atlas = ExtResource("20_vs00i")
+region = Rect2(1275.6609, 10.787857, 254.22119, 222.27708)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6kyv"]
+atlas = ExtResource("20_vs00i")
+region = Rect2(1023, 10, 248, 232)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4n4r5"]
+atlas = ExtResource("20_vs00i")
+region = Rect2(1779.9238, 264.40015, 258.64795, 255.10492)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3foic"]
+atlas = ExtResource("20_vs00i")
+region = Rect2(1779.9238, 264.40015, 258.64795, 255.10492)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twa2i"]
+atlas = ExtResource("20_vs00i")
+region = Rect2(1023, 10, 248, 232)
 
 [sub_resource type="Curve2D" id="Curve2D_6xjky"]
 _data = {
@@ -205,6 +223,7 @@ position = Vector2(-25, -25)
 occluder = SubResource("OccluderPolygon2D_ob7ho")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=169965248]
+visible = false
 color = Color(0.10019137, 0.08478504, 0.12660226, 0.9647059)
 
 [node name="TestEnvironmentAmbience" type="AudioStreamPlayer2D" parent="." unique_id=62555644]
@@ -243,11 +262,12 @@ area2d_sound_zone = NodePath("..")
 position = Vector2(461, 418)
 
 [node name="Sprite" parent="CensoredSin" index="0" unique_id=1821370934]
-texture = SubResource("ViewportTexture_f6kyv")
+texture = SubResource("ViewportTexture_pwcmo")
 
 [node name="Collider" parent="CensoredSin" index="2" unique_id=1785174278 groups=["navigation_polygon_source_geometry_group"]]
 
 [node name="Shaders" type="CanvasLayer" parent="." unique_id=1828645710]
+visible = false
 
 [node name="Retro" type="ColorRect" parent="Shaders" unique_id=926938697]
 material = SubResource("ShaderMaterial_mjy37")
@@ -262,21 +282,22 @@ position = Vector2(797, 88)
 player = NodePath("../Player")
 
 [node name="NavRegion" type="NavigationRegion2D" parent="." unique_id=1920235981]
+visible = false
 navigation_polygon = SubResource("NavigationPolygon_mjy37")
 
 [node name="Pickup" parent="." unique_id=1314714567 instance=ExtResource("19_fokgv")]
 position = Vector2(56, 249)
-item_sprite = ExtResource("20_ulk06")
+item_sprite = SubResource("AtlasTexture_6xjky")
 
 [node name="Pickup2" parent="." unique_id=1995029907 instance=ExtResource("19_fokgv")]
 position = Vector2(270, 50)
 item = 1
-item_sprite = ExtResource("21_ulk06")
+item_sprite = SubResource("AtlasTexture_f6kyv")
 
 [node name="Pickup3" parent="." unique_id=1449239136 instance=ExtResource("19_fokgv")]
 position = Vector2(159, 116)
 item = 2
-item_sprite = ExtResource("23_vs00i")
+item_sprite = SubResource("AtlasTexture_4n4r5")
 
 [node name="Readable" parent="." unique_id=536321432 node_paths=PackedStringArray("readable_menu") instance=ExtResource("22_5aceh")]
 position = Vector2(277, 189)
@@ -293,12 +314,12 @@ grow_vertical = 2
 [node name="Pickup4" parent="." unique_id=596795481 instance=ExtResource("19_fokgv")]
 position = Vector2(95, 377)
 item = 2
-item_sprite = ExtResource("23_vs00i")
+item_sprite = SubResource("AtlasTexture_3foic")
 
 [node name="Pickup5" parent="." unique_id=1554122736 instance=ExtResource("19_fokgv")]
 position = Vector2(283, 343)
 item = 1
-item_sprite = ExtResource("21_ulk06")
+item_sprite = SubResource("AtlasTexture_twa2i")
 
 [node name="Pickup6" parent="." unique_id=459109552 instance=ExtResource("19_fokgv")]
 position = Vector2(157, 532)

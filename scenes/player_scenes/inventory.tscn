@@ -1,12 +1,22 @@
 [gd_scene format=3 uid="uid://bqkdw6kqtd3kx"]
 
 [ext_resource type="Script" uid="uid://c4q48vb14sfnf" path="res://scripts/player_scripts/inventory.gd" id="1_nfnwa"]
-[ext_resource type="Texture2D" uid="uid://dpfwj0h6ppeh6" path="res://assets/sprites/temp_sprites/temp_medkit.png" id="2_shujo"]
-[ext_resource type="Texture2D" uid="uid://w04cal3dr7pr" path="res://assets/sprites/temp_sprites/temp_battery.png" id="3_37vb7"]
-[ext_resource type="Texture2D" uid="uid://b7v3q3g4rwb88" path="res://assets/tileset/trap.tres" id="4_j21a5"]
+[ext_resource type="Texture2D" uid="uid://co0w164ofa0fi" path="res://assets/sprites/items/zombie_icons.png" id="2_j21a5"]
 [ext_resource type="Theme" uid="uid://yfrti8gy2ey2" path="res://resources/theme/Ui.tres" id="5_mhtwu"]
 [ext_resource type="AudioStream" uid="uid://dbou5m8cuagd6" path="res://assets/sfx/player/inventoryOpen.mp3" id="6_37vb7"]
 [ext_resource type="AudioStream" uid="uid://d2ehjbabboygl" path="res://assets/sfx/player/inventorySwipe.mp3" id="6_shujo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mhtwu"]
+atlas = ExtResource("2_j21a5")
+region = Rect2(1023, 10, 248, 232)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nfnwa"]
+atlas = ExtResource("2_j21a5")
+region = Rect2(1275.6609, 10.787857, 254.22119, 222.27708)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_shujo"]
+atlas = ExtResource("2_j21a5")
+region = Rect2(1779.9238, 264.40015, 258.64795, 255.10492)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e5pdh"]
 draw_center = false
@@ -31,9 +41,9 @@ offset_top = -275.0
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("1_nfnwa")
-medkit_sprite = ExtResource("2_shujo")
-battery_sprite = ExtResource("3_37vb7")
-trap_sprite = ExtResource("4_j21a5")
+medkit_sprite = SubResource("AtlasTexture_mhtwu")
+battery_sprite = SubResource("AtlasTexture_nfnwa")
+trap_sprite = SubResource("AtlasTexture_shujo")
 swipe_sound = ExtResource("6_shujo")
 open_sound = ExtResource("6_37vb7")
 
@@ -56,7 +66,6 @@ layout_mode = 0
 offset_right = 150.0
 offset_bottom = 150.0
 pivot_offset = Vector2(75, 75)
-texture = ExtResource("2_shujo")
 expand_mode = 2
 
 [node name="Item2" type="Control" parent="Container" unique_id=2028101965]
@@ -68,7 +77,6 @@ layout_mode = 0
 offset_right = 150.0
 offset_bottom = 150.0
 pivot_offset = Vector2(75, 75)
-texture = ExtResource("3_37vb7")
 expand_mode = 2
 
 [node name="Item3" type="Control" parent="Container" unique_id=213923705]
@@ -81,7 +89,6 @@ layout_mode = 0
 offset_right = 150.0
 offset_bottom = 150.0
 pivot_offset = Vector2(75, 75)
-texture = ExtResource("4_j21a5")
 expand_mode = 2
 
 [node name="Selected" type="Panel" parent="." unique_id=1640623136]
