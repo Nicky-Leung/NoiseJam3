@@ -4,9 +4,11 @@ extends Node2D
 enum Item {
 	BATTERY,
 	MEDKIT,
-	TRAP
+	TRAP,
+	KEY_ITEM # i.e. pickups to solve puzzles
 }
 
+@export var key_item_name: String = "" ## Only fill for key items
 @export var item: Item = Item.BATTERY
 @export var item_sprite: Texture2D = null
 
@@ -23,6 +25,7 @@ func on_interacted(player: Player):
 	if item == Item.BATTERY: was_added_to_inv = player.inventory.try_change_battery(true)
 	elif item == Item.MEDKIT: was_added_to_inv = player.inventory.try_change_medkit(true)
 	elif item == Item.TRAP: was_added_to_inv = player.inventory.try_change_trap(true)
+	elif item == Item.KEY_ITEM: was_added_to_inv = player.inventory.add_key_item(key_item_name, item_sprite)
 
 	if was_added_to_inv:
 		visible = false

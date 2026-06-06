@@ -66,8 +66,9 @@ func _input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed(INPUTS.INTERACT): _use_selected()
 
 # Inventory functions
-func add_key_item(key_item_name: String, sprite: Texture):
+func add_key_item(key_item_name: String, sprite: Texture) -> bool:
 	items[key_item_name] = sprite
+	return items.has(key_item_name)
 
 func remove_key_item(key_item_name: String):
 	items.erase(key_item_name)
