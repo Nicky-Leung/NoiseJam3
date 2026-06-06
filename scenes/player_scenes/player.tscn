@@ -259,6 +259,7 @@ hit_from_inside = true
 collide_with_areas = true
 
 [node name="Overlay" type="CanvasLayer" parent="." unique_id=1767384843]
+visible = false
 
 [node name="Hud" parent="Overlay" unique_id=1607470276 instance=ExtResource("6_tuyoq")]
 

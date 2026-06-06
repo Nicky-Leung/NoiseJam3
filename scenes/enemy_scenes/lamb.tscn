@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://baot35gh10g7t"]
 
+[ext_resource type="Script" uid="uid://di57b4t8vimy" path="res://scripts/enemy_scripts/lamb.gd" id="1_3l7ik"]
 [ext_resource type="Texture2D" uid="uid://du7e4e6tpw3ji" path="res://assets/sprites/temp_sprites/Lamb_animation_with_shadow.png" id="1_80isn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3l7ik"]
@@ -196,7 +197,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xisay"]
 size = Vector2(15.445985, 0.5042517)
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=876160626]
+[node name="Lamb" type="CharacterBody2D" unique_id=876160626 node_paths=PackedStringArray("nav_agent")]
+script = ExtResource("1_3l7ik")
+nav_agent = NodePath("NavigationAgent2D")
 
 [node name="Animal" type="AnimatedSprite2D" parent="." unique_id=1077026022]
 sprite_frames = SubResource("SpriteFrames_4kraf")
@@ -206,3 +209,5 @@ animation = &"Right Walking"
 position = Vector2(2.4999995, 1.4999998)
 scale = Vector2(1.3595766, -37.679592)
 shape = SubResource("RectangleShape2D_xisay")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=147871982]
