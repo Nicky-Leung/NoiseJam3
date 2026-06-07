@@ -35,7 +35,7 @@ var move_direction: Vector2 = Vector2.ZERO
 var chase_target: Player = null # for chasing (set this to start chasing)
 
 func _ready():
-	collision_mask = PHYS_LAYERS.TERRAIN + PHYS_LAYERS.PLAYER
+	collision_mask = PHYS_LAYERS.TERRAIN + PHYS_LAYERS.PLAYER + PHYS_LAYERS.NO_OCCLUSION_TERRAIN
 	collision_layer = PHYS_LAYERS.ENEMY
 	if collides_with_others: collision_mask += PHYS_LAYERS.ENEMY
 	nav_check_stagger = randi() % frames_per_nav_check
@@ -66,7 +66,7 @@ func chase(delta: float) -> bool: # default chase behavior implementation subcla
 	move_and_slide() # move based on previous frame values
 	turn_process(delta)
 
-	if chase_target == null || !can_check_nav(): return false
+	if chase_target == null: return false
 	nav_agent.target_position = chase_target.global_position
 	move_direction = global_position.direction_to(nav_agent.get_next_path_position())
 

@@ -137,3 +137,7 @@ item_sprite = SubResource("AtlasTexture_fp284")
 [node name="Battery" parent="Pickups" unique_id=1343667615 instance=ExtResource("3_6sbsl")]
 position = Vector2(1125, 786)
 item_sprite = SubResource("AtlasTexture_nqodb")
+
+[node name="EnemyResetTimer" type="Timer" parent="." unique_id=833526184]
+wait_time = 20.0
+one_shot = true
