@@ -45,6 +45,7 @@ https://pixabay.com/sound-effects/nature-rustling-grass-2-101283/
 https://pixabay.com/sound-effects/nature-mouse-squeak-261126/
 
 #Tiles and Sprites
+https://opengameart.org/content/gemmed-items
 https://opengameart.org/content/zombie-ui-pack
 https://craftpix.net/freebies/free-top-down-animals-farm-pixel-art-sprites/
 https://craftpix.net/freebies/free-2d-top-down-pixel-dungeon-asset-pack/
