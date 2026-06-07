@@ -10,6 +10,12 @@
 [ext_resource type="Texture2D" uid="uid://2ukxugwj42vt" path="res://assets/sprites/items/puzzle_items/WestKey.png" id="6_f2xk5"]
 [ext_resource type="AudioStream" uid="uid://d1gypfbfymk5w" path="res://assets/sfx/puzzles/Wrong.mp3" id="6_yqbg5"]
 [ext_resource type="AudioStream" uid="uid://cne0eheiacbp0" path="res://assets/sfx/puzzles/Complete.mp3" id="7_yqbg5"]
+[ext_resource type="PackedScene" uid="uid://wieit1tmn5r1" path="res://scenes/enemy_scenes/weeping_angel.tscn" id="11_5y23t"]
+[ext_resource type="Texture2D" uid="uid://co0w164ofa0fi" path="res://assets/sprites/items/zombie_icons.png" id="11_jcqk7"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_5y23t"]
+vertices = PackedVector2Array(698, 538, 950, 522, 1082, 522, 1082, 646, 950, 646, 1158, 822, 26, 822, 234, 762, 374, 762, 234, 282, 374, 282, 1082, 406, 950, 406, 698, 374, 1158, 90, 1082, 282, 102, 762, 1082, 166, 26, 90, 950, 166, 102, 646, 486, 374, 234, 522, 486, 538, 234, 646, 234, 406, 102, 282, 102, 406, 950, 762, 810, 762, 810, 646, 950, 282, 810, 282, 810, 166, 678, 166, 1082, 762, 678, 646, 678, 762, 506, 646, 678, 282, 506, 282, 506, 166, 374, 166, 234, 166, 102, 166, 102, 522, 374, 646, 506, 762)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8), PackedInt32Array(9, 10, 11, 12, 13), PackedInt32Array(2, 14, 5, 3), PackedInt32Array(14, 2, 11), PackedInt32Array(15, 14, 11), PackedInt32Array(16, 7, 6), PackedInt32Array(14, 15, 17), PackedInt32Array(18, 14, 17, 19), PackedInt32Array(16, 6, 18, 20), PackedInt32Array(1, 0, 13, 12), PackedInt32Array(9, 13, 21), PackedInt32Array(22, 21, 23, 24, 20), PackedInt32Array(21, 22, 25), PackedInt32Array(26, 9, 21, 25, 27), PackedInt32Array(4, 28, 29, 30), PackedInt32Array(19, 31, 32, 33), PackedInt32Array(18, 19, 33), PackedInt32Array(18, 33, 34), PackedInt32Array(31, 15, 11), PackedInt32Array(5, 35, 3), PackedInt32Array(0, 4, 30), PackedInt32Array(0, 30, 36, 23), PackedInt32Array(23, 36, 37, 38), PackedInt32Array(32, 31, 11), PackedInt32Array(28, 35, 5), PackedInt32Array(39, 32, 11), PackedInt32Array(39, 11, 40), PackedInt32Array(39, 40, 41, 34), PackedInt32Array(18, 34, 41), PackedInt32Array(18, 41, 42), PackedInt32Array(29, 28, 5), PackedInt32Array(10, 40, 11), PackedInt32Array(42, 10, 9, 43), PackedInt32Array(18, 42, 43), PackedInt32Array(18, 43, 44), PackedInt32Array(18, 44, 26), PackedInt32Array(18, 26, 27), PackedInt32Array(18, 27, 45), PackedInt32Array(20, 18, 45), PackedInt32Array(20, 45, 22), PackedInt32Array(7, 24, 23, 46), PackedInt32Array(37, 29, 5), PackedInt32Array(37, 5, 47), PackedInt32Array(37, 47, 38), PackedInt32Array(23, 38, 46), PackedInt32Array(7, 46, 8), PackedInt32Array(5, 8, 47)])
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6sbsl"]
 size = Vector2(1165, 850)
@@ -17,10 +23,19 @@ size = Vector2(1165, 850)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jakhy"]
 size = Vector2(75, 75)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_fp284"]
+atlas = ExtResource("11_jcqk7")
+region = Rect2(1023, 10, 248, 232)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqodb"]
+atlas = ExtResource("11_jcqk7")
+region = Rect2(1275.6609, 10.787857, 254.22119, 222.27708)
+
 [node name="PuzzleRoom1" type="Node2D" unique_id=678051783]
 script = ExtResource("1_vs076")
 
-[node name="Layout" type="Node2D" parent="." unique_id=757127193]
+[node name="Layout" type="NavigationRegion2D" parent="." unique_id=1227774342]
+navigation_polygon = SubResource("NavigationPolygon_5y23t")
 metadata/_edit_lock_ = true
 
 [node name="Floor" type="TileMapLayer" parent="Layout" unique_id=1215270826]
@@ -97,3 +112,28 @@ can_pickup = false
 [node name="Player" parent="." unique_id=628625629 instance=ExtResource("2_5e412")]
 position = Vector2(875.9999, 133)
 rotation = 0.09103117
+
+[node name="Enemies" type="Node2D" parent="." unique_id=1637124787]
+
+[node name="WeepingAngel" parent="Enemies" unique_id=1401698208 instance=ExtResource("11_5y23t")]
+position = Vector2(166, 581)
+
+[node name="WeepingAngel2" parent="Enemies" unique_id=1637822132 instance=ExtResource("11_5y23t")]
+position = Vector2(309, 225)
+
+[node name="WeepingAngel3" parent="Enemies" unique_id=1348050037 instance=ExtResource("11_5y23t")]
+position = Vector2(876, 705)
+
+[node name="WeepingAngel4" parent="Enemies" unique_id=1113035440 instance=ExtResource("11_5y23t")]
+position = Vector2(309, 705)
+
+[node name="Pickups" type="Node2D" parent="." unique_id=1554400817]
+
+[node name="Medkit" parent="Pickups" unique_id=157267473 instance=ExtResource("3_6sbsl")]
+position = Vector2(59, 789)
+item = 1
+item_sprite = SubResource("AtlasTexture_fp284")
+
+[node name="Battery" parent="Pickups" unique_id=1343667615 instance=ExtResource("3_6sbsl")]
+position = Vector2(1125, 786)
+item_sprite = SubResource("AtlasTexture_nqodb")
