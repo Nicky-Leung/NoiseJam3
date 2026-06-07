@@ -1,4 +1,5 @@
 extends Node2D
+class_name Pickup
 
 # Add into this when new pickables are added
 enum Item {
@@ -11,6 +12,7 @@ enum Item {
 @export var key_item_name: String = "" ## Only fill for key items
 @export var item: Item = Item.BATTERY
 @export var item_sprite: Texture2D = null
+@export var can_pickup: bool = true
 
 @onready var sprite: TextureRect = $Sprite
 @onready var interactable: Interactable = $Interactable
@@ -19,6 +21,10 @@ enum Item {
 func _ready():
 	sprite.texture = item_sprite
 	interactable.interacted.connect(on_interacted)
+	allow_pickup(can_pickup)
+
+func allow_pickup(allow: bool):
+	interactable.enable(allow)
 
 func on_interacted(player: Player):
 	var was_added_to_inv = false
