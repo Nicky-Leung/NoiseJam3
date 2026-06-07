@@ -17,6 +17,7 @@ func _physics_process(delta):
 
     chase(delta)
     try_damage_player()
+    if get_real_velocity().length() < 1: return
     footsteps.play_steps(velocity.length() * 2, 0.1, 1.1, 1.2)
 
 func alert_visual(alerter: Node2D) -> void:
