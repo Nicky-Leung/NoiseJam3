@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://gim4qilqrtkd"]
+
+[ext_resource type="PackedScene" uid="uid://dcnsebm1m6b7i" path="res://scenes/map_scenes/main_room.tscn" id="1_y6qkd"]
+[ext_resource type="PackedScene" uid="uid://pdqaljjykij5" path="res://scenes/map_scenes/puzzle_room_1.tscn" id="2_uetgf"]
+[ext_resource type="PackedScene" uid="uid://200yrnwx02mc" path="res://scenes/map_scenes/puzzle_room_2.tscn" id="3_s23tf"]
+[ext_resource type="PackedScene" uid="uid://d7y6roxiu1oy" path="res://scenes/map_scenes/puzzle_room_3.tscn" id="4_qlmbj"]
+[ext_resource type="PackedScene" uid="uid://bghi2u4g0lp47" path="res://scenes/map_scenes/starter_room.tscn" id="5_qi4jx"]
+
+[node name="Level" type="Node2D" unique_id=931812444]
+
+[node name="MainRoom" parent="." unique_id=1228033779 instance=ExtResource("1_y6qkd")]
+
+[node name="PuzzleRoom1" parent="." unique_id=678051783 instance=ExtResource("2_uetgf")]
+position = Vector2(-1500, 0)
+
+[node name="PuzzleRoom2" parent="." unique_id=323118972 instance=ExtResource("3_s23tf")]
+position = Vector2(782, 0)
+
+[node name="PuzzleRoom3" parent="." unique_id=777621045 instance=ExtResource("4_qlmbj")]
+
+[node name="StarterRoom" parent="." unique_id=519425099 instance=ExtResource("5_qi4jx")]
+position = Vector2(100, 450)
