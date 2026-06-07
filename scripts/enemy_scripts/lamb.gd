@@ -46,3 +46,7 @@ func move_away_from_player(delta: float) -> bool:
 func _on_dungeon_door_animation_finished() -> void:
 	ai_state = State.PATROL
 	global_position = patrol_path.global_position
+
+
+func _on_dungeon_area_area_entered(area: Area2D) -> void:
+	pass # Replace with function body.
