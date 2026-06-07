@@ -43,6 +43,9 @@ https://pixabay.com/sound-effects/nature-rustling-grass-4-101281/
 https://pixabay.com/sound-effects/nature-rustling-grass-1-101282/
 https://pixabay.com/sound-effects/nature-rustling-grass-2-101283/
 https://pixabay.com/sound-effects/nature-mouse-squeak-261126/
+https://pixabay.com/sound-effects/film-special-effects-correct-choice-43861/
+https://pixabay.com/sound-effects/film-special-effects-wrong-47985/
+https://pixabay.com/sound-effects/film-special-effects-notification-interface-success-positive-corrects-132471/
 
 #Tiles and Sprites
 https://opengameart.org/content/gemmed-items

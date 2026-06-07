@@ -6,7 +6,10 @@
 [ext_resource type="Script" uid="uid://d2lfdj2cgcrus" path="res://scripts/room_scripts/room_listener.gd" id="2_uhndw"]
 [ext_resource type="PackedScene" uid="uid://cfslgv17irrxe" path="res://scenes/environment_objects/pickup.tscn" id="3_6sbsl"]
 [ext_resource type="Script" uid="uid://bcp7f3c8sh4qc" path="res://scripts/room_scripts/grate_puzzle.gd" id="4_f2xk5"]
+[ext_resource type="AudioStream" uid="uid://b6px6wc0nkea6" path="res://assets/sfx/puzzles/Correct.mp3" id="5_6k5ri"]
 [ext_resource type="Texture2D" uid="uid://2ukxugwj42vt" path="res://assets/sprites/items/puzzle_items/WestKey.png" id="6_f2xk5"]
+[ext_resource type="AudioStream" uid="uid://d1gypfbfymk5w" path="res://assets/sfx/puzzles/Wrong.mp3" id="6_yqbg5"]
+[ext_resource type="AudioStream" uid="uid://cne0eheiacbp0" path="res://assets/sfx/puzzles/Complete.mp3" id="7_yqbg5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6sbsl"]
 size = Vector2(1165, 850)
@@ -46,6 +49,9 @@ metadata/_edit_lock_ = true
 
 [node name="GratePuzzle" type="Node2D" parent="." unique_id=194380919]
 script = ExtResource("4_f2xk5")
+correct_sfx = ExtResource("5_6k5ri")
+wrong_sfx = ExtResource("6_yqbg5")
+finish_sfx = ExtResource("7_yqbg5")
 
 [node name="North" type="Area2D" parent="GratePuzzle" unique_id=700753119]
 position = Vector2(592, 225)
@@ -85,6 +91,8 @@ key_item_name = "West Key"
 item = 3
 item_sprite = ExtResource("6_f2xk5")
 can_pickup = false
+
+[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="GratePuzzle" unique_id=2109778145]
 
 [node name="Player" parent="." unique_id=628625629 instance=ExtResource("2_5e412")]
 position = Vector2(875.9999, 133)
