@@ -16,7 +16,7 @@ enum Type {
 @export var type: Type = Type.MESSAGES
 @export var open_SFX: AudioStream = null
 @export var in_world_sprite: Texture2D = null
-@export var readable_menu: Control = null
+@export var readable_menu: PackedScene = null
 
 @onready var sprite: TextureRect = $Sprite
 @onready var interactable: Interactable = $Interactable
@@ -33,13 +33,15 @@ func _ready():
 		audio_player.stream = default_electronic_SFX if open_SFX == null else open_SFX
 
 	interactable.interacted.connect(on_interact)
-	readable_menu.reparent(menu, true)
-	menu.move_child(readable_menu, 0)
 	menu_close_button.pressed.connect(on_close_pressed)
+	var readable = readable_menu.instantiate()
+	menu.add_child(readable)
+	menu.move_child(readable, 0)
 	menu.visible = false
 
-func on_interact(_player: Player):
+func on_interact(player: Player):
 	menu.visible = true
+	player.input_vector = Vector2.ZERO # Fixes issue where input vector doesn't reset on opening cause game is paused
 	HELPERS.play_audio(audio_player, 0.95, 1.05)
 	get_tree().paused = true
 

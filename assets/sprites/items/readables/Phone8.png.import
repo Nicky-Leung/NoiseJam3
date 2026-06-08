@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hgfh8r2t8ip3"
-path="res://.godot/imported/temp_paper.webp-f2845acce00815e360146135730b377c.ctex"
+uid="uid://74hwnkutnyyo"
+path="res://.godot/imported/Phone8.png-5f3e2ac50aad10a980ebc396443b6af6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/temp_sprites/temp_paper.webp"
-dest_files=["res://.godot/imported/temp_paper.webp-f2845acce00815e360146135730b377c.ctex"]
+source_file="res://assets/sprites/items/readables/Phone8.png"
+dest_files=["res://.godot/imported/Phone8.png-5f3e2ac50aad10a980ebc396443b6af6.ctex"]
 
 [params]
 

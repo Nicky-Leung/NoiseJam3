@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://c71u7fishy1lp"]
+
+[ext_resource type="Texture2D" uid="uid://ciwpfify4yd1q" path="res://assets/sprites/items/readables/paper.png" id="1_2hln3"]
+[ext_resource type="PackedScene" uid="uid://cmcrodc6fiexh" path="res://scenes/readables/plain_text.tscn" id="2_gphmb"]
+
+[node name="TitaniaReport" type="Control" unique_id=1018735964]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="." unique_id=918355296]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -212.5
+offset_top = -310.7915
+offset_right = 212.5
+offset_bottom = 310.7915
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_2hln3")
+expand_mode = 5
+
+[node name="PlainText" parent="." unique_id=1201338786 instance=ExtResource("2_gphmb")]
+report_text = "Code Name: Titania
+Threat Level: Maximum
+Safety Procedure:
+Titania must be kept in a heavily fortified bunker with walls of at minimum 2 meters of concrete. In addition, it is recommended to install phosphine gas vents in Titania’s bunker as extra precaution to prevent escape. If personnel were to encounter Titania, they should always stay under illuminated conditions while phosphine gas is present.
+
+Description:
+Titania is a sentient Giant Sequoia that achieved sentience through grafting the Envoy wings onto the branches of the tree found at the nearby national park. Cellular analysis shows that prolonged exposure to angelic cells induced rapid mutation within the plant cells. Through an unknown process, the original plant cells appear to differentiate themselves into the beginnings of an animal. Titania is highly aggressive and extremely durable, possessing grip strength of approximately triple that of an adult gorilla. It has been shown to attack humans by injecting them with plant matter, which the victim will immediately mutate into plant matter.
+
+It is currently hypothesized that the Envoy is currently experiencing their species' equivalence to aging. The founder believes that research into plant-based lifeforms could provide lucrative insights into prolonging the Envoy’s life, as angelic cells have supernatural levels of adaptability. It should be theoretically possible that we could extract the longevity of plants and implant them into the Envoy, though progress is proving extremely slow without the understanding of the precise mechanisms behind this adaptability.
+
+Researcher’s Notes:
+For the past decade the Envoy appears to have grown physically weaker. Our working theory right now is that the Envoy is experiencing their equivalence to aging. They have blessed our country for centuries, perhaps an angel’s life expectancy is centuries long? Unfortunately there is no way to find out, as the Envoy is the only known angel in existence.
+
+The founder has started to shift all resources into investigating the angel’s ailment. I am in personal agreement that this decision was warranted, as the Envoy has blessed our lands for far longer than any human could reasonably comprehend. It is up to us to repay the favor, even if curing their ailments is just a drop in the bucket compared to what they have given us. We must show gratitude for everything they have done for our people."

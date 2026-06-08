@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://b168pec4gx1by"]
+
+[ext_resource type="Texture2D" uid="uid://dftxp8sv2xuwb" path="res://assets/sprites/items/readables/start_note.png" id="1_ccc4n"]
+[ext_resource type="FontFile" uid="uid://hcag880c0r41" path="res://assets/fonts/CormorantGaramond-VariableFont_wght.ttf" id="2_2ssnr"]
+[ext_resource type="PackedScene" uid="uid://cmcrodc6fiexh" path="res://scenes/readables/plain_text.tscn" id="3_agfan"]
+
+[node name="StartingNote" type="Control" unique_id=298277781]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="." unique_id=1055414525]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -212.5
+offset_top = -310.7915
+offset_right = 212.5
+offset_bottom = 310.7915
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ccc4n")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="Background" unique_id=2029853436]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -364.3885
+offset_top = -190.5
+offset_right = 364.3885
+offset_bottom = 190.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.23006237, 0.05443769, 0.02617834, 1)
+theme_override_colors/font_outline_color = Color(0.23137255, 0.05490196, 0.02745098, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_2ssnr")
+theme_override_font_sizes/font_size = 76
+text = "  I'm sorry for what 
+  you're about to face. 
+  Don't look for me.
+
+                             - Karis"
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="PlainText" parent="." unique_id=1201338786 instance=ExtResource("3_agfan")]
+visible = false
+report_text = "I’m sorry for what you’re about to face. Don’t look for me.
+- Karis
+"

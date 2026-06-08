@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://c4474jfa50m8c"]
+
+[ext_resource type="PackedScene" uid="uid://cmcrodc6fiexh" path="res://scenes/readables/plain_text.tscn" id="1_uhx6m"]
+[ext_resource type="Texture2D" uid="uid://ciwpfify4yd1q" path="res://assets/sprites/items/readables/paper.png" id="1_va3gh"]
+
+[node name="DukkhaReport" type="Control" unique_id=565545644]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="." unique_id=395789744]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -212.5
+offset_top = -310.7915
+offset_right = 212.5
+offset_bottom = 310.7915
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_va3gh")
+expand_mode = 5
+
+[node name="PlainText" parent="." unique_id=1201338786 instance=ExtResource("1_uhx6m")]
+report_text = "Code Name: Dukkha
+Threat Level: High
+Safety Procedure: 
+Personnel must maintain direct eye contact with the entity under illuminated conditions. Any lapse in observation may result in rapid advancement towards nearby personnel and potential death.
+
+Description:
+Dukkhas are the product of injecting angelic DNA extracted from the Envoy into developing humans at the beginning of the blastocyst phase of fetal development. After the death of the Envoy, the founder believed the adaptability of embryonic cells were capable of incorporating angelic DNA during development and rebirthing the Envoy.
+
+Neurological studies of current specimens suggest that Dukkhas exhibit intelligence equivalent to a two-year-old human child. They appear to interpret any interaction as a form of “peekaboo” game; it is believed that they cover their eyes to “hide” from personnel. Surveillance footage of Dukkha attacks indicate that they attack through gripping the victim with the force equivalent to approximately twice the bite force of an adult alligator.
+
+Researcher’s Notes:
+Despite my protests to the founder, he insisted we continue this rebirth project. I even suggested we try finding another species to use for said project. But to my surprise the founder already attempted the project on 30 different species from all kinds of clades. He said that humans were the most promising, as we were the first to touch the divine.
+
+I understand we failed to save the Envoy, but it is too late to fix our mistakes. We are crossing ethical boundaries far beyond what is justifiable. Just thinking about how many expectant mothers enrolled into this project without informed consent fills me with guilt that no man could ever live with. Furthermore we know so little about the creatures from the heavens, who’s to say this won’t backfire on us and make things significantly worse. 
+
+I once agreed with the founder’s actions to preserve the Envoy, as I believed that would be a form of repayment for all that they have given us, but this time I must vehemently go against his wishes. I will continue to recommend the termination of this project. The creatures we are studying are poorly understood and are becoming increasingly difficult to justify. I fear that the consequences of our actions will catch up to us soon, and it will be too late by then.
+"
