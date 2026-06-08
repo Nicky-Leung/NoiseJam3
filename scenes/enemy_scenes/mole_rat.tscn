@@ -23,15 +23,18 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="MoleRat" type="CharacterBody2D" unique_id=1709345035 node_paths=PackedStringArray("nav_agent", "animated_sprite")]
+[node name="MoleRat" type="CharacterBody2D" unique_id=1709345035 node_paths=PackedStringArray("nav_agent", "animated_sprite", "collision_box")]
 script = ExtResource("1_i267u")
 nav_agent = NodePath("Nav")
 animated_sprite = NodePath("Sprite")
+collision_box = NodePath("Hitbox")
 
 [node name="Hitbox" type="CollisionShape2D" parent="." unique_id=1612849074]
 shape = SubResource("CircleShape2D_saobd")
 
 [node name="Nav" type="NavigationAgent2D" parent="." unique_id=1521571511]
+debug_enabled = true
+debug_path_custom_color = Color(1, 0, 0, 1)
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1203910543]
 scale = Vector2(0.055, 0.055)

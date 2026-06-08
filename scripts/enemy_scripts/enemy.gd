@@ -14,11 +14,11 @@ enum State {
 @export var nav_agent: NavigationAgent2D = null
 @export var animated_sprite: AnimatedSprite2D = null
 @export var patrol_path: PathFollow2D = null # add if enemy has a path to patrol
+@export var collision_box: CollisionShape2D = null
 
 # start state
 @export var collides_with_others: bool = false # check if enemy needs to collider with other enemies
 @export var is_active: bool = false # set it to true in editor if enemy should immediately work on scene load
-@export var frames_per_nav_check = 60
 
 # stats
 @export var attack_damage: int = 10
@@ -38,8 +38,10 @@ func _ready():
 	collision_mask = PHYS_LAYERS.TERRAIN + PHYS_LAYERS.PLAYER + PHYS_LAYERS.NO_OCCLUSION_TERRAIN
 	collision_layer = PHYS_LAYERS.ENEMY
 	if collides_with_others: collision_mask += PHYS_LAYERS.ENEMY
-	nav_check_stagger = randi() % frames_per_nav_check
+
 	z_index = 1
+	nav_agent.radius = (collision_box.shape as CircleShape2D).radius
+
 	if patrol_path != null:
 		global_position = patrol_path.global_position
 		call_deferred("reparent", patrol_path)
@@ -59,32 +61,25 @@ func alert_sound(_alerter: Node2D) -> void: # expected to override in children c
 func alert_visual(_alerter: Node2D) -> void: # expected to override in children class
 	in_light = true
 
-func can_check_nav() -> bool:
-	return (Engine.get_physics_frames() + nav_check_stagger) % frames_per_nav_check
+func chase(delta: float) -> bool: # default chase behavior implementation subclasses can use -> returns true if done chasing, false if in middle of chasing
+	if chase_target != null && nav_agent.target_position.distance_squared_to(chase_target.global_position) > (nav_agent.target_desired_distance * 5) ** 2:
+		nav_agent.target_position = chase_target.global_position
+	if nav_agent.is_navigation_finished() || NavigationServer2D.map_get_iteration_id(nav_agent.get_navigation_map()) == 0: return true
 
-func chase(delta: float) -> bool: # default chase behavior implementation subclasses can use
-	move_and_slide() # move based on previous frame values
-	turn_process(delta)
-
-	if chase_target == null || !can_check_nav(): return false
-	nav_agent.target_position = chase_target.global_position
 	move_direction = global_position.direction_to(nav_agent.get_next_path_position())
-
-	if !nav_agent.is_target_reached():
-		velocity = velocity.lerp(move_direction * base_speed, acceleration * delta)
+	velocity = velocity.lerp(move_direction * base_speed, acceleration * delta)
+	move_and_slide()
+	turn_process(delta)
 	return nav_agent.is_target_reached() || !nav_agent.is_target_reachable()
-
 
 func move_to(delta: float, target_pos: Vector2) -> bool:
 	move_and_slide()
 	turn_process(delta)
 
-	if !can_check_nav(): return false
-	nav_agent.target_position = target_pos
+	if nav_agent.target_position != target_pos: nav_agent.target_position = target_pos
 	move_direction = global_position.direction_to(nav_agent.get_next_path_position())
 
-	if !nav_agent.is_target_reached():
-		velocity = velocity.lerp(move_direction * base_speed, acceleration * delta)
+	if !nav_agent.is_target_reached(): velocity = velocity.lerp(move_direction * base_speed, acceleration * delta)
 	return nav_agent.is_target_reached() || !nav_agent.is_target_reachable()
 
 func turn_process(delta):
