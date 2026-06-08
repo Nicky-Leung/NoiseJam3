@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://j8f856qehmwg" path="res://assets/sfx/interactables/Pickup.mp3" id="3_tq7c0"]
 [ext_resource type="AudioStream" uid="uid://qr0rdtoht6er" path="res://assets/sfx/interactables/Paper.mp3" id="4_sjbxu"]
 [ext_resource type="AudioStream" uid="uid://ymfrd7h3mx75" path="res://assets/sfx/interactables/Electronic.mp3" id="5_byus5"]
-[ext_resource type="Theme" uid="uid://yfrti8gy2ey2" path="res://resources/Ui.tres" id="8_4gyic"]
+[ext_resource type="Theme" uid="uid://yfrti8gy2ey2" path="res://resources/theme/Ui.tres" id="8_4gyic"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6l41s"]
 size = Vector2(30, 30)
@@ -39,9 +39,9 @@ process_mode = 3
 stream = ExtResource("3_tq7c0")
 
 [node name="Menu" type="CanvasLayer" parent="." unique_id=619575758]
+process_mode = 2
 
 [node name="Close" type="Button" parent="Menu" unique_id=259765203]
-process_mode = 2
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0

@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cmcrodc6fiexh"]
+
+[ext_resource type="FontFile" uid="uid://hcag880c0r41" path="res://assets/fonts/CormorantGaramond-VariableFont_wght.ttf" id="1_13aav"]
+[ext_resource type="Script" uid="uid://73aq14lqim1p" path="res://scripts/readables_scripts/plain_text.gd" id="1_oiuji"]
+
+[node name="PlainText" type="CanvasLayer" unique_id=1201338786]
+layer = 3
+script = ExtResource("1_oiuji")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1734876286]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.85490197)
+
+[node name="Label" type="RichTextLabel" parent="." unique_id=1036485889]
+custom_minimum_size = Vector2(1132, 628)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_right = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("1_13aav")
+theme_override_font_sizes/normal_font_size = 20
