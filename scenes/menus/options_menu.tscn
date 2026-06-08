@@ -2,13 +2,25 @@
 
 [ext_resource type="Theme" uid="uid://yfrti8gy2ey2" path="res://resources/theme/Ui.tres" id="1_60mby"]
 [ext_resource type="Script" uid="uid://bov17audj0spx" path="res://scripts/menu_scripts/options_menu.gd" id="1_ohqpn"]
-[ext_resource type="FontFile" uid="uid://co46nf7jowu7a" path="res://assets/fonts/MenuFontsBold.ttf" id="2_ohqpn"]
+[ext_resource type="FontFile" uid="uid://c155t83t8237k" path="res://assets/fonts/VCR.ttf" id="3_3aff8"]
+[ext_resource type="Texture2D" uid="uid://bpmigqxfq3lll" path="res://assets/video/CLOSE.png" id="4_7rumi"]
+[ext_resource type="Texture2D" uid="uid://bfv56ut20bnf" path="res://assets/video/OPTIONS.png" id="5_7rumi"]
+[ext_resource type="Shader" uid="uid://bbe32t51umhq4" path="res://scenes/menus/vcr.gdshader" id="6_dwjoh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_erhyl"]
+shader = ExtResource("6_dwjoh")
+shader_parameter/wiggle = 0.03
+shader_parameter/wiggle_speed = 25.0
+shader_parameter/smear = 1.0
+shader_parameter/blur_samples = 15
 
 [node name="OptionsMenu" type="Control" unique_id=1303575000]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ohqpn")
@@ -27,7 +39,7 @@ offset_bottom = 274.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(526, 274)
-color = Color(0.28627452, 0.03137255, 0.078431375, 1)
+color = Color(0.23750009, 0.19, 0.76, 1)
 
 [node name="SFX" type="HBoxContainer" parent="Background" unique_id=1341304082]
 layout_mode = 1
@@ -35,9 +47,9 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 25.0
+offset_left = 23.0
 offset_top = -118.0
-offset_right = -25.0
+offset_right = 30.0
 offset_bottom = -38.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -47,7 +59,8 @@ alignment = 1
 [node name="Label" type="Label" parent="Background/SFX" unique_id=752253343]
 layout_mode = 2
 theme = ExtResource("1_60mby")
-text = "SFX Volume"
+theme_override_fonts/font = ExtResource("3_3aff8")
+text = "SFX Volume "
 
 [node name="SFXSlider" type="HSlider" parent="Background/SFX" unique_id=1083594271]
 layout_mode = 2
@@ -57,6 +70,17 @@ theme = ExtResource("1_60mby")
 max_value = 1.0
 step = 0.01
 
+[node name="TextureRect" type="TextureRect" parent="Background/SFX" unique_id=1956475543]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Background" unique_id=455408458]
+layout_mode = 0
+offset_left = 270.0
+offset_top = 6.0
+offset_right = 728.0
+offset_bottom = 158.0
+texture = ExtResource("5_7rumi")
+
 [node name="Music" type="HBoxContainer" parent="Background" unique_id=2101122597]
 layout_mode = 1
 anchors_preset = 14
@@ -65,7 +89,7 @@ anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = 25.0
 offset_top = 7.0
-offset_right = -25.0
+offset_right = -20.0
 offset_bottom = 87.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -75,6 +99,7 @@ alignment = 1
 [node name="Label" type="Label" parent="Background/Music" unique_id=356939864]
 layout_mode = 2
 theme = ExtResource("1_60mby")
+theme_override_fonts/font = ExtResource("3_3aff8")
 text = "Music Volume"
 
 [node name="MusicSlider" type="HSlider" parent="Background/Music" unique_id=1760886432]
@@ -85,40 +110,27 @@ theme = ExtResource("1_60mby")
 max_value = 1.0
 step = 0.01
 
-[node name="Close" type="Button" parent="Background" unique_id=673749297]
+[node name="Close" type="TextureButton" parent="Background" unique_id=1406604791]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -70.0
-offset_top = 132.0
-offset_right = 70.0
-offset_bottom = 212.0
+offset_left = -200.0
+offset_top = 137.0
+offset_right = -25.0
+offset_bottom = 201.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(2, 2)
 theme = ExtResource("1_60mby")
-text = "Close"
+texture_normal = ExtResource("4_7rumi")
 
-[node name="Title" type="Label" parent="." unique_id=811645331]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -290.0
-offset_top = 64.0
-offset_right = 290.0
-offset_bottom = 146.0
-grow_horizontal = 2
-theme = ExtResource("1_60mby")
-theme_override_colors/font_shadow_color = Color(0.8901961, 0, 0.2509804, 0.5411765)
-theme_override_colors/font_outline_color = Color(0.57254905, 0.26666668, 0.09019608, 1)
-theme_override_constants/shadow_offset_x = 5
-theme_override_constants/shadow_offset_y = 5
-theme_override_constants/outline_size = 10
-theme_override_constants/shadow_outline_size = 5
-theme_override_fonts/font = ExtResource("2_ohqpn")
-theme_override_font_sizes/font_size = 60
-text = "Options"
-horizontal_alignment = 1
+[node name="CanvasLayer" type="CanvasLayer" parent="Background" unique_id=2084419576]
+
+[node name="ColorRect" type="ColorRect" parent="Background/CanvasLayer" unique_id=687838969]
+material = SubResource("ShaderMaterial_erhyl")
+offset_right = 1145.0
+offset_bottom = 643.0
+mouse_filter = 2

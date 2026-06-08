@@ -19,14 +19,22 @@ shader_parameter/wiggle_speed = 25.0
 shader_parameter/smear = 1.0
 shader_parameter/blur_samples = 15
 
-[node name="Menu" type="Node2D" unique_id=831864903]
+[node name="Menu" type="Control" unique_id=1051599612]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=442549833]
 clip_contents = true
-offset_left = -449.0
-offset_top = -258.0
-offset_right = 1680.0
-offset_bottom = 900.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 stream = ExtResource("1_gv756")
 volume_db = 0.6699997
 autoplay = true
@@ -34,7 +42,6 @@ expand = true
 loop = true
 
 [node name="ButtonManager" type="Control" parent="." unique_id=1387493838]
-layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0

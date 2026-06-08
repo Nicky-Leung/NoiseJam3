@@ -6,11 +6,6 @@ extends Control
 @onready var quit: TextureButton = $Quit
 
 func _ready():
-	z_index = 10
-	start.z_index = 10
-	options.z_index = 10
-	credits.z_index = 10
-	quit.z_index = 10
 	if start == null:
 		print("ERROR: Play button not found at path: $Play")
 		return
@@ -39,6 +34,7 @@ func handle_start():
 
 func handle_options():
 	SCENE_MANAGER.open_sub_menu(SceneManager.SubMenus.OPTIONS)
+	
 
 func handle_credits():
 	print("credits opened")

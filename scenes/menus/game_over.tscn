@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://62v2mr8igf40"]
+
+[ext_resource type="VideoStream" uid="uid://dvr3xns4hn86w" path="res://assets/video/GAMEOVER.ogv" id="1_ujjcl"]
+
+[node name="Game Over" type="Node2D" unique_id=430982505]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=153154976]
+offset_right = 40.0
+offset_bottom = 40.0
+stream = ExtResource("1_ujjcl")
+
+[node name="Button Manager" type="Control" parent="." unique_id=2029741390]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
