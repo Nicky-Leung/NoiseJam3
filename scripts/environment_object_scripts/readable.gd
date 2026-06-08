@@ -39,8 +39,9 @@ func _ready():
 	menu.move_child(readable, 0)
 	menu.visible = false
 
-func on_interact(_player: Player):
+func on_interact(player: Player):
 	menu.visible = true
+	player.input_vector = Vector2.ZERO # Fixes issue where input vector doesn't reset on opening cause game is paused
 	HELPERS.play_audio(audio_player, 0.95, 1.05)
 	get_tree().paused = true
 

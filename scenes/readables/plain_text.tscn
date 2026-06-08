@@ -13,7 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.85490197)
+color = Color(0, 0, 0, 0.9098039)
 
 [node name="Label" type="RichTextLabel" parent="." unique_id=1036485889]
 custom_minimum_size = Vector2(1132, 628)

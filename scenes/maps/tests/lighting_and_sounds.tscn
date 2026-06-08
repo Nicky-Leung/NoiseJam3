@@ -24,6 +24,8 @@
 [ext_resource type="PackedScene" uid="uid://c4474jfa50m8c" path="res://scenes/readables/lab_reports/dukkha_report.tscn" id="22_pwcmo"]
 [ext_resource type="Texture2D" uid="uid://be53dd7qn2t21" path="res://assets/sprites/temp_sprites/temp_sin.png" id="24_6xjky"]
 [ext_resource type="PackedScene" uid="uid://bobg83ssbt5c0" path="res://scenes/enemy_scenes/mole_rat.tscn" id="24_pwcmo"]
+[ext_resource type="PackedScene" uid="uid://b4sb233668vv4" path="res://scenes/readables/lab_reports/mole_rat_report.tscn" id="25_f6kyv"]
+[ext_resource type="PackedScene" uid="uid://c71u7fishy1lp" path="res://scenes/readables/lab_reports/titania_report.tscn" id="26_4n4r5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tpqdd"]
 size = Vector2(50, 50)
@@ -34,7 +36,7 @@ polygon = PackedVector2Array(0, 0, 50, 0, 50, 50, 0, 50)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_orjbe"]
 size = Vector2(600, 600)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_6xjky"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_pwcmo"]
 viewport_path = NodePath("SpriteViewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mjy37"]
@@ -56,6 +58,12 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Arr
 outlines = Array[PackedVector2Array]([PackedVector2Array(10, 9, 11, 663, 1146, 665, 1145, 4)])
 source_geometry_mode = 2
 
+[sub_resource type="Curve2D" id="Curve2D_6xjky"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 606, 116, 0, 0, 0, 0, 621, 562, 0, 0, 0, 0, 275, 573, 0, 0, 0, 0, 274, 107, 0, 0, 0, 0, 605, 115)
+}
+point_count = 5
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_6xjky"]
 atlas = ExtResource("20_vs00i")
 region = Rect2(1275.6609, 10.787857, 254.22119, 222.27708)
@@ -76,12 +84,6 @@ region = Rect2(1779.9238, 264.40015, 258.64795, 255.10492)
 atlas = ExtResource("20_vs00i")
 region = Rect2(1023, 10, 248, 232)
 
-[sub_resource type="Curve2D" id="Curve2D_6xjky"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 606, 116, 0, 0, 0, 0, 621, 562, 0, 0, 0, 0, 275, 573, 0, 0, 0, 0, 274, 107, 0, 0, 0, 0, 605, 115)
-}
-point_count = 5
-
 [node name="LightingAndSounds" type="Node2D" unique_id=1796258794]
 
 [node name="TileMapLayer" parent="." unique_id=694493410 instance=ExtResource("1_av4ye")]
@@ -91,135 +93,137 @@ tile_map_data = PackedByteArray("AAAAAAAAAAA6ABQAAAAAAAEAAAA6ABUAAAABAAAAAAA7ABQ
 [node name="Player" parent="." unique_id=628625629 instance=ExtResource("2_ob7ho")]
 position = Vector2(849, 466)
 
-[node name="TestBlock" type="StaticBody2D" parent="." unique_id=950818082 groups=["navigation_polygon_source_geometry_group"]]
+[node name="Colliders" type="Node" parent="." unique_id=1836697320]
+
+[node name="TestBlock" type="StaticBody2D" parent="Colliders" unique_id=950818082 groups=["navigation_polygon_source_geometry_group"]]
 position = Vector2(190, 193)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TestBlock" unique_id=1968738941]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/TestBlock" unique_id=1968738941]
 shape = SubResource("RectangleShape2D_tpqdd")
 metadata/_edit_lock_ = true
 
-[node name="Polygon2D" type="Polygon2D" parent="TestBlock" unique_id=1114734159]
+[node name="Polygon2D" type="Polygon2D" parent="Colliders/TestBlock" unique_id=1114734159]
 position = Vector2(-25, -25)
 color = Color(1, 0.19215687, 1, 1)
 polygon = PackedVector2Array(0, 0, 50, 0, 50, 50, 0, 50)
 metadata/_edit_lock_ = true
 
-[node name="Interactable" parent="TestBlock" unique_id=345271570 node_paths=PackedStringArray("parent_collider") instance=ExtResource("3_vhgv5")]
+[node name="Interactable" parent="Colliders/TestBlock" unique_id=345271570 node_paths=PackedStringArray("parent_collider") instance=ExtResource("3_vhgv5")]
 parent_collider = NodePath("../CollisionShape2D")
 description = "This looks pretty bad eh?"
 metadata/_edit_lock_ = true
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="TestBlock" unique_id=1078680424]
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Colliders/TestBlock" unique_id=1078680424]
 position = Vector2(-25, -25)
 occluder = SubResource("OccluderPolygon2D_ob7ho")
 
-[node name="TestBlock2" type="StaticBody2D" parent="." unique_id=347629771 groups=["navigation_polygon_source_geometry_group"]]
+[node name="TestBlock2" type="StaticBody2D" parent="Colliders" unique_id=347629771 groups=["navigation_polygon_source_geometry_group"]]
 position = Vector2(362, 193)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TestBlock2" unique_id=991949423]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/TestBlock2" unique_id=991949423]
 shape = SubResource("RectangleShape2D_tpqdd")
 metadata/_edit_lock_ = true
 
-[node name="Polygon2D" type="Polygon2D" parent="TestBlock2" unique_id=966028605]
+[node name="Polygon2D" type="Polygon2D" parent="Colliders/TestBlock2" unique_id=966028605]
 position = Vector2(-25, -25)
 color = Color(1, 0.19215687, 1, 1)
 polygon = PackedVector2Array(0, 0, 50, 0, 50, 50, 0, 50)
 metadata/_edit_lock_ = true
 
-[node name="Interactable" parent="TestBlock2" unique_id=1272002609 node_paths=PackedStringArray("parent_collider") instance=ExtResource("3_vhgv5")]
+[node name="Interactable" parent="Colliders/TestBlock2" unique_id=1272002609 node_paths=PackedStringArray("parent_collider") instance=ExtResource("3_vhgv5")]
 parent_collider = NodePath("../CollisionShape2D")
 description = "This looks pretty bad eh?"
 metadata/_edit_lock_ = true
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="TestBlock2" unique_id=2106235709]
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Colliders/TestBlock2" unique_id=2106235709]
 position = Vector2(-25, -25)
 occluder = SubResource("OccluderPolygon2D_ob7ho")
 
-[node name="TestBlock3" type="StaticBody2D" parent="." unique_id=231142498 groups=["navigation_polygon_source_geometry_group"]]
+[node name="TestBlock3" type="StaticBody2D" parent="Colliders" unique_id=231142498 groups=["navigation_polygon_source_geometry_group"]]
 position = Vector2(531, 193)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TestBlock3" unique_id=306003524]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/TestBlock3" unique_id=306003524]
 shape = SubResource("RectangleShape2D_tpqdd")
 metadata/_edit_lock_ = true
 
-[node name="Polygon2D" type="Polygon2D" parent="TestBlock3" unique_id=105061625]
+[node name="Polygon2D" type="Polygon2D" parent="Colliders/TestBlock3" unique_id=105061625]
 position = Vector2(-25, -25)
 color = Color(1, 0.19215687, 1, 1)
 polygon = PackedVector2Array(0, 0, 50, 0, 50, 50, 0, 50)
 metadata/_edit_lock_ = true
 
-[node name="Interactable" parent="TestBlock3" unique_id=1493847891 node_paths=PackedStringArray("parent_collider") instance=ExtResource("3_vhgv5")]
+[node name="Interactable" parent="Colliders/TestBlock3" unique_id=1493847891 node_paths=PackedStringArray("parent_collider") instance=ExtResource("3_vhgv5")]
 parent_collider = NodePath("../CollisionShape2D")
 description = "This looks pretty bad eh?"
 metadata/_edit_lock_ = true
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="TestBlock3" unique_id=1657645311]
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Colliders/TestBlock3" unique_id=1657645311]
 position = Vector2(-25, -25)
 occluder = SubResource("OccluderPolygon2D_ob7ho")
 
-[node name="TestBlock4" type="StaticBody2D" parent="." unique_id=2079034844 groups=["navigation_polygon_source_geometry_group"]]
+[node name="TestBlock4" type="StaticBody2D" parent="Colliders" unique_id=2079034844 groups=["navigation_polygon_source_geometry_group"]]
 position = Vector2(190, 313)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TestBlock4" unique_id=821518784]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/TestBlock4" unique_id=821518784]
 shape = SubResource("RectangleShape2D_tpqdd")
 metadata/_edit_lock_ = true
 
-[node name="Polygon2D" type="Polygon2D" parent="TestBlock4" unique_id=778750710]
+[node name="Polygon2D" type="Polygon2D" parent="Colliders/TestBlock4" unique_id=778750710]
 position = Vector2(-25, -25)
 color = Color(1, 0.19215687, 1, 1)
 polygon = PackedVector2Array(0, 0, 50, 0, 50, 50, 0, 50)
 metadata/_edit_lock_ = true
 
-[node name="Interactable" parent="TestBlock4" unique_id=1761428556 node_paths=PackedStringArray("parent_collider") instance=ExtResource("3_vhgv5")]
+[node name="Interactable" parent="Colliders/TestBlock4" unique_id=1761428556 node_paths=PackedStringArray("parent_collider") instance=ExtResource("3_vhgv5")]
 parent_collider = NodePath("../CollisionShape2D")
 description = "This looks pretty bad eh?"
 metadata/_edit_lock_ = true
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="TestBlock4" unique_id=361048800]
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Colliders/TestBlock4" unique_id=361048800]
 position = Vector2(-25, -25)
 occluder = SubResource("OccluderPolygon2D_ob7ho")
 
-[node name="TestBlock5" type="StaticBody2D" parent="." unique_id=1975343506 groups=["navigation_polygon_source_geometry_group"]]
+[node name="TestBlock5" type="StaticBody2D" parent="Colliders" unique_id=1975343506 groups=["navigation_polygon_source_geometry_group"]]
 position = Vector2(364, 313)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TestBlock5" unique_id=96924110]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/TestBlock5" unique_id=96924110]
 shape = SubResource("RectangleShape2D_tpqdd")
 metadata/_edit_lock_ = true
 
-[node name="Polygon2D" type="Polygon2D" parent="TestBlock5" unique_id=890115655]
+[node name="Polygon2D" type="Polygon2D" parent="Colliders/TestBlock5" unique_id=890115655]
 position = Vector2(-25, -25)
 color = Color(1, 0.19215687, 1, 1)
 polygon = PackedVector2Array(0, 0, 50, 0, 50, 50, 0, 50)
 metadata/_edit_lock_ = true
 
-[node name="Interactable" parent="TestBlock5" unique_id=1218739754 node_paths=PackedStringArray("parent_collider") instance=ExtResource("3_vhgv5")]
+[node name="Interactable" parent="Colliders/TestBlock5" unique_id=1218739754 node_paths=PackedStringArray("parent_collider") instance=ExtResource("3_vhgv5")]
 parent_collider = NodePath("../CollisionShape2D")
 description = "This looks pretty bad eh?"
 metadata/_edit_lock_ = true
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="TestBlock5" unique_id=769163769]
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Colliders/TestBlock5" unique_id=769163769]
 position = Vector2(-25, -25)
 occluder = SubResource("OccluderPolygon2D_ob7ho")
 
-[node name="TestBlock6" type="StaticBody2D" parent="." unique_id=122538919 groups=["navigation_polygon_source_geometry_group"]]
+[node name="TestBlock6" type="StaticBody2D" parent="Colliders" unique_id=122538919 groups=["navigation_polygon_source_geometry_group"]]
 position = Vector2(532, 313)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TestBlock6" unique_id=277185337]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Colliders/TestBlock6" unique_id=277185337]
 shape = SubResource("RectangleShape2D_tpqdd")
 metadata/_edit_lock_ = true
 
-[node name="Polygon2D" type="Polygon2D" parent="TestBlock6" unique_id=1271910520]
+[node name="Polygon2D" type="Polygon2D" parent="Colliders/TestBlock6" unique_id=1271910520]
 position = Vector2(-25, -25)
 color = Color(1, 0.19215687, 1, 1)
 polygon = PackedVector2Array(0, 0, 50, 0, 50, 50, 0, 50)
 metadata/_edit_lock_ = true
 
-[node name="Interactable" parent="TestBlock6" unique_id=1215328624 node_paths=PackedStringArray("parent_collider") instance=ExtResource("3_vhgv5")]
+[node name="Interactable" parent="Colliders/TestBlock6" unique_id=1215328624 node_paths=PackedStringArray("parent_collider") instance=ExtResource("3_vhgv5")]
 parent_collider = NodePath("../CollisionShape2D")
 description = "This looks pretty bad eh?"
 metadata/_edit_lock_ = true
 
-[node name="LightOccluder2D" type="LightOccluder2D" parent="TestBlock6" unique_id=24900509]
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Colliders/TestBlock6" unique_id=24900509]
 position = Vector2(-25, -25)
 occluder = SubResource("OccluderPolygon2D_ob7ho")
 
@@ -263,7 +267,7 @@ area2d_sound_zone = NodePath("..")
 position = Vector2(461, 418)
 
 [node name="Sprite" parent="CensoredSin" index="0" unique_id=1821370934]
-texture = SubResource("ViewportTexture_6xjky")
+texture = SubResource("ViewportTexture_pwcmo")
 
 [node name="Collider" parent="CensoredSin" index="2" unique_id=1785174278 groups=["navigation_polygon_source_geometry_group"]]
 
@@ -286,41 +290,6 @@ player = NodePath("../Player")
 visible = false
 navigation_polygon = SubResource("NavigationPolygon_mjy37")
 
-[node name="Pickup" parent="." unique_id=1314714567 instance=ExtResource("19_fokgv")]
-position = Vector2(56, 249)
-item_sprite = SubResource("AtlasTexture_6xjky")
-
-[node name="Pickup2" parent="." unique_id=1995029907 instance=ExtResource("19_fokgv")]
-position = Vector2(270, 50)
-item = 1
-item_sprite = SubResource("AtlasTexture_f6kyv")
-
-[node name="Pickup3" parent="." unique_id=1449239136 instance=ExtResource("19_fokgv")]
-position = Vector2(159, 116)
-item = 2
-item_sprite = SubResource("AtlasTexture_4n4r5")
-
-[node name="Readable" parent="." unique_id=536321432 instance=ExtResource("22_5aceh")]
-position = Vector2(922, 473)
-type = 0
-readable_menu = ExtResource("22_pwcmo")
-
-[node name="Pickup4" parent="." unique_id=596795481 instance=ExtResource("19_fokgv")]
-position = Vector2(95, 377)
-item = 2
-item_sprite = SubResource("AtlasTexture_3foic")
-
-[node name="Pickup5" parent="." unique_id=1554122736 instance=ExtResource("19_fokgv")]
-position = Vector2(283, 343)
-item = 1
-item_sprite = SubResource("AtlasTexture_twa2i")
-
-[node name="Pickup6" parent="." unique_id=459109552 instance=ExtResource("19_fokgv")]
-position = Vector2(157, 532)
-key_item_name = "Purple Keycard"
-item = 3
-item_sprite = ExtResource("24_6xjky")
-
 [node name="MoleRat1" parent="." unique_id=1709345035 node_paths=PackedStringArray("patrol_path") instance=ExtResource("24_pwcmo")]
 position = Vector2(361, 69)
 patrol_path = NodePath("../PatrolPath/MoleRat1Follow")
@@ -342,5 +311,54 @@ rotation = 1.5371767
 position = Vector2(280.62527, 572.82117)
 rotation = 3.1098115
 progress = 786.8148
+
+[node name="Pickups" type="Node" parent="." unique_id=146857645]
+
+[node name="Pickup" parent="Pickups" unique_id=1314714567 instance=ExtResource("19_fokgv")]
+position = Vector2(56, 249)
+item_sprite = SubResource("AtlasTexture_6xjky")
+
+[node name="Pickup2" parent="Pickups" unique_id=1995029907 instance=ExtResource("19_fokgv")]
+position = Vector2(270, 50)
+item = 1
+item_sprite = SubResource("AtlasTexture_f6kyv")
+
+[node name="Pickup3" parent="Pickups" unique_id=1449239136 instance=ExtResource("19_fokgv")]
+position = Vector2(159, 116)
+item = 2
+item_sprite = SubResource("AtlasTexture_4n4r5")
+
+[node name="Pickup4" parent="Pickups" unique_id=596795481 instance=ExtResource("19_fokgv")]
+position = Vector2(95, 377)
+item = 2
+item_sprite = SubResource("AtlasTexture_3foic")
+
+[node name="Pickup5" parent="Pickups" unique_id=1554122736 instance=ExtResource("19_fokgv")]
+position = Vector2(283, 343)
+item = 1
+item_sprite = SubResource("AtlasTexture_twa2i")
+
+[node name="Pickup6" parent="Pickups" unique_id=459109552 instance=ExtResource("19_fokgv")]
+position = Vector2(157, 532)
+key_item_name = "Purple Keycard"
+item = 3
+item_sprite = ExtResource("24_6xjky")
+
+[node name="Readables" type="Node" parent="." unique_id=1147870205]
+
+[node name="Dukkha" parent="Readables" unique_id=536321432 instance=ExtResource("22_5aceh")]
+position = Vector2(922, 473)
+type = 0
+readable_menu = ExtResource("22_pwcmo")
+
+[node name="MoleRat" parent="Readables" unique_id=1419595814 instance=ExtResource("22_5aceh")]
+position = Vector2(1018, 365)
+type = 0
+readable_menu = ExtResource("25_f6kyv")
+
+[node name="Titania" parent="Readables" unique_id=204448477 instance=ExtResource("22_5aceh")]
+position = Vector2(1039, 563)
+type = 0
+readable_menu = ExtResource("26_4n4r5")
 
 [editable path="CensoredSin"]
