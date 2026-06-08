@@ -16,6 +16,8 @@ func _input(_event: InputEvent):
 	if !readable_layer.visible: return
 	if Input.is_action_just_pressed(INPUTS.INTERACT):
 		visible = !visible
+	elif Input.is_action_just_pressed(INPUTS.EXIT):
+		visible = false
 
 func _on_visible_changed():
 	set_process_input(readable_layer.visible)

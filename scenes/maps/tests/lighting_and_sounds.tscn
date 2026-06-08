@@ -26,6 +26,8 @@
 [ext_resource type="PackedScene" uid="uid://bobg83ssbt5c0" path="res://scenes/enemy_scenes/mole_rat.tscn" id="24_pwcmo"]
 [ext_resource type="PackedScene" uid="uid://b4sb233668vv4" path="res://scenes/readables/lab_reports/mole_rat_report.tscn" id="25_f6kyv"]
 [ext_resource type="PackedScene" uid="uid://c71u7fishy1lp" path="res://scenes/readables/lab_reports/titania_report.tscn" id="26_4n4r5"]
+[ext_resource type="Texture2D" uid="uid://dftxp8sv2xuwb" path="res://assets/sprites/items/readables/start_note.png" id="27_4n4r5"]
+[ext_resource type="PackedScene" uid="uid://b168pec4gx1by" path="res://scenes/readables/starting_note.tscn" id="28_3foic"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tpqdd"]
 size = Vector2(50, 50)
@@ -36,7 +38,7 @@ polygon = PackedVector2Array(0, 0, 50, 0, 50, 50, 0, 50)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_orjbe"]
 size = Vector2(600, 600)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_pwcmo"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_f6kyv"]
 viewport_path = NodePath("SpriteViewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mjy37"]
@@ -267,7 +269,7 @@ area2d_sound_zone = NodePath("..")
 position = Vector2(461, 418)
 
 [node name="Sprite" parent="CensoredSin" index="0" unique_id=1821370934]
-texture = SubResource("ViewportTexture_pwcmo")
+texture = SubResource("ViewportTexture_f6kyv")
 
 [node name="Collider" parent="CensoredSin" index="2" unique_id=1785174278 groups=["navigation_polygon_source_geometry_group"]]
 
@@ -360,5 +362,16 @@ readable_menu = ExtResource("25_f6kyv")
 position = Vector2(1039, 563)
 type = 0
 readable_menu = ExtResource("26_4n4r5")
+
+[node name="Electronic" parent="Readables" unique_id=1406546073 instance=ExtResource("22_5aceh")]
+position = Vector2(844, 326)
+type = 2
+readable_menu = ExtResource("22_pwcmo")
+
+[node name="StartingNote" parent="Readables" unique_id=399817556 instance=ExtResource("22_5aceh")]
+position = Vector2(1019, 223)
+type = 0
+in_world_sprite = ExtResource("27_4n4r5")
+readable_menu = ExtResource("28_3foic")
 
 [editable path="CensoredSin"]
