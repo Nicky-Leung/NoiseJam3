@@ -3,7 +3,6 @@ class_name Player
 
 # Signals
 signal player_died(killer: Enemy)
-signal dungeon_entered()
 
 # Components
 @onready var inventory: Inventory = $Overlay/Inventory
@@ -108,8 +107,3 @@ func attack(amount: int, attacker: Enemy): # called for enemy attacks
 		player_died.emit(attacker)
 		print("player died to " + str(attacker))
 		return
-
-
-func _on_dungeon_area_area_entered(area: Area2D) -> void:
-	dungeon_entered.emit()
-	
