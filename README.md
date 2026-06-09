@@ -4,6 +4,7 @@
 
 https://www.fontsquirrel.com/fonts/Berylium
 https://fonts.google.com/specimen/Cormorant+Garamond?preview.text=Radioactive&specimen.preview.text=Radioactive&categoryFilters=Serif:%2FSerif%2FOld+Style+Garalde
+https://fonts.google.com/specimen/Science+Gothic
 
 ## Music
 
