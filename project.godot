@@ -11,8 +11,9 @@ config_version=5
 [application]
 
 config/name="NoiseJam3"
-run/main_scene="uid://ch6nrwk2usqw"
+run/main_scene="uid://dl10r8p0e5jr0"
 config/features=PackedStringArray("4.6", "GL Compatibility")
+run/low_processor_mode=true
 
 [autoload]
 
