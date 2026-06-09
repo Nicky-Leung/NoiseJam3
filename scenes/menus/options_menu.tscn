@@ -5,7 +5,7 @@
 [ext_resource type="FontFile" uid="uid://c155t83t8237k" path="res://assets/fonts/VCR.ttf" id="3_3aff8"]
 [ext_resource type="Texture2D" uid="uid://bpmigqxfq3lll" path="res://assets/video/CLOSE.png" id="4_7rumi"]
 [ext_resource type="Texture2D" uid="uid://bfv56ut20bnf" path="res://assets/video/OPTIONS.png" id="5_7rumi"]
-[ext_resource type="Shader" uid="uid://bbe32t51umhq4" path="res://scenes/menus/vcr.gdshader" id="6_dwjoh"]
+[ext_resource type="Shader" uid="uid://bbe32t51umhq4" path="res://resources/shaders/vcr.gdshader" id="6_dwjoh"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_erhyl"]
 shader = ExtResource("6_dwjoh")

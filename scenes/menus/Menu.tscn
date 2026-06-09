@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bxity1o0ypa7j" path="res://assets/video/CREDITS_SELECT.png" id="7_s5nif"]
 [ext_resource type="Texture2D" uid="uid://belnjlphg3xst" path="res://assets/video/QUIT.png" id="8_i2v0a"]
 [ext_resource type="Texture2D" uid="uid://c4bvwvdrh0p1b" path="res://assets/video/QUIT_SELECT.png" id="9_pj32k"]
-[ext_resource type="Shader" uid="uid://bbe32t51umhq4" path="res://scenes/menus/vcr.gdshader" id="11_bt1pb"]
+[ext_resource type="Shader" uid="uid://bbe32t51umhq4" path="res://resources/shaders/vcr.gdshader" id="11_bt1pb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xysw7"]
 shader = ExtResource("11_bt1pb")

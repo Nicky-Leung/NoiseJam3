@@ -2,9 +2,9 @@
 
 [ext_resource type="VideoStream" uid="uid://dvr3xns4hn86w" path="res://assets/video/GAMEOVER.ogv" id="1_ujjcl"]
 [ext_resource type="Texture2D" uid="uid://ch5dvoutql0yv" path="res://assets/video/GameOver.png" id="2_asori"]
-[ext_resource type="Shader" uid="uid://bbe32t51umhq4" path="res://scenes/menus/vcr.gdshader" id="3_gypcw"]
-[ext_resource type="Script" uid="uid://c7shhjwvgigga" path="res://scenes/menus/shadertime.gd" id="3_vg4au"]
-[ext_resource type="Script" uid="uid://bv8hjeotplx1c" path="res://scenes/menus/texture_button.gd" id="4_0gvls"]
+[ext_resource type="Shader" uid="uid://bbe32t51umhq4" path="res://resources/shaders/vcr.gdshader" id="3_gypcw"]
+[ext_resource type="Script" uid="uid://c7shhjwvgigga" path="res://scripts/menu_scripts/shadertime.gd" id="3_vg4au"]
+[ext_resource type="Script" uid="uid://bv8hjeotplx1c" path="res://scripts/menu_scripts/OnClickScreen.gd" id="4_0gvls"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vg4au"]
 shader = ExtResource("3_gypcw")
@@ -40,7 +40,7 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="TextureButton" type="TextureButton" parent="Control" unique_id=1346574618]
+[node name="OnClickScreen" type="TextureButton" parent="Control" unique_id=1346574618]
 layout_mode = 0
 offset_left = -0.9999695
 offset_top = 6.0000305
@@ -58,4 +58,4 @@ offset_bottom = 643.0
 mouse_filter = 2
 script = ExtResource("3_vg4au")
 
-[connection signal="pressed" from="Control/TextureButton" to="Control/TextureButton" method="_on_pressed"]
+[connection signal="pressed" from="Control/OnClickScreen" to="Control/OnClickScreen" method="_on_pressed"]
