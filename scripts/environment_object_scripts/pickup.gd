@@ -36,6 +36,7 @@ func on_interacted(player: Player):
 	elif item == Item.FLASHLIGHT:
 		player.has_flashlight = true
 		was_added_to_inv = true
+		player.flashlight.toggle()
 
 	if was_added_to_inv:
 		visible = false

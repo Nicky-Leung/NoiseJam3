@@ -40,6 +40,7 @@ func _ready():
 	menu.add_child(readable)
 	menu.move_child(readable, 0)
 	menu.visible = false
+	z_index = -1
 
 func on_interact(player: Player):
 	menu.visible = true

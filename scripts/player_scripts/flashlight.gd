@@ -5,7 +5,7 @@ extends PointLight2D
 @export var refillSFX: AudioStream = null
 
 # starting stats
-@export var max_battery_seconds: float = 60 * 3
+@export var max_battery_seconds: float = 60
 @export var refill_time: float = 1.5
 @export var show_sprite: bool = false
 @export var infinite_battery: bool = false

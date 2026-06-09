@@ -29,7 +29,7 @@ func play_sequence():
 	tween.tween_property(black_screen, "modulate", Color.TRANSPARENT, 4).set_ease(Tween.EaseType.EASE_IN).set_trans(Tween.TransitionType.TRANS_EXPO)
 	# call some wakeup animation in player
 	tween.tween_interval(1) # simulate wake up animation
-	tween.tween_property(player, "rotation", PI / 4, 0.75).set_trans(Tween.TransitionType.TRANS_QUINT).set_ease(Tween.EaseType.EASE_IN_OUT)
+	tween.tween_property(player, "rotation", PI / 4, 0.75)
 	tween.tween_interval(0.3)
 	tween.tween_property(player, "rotation", PI * 3 / 4, 0.75)
 	tween.tween_callback(func(): HELPERS.play_audio(audio_player))

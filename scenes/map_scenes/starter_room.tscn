@@ -123,12 +123,14 @@ stream = ExtResource("12_i4p0j")
 position = Vector2(308, 377)
 rotation = 1.5707964
 has_flashlight = false
+starting_flashlight_charge = 10.0
 
 [node name="CensoredSin" parent="." unique_id=1865245503 instance=ExtResource("7_ieuqq")]
 position = Vector2(306, 245)
 
 [node name="Cinematic" type="Node2D" parent="." unique_id=1690375132 node_paths=PackedStringArray("player")]
 script = ExtResource("9_ieuqq")
+skip_sequence = true
 player = NodePath("../Player")
 
 [node name="AudioPlayer" type="AudioStreamPlayer2D" parent="Cinematic" unique_id=2139737607]
