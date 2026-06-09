@@ -45,7 +45,7 @@ script = ExtResource("3_13seb")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Layout/RoomListener" unique_id=411528699]
 shape = SubResource("RectangleShape2D_qqy6g")
 
-[node name="Readables" type="Node2D" parent="." unique_id=1546911594]
+[node name="Readables" type="Node" parent="." unique_id=768018122]
 
 [node name="StartingNote" parent="Readables" unique_id=536321432 instance=ExtResource("3_p0vol")]
 position = Vector2(379, 310)
@@ -53,7 +53,7 @@ type = 0
 in_world_sprite = ExtResource("4_2ebnm")
 readable_menu = ExtResource("5_xlnik")
 
-[node name="Pickups" type="Node2D" parent="." unique_id=1818249076]
+[node name="Pickups" type="Node" parent="." unique_id=1115741370]
 
 [node name="Pickup" parent="Pickups" unique_id=1314714567 instance=ExtResource("13_jectp")]
 position = Vector2(252, 342)
@@ -66,7 +66,7 @@ offset = Vector2(255, 255)
 show_sprite = true
 infinite_battery = true
 
-[node name="AmbientSounds" type="Node2D" parent="." unique_id=1527775937]
+[node name="AmbientSounds" type="Node" parent="." unique_id=1589552129]
 
 [node name="Drip" type="AudioStreamPlayer2D" parent="AmbientSounds" unique_id=1615380089]
 position = Vector2(95, 445)

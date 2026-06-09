@@ -15,6 +15,7 @@ signal player_died(killer: Enemy)
 @onready var hurtSFX = $HurtSFX
 @onready var healSFX = $HealSFX
 @onready var camera = $Camera
+@onready var overlay = $Overlay
 
 @onready var trap_scene : PackedScene = preload("res://scenes/environment_objects/trap.tscn")
 
@@ -78,6 +79,10 @@ func _input(event: InputEvent) -> void:
 		var collider = interact_ray.get_collider()
 		if collider is Interactable:
 			collider.interact(self)
+
+func handle_pause(pause: bool):
+	overlay.visible = !pause
+	input_vector = Vector2.ZERO
 
 func disable_inputs(disable: bool):
 	inputs_disabled = disable

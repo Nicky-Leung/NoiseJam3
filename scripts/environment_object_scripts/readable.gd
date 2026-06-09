@@ -24,6 +24,8 @@ enum Type {
 @onready var menu_close_button: Button = $Menu/Close
 @onready var menu: CanvasLayer = $Menu
 
+var player_ref: Player = null
+
 func _ready():
 	if type == Type.LAB_REPORT:
 		sprite.texture = default_paper_sprite if in_world_sprite == null else in_world_sprite
@@ -41,10 +43,12 @@ func _ready():
 
 func on_interact(player: Player):
 	menu.visible = true
-	player.input_vector = Vector2.ZERO # Fixes issue where input vector doesn't reset on opening cause game is paused
+	player_ref = player
+	player.handle_pause(true)
 	HELPERS.play_audio(audio_player, 0.95, 1.05)
 	get_tree().paused = true
 
 func on_close_pressed():
 	menu.visible = false
+	player_ref.handle_pause(false)
 	get_tree().paused = false
