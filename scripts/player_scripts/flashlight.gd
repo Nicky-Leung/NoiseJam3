@@ -69,8 +69,8 @@ func toggle() -> void:
 	enemy_alerter.enable(visible)
 	cd_timer.start()
 
-func disable_light() -> void:
+func disable_light(play_sound: bool = true) -> void:
 	visible = false
 	audio_player.stream = dieSFX
-	HELPERS.play_audio(audio_player)
+	if play_sound: HELPERS.play_audio(audio_player)
 	enemy_alerter.enable(false)

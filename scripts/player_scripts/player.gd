@@ -37,7 +37,7 @@ func _ready():
 	inventory.medkit_consumed.connect(full_heal)
 	inventory.trap_consumed.connect(place_trap)
 	inventory.battery_consumed.connect(replace_battery)
-	flashlight.visible = false
+	flashlight.disable_light(false)
 
 func _process(_delta: float) -> void:
 	if velocity.length() > 0:
