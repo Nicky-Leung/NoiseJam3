@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dgngt1ans4vwq" path="res://scenes/environment_objects/dungeon_door.tscn" id="4_0l7ns"]
 [ext_resource type="AudioStream" uid="uid://wmf7avjpd7hp" path="res://assets/sfx/jump_scares/u_jrqwaqm503-school-bell-longer-451839.mp3" id="6_as3os"]
 [ext_resource type="Script" uid="uid://batixukwmcg7c" path="res://scripts/room_scripts/alarm.gd" id="7_ny5gj"]
+[ext_resource type="PackedScene" uid="uid://cfslgv17irrxe" path="res://scenes/environment_objects/pickup.tscn" id="8_ny5gj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wc1j8"]
 size = Vector2(353, 63)
@@ -191,6 +192,7 @@ texture = ExtResource("2_wc1j8")
 0:14/0 = 0
 1:14/0 = 0
 2:14/0 = 0
+2:14/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:14/0 = 0
 4:14/0 = 0
 5:14/0 = 0
@@ -198,9 +200,13 @@ texture = ExtResource("2_wc1j8")
 7:14/0 = 0
 8:14/0 = 0
 0:15/0 = 0
+0:15/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:15/0 = 0
+1:15/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:15/0 = 0
+2:15/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:15/0 = 0
+3:15/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:15/0 = 0
 5:15/0 = 0
 6:15/0 = 0
@@ -211,9 +217,13 @@ texture = ExtResource("2_wc1j8")
 11:15/0 = 0
 12:15/0 = 0
 0:16/0 = 0
+0:16/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:16/0 = 0
+1:16/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:16/0 = 0
+2:16/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:16/0 = 0
+3:16/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:16/0 = 0
 5:16/0 = 0
 6:16/0 = 0
@@ -224,9 +234,13 @@ texture = ExtResource("2_wc1j8")
 11:16/0 = 0
 12:16/0 = 0
 0:17/0 = 0
+0:17/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:17/0 = 0
+1:17/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:17/0 = 0
+2:17/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:17/0 = 0
+3:17/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:17/0 = 0
 5:17/0 = 0
 6:17/0 = 0
@@ -301,19 +315,13 @@ texture = ExtResource("2_wc1j8")
 12:22/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_g7mvb"]
+physics_layer_0/collision_layer = 1
+physics_layer_1/collision_layer = 16
+physics_layer_1/collision_mask = 16
 sources/0 = SubResource("TileSetAtlasSource_r7j0v")
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0l7ns"]
-size = Vector2(46.75, 36)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_0l7ns"]
 polygon = PackedVector2Array(0, 0, 50, 0, 50, 50, 0, 50)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_as3os"]
-size = Vector2(62.5, 37)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ny5gj"]
-size = Vector2(8, 75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g6wl1"]
 size = Vector2(115.25, 47.25)
@@ -325,9 +333,9 @@ _data = {
 point_count = 7
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_r7j0v"]
-vertices = PackedVector2Array(1008.10156, 1024.1094, 698.0469, 1027.8672, 698.9375, 864.90625, 1009.8828, 862.09375)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(689, 855, 1020, 852, 1018, 1034, 688, 1038)])
+vertices = PackedVector2Array(698.0469, 1028.2578, 698.9375, 865.7969, 884.2031, 880.2578, 886.22656, 969.27344, 1007.53906, 1036.7031, 980.40625, 966.71875, 1004.4297, 965.28906, 980.3828, 966.02344, 925.47656, 898, 924.5469, 880.8906, 1005.15625, 880.09375, 977.60156, 898, 1005.5, 899.6328, 977.6328, 898.89844)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5), PackedInt32Array(6, 4, 5, 7), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(11, 10, 12, 13)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(689, 855, 894, 871, 896, 959, 970, 957, 968, 908, 916, 908, 914, 871, 1015, 870, 1015.6764, 909.9039, 981, 909, 981, 956, 1014, 955, 1018, 1047, 688, 1038)])
 
 [node name="PuzzleRoom3" type="Node2D" unique_id=777621045]
 
@@ -365,35 +373,27 @@ shape = SubResource("RectangleShape2D_g7mvb")
 
 [node name="Cell" type="TileMapLayer" parent="." unique_id=47054908]
 position = Vector2(-672, -785)
-tile_map_data = PackedByteArray("AAA+ADkAAAADABAAAAA+ADoAAAADABEAAAA/ADkAAAADABAAAAA/ADoAAAADABEAAAA6ADkAAAADABAAAAA6ADoAAAADABEAAAA5ADkAAAADABAAAAA5ADoAAAADABEAAAA7ADkAAAADABAAAAA8ADgAAAAIABIAAAA9ADgAAAAIABIAAAA7ADgAAAADAA8AAAA7ADoAAAADABEAAAA6ADgAAAADAA8AAAA5ADgAAAADAA8AAAA+ADgAAAADAA8AAAA/ADgAAAADAA8AAABAADgAAAAEAA8AAABAADkAAAAEABAAAABAADoAAAAEABEAAAA4ADUAAAACAA0AAAA4ADYAAAACAA0AAAA4ADcAAAACAA4AAAA4ADgAAAAFAA8AAAA4ADoAAAAFABEAAAA4ADkAAAAFABAAAAA=")
+tile_map_data = PackedByteArray("AAA+ADkAAAADABAAAAA+ADoAAAADABEAAAA/ADkAAAADABAAAAA/ADoAAAADABEAAAA6ADkAAAADABAAAAA6ADoAAAADABEAAAA5ADkAAAADABAAAAA5ADoAAAADABEAAAA7ADkAAAADABAAAAA8ADgAAAAIABIAAAA9ADgAAAAIABIAAAA7ADgAAAADAA8AAAA7ADoAAAADABEAAAA6ADgAAAADAA8AAAA5ADgAAAADAA8AAAA+ADgAAAADAA8AAAA/ADgAAAADAA8AAABAADgAAAAEAA8AAABAADkAAAAEABAAAABAADoAAAAEABEAAAA4ADgAAAAFAA8AAAA4ADoAAAAFABEAAAA4ADkAAAAFABAAAAA4ADcAAAACAA4AAAA4ADYAAAACAA4AAAA4ADUAAAACAA4AAAA=")
 tile_set = SubResource("TileSet_g7mvb")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Cell" unique_id=2049809937]
+visible = false
+disable_mode = 2
+collision_layer = 17
+collision_mask = 17
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Cell/StaticBody2D" unique_id=2036374850]
-position = Vector2(1014, 919)
-shape = SubResource("RectangleShape2D_0l7ns")
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="Cell/StaticBody2D/CollisionShape2D2" unique_id=452416219]
-position = Vector2(-24, -23)
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Cell/StaticBody2D" unique_id=452416219]
+position = Vector2(990, 896)
 scale = Vector2(0.8296773, 0.06276267)
 occluder = SubResource("OccluderPolygon2D_0l7ns")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Cell/StaticBody2D" unique_id=293001178]
-position = Vector2(931.75, 918.5)
-shape = SubResource("RectangleShape2D_as3os")
-
-[node name="LightOccluder2D2" type="LightOccluder2D" parent="Cell/StaticBody2D/CollisionShape2D" unique_id=299473167]
-position = Vector2(-23.75, -19.5)
+[node name="LightOccluder2D2" type="LightOccluder2D" parent="Cell/StaticBody2D" unique_id=299473167]
+position = Vector2(908, 899)
 scale = Vector2(1.6605042, -0.052125953)
 occluder = SubResource("OccluderPolygon2D_0l7ns")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Cell/StaticBody2D" unique_id=1420920208]
-position = Vector2(904, 888)
-shape = SubResource("RectangleShape2D_ny5gj")
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="Cell/StaticBody2D/CollisionShape2D3" unique_id=188922780]
-position = Vector2(5.000001, -42)
+[node name="LightOccluder2D3" type="LightOccluder2D" parent="Cell/StaticBody2D" unique_id=188922780]
+position = Vector2(909, 846)
 scale = Vector2(0.24434347, 1.0740416)
 occluder = SubResource("OccluderPolygon2D_0l7ns")
 
@@ -432,13 +432,17 @@ player = NodePath("../../../Player")
 patrol_path = NodePath("..")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=152978353]
-position = Vector2(-672, -785)
+position = Vector2(-671, -796)
 navigation_polygon = SubResource("NavigationPolygon_r7j0v")
 
 [node name="Alarm" type="AudioStreamPlayer2D" parent="." unique_id=2009378793]
 position = Vector2(-672, -785)
 stream = ExtResource("6_as3os")
 script = ExtResource("7_ny5gj")
+
+[node name="PickupItem" parent="." unique_id=1314714567 instance=ExtResource("8_ny5gj")]
+position = Vector2(332, 91)
+item = 4
 
 [connection signal="animation_finished" from="DungeonDoor" to="Path2D/PathFollow2D/Lamb" method="_on_dungeon_door_animation_finished"]
 [connection signal="animation_finished" from="DungeonDoor" to="Alarm" method="_on_dungeon_door_animation_finished"]

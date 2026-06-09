@@ -197,9 +197,11 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xisay"]
 size = Vector2(15.445985, 0.5042517)
 
-[node name="Lamb" type="CharacterBody2D" unique_id=876160626 node_paths=PackedStringArray("nav_agent")]
+[node name="Lamb" type="CharacterBody2D" unique_id=876160626 node_paths=PackedStringArray("nav_agent", "animated_sprite", "collision_box")]
 script = ExtResource("1_3l7ik")
 nav_agent = NodePath("NavigationAgent2D")
+animated_sprite = NodePath("Animal")
+collision_box = NodePath("CollisionShape2D")
 
 [node name="Animal" type="AnimatedSprite2D" parent="." unique_id=1077026022]
 sprite_frames = SubResource("SpriteFrames_4kraf")
