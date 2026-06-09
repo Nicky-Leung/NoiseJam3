@@ -6,6 +6,7 @@ enum Item {
 	BATTERY,
 	MEDKIT,
 	TRAP,
+	FLASHLIGHT, # This should only ever be in the starting room
 	KEY_ITEM # i.e. pickups to solve puzzles
 }
 
@@ -32,6 +33,9 @@ func on_interacted(player: Player):
 	elif item == Item.MEDKIT: was_added_to_inv = player.inventory.try_change_medkit(true)
 	elif item == Item.TRAP: was_added_to_inv = player.inventory.try_change_trap(true)
 	elif item == Item.KEY_ITEM: was_added_to_inv = player.inventory.add_key_item(key_item_name, item_sprite)
+	elif item == Item.FLASHLIGHT:
+		player.has_flashlight = true
+		was_added_to_inv = true
 
 	if was_added_to_inv:
 		visible = false

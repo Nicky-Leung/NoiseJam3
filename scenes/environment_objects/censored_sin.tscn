@@ -35,6 +35,7 @@ script = ExtResource("1_4j56h")
 texture = SubResource("ViewportTexture_4j56h")
 
 [node name="CensorBar" type="Sprite2D" parent="." unique_id=1065885293]
+z_index = 2
 texture = SubResource("GradientTexture2D_7e81x")
 
 [node name="Collider" type="StaticBody2D" parent="." unique_id=1785174278]

@@ -14,10 +14,12 @@ signal player_died(killer: Enemy)
 @onready var i_frame = $IFrameTimer
 @onready var hurtSFX = $HurtSFX
 @onready var healSFX = $HealSFX
+@onready var camera = $Camera
 
 @onready var trap_scene : PackedScene = preload("res://scenes/environment_objects/trap.tscn")
 
 # Player settings
+@export var has_flashlight: bool = true ## should be false in actual start of gameplay
 @export var max_health = 50
 @export var walk_speed: int = 100
 @export var sprint_multiplier = 1.5
@@ -25,6 +27,7 @@ signal player_died(killer: Enemy)
 @export var turn_rate: float = 7.5
 
 # Runtime variables
+var inputs_disabled: bool = false
 var health: int = max_health
 var is_sprinting: bool = false
 var input_vector: Vector2 = Vector2.ZERO
@@ -34,6 +37,7 @@ func _ready():
 	inventory.medkit_consumed.connect(full_heal)
 	inventory.trap_consumed.connect(place_trap)
 	inventory.battery_consumed.connect(replace_battery)
+	flashlight.visible = false
 
 func _process(_delta: float) -> void:
 	if velocity.length() > 0:
@@ -44,7 +48,7 @@ func _process(_delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	# calculate turning direction
 	var new_direction = facing_direction.lerp(global_position.direction_to(get_global_mouse_position()), turn_rate * delta)
-	rotation = new_direction.angle()
+	rotation = new_direction.angle() if !inputs_disabled else rotation
 	facing_direction = new_direction
 
 	# calculate speed
@@ -62,18 +66,22 @@ func _physics_process(delta: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event is not InputEventKey && event is not InputEventMouseButton: return
-	if inventory.is_open:
+	if inventory.is_open || inputs_disabled:
 		input_vector = Vector2.ZERO
 		return
 
 	input_vector = Input.get_vector(INPUTS.LEFT, INPUTS.RIGHT, INPUTS.UP, INPUTS.DOWN)
 	is_sprinting = Input.is_action_pressed(INPUTS.SPRINT)
 
-	if Input.is_action_just_pressed(INPUTS.TOGGLE_LIGHT): flashlight.toggle()
+	if Input.is_action_just_pressed(INPUTS.TOGGLE_LIGHT) && has_flashlight: flashlight.toggle()
 	if Input.is_action_just_pressed(INPUTS.INTERACT) && interact_ray.is_colliding():
 		var collider = interact_ray.get_collider()
 		if collider is Interactable:
 			collider.interact(self)
+
+func disable_inputs(disable: bool):
+	inputs_disabled = disable
+	camera.allow_offsetting = !disable
 
 func full_heal():
 	health = max_health

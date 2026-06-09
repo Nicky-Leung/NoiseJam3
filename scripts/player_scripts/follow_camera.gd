@@ -8,6 +8,8 @@ const default_zoom = 1.75
 const x_threshold = 150
 const y_threshold = 100
 
+var allow_offsetting: bool = true
+
 func transition_zoom(amount = default_zoom, trans_time = 0.25):
 	if trans_time <= 0:
 		zoom = amount
@@ -18,6 +20,7 @@ func transition_zoom(amount = default_zoom, trans_time = 0.25):
 
 func _physics_process(delta):
 	# camera offsetting when moving mouse towards edge of screen
+	if !allow_offsetting: return
 	var offset_dir
 	if mouse_out_of_range(): offset_dir = global_position.direction_to(get_global_mouse_position())
 	else: offset_dir = Vector2.ZERO

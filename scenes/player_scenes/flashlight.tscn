@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://d3bgm2irip0hc" path="res://assets/sfx/player/flashlightDiesSFX.mp3" id="3_8j6qg"]
 [ext_resource type="PackedScene" uid="uid://dngvwmewl88h1" path="res://scenes/components/enemy_alerter.tscn" id="3_js4p4"]
 [ext_resource type="AudioStream" uid="uid://b435v0yvlol7x" path="res://assets/sfx/player/flashlightReloadSFX.mp3" id="4_gve8v"]
+[ext_resource type="Texture2D" uid="uid://d18abypxw6oyg" path="res://assets/sprites/items/puzzle_items/Flashlight.png" id="6_gve8v"]
 
 [sub_resource type="Gradient" id="Gradient_4flbx"]
 offsets = PackedFloat32Array(0, 0.5481928, 0.71686745, 0.9974127)
@@ -41,3 +42,9 @@ stream = ExtResource("2_0ywi5")
 position = Vector2(255, 255)
 alerter_shape = SubResource("RectangleShape2D_lmp5q")
 type = 1
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=723112429]
+position = Vector2(-2, -2)
+rotation = 2.3561945
+scale = Vector2(0.01, 0.01)
+texture = ExtResource("6_gve8v")

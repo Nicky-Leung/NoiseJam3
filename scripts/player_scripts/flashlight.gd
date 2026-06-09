@@ -7,6 +7,8 @@ extends PointLight2D
 # starting stats
 @export var max_battery_seconds: float = 60 * 3
 @export var refill_time: float = 1.5
+@export var show_sprite: bool = false
+@export var infinite_battery: bool = false
 
 # Components
 @onready var cd_timer: Timer = $Cooldown
@@ -22,9 +24,14 @@ extends PointLight2D
 var is_refilling: bool = false
 var battery_time: float = max_battery_seconds
 
+func _ready():
+	get_node("Sprite").visible = show_sprite
+
 func _physics_process(delta: float) -> void:
 	if !visible: return
 	if Engine.get_process_frames() % 5 == 0: try_flicker()
+	if infinite_battery: return
+
 	battery_time -= delta
 	if battery_time <= 0: disable_light()
 
