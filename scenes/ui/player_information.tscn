@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://cpba8r0c427gt"]
+
+[ext_resource type="Texture2D" uid="uid://ey7r7dj4slfy" path="res://assets/ui/panelInset_brown.png" id="1_ran28"]
+[ext_resource type="Texture2D" uid="uid://b4kkionlkwk3n" path="res://assets/ui/heart.png" id="2_j4fdq"]
+[ext_resource type="Texture2D" uid="uid://b8aw5gysu4lmp" path="res://assets/ui/heart_full.png" id="3_ho781"]
+[ext_resource type="Texture2D" uid="uid://byfg2gl0fyj52" path="res://assets/ui/battery_empty.png" id="4_eswub"]
+[ext_resource type="Texture2D" uid="uid://dx3kpf0eqy5ug" path="res://assets/ui/battery.png" id="5_lkjhh"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cdll0"]
+texture = ExtResource("1_ran28")
+
+[node name="PlayerInformation" type="Control" unique_id=870448172]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1313210686]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_cdll0")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1618277511]
+layout_mode = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 30
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer" unique_id=1379521739]
+layout_mode = 2
+theme_override_constants/separation = 70
+
+[node name="Health" type="TextureProgressBar" parent="PanelContainer/MarginContainer/HBoxContainer" unique_id=1901761827]
+layout_mode = 2
+fill_mode = 3
+texture_under = ExtResource("2_j4fdq")
+texture_progress = ExtResource("3_ho781")
+
+[node name="Battery" type="TextureProgressBar" parent="PanelContainer/MarginContainer/HBoxContainer" unique_id=1253751929]
+layout_mode = 2
+fill_mode = 3
+texture_under = ExtResource("4_eswub")
+texture_progress = ExtResource("5_lkjhh")

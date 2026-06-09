@@ -14,6 +14,10 @@
 [ext_resource type="AudioStream" uid="uid://jydv3l3epbrr" path="res://assets/sfx/player/hurt.mp3" id="12_ou8ok"]
 [ext_resource type="PackedScene" uid="uid://bqkdw6kqtd3kx" path="res://scenes/player_scenes/inventory.tscn" id="12_whhsb"]
 [ext_resource type="AudioStream" uid="uid://bhcvrxywqgqfe" path="res://assets/sfx/player/healSFX.mp3" id="13_5ro12"]
+[ext_resource type="Texture2D" path="res://assets/sprites/temp_sprites/temp_medkit.png" id="13_umohg"]
+[ext_resource type="Texture2D" path="res://assets/sprites/temp_sprites/temp_battery.png" id="14_78sok"]
+[ext_resource type="Texture2D" uid="uid://b7v3q3g4rwb88" path="res://assets/tileset/trap.tres" id="15_oyr7h"]
+[ext_resource type="PackedScene" uid="uid://cpba8r0c427gt" path="res://scenes/ui/player_information.tscn" id="16_o03eq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qlg0r"]
 radius = 19.31
@@ -264,6 +268,16 @@ collide_with_areas = true
 [node name="Hud" parent="Overlay" unique_id=1607470276 instance=ExtResource("6_tuyoq")]
 
 [node name="Inventory" parent="Overlay" unique_id=1444212898 instance=ExtResource("12_whhsb")]
+medkit_sprite = ExtResource("13_umohg")
+battery_sprite = ExtResource("14_78sok")
+trap_sprite = ExtResource("15_oyr7h")
+
+[node name="PlayerInformation" parent="Overlay" unique_id=870448172 instance=ExtResource("16_o03eq")]
+offset_left = 54.0
+offset_top = 778.0
+offset_right = 54.0
+offset_bottom = 778.0
+scale = Vector2(1.0400003, 0.84000486)
 
 [node name="IFrameTimer" type="Timer" parent="." unique_id=19171508]
 wait_time = 1.5
