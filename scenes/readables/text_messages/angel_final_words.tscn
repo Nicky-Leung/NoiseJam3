@@ -1,0 +1,539 @@
+[gd_scene format=3 uid="uid://cdonoa31oh7am"]
+
+[ext_resource type="Texture2D" uid="uid://b7wau1b5i0ra2" path="res://assets/sprites/items/readables/Phone1.png" id="1_ijs6k"]
+[ext_resource type="FontFile" uid="uid://bv1rf1i8icbup" path="res://assets/fonts/TextMessagesFont.ttf" id="2_i1uce"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_okfsj"]
+bg_color = Color(0.8862616, 0.88626146, 0.8862616, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pl1ku"]
+bg_color = Color(0.8431842, 0.84318376, 0.84318376, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c2jer"]
+bg_color = Color(0.21176471, 0.43137255, 0.8980392, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="AngelFinalWords" type="Control" unique_id=87991252]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="." unique_id=1090392696]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -308.77194
+offset_right = 160.0
+offset_bottom = 308.77197
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ijs6k")
+expand_mode = 5
+
+[node name="Display" type="ColorRect" parent="Background" unique_id=495771790]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -149.0
+offset_top = -262.272
+offset_right = 149.0
+offset_bottom = 262.272
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Background/Display" unique_id=1866199746]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("2_i1uce")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_okfsj")
+text = "Karis"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MessageArea" type="ScrollContainer" parent="Background/Display" unique_id=476704061]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -149.0
+offset_top = -484.544
+offset_right = 149.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Margins" type="MarginContainer" parent="Background/Display/MessageArea" unique_id=80597165]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBox" type="VBoxContainer" parent="Background/Display/MessageArea/Margins" unique_id=1558987840]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="ResponderLine" type="HBoxContainer" parent="Background/Display/MessageArea/Margins/VBox" unique_id=1782336986]
+layout_mode = 2
+
+[node name="Message" type="VBoxContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine" unique_id=816978165]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Margins" type="MarginContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine/Message" unique_id=2080557580]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_bottom = 2
+
+[node name="Name" type="Label" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine/Message/Margins" unique_id=199768732]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.49354547, 0.49354553, 0.49354535, 1)
+theme_override_colors/font_outline_color = Color(0.49411765, 0.49411765, 0.49411765, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("2_i1uce")
+theme_override_font_sizes/font_size = 12
+text = "Founder"
+
+[node name="Background" type="PanelContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine/Message" unique_id=1049881452]
+show_behind_parent = true
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pl1ku")
+
+[node name="Margins" type="MarginContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine/Message/Background" unique_id=1577388117]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Text" type="Label" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine/Message/Background/Margins" unique_id=851942407]
+custom_minimum_size = Vector2(175, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_i1uce")
+text = "The Envoy just passed"
+autowrap_mode = 2
+
+[node name="Control" type="Control" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine" unique_id=1684995584]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SenderLine2" type="HBoxContainer" parent="Background/Display/MessageArea/Margins/VBox" unique_id=1488768361]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Background/Display/MessageArea/Margins/VBox/SenderLine2" unique_id=1496754758]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Message" type="VBoxContainer" parent="Background/Display/MessageArea/Margins/VBox/SenderLine2" unique_id=1320963198]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Background" type="PanelContainer" parent="Background/Display/MessageArea/Margins/VBox/SenderLine2/Message" unique_id=887597634]
+show_behind_parent = true
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_c2jer")
+
+[node name="Margins" type="MarginContainer" parent="Background/Display/MessageArea/Margins/VBox/SenderLine2/Message/Background" unique_id=7549897]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Text" type="Label" parent="Background/Display/MessageArea/Margins/VBox/SenderLine2/Message/Background/Margins" unique_id=882602993]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_i1uce")
+text = "What do we do now?"
+
+[node name="ResponderLine2" type="HBoxContainer" parent="Background/Display/MessageArea/Margins/VBox" unique_id=1242030626]
+layout_mode = 2
+
+[node name="Message" type="VBoxContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine2" unique_id=463814632]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Margins" type="MarginContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine2/Message" unique_id=490826281]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_bottom = 2
+
+[node name="Name" type="Label" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine2/Message/Margins" unique_id=260472838]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.49354547, 0.49354553, 0.49354535, 1)
+theme_override_colors/font_outline_color = Color(0.49411765, 0.49411765, 0.49411765, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("2_i1uce")
+theme_override_font_sizes/font_size = 12
+text = "Founder"
+
+[node name="Background" type="PanelContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine2/Message" unique_id=1003858008]
+show_behind_parent = true
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pl1ku")
+
+[node name="Margins" type="MarginContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine2/Message/Background" unique_id=1456352841]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Text" type="Label" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine2/Message/Background/Margins" unique_id=1364970706]
+custom_minimum_size = Vector2(175, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_i1uce")
+text = "Have the team look into ways of rebirthing an angel"
+autowrap_mode = 2
+
+[node name="Control" type="Control" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine2" unique_id=830376327]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SenderLine" type="HBoxContainer" parent="Background/Display/MessageArea/Margins/VBox" unique_id=439502752]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Background/Display/MessageArea/Margins/VBox/SenderLine" unique_id=1254639822]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Message" type="VBoxContainer" parent="Background/Display/MessageArea/Margins/VBox/SenderLine" unique_id=314663285]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Background" type="PanelContainer" parent="Background/Display/MessageArea/Margins/VBox/SenderLine/Message" unique_id=2120170998]
+show_behind_parent = true
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_c2jer")
+
+[node name="Margins" type="MarginContainer" parent="Background/Display/MessageArea/Margins/VBox/SenderLine/Message/Background" unique_id=1438403027]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Text" type="Label" parent="Background/Display/MessageArea/Margins/VBox/SenderLine/Message/Background/Margins" unique_id=431785116]
+custom_minimum_size = Vector2(175, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_i1uce")
+text = "I'll let them know, is there anything else?"
+autowrap_mode = 2
+
+[node name="ResponderLine3" type="HBoxContainer" parent="Background/Display/MessageArea/Margins/VBox" unique_id=791131844]
+layout_mode = 2
+
+[node name="Message" type="VBoxContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine3" unique_id=1739486830]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Margins" type="MarginContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine3/Message" unique_id=425905641]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_bottom = 2
+
+[node name="Name" type="Label" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine3/Message/Margins" unique_id=1662518660]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.49354547, 0.49354553, 0.49354535, 1)
+theme_override_colors/font_outline_color = Color(0.49411765, 0.49411765, 0.49411765, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("2_i1uce")
+theme_override_font_sizes/font_size = 12
+text = "Founder"
+
+[node name="Background" type="PanelContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine3/Message" unique_id=497921511]
+show_behind_parent = true
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pl1ku")
+
+[node name="Margins" type="MarginContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine3/Message/Background" unique_id=187576420]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Text" type="Label" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine3/Message/Background/Margins" unique_id=83703531]
+custom_minimum_size = Vector2(175, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_i1uce")
+text = "For the first time since their arrival centuries ago, they finally spoke to us in their last moments"
+autowrap_mode = 2
+
+[node name="Control" type="Control" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine3" unique_id=1855924170]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SenderLine3" type="HBoxContainer" parent="Background/Display/MessageArea/Margins/VBox" unique_id=585929657]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Background/Display/MessageArea/Margins/VBox/SenderLine3" unique_id=1284042909]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Message" type="VBoxContainer" parent="Background/Display/MessageArea/Margins/VBox/SenderLine3" unique_id=429126774]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Background" type="PanelContainer" parent="Background/Display/MessageArea/Margins/VBox/SenderLine3/Message" unique_id=1445882573]
+show_behind_parent = true
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_c2jer")
+
+[node name="Margins" type="MarginContainer" parent="Background/Display/MessageArea/Margins/VBox/SenderLine3/Message/Background" unique_id=1154854686]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Text" type="Label" parent="Background/Display/MessageArea/Margins/VBox/SenderLine3/Message/Background/Margins" unique_id=1208937318]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_i1uce")
+text = "What did they say?"
+
+[node name="ResponderLine4" type="HBoxContainer" parent="Background/Display/MessageArea/Margins/VBox" unique_id=47148105]
+layout_mode = 2
+
+[node name="Message" type="VBoxContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine4" unique_id=360893087]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Margins" type="MarginContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine4/Message" unique_id=1147446308]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_bottom = 2
+
+[node name="Name" type="Label" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine4/Message/Margins" unique_id=1388962942]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.49354547, 0.49354553, 0.49354535, 1)
+theme_override_colors/font_outline_color = Color(0.49411765, 0.49411765, 0.49411765, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("2_i1uce")
+theme_override_font_sizes/font_size = 12
+text = "Founder"
+
+[node name="Background" type="PanelContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine4/Message" unique_id=706267940]
+show_behind_parent = true
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pl1ku")
+
+[node name="Margins" type="MarginContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine4/Message/Background" unique_id=677495599]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Text" type="Label" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine4/Message/Background/Margins" unique_id=581786503]
+custom_minimum_size = Vector2(175, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_i1uce")
+text = "\"No matter what, I still love you all\""
+autowrap_mode = 2
+
+[node name="Control" type="Control" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine4" unique_id=1345787999]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ResponderLine5" type="HBoxContainer" parent="Background/Display/MessageArea/Margins/VBox" unique_id=10833315]
+layout_mode = 2
+
+[node name="Message" type="VBoxContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine5" unique_id=608792429]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Margins" type="MarginContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine5/Message" unique_id=1883513662]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_bottom = 2
+
+[node name="Name" type="Label" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine5/Message/Margins" unique_id=1292045271]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.49354547, 0.49354553, 0.49354535, 1)
+theme_override_colors/font_outline_color = Color(0.49411765, 0.49411765, 0.49411765, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("2_i1uce")
+theme_override_font_sizes/font_size = 12
+text = "Founder"
+
+[node name="Background" type="PanelContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine5/Message" unique_id=2047444842]
+show_behind_parent = true
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pl1ku")
+
+[node name="Margins" type="MarginContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine5/Message/Background" unique_id=25064526]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Text" type="Label" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine5/Message/Background/Margins" unique_id=1381305886]
+custom_minimum_size = Vector2(175, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_i1uce")
+text = "Even after all we did to them for the sake of finding treatment..."
+autowrap_mode = 2
+
+[node name="Control" type="Control" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine5" unique_id=634488795]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SenderLine4" type="HBoxContainer" parent="Background/Display/MessageArea/Margins/VBox" unique_id=480934906]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Background/Display/MessageArea/Margins/VBox/SenderLine4" unique_id=299566289]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Message" type="VBoxContainer" parent="Background/Display/MessageArea/Margins/VBox/SenderLine4" unique_id=1861844516]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Background" type="PanelContainer" parent="Background/Display/MessageArea/Margins/VBox/SenderLine4/Message" unique_id=1130363457]
+show_behind_parent = true
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_c2jer")
+
+[node name="Margins" type="MarginContainer" parent="Background/Display/MessageArea/Margins/VBox/SenderLine4/Message/Background" unique_id=1087938983]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Text" type="Label" parent="Background/Display/MessageArea/Margins/VBox/SenderLine4/Message/Background/Margins" unique_id=521869570]
+custom_minimum_size = Vector2(175, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_i1uce")
+text = "Sir, are you sure we should bring them back?"
+autowrap_mode = 2
+
+[node name="ResponderLine6" type="HBoxContainer" parent="Background/Display/MessageArea/Margins/VBox" unique_id=860456448]
+layout_mode = 2
+
+[node name="Message" type="VBoxContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine6" unique_id=2019725800]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Margins" type="MarginContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine6/Message" unique_id=1990568168]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_bottom = 2
+
+[node name="Name" type="Label" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine6/Message/Margins" unique_id=2005744386]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.49354547, 0.49354553, 0.49354535, 1)
+theme_override_colors/font_outline_color = Color(0.49411765, 0.49411765, 0.49411765, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("2_i1uce")
+theme_override_font_sizes/font_size = 12
+text = "Founder"
+
+[node name="Background" type="PanelContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine6/Message" unique_id=1015790347]
+show_behind_parent = true
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pl1ku")
+
+[node name="Margins" type="MarginContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine6/Message/Background" unique_id=2053483347]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Text" type="Label" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine6/Message/Background/Margins" unique_id=1869336225]
+custom_minimum_size = Vector2(175, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_i1uce")
+text = "Yes. There's no other choice, our people need their blessings"
+autowrap_mode = 2
+
+[node name="Control" type="Control" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine6" unique_id=1143229211]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SenderLine5" type="HBoxContainer" parent="Background/Display/MessageArea/Margins/VBox" unique_id=1517140279]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Background/Display/MessageArea/Margins/VBox/SenderLine5" unique_id=686652083]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Message" type="VBoxContainer" parent="Background/Display/MessageArea/Margins/VBox/SenderLine5" unique_id=1386462722]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Background" type="PanelContainer" parent="Background/Display/MessageArea/Margins/VBox/SenderLine5/Message" unique_id=699007930]
+show_behind_parent = true
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_c2jer")
+
+[node name="Margins" type="MarginContainer" parent="Background/Display/MessageArea/Margins/VBox/SenderLine5/Message/Background" unique_id=1325930032]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Text" type="Label" parent="Background/Display/MessageArea/Margins/VBox/SenderLine5/Message/Background/Margins" unique_id=1403023663]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_i1uce")
+text = "Understood"

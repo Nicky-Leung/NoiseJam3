@@ -1,0 +1,584 @@
+[gd_scene format=3 uid="uid://do34ivvcx6g6g"]
+
+[ext_resource type="Texture2D" uid="uid://b7wau1b5i0ra2" path="res://assets/sprites/items/readables/Phone1.png" id="1_5epgt"]
+[ext_resource type="FontFile" uid="uid://bv1rf1i8icbup" path="res://assets/fonts/TextMessagesFont.ttf" id="2_xfu1t"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7jq1l"]
+bg_color = Color(0.8862616, 0.88626146, 0.8862616, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ywriy"]
+bg_color = Color(0.21176471, 0.43137255, 0.8980392, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8aqqw"]
+bg_color = Color(0.8431842, 0.84318376, 0.84318376, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="GratePuzzleHint" type="Control" unique_id=183057363]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="." unique_id=1854139763]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -308.77194
+offset_right = 160.0
+offset_bottom = 308.77197
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_5epgt")
+expand_mode = 5
+
+[node name="Display" type="ColorRect" parent="Background" unique_id=1585651807]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -149.0
+offset_top = -262.272
+offset_right = 149.0
+offset_bottom = 262.272
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Background/Display" unique_id=598024638]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("2_xfu1t")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_7jq1l")
+text = "DJChangus"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MessageArea" type="ScrollContainer" parent="Background/Display" unique_id=103732998]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -149.0
+offset_top = -484.544
+offset_right = 149.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Margins" type="MarginContainer" parent="Background/Display/MessageArea" unique_id=971511091]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBox" type="VBoxContainer" parent="Background/Display/MessageArea/Margins" unique_id=1533738314]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="SenderLine" type="HBoxContainer" parent="Background/Display/MessageArea/Margins/VBox" unique_id=1036292172]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Background/Display/MessageArea/Margins/VBox/SenderLine" unique_id=1151639045]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Message" type="VBoxContainer" parent="Background/Display/MessageArea/Margins/VBox/SenderLine" unique_id=295398655]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Background" type="PanelContainer" parent="Background/Display/MessageArea/Margins/VBox/SenderLine/Message" unique_id=1189566604]
+show_behind_parent = true
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ywriy")
+
+[node name="Margins" type="MarginContainer" parent="Background/Display/MessageArea/Margins/VBox/SenderLine/Message/Background" unique_id=650895754]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Text" type="Label" parent="Background/Display/MessageArea/Margins/VBox/SenderLine/Message/Background/Margins" unique_id=605371682]
+custom_minimum_size = Vector2(175, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_xfu1t")
+text = "Do you have the key to east room?"
+autowrap_mode = 2
+
+[node name="ResponderLine" type="HBoxContainer" parent="Background/Display/MessageArea/Margins/VBox" unique_id=1174091399]
+layout_mode = 2
+
+[node name="Message" type="VBoxContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine" unique_id=1106353612]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Margins" type="MarginContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine/Message" unique_id=441055869]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_bottom = 2
+
+[node name="Name" type="Label" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine/Message/Margins" unique_id=525255434]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.49354547, 0.49354553, 0.49354535, 1)
+theme_override_colors/font_outline_color = Color(0.49411765, 0.49411765, 0.49411765, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("2_xfu1t")
+theme_override_font_sizes/font_size = 12
+text = "DJChangus"
+
+[node name="Background" type="PanelContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine/Message" unique_id=1996246513]
+show_behind_parent = true
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8aqqw")
+
+[node name="Margins" type="MarginContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine/Message/Background" unique_id=1983970057]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Text" type="Label" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine/Message/Background/Margins" unique_id=513529515]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_xfu1t")
+text = "Oh I hid it!"
+
+[node name="Control" type="Control" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine" unique_id=888345968]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SenderLine2" type="HBoxContainer" parent="Background/Display/MessageArea/Margins/VBox" unique_id=393206025]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Background/Display/MessageArea/Margins/VBox/SenderLine2" unique_id=1188852011]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Message" type="VBoxContainer" parent="Background/Display/MessageArea/Margins/VBox/SenderLine2" unique_id=350500491]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Background" type="PanelContainer" parent="Background/Display/MessageArea/Margins/VBox/SenderLine2/Message" unique_id=1727962259]
+show_behind_parent = true
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ywriy")
+
+[node name="Margins" type="MarginContainer" parent="Background/Display/MessageArea/Margins/VBox/SenderLine2/Message/Background" unique_id=574242278]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Text" type="Label" parent="Background/Display/MessageArea/Margins/VBox/SenderLine2/Message/Background/Margins" unique_id=552754164]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_xfu1t")
+text = "Do I wanna know...?"
+
+[node name="ResponderLine2" type="HBoxContainer" parent="Background/Display/MessageArea/Margins/VBox" unique_id=840952377]
+layout_mode = 2
+
+[node name="Message" type="VBoxContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine2" unique_id=474974268]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Margins" type="MarginContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine2/Message" unique_id=947738240]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_bottom = 2
+
+[node name="Name" type="Label" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine2/Message/Margins" unique_id=235419658]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.49354547, 0.49354553, 0.49354535, 1)
+theme_override_colors/font_outline_color = Color(0.49411765, 0.49411765, 0.49411765, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("2_xfu1t")
+theme_override_font_sizes/font_size = 12
+text = "DJChangus"
+
+[node name="Background" type="PanelContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine2/Message" unique_id=2063236358]
+show_behind_parent = true
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8aqqw")
+
+[node name="Margins" type="MarginContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine2/Message/Background" unique_id=1975925283]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Text" type="Label" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine2/Message/Background/Margins" unique_id=1779380612]
+custom_minimum_size = Vector2(175, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_xfu1t")
+text = "BECAUSE ETHAN REFUSES TO COME TO MY RAPTURE PARTY"
+autowrap_mode = 2
+
+[node name="Control" type="Control" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine2" unique_id=342400871]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SenderLine3" type="HBoxContainer" parent="Background/Display/MessageArea/Margins/VBox" unique_id=196132481]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Background/Display/MessageArea/Margins/VBox/SenderLine3" unique_id=785250592]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Message" type="VBoxContainer" parent="Background/Display/MessageArea/Margins/VBox/SenderLine3" unique_id=1587408888]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Background" type="PanelContainer" parent="Background/Display/MessageArea/Margins/VBox/SenderLine3/Message" unique_id=783340479]
+show_behind_parent = true
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ywriy")
+
+[node name="Margins" type="MarginContainer" parent="Background/Display/MessageArea/Margins/VBox/SenderLine3/Message/Background" unique_id=131252744]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Text" type="Label" parent="Background/Display/MessageArea/Margins/VBox/SenderLine3/Message/Background/Margins" unique_id=1518442894]
+custom_minimum_size = Vector2(175, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_xfu1t")
+text = "I fail to see how that correlates"
+autowrap_mode = 2
+
+[node name="ResponderLine3" type="HBoxContainer" parent="Background/Display/MessageArea/Margins/VBox" unique_id=1574740179]
+layout_mode = 2
+
+[node name="Message" type="VBoxContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine3" unique_id=944119316]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Margins" type="MarginContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine3/Message" unique_id=1936214094]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_bottom = 2
+
+[node name="Name" type="Label" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine3/Message/Margins" unique_id=1466595946]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.49354547, 0.49354553, 0.49354535, 1)
+theme_override_colors/font_outline_color = Color(0.49411765, 0.49411765, 0.49411765, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("2_xfu1t")
+theme_override_font_sizes/font_size = 12
+text = "DJChangus"
+
+[node name="Background" type="PanelContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine3/Message" unique_id=1900523647]
+show_behind_parent = true
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8aqqw")
+
+[node name="Margins" type="MarginContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine3/Message/Background" unique_id=62282137]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Text" type="Label" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine3/Message/Background/Margins" unique_id=1309192579]
+custom_minimum_size = Vector2(175, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_xfu1t")
+text = "HE WORKS THERE HELLO??"
+autowrap_mode = 2
+
+[node name="Control" type="Control" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine3" unique_id=83036316]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SenderLine4" type="HBoxContainer" parent="Background/Display/MessageArea/Margins/VBox" unique_id=1491502043]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Background/Display/MessageArea/Margins/VBox/SenderLine4" unique_id=1658906742]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Message" type="VBoxContainer" parent="Background/Display/MessageArea/Margins/VBox/SenderLine4" unique_id=593606678]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Background" type="PanelContainer" parent="Background/Display/MessageArea/Margins/VBox/SenderLine4/Message" unique_id=1229756238]
+show_behind_parent = true
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ywriy")
+
+[node name="Margins" type="MarginContainer" parent="Background/Display/MessageArea/Margins/VBox/SenderLine4/Message/Background" unique_id=395466045]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Text" type="Label" parent="Background/Display/MessageArea/Margins/VBox/SenderLine4/Message/Background/Margins" unique_id=1088769846]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_xfu1t")
+text = "Oh right"
+
+[node name="ResponderLine4" type="HBoxContainer" parent="Background/Display/MessageArea/Margins/VBox" unique_id=39503867]
+layout_mode = 2
+
+[node name="Message" type="VBoxContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine4" unique_id=1525771477]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Margins" type="MarginContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine4/Message" unique_id=1454762163]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_bottom = 2
+
+[node name="Name" type="Label" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine4/Message/Margins" unique_id=1349395192]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.49354547, 0.49354553, 0.49354535, 1)
+theme_override_colors/font_outline_color = Color(0.49411765, 0.49411765, 0.49411765, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("2_xfu1t")
+theme_override_font_sizes/font_size = 12
+text = "DJChangus"
+
+[node name="Background" type="PanelContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine4/Message" unique_id=1555675568]
+show_behind_parent = true
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8aqqw")
+
+[node name="Margins" type="MarginContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine4/Message/Background" unique_id=1533460102]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Text" type="Label" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine4/Message/Background/Margins" unique_id=2070433144]
+custom_minimum_size = Vector2(175, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_xfu1t")
+text = "Well if you really need the key it's in the west room"
+autowrap_mode = 2
+
+[node name="Control" type="Control" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine4" unique_id=2008111382]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ResponderLine5" type="HBoxContainer" parent="Background/Display/MessageArea/Margins/VBox" unique_id=1557583777]
+layout_mode = 2
+
+[node name="Message" type="VBoxContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine5" unique_id=108920345]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Margins" type="MarginContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine5/Message" unique_id=1346839228]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_bottom = 2
+
+[node name="Name" type="Label" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine5/Message/Margins" unique_id=1758683459]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.49354547, 0.49354553, 0.49354535, 1)
+theme_override_colors/font_outline_color = Color(0.49411765, 0.49411765, 0.49411765, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("2_xfu1t")
+theme_override_font_sizes/font_size = 12
+text = "DJChangus"
+
+[node name="Background" type="PanelContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine5/Message" unique_id=1191750878]
+show_behind_parent = true
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8aqqw")
+
+[node name="Margins" type="MarginContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine5/Message/Background" unique_id=1743540373]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Text" type="Label" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine5/Message/Background/Margins" unique_id=505054402]
+custom_minimum_size = Vector2(175, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_xfu1t")
+text = "If you step on the grates in this order the key will show up"
+autowrap_mode = 2
+
+[node name="Control" type="Control" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine5" unique_id=1843473868]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ResponderLine6" type="HBoxContainer" parent="Background/Display/MessageArea/Margins/VBox" unique_id=1206357852]
+layout_mode = 2
+
+[node name="Message" type="VBoxContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine6" unique_id=726308258]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Margins" type="MarginContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine6/Message" unique_id=1741953850]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_bottom = 2
+
+[node name="Name" type="Label" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine6/Message/Margins" unique_id=1683568361]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.49354547, 0.49354553, 0.49354535, 1)
+theme_override_colors/font_outline_color = Color(0.49411765, 0.49411765, 0.49411765, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("2_xfu1t")
+theme_override_font_sizes/font_size = 12
+text = "DJChangus"
+
+[node name="Background" type="PanelContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine6/Message" unique_id=1346452576]
+show_behind_parent = true
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8aqqw")
+
+[node name="Margins" type="MarginContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine6/Message/Background" unique_id=1530691196]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Text" type="Label" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine6/Message/Background/Margins" unique_id=1007633569]
+custom_minimum_size = Vector2(175, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_xfu1t")
+text = "North, South, East, West"
+autowrap_mode = 2
+
+[node name="Control" type="Control" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine6" unique_id=640462661]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SenderLine5" type="HBoxContainer" parent="Background/Display/MessageArea/Margins/VBox" unique_id=1693486361]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Background/Display/MessageArea/Margins/VBox/SenderLine5" unique_id=1215146999]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Message" type="VBoxContainer" parent="Background/Display/MessageArea/Margins/VBox/SenderLine5" unique_id=1830888566]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Background" type="PanelContainer" parent="Background/Display/MessageArea/Margins/VBox/SenderLine5/Message" unique_id=1105081933]
+show_behind_parent = true
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ywriy")
+
+[node name="Margins" type="MarginContainer" parent="Background/Display/MessageArea/Margins/VBox/SenderLine5/Message/Background" unique_id=674264365]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Text" type="Label" parent="Background/Display/MessageArea/Margins/VBox/SenderLine5/Message/Background/Margins" unique_id=813568054]
+custom_minimum_size = Vector2(175, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_xfu1t")
+text = "How did you even set this up? Let alone even have the time to do this"
+autowrap_mode = 2
+
+[node name="ResponderLine7" type="HBoxContainer" parent="Background/Display/MessageArea/Margins/VBox" unique_id=1825074674]
+layout_mode = 2
+
+[node name="Message" type="VBoxContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine7" unique_id=1193943388]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Margins" type="MarginContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine7/Message" unique_id=1535054322]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_bottom = 2
+
+[node name="Name" type="Label" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine7/Message/Margins" unique_id=1806587269]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.49354547, 0.49354553, 0.49354535, 1)
+theme_override_colors/font_outline_color = Color(0.49411765, 0.49411765, 0.49411765, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("2_xfu1t")
+theme_override_font_sizes/font_size = 12
+text = "DJChangus"
+
+[node name="Background" type="PanelContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine7/Message" unique_id=2029054216]
+show_behind_parent = true
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_8aqqw")
+
+[node name="Margins" type="MarginContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine7/Message/Background" unique_id=728173729]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Text" type="Label" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine7/Message/Background/Margins" unique_id=90596349]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_xfu1t")
+text = ":)"
+
+[node name="Control" type="Control" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine7" unique_id=904740779]
+layout_mode = 2
+size_flags_horizontal = 3
