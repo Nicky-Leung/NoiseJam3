@@ -6,13 +6,12 @@ signal diamond_collected
 @export var room_gate_layer: TileMapLayer = null
 @export var required_pickups: Array[Node2D] = []
 
+@onready var titania: Titania = $Titania
 @onready var wall_layer: TileMapLayer = $Layout/Walls
 @onready var room_listener: RoomListener = $Layout/RoomListener
 @onready var cage_area: Area2D = $Layout/DungeonArea
 @onready var gate_switch: Interactable = $Layout/Computer/Interactable
-
 @onready var gate_cd: Timer = $Timers/GateCD
-
 @onready var alarm: AudioStreamPlayer2D = $Sounds/Alarm
 @onready var gate_noise: AudioStreamPlayer2D = $Sounds/Gate
 @onready var gate_error: AudioStreamPlayer2D = $Sounds/GateError
@@ -21,6 +20,8 @@ var enemy_in_cage: bool = true
 var cage_locked: bool = true
 
 func _ready():
+	room_listener.player_entered.connect(_on_player_entered)
+	room_listener.player_entered.connect(_on_player_exited)
 	cage_area.body_entered.connect(func(body): _on_cage_change(body, true))
 	cage_area.body_exited.connect(func(body): _on_cage_change(body, false))
 	gate_switch.interacted.connect(_on_gate_switch_pressed)
@@ -31,11 +32,11 @@ func _ready():
 			diamond_collected.emit()
 		)
 
-func _on_player_entered():
-	pass # enable the enemy
+func _on_player_entered(_player: Player):
+	titania.toggle_active(true)
 
-func _on_player_exited():
-	pass # disable the enemy
+func _on_player_exited(_player: Player):
+	titania.toggle_active(false)
 
 func _on_cage_change(body: Node2D, entered: bool):
 	if body is not Titania: return
