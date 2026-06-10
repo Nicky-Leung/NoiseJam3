@@ -53,11 +53,10 @@ region = Rect2(1275.6609, 10.787857, 254.22119, 222.27708)
 atlas = ExtResource("9_ibtc7")
 region = Rect2(1023, 10, 248, 232)
 
-[node name="PuzzleRoom3" type="Node2D" unique_id=777621045 node_paths=PackedStringArray("cage_gate_layer", "room_gate_layer", "required_pickups")]
+[node name="PuzzleRoom3" type="Node2D" unique_id=777621045 node_paths=PackedStringArray("cage_gate_layer", "room_gate_layer")]
 script = ExtResource("1_g6wl1")
 cage_gate_layer = NodePath("Layout/CageGate")
 room_gate_layer = NodePath("Layout/RoomGate")
-required_pickups = [NodePath("Pickups/Diamond")]
 
 [node name="Layout" type="NavigationRegion2D" parent="." unique_id=164521379]
 navigation_polygon = SubResource("NavigationPolygon_ny5gj")
