@@ -202,6 +202,8 @@ script = ExtResource("1_3l7ik")
 nav_agent = NodePath("NavigationAgent2D")
 animated_sprite = NodePath("Animal")
 collision_box = NodePath("CollisionShape2D")
+attack_damage = 40
+base_speed = 80
 
 [node name="Animal" type="AnimatedSprite2D" parent="." unique_id=1077026022]
 sprite_frames = SubResource("SpriteFrames_4kraf")
@@ -212,3 +214,7 @@ position = Vector2(2.4999995, 1.4999998)
 shape = SubResource("CircleShape2D_7bkc1")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=147871982]
+
+[node name="AttackRay" type="RayCast2D" parent="." unique_id=16832297]
+target_position = Vector2(50, 0)
+collision_mask = 2

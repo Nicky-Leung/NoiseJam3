@@ -23,7 +23,7 @@ var titania_reset_pos: Vector2 = Vector2.ZERO
 
 func _ready():
 	room_listener.player_entered.connect(_on_player_entered)
-	room_listener.player_entered.connect(_on_player_exited)
+	room_listener.player_exited.connect(_on_player_exited)
 	cage_area.body_entered.connect(func(body): _on_cage_change(body, true))
 	cage_area.body_exited.connect(func(body): _on_cage_change(body, false))
 	gate_switch.interacted.connect(_on_gate_switch_pressed)
@@ -67,3 +67,4 @@ func _on_gate_switch_pressed(_player: Player):
 		alarm.stop()
 		gas_mechanic.stop_gas()
 		titania.global_position = titania_reset_pos
+		titania.reset_patrol_path()

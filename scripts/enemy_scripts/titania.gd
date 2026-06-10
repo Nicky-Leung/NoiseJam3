@@ -1,10 +1,10 @@
 extends Enemy
 class_name Titania
 
-func _process(delta):
-	in_light = false
+@onready var attack_ray: RayCast2D = $AttackRay
 
 func _physics_process(delta: float) -> void:
+	if !is_active: return
 	if ai_state == State.PATROL:
 		patrol(delta)
 		rotation = move_toward(rotation, 0, delta * turn_rate)
@@ -15,7 +15,23 @@ func _physics_process(delta: float) -> void:
 
 	if ai_state != State.CHASE: return
 	if in_light: move_away_from_player(delta)
-	else: chase(delta)
+	else:
+		chase(delta)
+		try_damage_player()
+
+func toggle_active(enable: bool) -> void:
+	super(enable)
+	ai_state = State.IDLE
+
+func reset_patrol_path():
+	var current_pos = global_position
+	patrol_path.progress = 0
+	global_position = current_pos
+
+func try_damage_player():
+	var collider = attack_ray.get_collider()
+	if collider is not Player: return
+	(collider as Player).attack(attack_damage, self)
 
 func move_away_from_player(delta: float) -> bool:
 	if chase_target == null:
