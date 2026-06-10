@@ -1,0 +1,535 @@
+[gd_scene format=3 uid="uid://1y6g8qaest6m"]
+
+[ext_resource type="Texture2D" uid="uid://b7wau1b5i0ra2" path="res://assets/sprites/items/readables/Phone1.png" id="1_uptmc"]
+[ext_resource type="FontFile" uid="uid://bv1rf1i8icbup" path="res://assets/fonts/TextMessagesFont.ttf" id="2_6y0vn"]
+[ext_resource type="PackedScene" uid="uid://cmcrodc6fiexh" path="res://scenes/readables/plain_text.tscn" id="3_6y0vn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dpe6o"]
+bg_color = Color(0.8862616, 0.88626146, 0.8862616, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p7rra"]
+bg_color = Color(0.8431842, 0.84318376, 0.84318376, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p8e3c"]
+bg_color = Color(0.21176471, 0.43137255, 0.8980392, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ktoqo"]
+bg_color = Color(0.21176471, 0.43137255, 0.8980392, 1)
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="UnethicalExperiments" type="Control" unique_id=1543180056]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="." unique_id=223594106]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -308.77194
+offset_right = 160.0
+offset_bottom = 308.77197
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_uptmc")
+expand_mode = 5
+
+[node name="Display" type="ColorRect" parent="Background" unique_id=2117840374]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -149.0
+offset_top = -262.272
+offset_right = 149.0
+offset_bottom = 262.272
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Background/Display" unique_id=972953840]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("2_6y0vn")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_dpe6o")
+text = "Divine Biology Department"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MessageArea" type="ScrollContainer" parent="Background/Display" unique_id=368339652]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -149.0
+offset_top = -484.544
+offset_right = 149.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Margins" type="MarginContainer" parent="Background/Display/MessageArea" unique_id=525890116]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBox" type="VBoxContainer" parent="Background/Display/MessageArea/Margins" unique_id=680964111]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="ResponderLine" type="HBoxContainer" parent="Background/Display/MessageArea/Margins/VBox" unique_id=1073361845]
+layout_mode = 2
+
+[node name="Message" type="VBoxContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine" unique_id=1153938185]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Margins" type="MarginContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine/Message" unique_id=37989568]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_bottom = 2
+
+[node name="Name" type="Label" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine/Message/Margins" unique_id=1305039579]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.49354547, 0.49354553, 0.49354535, 1)
+theme_override_colors/font_outline_color = Color(0.49411765, 0.49411765, 0.49411765, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("2_6y0vn")
+theme_override_font_sizes/font_size = 12
+text = "EbinFlow"
+
+[node name="Background" type="PanelContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine/Message" unique_id=625095410]
+show_behind_parent = true
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_p7rra")
+
+[node name="Margins" type="MarginContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine/Message/Background" unique_id=297330215]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Text" type="Label" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine/Message/Background/Margins" unique_id=662960274]
+custom_minimum_size = Vector2(175, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_6y0vn")
+text = "Did you guys get the news about our new project?"
+autowrap_mode = 2
+
+[node name="Control" type="Control" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine" unique_id=416289709]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SenderLine" type="HBoxContainer" parent="Background/Display/MessageArea/Margins/VBox" unique_id=1443922796]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Background/Display/MessageArea/Margins/VBox/SenderLine" unique_id=1911908837]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Message" type="VBoxContainer" parent="Background/Display/MessageArea/Margins/VBox/SenderLine" unique_id=834144645]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Background" type="PanelContainer" parent="Background/Display/MessageArea/Margins/VBox/SenderLine/Message" unique_id=786056884]
+show_behind_parent = true
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_p8e3c")
+
+[node name="Margins" type="MarginContainer" parent="Background/Display/MessageArea/Margins/VBox/SenderLine/Message/Background" unique_id=716790306]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Text" type="Label" parent="Background/Display/MessageArea/Margins/VBox/SenderLine/Message/Background/Margins" unique_id=172566949]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_6y0vn")
+text = "The rebirth project right?"
+
+[node name="ResponderLine2" type="HBoxContainer" parent="Background/Display/MessageArea/Margins/VBox" unique_id=173934190]
+layout_mode = 2
+
+[node name="Message" type="VBoxContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine2" unique_id=424500775]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Margins" type="MarginContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine2/Message" unique_id=1665074366]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_bottom = 2
+
+[node name="Name" type="Label" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine2/Message/Margins" unique_id=429952380]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.49354547, 0.49354553, 0.49354535, 1)
+theme_override_colors/font_outline_color = Color(0.49411765, 0.49411765, 0.49411765, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("2_6y0vn")
+theme_override_font_sizes/font_size = 12
+text = "DivineIchor"
+
+[node name="Background" type="PanelContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine2/Message" unique_id=512442355]
+show_behind_parent = true
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_p7rra")
+
+[node name="Margins" type="MarginContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine2/Message/Background" unique_id=1052117385]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Text" type="Label" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine2/Message/Background/Margins" unique_id=1441748363]
+custom_minimum_size = Vector2(175, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_6y0vn")
+text = "Yeah, it's like extremely messed up"
+autowrap_mode = 2
+
+[node name="Control" type="Control" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine2" unique_id=157053874]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SenderLine2" type="HBoxContainer" parent="Background/Display/MessageArea/Margins/VBox" unique_id=993303369]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Background/Display/MessageArea/Margins/VBox/SenderLine2" unique_id=1326038840]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Message" type="VBoxContainer" parent="Background/Display/MessageArea/Margins/VBox/SenderLine2" unique_id=2003151510]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Background" type="PanelContainer" parent="Background/Display/MessageArea/Margins/VBox/SenderLine2/Message" unique_id=1290915008]
+show_behind_parent = true
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ktoqo")
+
+[node name="Margins" type="MarginContainer" parent="Background/Display/MessageArea/Margins/VBox/SenderLine2/Message/Background" unique_id=2133513955]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Text" type="Label" parent="Background/Display/MessageArea/Margins/VBox/SenderLine2/Message/Background/Margins" unique_id=1291035360]
+custom_minimum_size = Vector2(175, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_6y0vn")
+text = "Honestly I don't know if I can continue working here"
+autowrap_mode = 2
+
+[node name="SenderLine3" type="HBoxContainer" parent="Background/Display/MessageArea/Margins/VBox" unique_id=1214283105]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Background/Display/MessageArea/Margins/VBox/SenderLine3" unique_id=100963195]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Message" type="VBoxContainer" parent="Background/Display/MessageArea/Margins/VBox/SenderLine3" unique_id=2017516723]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Background" type="PanelContainer" parent="Background/Display/MessageArea/Margins/VBox/SenderLine3/Message" unique_id=1662453019]
+show_behind_parent = true
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ktoqo")
+
+[node name="Margins" type="MarginContainer" parent="Background/Display/MessageArea/Margins/VBox/SenderLine3/Message/Background" unique_id=1825038653]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Text" type="Label" parent="Background/Display/MessageArea/Margins/VBox/SenderLine3/Message/Background/Margins" unique_id=19131118]
+custom_minimum_size = Vector2(175, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_6y0vn")
+text = "I really don't feel comfortable lying to expectant moms"
+autowrap_mode = 2
+
+[node name="ResponderLine3" type="HBoxContainer" parent="Background/Display/MessageArea/Margins/VBox" unique_id=51151172]
+layout_mode = 2
+
+[node name="Message" type="VBoxContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine3" unique_id=994369517]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Margins" type="MarginContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine3/Message" unique_id=1247595969]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_bottom = 2
+
+[node name="Name" type="Label" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine3/Message/Margins" unique_id=517700653]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.49354547, 0.49354553, 0.49354535, 1)
+theme_override_colors/font_outline_color = Color(0.49411765, 0.49411765, 0.49411765, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("2_6y0vn")
+theme_override_font_sizes/font_size = 12
+text = "EbinFlow"
+
+[node name="Background" type="PanelContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine3/Message" unique_id=1605502168]
+show_behind_parent = true
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_p7rra")
+
+[node name="Margins" type="MarginContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine3/Message/Background" unique_id=411064604]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Text" type="Label" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine3/Message/Background/Margins" unique_id=1025882106]
+custom_minimum_size = Vector2(175, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_6y0vn")
+text = "You got to man, the pay and insurance is top tier"
+autowrap_mode = 2
+
+[node name="Control" type="Control" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine3" unique_id=1731179039]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ResponderLine4" type="HBoxContainer" parent="Background/Display/MessageArea/Margins/VBox" unique_id=741544232]
+layout_mode = 2
+
+[node name="Message" type="VBoxContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine4" unique_id=1084316588]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Margins" type="MarginContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine4/Message" unique_id=1516944267]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_bottom = 2
+
+[node name="Name" type="Label" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine4/Message/Margins" unique_id=1487691552]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.49354547, 0.49354553, 0.49354535, 1)
+theme_override_colors/font_outline_color = Color(0.49411765, 0.49411765, 0.49411765, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("2_6y0vn")
+theme_override_font_sizes/font_size = 12
+text = "EbinFlow"
+
+[node name="Background" type="PanelContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine4/Message" unique_id=1121006599]
+show_behind_parent = true
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_p7rra")
+
+[node name="Margins" type="MarginContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine4/Message/Background" unique_id=1554062457]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Text" type="Label" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine4/Message/Background/Margins" unique_id=1029079645]
+custom_minimum_size = Vector2(175, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_6y0vn")
+text = "Besides, maybe the angel parts won't cause any mutations?"
+autowrap_mode = 2
+
+[node name="Control" type="Control" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine4" unique_id=1705622965]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ResponderLine5" type="HBoxContainer" parent="Background/Display/MessageArea/Margins/VBox" unique_id=854672276]
+layout_mode = 2
+
+[node name="Message" type="VBoxContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine5" unique_id=1413905304]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Margins" type="MarginContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine5/Message" unique_id=1780874936]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_bottom = 2
+
+[node name="Name" type="Label" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine5/Message/Margins" unique_id=172650423]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.49354547, 0.49354553, 0.49354535, 1)
+theme_override_colors/font_outline_color = Color(0.49411765, 0.49411765, 0.49411765, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("2_6y0vn")
+theme_override_font_sizes/font_size = 12
+text = "DivineIchor"
+
+[node name="Background" type="PanelContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine5/Message" unique_id=1557815702]
+show_behind_parent = true
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_p7rra")
+
+[node name="Margins" type="MarginContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine5/Message/Background" unique_id=1385297259]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Text" type="Label" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine5/Message/Background/Margins" unique_id=139287190]
+custom_minimum_size = Vector2(175, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_6y0vn")
+text = "Please stop trying to make him feel better, every single species we used up to this point showed supernatural levels of mutation"
+autowrap_mode = 2
+
+[node name="Control" type="Control" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine5" unique_id=2080547554]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SenderLine4" type="HBoxContainer" parent="Background/Display/MessageArea/Margins/VBox" unique_id=995321805]
+layout_mode = 2
+
+[node name="Control" type="Control" parent="Background/Display/MessageArea/Margins/VBox/SenderLine4" unique_id=523405504]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Message" type="VBoxContainer" parent="Background/Display/MessageArea/Margins/VBox/SenderLine4" unique_id=770619097]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Background" type="PanelContainer" parent="Background/Display/MessageArea/Margins/VBox/SenderLine4/Message" unique_id=1329054652]
+show_behind_parent = true
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ktoqo")
+
+[node name="Margins" type="MarginContainer" parent="Background/Display/MessageArea/Margins/VBox/SenderLine4/Message/Background" unique_id=1384325888]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Text" type="Label" parent="Background/Display/MessageArea/Margins/VBox/SenderLine4/Message/Background/Margins" unique_id=394265242]
+custom_minimum_size = Vector2(175, 0)
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_6y0vn")
+text = "Doesn't the founder feel any guilt for what we're doing?"
+autowrap_mode = 2
+
+[node name="ResponderLine6" type="HBoxContainer" parent="Background/Display/MessageArea/Margins/VBox" unique_id=2125605293]
+layout_mode = 2
+
+[node name="Message" type="VBoxContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine6" unique_id=30061869]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Margins" type="MarginContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine6/Message" unique_id=1089403048]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_bottom = 2
+
+[node name="Name" type="Label" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine6/Message/Margins" unique_id=838188446]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.49354547, 0.49354553, 0.49354535, 1)
+theme_override_colors/font_outline_color = Color(0.49411765, 0.49411765, 0.49411765, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/font = ExtResource("2_6y0vn")
+theme_override_font_sizes/font_size = 12
+text = "DivineIchor"
+
+[node name="Background" type="PanelContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine6/Message" unique_id=1814229518]
+show_behind_parent = true
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_p7rra")
+
+[node name="Margins" type="MarginContainer" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine6/Message/Background" unique_id=1277180623]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Text" type="Label" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine6/Message/Background/Margins" unique_id=851805282]
+custom_minimum_size = Vector2(175, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_6y0vn")
+text = "I get the feeling it might be a case of doing it for the greater good"
+autowrap_mode = 2
+
+[node name="Control" type="Control" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine6" unique_id=2044274226]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PlainText" parent="." unique_id=1201338786 instance=ExtResource("3_6y0vn")]
+visible = false
+report_text = "Divine Biology Department
+
+EbinFlow: Did you guys get the news about our new project?
+The rebirth project right?
+DivineIchor: Yeah, it's like extremely messed up
+Honestly I don't know if I can continue working here
+I really don't feel comfortable lying to expectant moms
+EbinFlow: You got to man, the pay and insurance is top tier
+EbinFlow: Besides, maybe the angel parts won't cause any mutations?
+DivineIchor: Please stop trying to make him feel better, every single species we used up to this point showed supernatural levels of mutation
+Doesn't the founder feel any guilt about what we're doing?
+DivineIchor: I get the feeling it might be a case of doing it for the greater good"
