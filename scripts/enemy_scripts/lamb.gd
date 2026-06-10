@@ -6,7 +6,7 @@ func _ready() -> void:
 	collision_mask = PHYS_LAYERS.TERRAIN + PHYS_LAYERS.PLAYER
 	collision_layer = PHYS_LAYERS.ENEMY
 	if collides_with_others: collision_mask += PHYS_LAYERS.ENEMY
-	nav_check_stagger = randi() % frames_per_nav_check
+
 	z_index = 1
 
 
@@ -29,17 +29,25 @@ func _process(delta: float) -> void:
 
 
 func move_away_from_player(delta: float) -> bool:
-	move_and_slide() # move based on previous frame values
+	if chase_target == null:
+		return false
+	var away_direction = global_position.direction_to(chase_target.global_position) * -1
+	var distances = [80]
+	var angles := [0.0, deg_to_rad(25), deg_to_rad(-25), deg_to_rad(50), deg_to_rad(-50), deg_to_rad(75), deg_to_rad(-75), deg_to_rad(100), deg_to_rad(-100)]
+
+	for distance in distances:
+		for angle in angles:
+			var candidate_direction = away_direction.rotated(angle)
+			var candidate_position = global_position + candidate_direction * distance
+
+			nav_agent.target_position = candidate_position
+			if nav_agent.is_target_reachable():
+				print("Lamb is trying to move away from player to position: ", candidate_position)
+				return move_to(delta, candidate_position)
+	velocity = velocity.lerp(away_direction * base_speed, acceleration * delta)
+	move_and_slide()
 	turn_process(delta)
-
-	if chase_target == null || !can_check_nav(): return false
-	nav_agent.target_position = global_position + global_position.direction_to(chase_target.global_position) * -50
-	move_direction = global_position.direction_to(nav_agent.get_next_path_position())
-
-	if !nav_agent.is_target_reached():
-		velocity = velocity.lerp(move_direction * base_speed, acceleration * delta)
-	return nav_agent.is_target_reached() || !nav_agent.is_target_reachable()
-
+	return false
 
 
 
