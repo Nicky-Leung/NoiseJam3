@@ -59,3 +59,4 @@ https://szadiart.itch.io/rogue-fantasy-catacombs
 https://opengameart.org/content/old-parchment-paper
 https://opengameart.org/content/horror-game-note-page-background-old-paper-png
 https://opengameart.org/content/free-survival-props-pack
+https://opengameart.org/content/fast-food-benches-tables
