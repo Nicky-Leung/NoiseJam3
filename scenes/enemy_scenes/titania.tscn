@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://baot35gh10g7t"]
 
-[ext_resource type="Script" uid="uid://di57b4t8vimy" path="res://scripts/enemy_scripts/lamb.gd" id="1_3l7ik"]
+[ext_resource type="Script" uid="uid://di57b4t8vimy" path="res://scripts/enemy_scripts/titania.gd" id="1_3l7ik"]
 [ext_resource type="Texture2D" uid="uid://du7e4e6tpw3ji" path="res://assets/sprites/temp_sprites/Lamb_animation_with_shadow.png" id="1_80isn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3l7ik"]
@@ -197,7 +197,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xisay"]
 size = Vector2(15.445985, 0.5042517)
 
-[node name="Lamb" type="CharacterBody2D" unique_id=876160626 node_paths=PackedStringArray("nav_agent", "animated_sprite", "collision_box")]
+[node name="Titania" type="CharacterBody2D" unique_id=876160626 node_paths=PackedStringArray("nav_agent", "animated_sprite", "collision_box")]
 script = ExtResource("1_3l7ik")
 nav_agent = NodePath("NavigationAgent2D")
 animated_sprite = NodePath("Animal")

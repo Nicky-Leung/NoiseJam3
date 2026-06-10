@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://djhp2kxlk0efl" path="res://scripts/room_scripts/room_managers/puzzle_room_3.gd" id="1_g6wl1"]
 [ext_resource type="TileSet" uid="uid://bfc70hpaf234h" path="res://assets/tileset/main_tile_set.tres" id="1_ryy2w"]
 [ext_resource type="PackedScene" uid="uid://dkag3nwr7uqd8" path="res://scenes/player_scenes/player.tscn" id="3_0l7ns"]
-[ext_resource type="PackedScene" uid="uid://baot35gh10g7t" path="res://scenes/enemy_scenes/lamb.tscn" id="3_r7j0v"]
+[ext_resource type="PackedScene" uid="uid://baot35gh10g7t" path="res://scenes/enemy_scenes/titania.tscn" id="3_r7j0v"]
 [ext_resource type="Script" uid="uid://d2lfdj2cgcrus" path="res://scripts/room_scripts/room_listener.gd" id="3_rsiot"]
 [ext_resource type="PackedScene" uid="uid://m2mg0mj6jnid" path="res://scenes/environment_objects/computer.tscn" id="5_l1wol"]
 [ext_resource type="AudioStream" uid="uid://wmf7avjpd7hp" path="res://assets/sfx/jump_scares/u_jrqwaqm503-school-bell-longer-451839.mp3" id="6_as3os"]
@@ -64,7 +64,6 @@ position = Vector2(1023, 915.1875)
 shape = SubResource("RectangleShape2D_g6wl1")
 
 [node name="Player" parent="." unique_id=628625629 instance=ExtResource("3_0l7ns")]
-visible = false
 position = Vector2(486.00003, 317)
 scale = Vector2(0.6015718, 0.6828813)
 

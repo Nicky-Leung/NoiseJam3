@@ -21,7 +21,7 @@ func _on_player_exited():
 	pass # disable the enemy
 
 func _on_cage_change(body: Node2D, entered: bool):
-	if body is not Lamb: return
+	if body is not Titania: return
 	enemy_in_cage = entered
 
 func _on_gate_switch_pressed():
