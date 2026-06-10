@@ -32,10 +32,9 @@ region = Rect2(1275.6609, 10.787857, 254.22119, 222.27708)
 atlas = ExtResource("9_o8qwr")
 region = Rect2(1023, 10, 248, 232)
 
-[node name="StarterRoom" type="Node2D" unique_id=519425099 node_paths=PackedStringArray("player", "required_pickups")]
+[node name="StarterRoom" type="Node2D" unique_id=519425099 node_paths=PackedStringArray("required_pickups")]
 z_index = -1
 script = ExtResource("1_xlnik")
-player = NodePath("")
 required_pickups = [NodePath("Pickups/WestKey"), NodePath("Pickups/Flashlight")]
 gate_tile_coords = Array[Vector2i]([Vector2i(18, 0), Vector2i(18, 1), Vector2i(18, 2), Vector2i(18, 3), Vector2i(18, 4), Vector2i(19, 0), Vector2i(19, 1), Vector2i(19, 2), Vector2i(19, 3), Vector2i(19, 4)])
 
@@ -69,6 +68,7 @@ position = Vector2(379, 310)
 type = 0
 in_world_sprite = ExtResource("4_2ebnm")
 readable_menu = ExtResource("5_xlnik")
+is_wider_sprite = true
 
 [node name="Pickups" type="Node" parent="." unique_id=1115741370]
 
@@ -121,10 +121,9 @@ stream = ExtResource("12_i4p0j")
 [node name="CensoredSin" parent="." unique_id=1865245503 instance=ExtResource("7_ieuqq")]
 position = Vector2(306, 245)
 
-[node name="Cinematic" type="Node2D" parent="." unique_id=1690375132 node_paths=PackedStringArray("player")]
+[node name="Cinematic" type="Node2D" parent="." unique_id=1690375132]
 script = ExtResource("9_ieuqq")
 skip_sequence = true
-player = NodePath("")
 
 [node name="AudioPlayer" type="AudioStreamPlayer2D" parent="Cinematic" unique_id=2139737607]
 position = Vector2(304, -128)

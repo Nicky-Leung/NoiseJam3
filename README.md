@@ -49,6 +49,7 @@ https://pixabay.com/sound-effects/film-special-effects-correct-choice-43861/
 https://pixabay.com/sound-effects/film-special-effects-wrong-47985/
 https://pixabay.com/sound-effects/film-special-effects-notification-interface-success-positive-corrects-132471/
 https://pixabay.com/sound-effects/film-special-effects-stone-push-37412/
+https://opengameart.org/content/iron-door
 
 #Tiles and Sprites
 https://opengameart.org/content/gemmed-items
@@ -59,3 +60,4 @@ https://szadiart.itch.io/rogue-fantasy-catacombs
 https://opengameart.org/content/old-parchment-paper
 https://opengameart.org/content/horror-game-note-page-background-old-paper-png
 https://opengameart.org/content/free-survival-props-pack
+https://opengameart.org/content/fast-food-benches-tables
