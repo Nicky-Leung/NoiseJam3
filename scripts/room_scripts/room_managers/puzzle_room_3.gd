@@ -1,6 +1,10 @@
 extends Node2D
 
-@export var gate_layer: TileMapLayer = null
+signal diamond_collected
+
+@export var cage_gate_layer: TileMapLayer = null
+@export var room_gate_layer: TileMapLayer = null
+@export var required_pickups: Array[Node2D] = []
 
 @onready var wall_layer: TileMapLayer = $Layout/Walls
 @onready var room_listener: RoomListener = $Layout/RoomListener
@@ -21,6 +25,12 @@ func _ready():
 	cage_area.body_exited.connect(func(body): _on_cage_change(body, false))
 	gate_switch.interacted.connect(_on_gate_switch_pressed)
 
+	for pickup in required_pickups:
+		pickup.tree_exiting.connect(func():
+			required_pickups.remove_at(required_pickups.find(pickup))
+			diamond_collected.emit()
+		)
+
 func _on_player_entered():
 	pass # enable the enemy
 
@@ -37,7 +47,12 @@ func _on_gate_switch_pressed(_player: Player):
 		return
 
 	gate_cd.start()
-	cage_locked = !cage_locked
-	gate_layer.enabled = cage_locked
-	HELPERS.play_audio(alarm)
 	HELPERS.play_audio(gate_noise, 0.9, 1.1, -5)
+
+	cage_locked = !cage_locked
+	cage_gate_layer.enabled = cage_locked
+	room_gate_layer.enabled = !(cage_locked && enemy_in_cage)
+	if room_gate_layer.enabled:
+		HELPERS.play_audio(alarm)
+	else:
+		alarm.stop()
