@@ -194,8 +194,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xisay"]
-size = Vector2(15.445985, 0.5042517)
+[sub_resource type="CircleShape2D" id="CircleShape2D_7bkc1"]
+radius = 20.0
 
 [node name="Titania" type="CharacterBody2D" unique_id=876160626 node_paths=PackedStringArray("nav_agent", "animated_sprite", "collision_box")]
 script = ExtResource("1_3l7ik")
@@ -209,7 +209,6 @@ animation = &"Right Walking"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=371903554]
 position = Vector2(2.4999995, 1.4999998)
-scale = Vector2(1.3595766, -37.679592)
-shape = SubResource("RectangleShape2D_xisay")
+shape = SubResource("CircleShape2D_7bkc1")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=147871982]
