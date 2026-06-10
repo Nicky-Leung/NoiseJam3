@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://y6qgwf18h0bh" path="res://scenes/environment_objects/readable.tscn" id="7_lfotg"]
 [ext_resource type="Texture2D" uid="uid://uv7tio7dfdd7" path="res://assets/textures/grainy 10 - 128x128.png" id="7_mv07d"]
 [ext_resource type="Texture2D" uid="uid://dftxp8sv2xuwb" path="res://assets/sprites/items/readables/start_note.png" id="8_60y0y"]
+[ext_resource type="AudioStream" uid="uid://cuy2y66u56sx1" path="res://assets/sfx/ambience/gasleak.wav" id="8_ed302"]
 [ext_resource type="Texture2D" uid="uid://d0l6wkxhep1k8" path="res://assets/sprites/items/puzzle_items/Diamond.png" id="8_eenle"]
 [ext_resource type="PackedScene" uid="uid://cfslgv17irrxe" path="res://scenes/environment_objects/pickup.tscn" id="8_ny5gj"]
 [ext_resource type="PackedScene" uid="uid://cpwr50lryfm6r" path="res://scenes/readables/notes/room3_mechanic.tscn" id="9_dysm0"]
@@ -104,14 +105,14 @@ collision_mask = 4
 position = Vector2(1023, 915.1875)
 shape = SubResource("RectangleShape2D_g6wl1")
 
-[node name="GasMechanic" type="Node2D" parent="." unique_id=1407428506 node_paths=PackedStringArray("gas_shader", "damage_timer")]
+[node name="GasMechanic" type="Node2D" parent="." unique_id=1407428506 node_paths=PackedStringArray("gas_sound", "gas_shader", "damage_timer")]
 script = ExtResource("5_dysm0")
+gas_sound = NodePath("GasSFX")
 gas_shader = NodePath("Filter/Gas")
 damage_timer = NodePath("DamageTick")
 
 [node name="Filter" type="CanvasLayer" parent="GasMechanic" unique_id=186883568]
 layer = 2
-visible = false
 
 [node name="Gas" type="ColorRect" parent="GasMechanic/Filter" unique_id=473164207]
 material = SubResource("ShaderMaterial_5whr7")
@@ -124,6 +125,12 @@ mouse_filter = 2
 
 [node name="DamageTick" type="Timer" parent="GasMechanic" unique_id=2078888627]
 wait_time = 5.0
+
+[node name="GasSFX" type="AudioStreamPlayer2D" parent="GasMechanic" unique_id=912617034]
+position = Vector2(247, 79)
+stream = ExtResource("8_ed302")
+volume_db = -8.21
+pitch_scale = 0.69
 
 [node name="Player" parent="." unique_id=628625629 instance=ExtResource("3_0l7ns")]
 position = Vector2(486.00003, 317)
