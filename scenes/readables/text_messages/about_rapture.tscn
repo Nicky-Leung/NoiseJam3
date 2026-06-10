@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b7wau1b5i0ra2" path="res://assets/sprites/items/readables/Phone1.png" id="1_x3voa"]
 [ext_resource type="FontFile" uid="uid://bv1rf1i8icbup" path="res://assets/fonts/TextMessagesFont.ttf" id="2_xg8is"]
+[ext_resource type="PackedScene" uid="uid://cmcrodc6fiexh" path="res://scenes/readables/plain_text.tscn" id="3_xg8is"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0h3w3"]
 bg_color = Color(0.8862616, 0.88626146, 0.8862616, 1)
@@ -317,3 +318,13 @@ layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_xg8is")
 text = "k"
+
+[node name="PlainText" parent="." unique_id=1201338786 instance=ExtResource("3_xg8is")]
+visible = false
+report_text = "Work Besties
+
+DJChangus: Hello friends it's Darren
+DJChangus: SOOO I heard the rapture is coming and I am throwing a big RAPTURE DAY PARTY. My place at 6:00. DON'T BE LATE!!!!!
+DJChangus: I'm looking at you ETHAN!
+DJChangus: XOXOs from your associate lab manager <3333
+k"

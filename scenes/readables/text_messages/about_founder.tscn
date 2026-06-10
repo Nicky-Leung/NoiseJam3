@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b7wau1b5i0ra2" path="res://assets/sprites/items/readables/Phone1.png" id="1_b5l1u"]
 [ext_resource type="FontFile" uid="uid://bv1rf1i8icbup" path="res://assets/fonts/TextMessagesFont.ttf" id="2_p80kj"]
+[ext_resource type="PackedScene" uid="uid://cmcrodc6fiexh" path="res://scenes/readables/plain_text.tscn" id="3_p80kj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tmpeo"]
 bg_color = Color(0.8862616, 0.88626146, 0.8862616, 1)
@@ -411,3 +412,16 @@ autowrap_mode = 2
 [node name="Control" type="Control" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine4" unique_id=103474868]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="PlainText" parent="." unique_id=1201338786 instance=ExtResource("3_p80kj")]
+visible = false
+report_text = "Work Chat
+
+Anyone seen Karis?
+Cursed10: Oh you must be the newbie!
+Yeah it's my first day here, excited to meet you all!
+SoupDumpling: He likes to be called founder
+Why????
+SoupDumpling: Maybe he sees himself as a savior? He is the closest to the envoy after all
+Seems kinda egotistical
+Cursed10: Eh, but I mean he's our boss so what can we do"

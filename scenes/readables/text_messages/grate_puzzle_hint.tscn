@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b7wau1b5i0ra2" path="res://assets/sprites/items/readables/Phone1.png" id="1_5epgt"]
 [ext_resource type="FontFile" uid="uid://bv1rf1i8icbup" path="res://assets/fonts/TextMessagesFont.ttf" id="2_xfu1t"]
+[ext_resource type="PackedScene" uid="uid://cmcrodc6fiexh" path="res://scenes/readables/plain_text.tscn" id="3_xfu1t"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7jq1l"]
 bg_color = Color(0.8862616, 0.88626146, 0.8862616, 1)
@@ -582,3 +583,20 @@ text = ":)"
 [node name="Control" type="Control" parent="Background/Display/MessageArea/Margins/VBox/ResponderLine7" unique_id=904740779]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="PlainText" parent="." unique_id=1201338786 instance=ExtResource("3_xfu1t")]
+visible = false
+report_text = "DJChangus
+
+Do you have the key to the east room?
+DJChangus: Oh I hid it!
+Do I wanna know...?
+DJChangus: BECAUSE ETHAN REFUSES TO COME TO MY RAPTURE PARTY
+I fail to see how that correlates
+DJChangus: HE WORKS THERE HELLO??
+Oh right
+DJChangus: Well if you really need the key it's in the west room
+DJChangus: If you step on the grates in this order the key will show up
+DJChangus: North, South, East, West
+How did you even set this up? Let alone even have the time to do this
+DJChangus: :)"

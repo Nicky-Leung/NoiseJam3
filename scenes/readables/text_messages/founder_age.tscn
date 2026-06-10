@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b7wau1b5i0ra2" path="res://assets/sprites/items/readables/Phone1.png" id="1_eu4m1"]
 [ext_resource type="FontFile" uid="uid://bv1rf1i8icbup" path="res://assets/fonts/TextMessagesFont.ttf" id="2_hi161"]
+[ext_resource type="PackedScene" uid="uid://cmcrodc6fiexh" path="res://scenes/readables/plain_text.tscn" id="3_hi161"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hq7n5"]
 bg_color = Color(0.8862616, 0.88626146, 0.8862616, 1)
@@ -636,3 +637,21 @@ text = "I AM NOT INSANE :("
 [node name="Control" type="Control" parent="Background/Display/MessageArea/Margins/VBox/SenderLine9" unique_id=822649014]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="PlainText" parent="." unique_id=1201338786 instance=ExtResource("3_hi161")]
+visible = false
+report_text = "Work Besties
+
+DJChangus: YALL I GOT TEA
+Cursed10: omg spill
+Hello Darren...
+DJChangus: DONT BE SO MEAN, I LITERALLY HAVE TEA
+Alright spill
+DJChangus: so like i heard from Ethan that the founder is actually like hundreds of years old
+Cursed10: OMG RLY
+evidence?
+DJChangus: ITS FROM ETHAN HE WOULD NEVER LIE TO ME
+DJChangus: BESIDES WE LITERALLY HAVE AN ANGEL THAT CREATES MIRACLES
+DJChangus: YOU DONT THINK THE FOUNDER WISHED FOR IMMORTALITY?
+Bro you sound insane right now
+DJChangus: I AM NOT INSANE :("

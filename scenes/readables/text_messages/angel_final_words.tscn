@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b7wau1b5i0ra2" path="res://assets/sprites/items/readables/Phone1.png" id="1_ijs6k"]
 [ext_resource type="FontFile" uid="uid://bv1rf1i8icbup" path="res://assets/fonts/TextMessagesFont.ttf" id="2_i1uce"]
+[ext_resource type="PackedScene" uid="uid://cmcrodc6fiexh" path="res://scenes/readables/plain_text.tscn" id="3_i1uce"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_okfsj"]
 bg_color = Color(0.8862616, 0.88626146, 0.8862616, 1)
@@ -537,3 +538,19 @@ layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_i1uce")
 text = "Understood"
+
+[node name="PlainText" parent="." unique_id=1201338786 instance=ExtResource("3_i1uce")]
+visible = false
+report_text = "Karis
+
+Founder: The Envoy just passed
+What do we do now?
+Founder: Have the team look into ways of rebirthing an angel
+I'll let them know, is there anything else?
+Founder: For the first time since their arrival centuries ago, they finally spoke to us in their last moments
+What did they say?
+Founder: \"No matter what, I still love you all\"
+Founder: Even after all we did to them for the sake of finding treatment...
+Sir, are you sure we should bring them back?
+Founder: Yes. There's no other choice, our people need their blessings
+Understood"
