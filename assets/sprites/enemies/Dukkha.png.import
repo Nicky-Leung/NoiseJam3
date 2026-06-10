@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://clfihd1q1h4nr"
-path="res://.godot/imported/temp_weeper.webp-b69c8e51cb2185707ac59be4e95212e6.ctex"
+uid="uid://tr47uo0hbsi3"
+path="res://.godot/imported/Dukkha.png-11c389bca43a6a2433a7f4987407cc32.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/temp_sprites/temp_weeper.webp"
-dest_files=["res://.godot/imported/temp_weeper.webp-b69c8e51cb2185707ac59be4e95212e6.ctex"]
+source_file="res://assets/sprites/enemies/Dukkha.png"
+dest_files=["res://.godot/imported/Dukkha.png-11c389bca43a6a2433a7f4987407cc32.ctex"]
 
 [params]
 
