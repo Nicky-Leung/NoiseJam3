@@ -1,4 +1,5 @@
 extends Node2D
+class_name StarterRoom
 
 @export var player: Player = null
 @export var required_pickups: Array[Node2D] = []

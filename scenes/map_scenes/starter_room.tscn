@@ -4,7 +4,6 @@
 [ext_resource type="TileSet" uid="uid://bfc70hpaf234h" path="res://assets/tileset/main_tile_set.tres" id="2_13seb"]
 [ext_resource type="Script" uid="uid://d2lfdj2cgcrus" path="res://scripts/room_scripts/room_listener.gd" id="3_13seb"]
 [ext_resource type="PackedScene" uid="uid://y6qgwf18h0bh" path="res://scenes/environment_objects/readable.tscn" id="3_p0vol"]
-[ext_resource type="PackedScene" uid="uid://dkag3nwr7uqd8" path="res://scenes/player_scenes/player.tscn" id="3_qqy6g"]
 [ext_resource type="Texture2D" uid="uid://dftxp8sv2xuwb" path="res://assets/sprites/items/readables/start_note.png" id="4_2ebnm"]
 [ext_resource type="PackedScene" uid="uid://b168pec4gx1by" path="res://scenes/readables/starting_note.tscn" id="5_xlnik"]
 [ext_resource type="AudioStream" uid="uid://drmnb1fc0ut8y" path="res://assets/sfx/ambience/dripLoop.mp3" id="7_1mxng"]
@@ -36,7 +35,7 @@ region = Rect2(1023, 10, 248, 232)
 [node name="StarterRoom" type="Node2D" unique_id=519425099 node_paths=PackedStringArray("player", "required_pickups")]
 z_index = -1
 script = ExtResource("1_xlnik")
-player = NodePath("Player")
+player = NodePath("")
 required_pickups = [NodePath("Pickups/WestKey"), NodePath("Pickups/Flashlight")]
 gate_tile_coords = Array[Vector2i]([Vector2i(18, 0), Vector2i(18, 1), Vector2i(18, 2), Vector2i(18, 3), Vector2i(18, 4), Vector2i(19, 0), Vector2i(19, 1), Vector2i(19, 2), Vector2i(19, 3), Vector2i(19, 4)])
 
@@ -119,19 +118,13 @@ autoplay = true
 position = Vector2(305, 60)
 stream = ExtResource("12_i4p0j")
 
-[node name="Player" parent="." unique_id=628625629 instance=ExtResource("3_qqy6g")]
-position = Vector2(308, 377)
-rotation = 1.5707964
-has_flashlight = false
-starting_flashlight_charge = 10.0
-
 [node name="CensoredSin" parent="." unique_id=1865245503 instance=ExtResource("7_ieuqq")]
 position = Vector2(306, 245)
 
 [node name="Cinematic" type="Node2D" parent="." unique_id=1690375132 node_paths=PackedStringArray("player")]
 script = ExtResource("9_ieuqq")
 skip_sequence = true
-player = NodePath("../Player")
+player = NodePath("")
 
 [node name="AudioPlayer" type="AudioStreamPlayer2D" parent="Cinematic" unique_id=2139737607]
 position = Vector2(304, -128)

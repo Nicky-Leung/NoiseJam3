@@ -2,7 +2,6 @@
 
 [ext_resource type="TileSet" uid="uid://bfc70hpaf234h" path="res://assets/tileset/main_tile_set.tres" id="1_cjx35"]
 [ext_resource type="Script" uid="uid://crvi8ldxdelp0" path="res://scripts/room_scripts/room_managers/puzzle_room_1.gd" id="1_vs076"]
-[ext_resource type="PackedScene" uid="uid://dkag3nwr7uqd8" path="res://scenes/player_scenes/player.tscn" id="2_5e412"]
 [ext_resource type="Script" uid="uid://d2lfdj2cgcrus" path="res://scripts/room_scripts/room_listener.gd" id="2_uhndw"]
 [ext_resource type="PackedScene" uid="uid://cfslgv17irrxe" path="res://scenes/environment_objects/pickup.tscn" id="3_6sbsl"]
 [ext_resource type="Script" uid="uid://bcp7f3c8sh4qc" path="res://scripts/room_scripts/grate_puzzle.gd" id="4_f2xk5"]
@@ -110,10 +109,6 @@ item_sprite = ExtResource("6_f2xk5")
 can_pickup = false
 
 [node name="AudioPlayer" type="AudioStreamPlayer2D" parent="GratePuzzle" unique_id=2109778145]
-
-[node name="Player" parent="." unique_id=628625629 instance=ExtResource("2_5e412")]
-position = Vector2(1112, 201)
-rotation = 0.09103117
 
 [node name="Enemies" type="Node2D" parent="." unique_id=1637124787]
 
