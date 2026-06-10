@@ -6,6 +6,7 @@ signal diamond_collected
 @export var room_gate_layer: TileMapLayer = null
 @export var required_pickups: Array[Node2D] = []
 
+@onready var gas_mechanic: Gas = $GasMechanic
 @onready var titania: Titania = $Titania
 @onready var wall_layer: TileMapLayer = $Layout/Walls
 @onready var room_listener: RoomListener = $Layout/RoomListener
@@ -32,8 +33,10 @@ func _ready():
 			diamond_collected.emit()
 		)
 
-func _on_player_entered(_player: Player):
+func _on_player_entered(player: Player):
 	titania.toggle_active(true)
+	titania.player = player
+	gas_mechanic.player = player
 
 func _on_player_exited(_player: Player):
 	titania.toggle_active(false)
@@ -55,5 +58,7 @@ func _on_gate_switch_pressed(_player: Player):
 	room_gate_layer.enabled = !(cage_locked && enemy_in_cage)
 	if room_gate_layer.enabled:
 		HELPERS.play_audio(alarm)
+		gas_mechanic.start_gas()
 	else:
 		alarm.stop()
+		gas_mechanic.stop_gas()

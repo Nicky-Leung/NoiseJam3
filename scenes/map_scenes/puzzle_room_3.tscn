@@ -5,9 +5,12 @@
 [ext_resource type="PackedScene" uid="uid://dkag3nwr7uqd8" path="res://scenes/player_scenes/player.tscn" id="3_0l7ns"]
 [ext_resource type="PackedScene" uid="uid://baot35gh10g7t" path="res://scenes/enemy_scenes/titania.tscn" id="3_r7j0v"]
 [ext_resource type="Script" uid="uid://d2lfdj2cgcrus" path="res://scripts/room_scripts/room_listener.gd" id="3_rsiot"]
+[ext_resource type="Script" uid="uid://c8tagqpqpmu3x" path="res://scripts/environment_object_scripts/gas.gd" id="5_dysm0"]
 [ext_resource type="PackedScene" uid="uid://m2mg0mj6jnid" path="res://scenes/environment_objects/computer.tscn" id="5_l1wol"]
 [ext_resource type="AudioStream" uid="uid://wmf7avjpd7hp" path="res://assets/sfx/jump_scares/u_jrqwaqm503-school-bell-longer-451839.mp3" id="6_as3os"]
+[ext_resource type="Shader" uid="uid://cylv5y3yg2liy" path="res://resources/shaders/fog.gdshader" id="6_ed302"]
 [ext_resource type="PackedScene" uid="uid://y6qgwf18h0bh" path="res://scenes/environment_objects/readable.tscn" id="7_lfotg"]
+[ext_resource type="Texture2D" uid="uid://uv7tio7dfdd7" path="res://assets/textures/grainy 10 - 128x128.png" id="7_mv07d"]
 [ext_resource type="Texture2D" uid="uid://dftxp8sv2xuwb" path="res://assets/sprites/items/readables/start_note.png" id="8_60y0y"]
 [ext_resource type="Texture2D" uid="uid://d0l6wkxhep1k8" path="res://assets/sprites/items/puzzle_items/Diamond.png" id="8_eenle"]
 [ext_resource type="PackedScene" uid="uid://cfslgv17irrxe" path="res://scenes/environment_objects/pickup.tscn" id="8_ny5gj"]
@@ -27,6 +30,13 @@ size = Vector2(775, 450)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g6wl1"]
 size = Vector2(325, 125.625)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5whr7"]
+shader = ExtResource("6_ed302")
+shader_parameter/noise_texture = ExtResource("7_mv07d")
+shader_parameter/smoke_color = Color(0.8, 0.8, 0.8, 1)
+shader_parameter/distortion_speed = 0.21600001026
+shader_parameter/density = 0.0
 
 [sub_resource type="Curve2D" id="Curve2D_r7j0v"]
 _data = {
@@ -92,9 +102,28 @@ position = Vector2(-847, -798)
 position = Vector2(1023, 915.1875)
 shape = SubResource("RectangleShape2D_g6wl1")
 
+[node name="GasMechanic" type="Node2D" parent="." unique_id=1407428506 node_paths=PackedStringArray("gas_shader", "damage_timer")]
+script = ExtResource("5_dysm0")
+gas_shader = NodePath("Filter/Gas")
+damage_timer = NodePath("DamageTick")
+
+[node name="Filter" type="CanvasLayer" parent="GasMechanic" unique_id=186883568]
+layer = 2
+
+[node name="Gas" type="ColorRect" parent="GasMechanic/Filter" unique_id=473164207]
+material = SubResource("ShaderMaterial_5whr7")
+offset_left = 1.000001
+offset_top = 1.0000019
+offset_right = 42.07598
+offset_bottom = 43.398125
+scale = Vector2(28.069931, 15.260108)
+mouse_filter = 2
+
+[node name="DamageTick" type="Timer" parent="GasMechanic" unique_id=2078888627]
+wait_time = 5.0
+
 [node name="Player" parent="." unique_id=628625629 instance=ExtResource("3_0l7ns")]
 position = Vector2(486.00003, 317)
-scale = Vector2(0.6015718, 0.6828813)
 
 [node name="Titania" parent="." unique_id=876160626 node_paths=PackedStringArray("player", "patrol_path") instance=ExtResource("3_r7j0v")]
 position = Vector2(250.00006, 80.00004)
