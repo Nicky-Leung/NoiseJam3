@@ -19,7 +19,7 @@ func _physics_process(delta):
 
 	gas_released_time += delta
 	if gas_released_time > time_before_damage_starts && damage_timer.is_stopped(): damage_timer.start()
-	gas_shader.material.set_shader_parameter("density", min(gas_released_time, time_before_damage_starts) / time_before_damage_starts)
+	gas_shader.material.set_shader_parameter("density", min(gas_released_time, time_before_damage_starts) / time_before_damage_starts / 2)
 
 func start_gas():
 	if is_running: return # don't do anything if already running

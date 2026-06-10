@@ -19,6 +19,7 @@ signal diamond_collected
 
 var enemy_in_cage: bool = true
 var cage_locked: bool = true
+var titania_reset_pos: Vector2 = Vector2.ZERO
 
 func _ready():
 	room_listener.player_entered.connect(_on_player_entered)
@@ -26,6 +27,7 @@ func _ready():
 	cage_area.body_entered.connect(func(body): _on_cage_change(body, true))
 	cage_area.body_exited.connect(func(body): _on_cage_change(body, false))
 	gate_switch.interacted.connect(_on_gate_switch_pressed)
+	titania_reset_pos = titania.global_position
 
 	for pickup in required_pickups:
 		pickup.tree_exiting.connect(func():
@@ -56,9 +58,12 @@ func _on_gate_switch_pressed(_player: Player):
 	cage_locked = !cage_locked
 	cage_gate_layer.enabled = cage_locked
 	room_gate_layer.enabled = !(cage_locked && enemy_in_cage)
+	if enemy_in_cage && !cage_locked: titania.start_patrol_phase()
+
 	if room_gate_layer.enabled:
 		HELPERS.play_audio(alarm)
 		gas_mechanic.start_gas()
 	else:
 		alarm.stop()
 		gas_mechanic.stop_gas()
+		titania.global_position = titania_reset_pos

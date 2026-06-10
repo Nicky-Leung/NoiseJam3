@@ -1,32 +1,21 @@
 extends Enemy
 class_name Titania
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	collision_mask = PHYS_LAYERS.TERRAIN + PHYS_LAYERS.PLAYER
-	collision_layer = PHYS_LAYERS.ENEMY
-	if collides_with_others: collision_mask += PHYS_LAYERS.ENEMY
+func _process(delta):
+	in_light = false
 
-	z_index = 1
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-
+func _physics_process(delta: float) -> void:
 	if ai_state == State.PATROL:
 		patrol(delta)
 		rotation = move_toward(rotation, 0, delta * turn_rate)
+
 	if patrol_path.progress_ratio >= 0.95:
 		ai_state = State.CHASE
 		chase_target = player
 
-	if in_light and ai_state == State.CHASE:
-		# print ("Lamb spotted player and is now chasing!")
-		# move_away_from_player(delta)
-		move_away_from_player(delta)
-	super(delta)
-
-
+	if ai_state != State.CHASE: return
+	if in_light: move_away_from_player(delta)
+	else: chase(delta)
 
 func move_away_from_player(delta: float) -> bool:
 	if chase_target == null:
@@ -42,17 +31,13 @@ func move_away_from_player(delta: float) -> bool:
 
 			nav_agent.target_position = candidate_position
 			if nav_agent.is_target_reachable():
-				print("Lamb is trying to move away from player to position: ", candidate_position)
 				return move_to(delta, candidate_position)
 	velocity = velocity.lerp(away_direction * base_speed, acceleration * delta)
 	move_and_slide()
 	turn_process(delta)
 	return false
 
-func _on_dungeon_door_animation_finished() -> void:
+func start_patrol_phase() -> void:
 	ai_state = State.PATROL
+	patrol_path.progress = 0
 	global_position = patrol_path.global_position
-
-
-func _on_dungeon_area_area_entered(_area: Area2D) -> void:
-	pass # Replace with function body.
