@@ -4,6 +4,8 @@
 
 https://www.fontsquirrel.com/fonts/Berylium
 https://fonts.google.com/specimen/Cormorant+Garamond?preview.text=Radioactive&specimen.preview.text=Radioactive&categoryFilters=Serif:%2FSerif%2FOld+Style+Garalde
+https://fonts.google.com/specimen/Science+Gothic
+https://fonts.google.com/specimen/Roboto
 
 ## Music
 
@@ -46,6 +48,7 @@ https://pixabay.com/sound-effects/nature-mouse-squeak-261126/
 https://pixabay.com/sound-effects/film-special-effects-correct-choice-43861/
 https://pixabay.com/sound-effects/film-special-effects-wrong-47985/
 https://pixabay.com/sound-effects/film-special-effects-notification-interface-success-positive-corrects-132471/
+https://pixabay.com/sound-effects/film-special-effects-stone-push-37412/
 
 #Tiles and Sprites
 https://opengameart.org/content/gemmed-items

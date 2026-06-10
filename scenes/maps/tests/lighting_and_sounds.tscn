@@ -27,6 +27,8 @@
 [ext_resource type="PackedScene" uid="uid://b4sb233668vv4" path="res://scenes/readables/lab_reports/mole_rat_report.tscn" id="25_f6kyv"]
 [ext_resource type="PackedScene" uid="uid://c71u7fishy1lp" path="res://scenes/readables/lab_reports/titania_report.tscn" id="26_4n4r5"]
 [ext_resource type="Texture2D" uid="uid://dftxp8sv2xuwb" path="res://assets/sprites/items/readables/start_note.png" id="27_4n4r5"]
+[ext_resource type="Texture2D" uid="uid://b7wau1b5i0ra2" path="res://assets/sprites/items/readables/Phone1.png" id="27_21lwl"]
+[ext_resource type="PackedScene" uid="uid://ujt5ni8nanaa" path="res://scenes/readables/text_messages/founder_age.tscn" id="27_twa2i"]
 [ext_resource type="PackedScene" uid="uid://b168pec4gx1by" path="res://scenes/readables/starting_note.tscn" id="28_3foic"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tpqdd"]
@@ -38,7 +40,7 @@ polygon = PackedVector2Array(0, 0, 50, 0, 50, 50, 0, 50)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_orjbe"]
 size = Vector2(600, 600)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_f6kyv"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_21lwl"]
 viewport_path = NodePath("SpriteViewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mjy37"]
@@ -269,7 +271,7 @@ area2d_sound_zone = NodePath("..")
 position = Vector2(461, 418)
 
 [node name="Sprite" parent="CensoredSin" index="0" unique_id=1821370934]
-texture = SubResource("ViewportTexture_f6kyv")
+texture = SubResource("ViewportTexture_21lwl")
 
 [node name="Collider" parent="CensoredSin" index="2" unique_id=1785174278 groups=["navigation_polygon_source_geometry_group"]]
 
@@ -365,8 +367,8 @@ readable_menu = ExtResource("26_4n4r5")
 
 [node name="Electronic" parent="Readables" unique_id=1406546073 instance=ExtResource("22_5aceh")]
 position = Vector2(844, 326)
-type = 2
-readable_menu = ExtResource("22_pwcmo")
+in_world_sprite = ExtResource("27_21lwl")
+readable_menu = ExtResource("27_twa2i")
 
 [node name="StartingNote" parent="Readables" unique_id=399817556 instance=ExtResource("22_5aceh")]
 position = Vector2(1019, 223)

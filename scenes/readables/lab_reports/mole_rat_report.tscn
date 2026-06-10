@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://ciwpfify4yd1q" path="res://assets/sprites/items/readables/paper.png" id="1_7iq8t"]
 [ext_resource type="PackedScene" uid="uid://cmcrodc6fiexh" path="res://scenes/readables/plain_text.tscn" id="2_alwl3"]
+[ext_resource type="FontFile" uid="uid://hcag880c0r41" path="res://assets/fonts/CormorantGaramond-VariableFont_wght.ttf" id="2_je3tw"]
+[ext_resource type="PackedScene" uid="uid://b7x6h2aoyk3a0" path="res://scenes/readables/company_logo.tscn" id="3_knkbr"]
 
 [node name="MoleRatReport" type="Control" unique_id=1816654998]
 layout_mode = 3
@@ -27,7 +29,55 @@ grow_vertical = 2
 texture = ExtResource("1_7iq8t")
 expand_mode = 5
 
+[node name="Label" type="RichTextLabel" parent="Background" unique_id=1107342032]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -197.5
+offset_top = -290.7915
+offset_right = 197.5
+offset_bottom = 290.7915
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/normal_font = ExtResource("2_je3tw")
+theme_override_font_sizes/normal_font_size = 11
+text = "Code Name: Heteroangelus Glaber
+Threat Level: Medium
+Safety Procedure: 
+Heteroangelus has acute auditory senses but is almost completely blind. Personnel should avoid making noise to prevent attracting the attention of Heteroangelus. Should an encounter occur, it is recommended to stay perfectly still in the cover darkness and to not panic.
+
+Description:
+Heteroangelus Glaber are a recent species of rodent artificially created by Promethium technologies. The progenitor was created through grafting parts of the Envoy onto a locally sourced naked mole-rat. This new species of mole-rat barely resembles its non-mutated counterpart, where the angelic cells have almost completely taken over its genetic composition. Heteroangelus displays behavior reminiscent of paranoia, where they will almost always check any sounds heard within its immediate vicinity. They are not particularly dangerous individually, but their pack mentality makes handling them difficult.
+
+Much like previous experiments with Titania, cellular analysis shows that prolonged exposure to angelic cells induced rapid mutation in the mole-rat cells. However unlike Titania, Heteroangelus appears to have lost many of the traits that make up the mole-rat. This is unfortunately opposite to the goals of the project, as we had hoped to incorporate the cancer resistance trait of the mole-rat into the angelic cells from the graft and implant them into the Envoy.
+
+Researcher’s Notes:
+I am starting to doubt if it is possible to save the Envoy. We had originally thought the Envoy was exhibiting senescence, however only recently did we discover the presence of what is believed to be tumors during a routine CT scan. Once again our lack of knowledge in angelic beings is proving to be a massive roadblock in treatment procedures. We are applying our understanding of creatures on Earth to an angelic entity, whose source of miracle power is still completely unknown to us. 
+
+The founder insists we continue the experiments, but we have tried almost everything and tried grafting parts of the Envoy onto many different species of both plants and animals, yet none have yielded any promising result in treatment. We are desperately trying everything, yet through the experiments, we have cut out so many parts of the Envoy from their body. Perhaps it’s time to let go and let its final moments be in peace, rather than have researchers poke and prod them until their death.
+"
+scroll_active = false
+autowrap_mode = 2
+
+[node name="CompanyLogo" parent="Background" unique_id=2043224503 instance=ExtResource("3_knkbr")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -221.5
+offset_top = 11.791504
+offset_right = -221.5
+offset_bottom = 11.791504
+grow_horizontal = 0
+
 [node name="PlainText" parent="." unique_id=1201338786 instance=ExtResource("2_alwl3")]
+visible = false
 report_text = "Code Name: Heteroangelus Glaber
 Threat Level: Medium
 Safety Procedure: 

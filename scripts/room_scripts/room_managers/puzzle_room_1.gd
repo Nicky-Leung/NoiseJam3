@@ -1,4 +1,5 @@
 extends Node2D
+class_name PuzzleRoom1
 
 @onready var enemies_node: Node2D = $Enemies
 @onready var room_listener: RoomListener = $Layout/RoomListener

@@ -17,8 +17,6 @@ func interact(player: Player) -> void:
 		door.play("open")
 	if is_open:
 		door.play("close")
-	player.hud.display_flavor_text("The door is locked. Maybe there's a switch nearby that opens it?")
-	print("Interacted with door")
 
 func _on_Door_animation_finished():
 	if door.animation == "open":

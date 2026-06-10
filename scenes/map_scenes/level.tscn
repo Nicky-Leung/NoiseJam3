@@ -1,22 +1,68 @@
 [gd_scene format=3 uid="uid://gim4qilqrtkd"]
 
-[ext_resource type="PackedScene" uid="uid://dcnsebm1m6b7i" path="res://scenes/map_scenes/main_room.tscn" id="1_y6qkd"]
+[ext_resource type="Script" uid="uid://kf42cu7gfer" path="res://scripts/room_scripts/level_manager.gd" id="1_uetgf"]
+[ext_resource type="Shader" uid="uid://c7m63o73qxpdk" path="res://resources/shaders/retro_filter.gdshader" id="2_qlmbj"]
+[ext_resource type="PackedScene" uid="uid://ddwp5fi734po8" path="res://scenes/map_scenes/hallways.tscn" id="2_s23tf"]
 [ext_resource type="PackedScene" uid="uid://pdqaljjykij5" path="res://scenes/map_scenes/puzzle_room_1.tscn" id="2_uetgf"]
 [ext_resource type="PackedScene" uid="uid://200yrnwx02mc" path="res://scenes/map_scenes/puzzle_room_2.tscn" id="3_s23tf"]
 [ext_resource type="PackedScene" uid="uid://d7y6roxiu1oy" path="res://scenes/map_scenes/puzzle_room_3.tscn" id="4_qlmbj"]
 [ext_resource type="PackedScene" uid="uid://bghi2u4g0lp47" path="res://scenes/map_scenes/starter_room.tscn" id="5_qi4jx"]
+[ext_resource type="PackedScene" uid="uid://dkag3nwr7uqd8" path="res://scenes/player_scenes/player.tscn" id="7_qlmbj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qi4jx"]
+shader = ExtResource("2_qlmbj")
+shader_parameter/resolution_x = 320
+shader_parameter/resolution_y = 240
+shader_parameter/color_bit_depth = 4
+shader_parameter/dither_strength = 0.03
+shader_parameter/jitter_amount = 0.001
+shader_parameter/jitter_speed = 1.2
+shader_parameter/jitter_frequency = 10.0
+shader_parameter/chromatic_aberration_strength = 0.015
+shader_parameter/vignette_strength = 0.8
+shader_parameter/vignette_radius = 0.9
 
 [node name="Level" type="Node2D" unique_id=931812444]
+script = ExtResource("1_uetgf")
 
-[node name="MainRoom" parent="." unique_id=1228033779 instance=ExtResource("1_y6qkd")]
+[node name="VFX" type="CanvasLayer" parent="." unique_id=2070925069]
 
-[node name="PuzzleRoom1" parent="." unique_id=678051783 instance=ExtResource("2_uetgf")]
-position = Vector2(-1500, 0)
+[node name="Retro" type="ColorRect" parent="VFX" unique_id=1652324675]
+material = SubResource("ShaderMaterial_qi4jx")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="PuzzleRoom2" parent="." unique_id=323118972 instance=ExtResource("3_s23tf")]
-position = Vector2(782, 0)
+[node name="Darkness" type="CanvasModulate" parent="." unique_id=148892815]
+color = Color(0.10019137, 0.08478504, 0.12660226, 0.9647059)
 
-[node name="PuzzleRoom3" parent="." unique_id=777621045 instance=ExtResource("4_qlmbj")]
+[node name="Player" parent="." unique_id=628625629 instance=ExtResource("7_qlmbj")]
+position = Vector2(308, 377)
+rotation = 1.5707964
 
-[node name="StarterRoom" parent="." unique_id=519425099 instance=ExtResource("5_qi4jx")]
-position = Vector2(100, 450)
+[node name="Layout" type="Node2D" parent="." unique_id=1727849891]
+
+[node name="Hallways" parent="Layout" unique_id=1870240753 instance=ExtResource("2_s23tf")]
+
+[node name="PuzzleRoom1" parent="Layout" unique_id=678051783 instance=ExtResource("2_uetgf")]
+position = Vector2(-2400, -1280)
+metadata/_edit_lock_ = true
+
+[node name="PuzzleRoom2" parent="Layout" unique_id=323118972 instance=ExtResource("3_s23tf")]
+position = Vector2(1600, 0)
+metadata/_edit_lock_ = true
+
+[node name="PuzzleRoom3" parent="Layout" unique_id=777621045 instance=ExtResource("4_qlmbj")]
+position = Vector2(-160, -1600)
+metadata/_edit_lock_ = true
+
+[node name="StarterRoom" parent="Layout" unique_id=519425099 node_paths=PackedStringArray("player") instance=ExtResource("5_qi4jx")]
+player = NodePath("../../Player")
+metadata/_edit_lock_ = true
+
+[node name="Cinematic" parent="Layout/StarterRoom" index="5" unique_id=1690375132 node_paths=PackedStringArray("player")]
+player = NodePath("../../../Player")
+
+[editable path="Layout/StarterRoom"]

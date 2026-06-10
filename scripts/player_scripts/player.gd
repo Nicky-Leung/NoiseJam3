@@ -21,6 +21,7 @@ signal player_died(killer: Enemy)
 
 # Player settings
 @export var has_flashlight: bool = true ## should be false in actual start of gameplay
+@export var starting_flashlight_charge: float = 60
 @export var max_health = 50
 @export var walk_speed: int = 100
 @export var sprint_multiplier = 1.5
@@ -38,7 +39,9 @@ func _ready():
 	inventory.medkit_consumed.connect(full_heal)
 	inventory.trap_consumed.connect(place_trap)
 	inventory.battery_consumed.connect(replace_battery)
+	
 	flashlight.disable_light(false)
+	flashlight.battery_time = starting_flashlight_charge
 
 func _process(_delta: float) -> void:
 	if velocity.length() > 0:
