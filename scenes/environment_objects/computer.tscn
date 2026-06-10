@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://m2mg0mj6jnid"]
+
+[ext_resource type="Texture2D" uid="uid://bw5hl777hsyf7" path="res://assets/sprites/world_objects/benches.png" id="1_23djt"]
+[ext_resource type="Texture2D" uid="uid://cr47ocg4x24mx" path="res://assets/sprites/items/readables/Monitor.png" id="2_7mepy"]
+[ext_resource type="PackedScene" uid="uid://djvd2vub3v3h1" path="res://scenes/components/interactable.tscn" id="3_s4veb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0focd"]
+atlas = ExtResource("1_23djt")
+region = Rect2(176, 168, 121, 63)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ccw7o"]
+size = Vector2(60, 30)
+
+[node name="Computer" type="Node2D" unique_id=1971531969]
+
+[node name="Table" type="TextureRect" parent="." unique_id=910487125]
+offset_right = 57.619045
+offset_bottom = 30.0
+texture = SubResource("AtlasTexture_0focd")
+expand_mode = 3
+
+[node name="Monitor" type="TextureRect" parent="." unique_id=1759423459]
+offset_left = 17.0
+offset_top = -3.0
+offset_right = 41.615387
+offset_bottom = 17.0
+texture = ExtResource("2_7mepy")
+expand_mode = 3
+
+[node name="Collision" type="StaticBody2D" parent="." unique_id=968471196]
+position = Vector2(30, 14)
+
+[node name="Shape" type="CollisionShape2D" parent="Collision" unique_id=1333374779]
+shape = SubResource("RectangleShape2D_ccw7o")
+
+[node name="Interactable" parent="." unique_id=345271570 node_paths=PackedStringArray("parent_collider") instance=ExtResource("3_s4veb")]
+visible = false
+interact_type = 1
+parent_collider = NodePath("../Collision/Shape")

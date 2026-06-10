@@ -18,6 +18,7 @@ func _ready():
         printerr("The parent CollisionShape2D must be referenced in the Interactable, a default square will be used until a parent shape is referenced")
         return
     hitbox.shape = parent_collider.shape
+    hitbox.global_position = parent_collider.global_position
     monitoring = false
 
 func update_desc(new_desc: String):
