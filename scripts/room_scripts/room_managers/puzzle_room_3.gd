@@ -9,7 +9,7 @@ signal diamond_collected
 @onready var wall_layer: TileMapLayer = $Layout/Walls
 @onready var room_listener: RoomListener = $Layout/RoomListener
 @onready var cage_area: Area2D = $Layout/DungeonArea
-@onready var gate_switch: Interactable = $Computer/Interactable
+@onready var gate_switch: Interactable = $Layout/Computer/Interactable
 
 @onready var gate_cd: Timer = $Timers/GateCD
 
