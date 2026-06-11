@@ -135,7 +135,8 @@ pitch_scale = 0.69
 position = Vector2(486.00003, 317)
 
 [node name="Titania" parent="." unique_id=876160626 node_paths=PackedStringArray("player", "patrol_path") instance=ExtResource("3_r7j0v")]
-position = Vector2(139, 133)
+position = Vector2(183, 133)
+rotation = 1.5707964
 scale = Vector2(1.0000001, 1.0000001)
 player = NodePath("../Player")
 patrol_path = NodePath("../Path2D/PathFollow2D")
