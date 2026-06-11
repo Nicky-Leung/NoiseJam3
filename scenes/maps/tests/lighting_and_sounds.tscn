@@ -30,6 +30,8 @@
 [ext_resource type="Texture2D" uid="uid://b7wau1b5i0ra2" path="res://assets/sprites/items/readables/Phone1.png" id="27_21lwl"]
 [ext_resource type="PackedScene" uid="uid://ujt5ni8nanaa" path="res://scenes/readables/text_messages/founder_age.tscn" id="27_twa2i"]
 [ext_resource type="PackedScene" uid="uid://b168pec4gx1by" path="res://scenes/readables/starting_note.tscn" id="28_3foic"]
+[ext_resource type="PackedScene" uid="uid://c2op5h18ikvrf" path="res://scenes/readables/emails/about_centuries.tscn" id="31_fopqk"]
+[ext_resource type="Texture2D" uid="uid://cr47ocg4x24mx" path="res://assets/sprites/items/readables/Monitor.png" id="31_v6cij"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tpqdd"]
 size = Vector2(50, 50)
@@ -376,5 +378,10 @@ type = 0
 in_world_sprite = ExtResource("27_4n4r5")
 readable_menu = ExtResource("28_3foic")
 is_wider_sprite = true
+
+[node name="emailtest" parent="Readables" unique_id=1343912890 instance=ExtResource("22_5aceh")]
+position = Vector2(858, 532)
+in_world_sprite = ExtResource("31_v6cij")
+readable_menu = ExtResource("31_fopqk")
 
 [editable path="CensoredSin"]

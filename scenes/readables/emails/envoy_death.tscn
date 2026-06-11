@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://dl18rj7mjp3pe"]
+
+[ext_resource type="Texture2D" uid="uid://cdaq2nsghfcmu" path="res://assets/ui/Screenshot 2026-06-11 002154.png" id="1_0n7ax"]
+[ext_resource type="PackedScene" uid="uid://cmcrodc6fiexh" path="res://scenes/readables/plain_text.tscn" id="2_0n7ax"]
+
+[node name="EnvoyDeath" type="Control" unique_id=624287400]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Screenshot20260611001223" type="Sprite2D" parent="." unique_id=45468257]
+position = Vector2(559, 321)
+scale = Vector2(0.9842857, 0.9646154)
+texture = ExtResource("1_0n7ax")
+
+[node name="To" type="Label" parent="Screenshot20260611001223" unique_id=261280051]
+offset_left = -298.69376
+offset_top = -268.5008
+offset_right = -258.69376
+offset_bottom = -245.5008
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "All Staff"
+metadata/_edit_use_anchors_ = true
+
+[node name="Subject" type="Label" parent="Screenshot20260611001223" unique_id=141245444]
+offset_left = -261.10306
+offset_top = -217.70334
+offset_right = -173.10306
+offset_bottom = -194.70334
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = " Next Steps"
+metadata/_edit_use_anchors_ = true
+
+[node name="Body" type="Label" parent="Screenshot20260611001223" unique_id=2112673647]
+custom_minimum_size = Vector2(650, 0)
+offset_left = -321.04498
+offset_top = -162.75917
+offset_right = -281.04498
+offset_bottom = -139.75917
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "Dear colleagues,
+
+I sincerely thank all of you for your hard work these past few years regarding the research in treatment for the Envoy. Unfortunately despite all of our hard work, we have failed to protect our guardian.
+
+This morning, at 3:00 a.m. the Envoy passed away. Despite years of treatment and tireless efforts from our researchers, they have finally succumbed to their illness. With their passing, our people no longer have the protection of the divine, marking an end of an era.
+
+While this news is unfortunate, and I understand some of you might feel a sense of dread. I believe our years of research will not have been in vain. Our research will pave the way for the future, where we become our own guardians and continue our legacy as the children blessed by the Envoy. So please keep your heads held high and look towards the future, just like the Envoy would have wanted.
+
+Karis
+Founder of Promethium Technologies
+"
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="PlainText" parent="." unique_id=1201338786 instance=ExtResource("2_0n7ax")]
+report_text = "Subject: Next Steps
+
+Dear colleagues,
+
+I sincerely thank all of you for your hard work these past few years regarding the research in treatment for the Envoy. Unfortunately despite all of our hard work, we have failed to protect our guardian.
+
+This morning, at 3:00 a.m. the Envoy passed away. Despite years of treatment and tireless efforts from our researchers, they have finally succumbed to their illness. With their passing, our people no longer have the protection of the divine, marking an end of an era.
+
+While this news is unfortunate, and I understand some of you might feel a sense of dread. I believe our years of research will not have been in vain. Our research will pave the way for the future, where we become our own guardians and continue our legacy as the children blessed by the Envoy. So please keep your heads held high and look towards the future, just like the Envoy would have wanted.
+
+Karis
+Founder of Promethium Technologies"

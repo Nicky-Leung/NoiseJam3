@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://c2op5h18ikvrf"]
+
+[ext_resource type="Texture2D" uid="uid://cdaq2nsghfcmu" path="res://assets/ui/Screenshot 2026-06-11 002154.png" id="1_44gi7"]
+[ext_resource type="PackedScene" uid="uid://cmcrodc6fiexh" path="res://scenes/readables/plain_text.tscn" id="2_44gi7"]
+
+[node name="AboutCenturies" type="Control" unique_id=596979022]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Screenshot20260611001223" type="Sprite2D" parent="." unique_id=539956106]
+position = Vector2(559, 321)
+scale = Vector2(0.9842857, 0.9646154)
+texture = ExtResource("1_44gi7")
+
+[node name="To" type="Label" parent="Screenshot20260611001223" unique_id=1574988281]
+offset_left = -298.69376
+offset_top = -268.5008
+offset_right = -258.69376
+offset_bottom = -245.5008
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Founder"
+metadata/_edit_use_anchors_ = true
+
+[node name="Subject" type="Label" parent="Screenshot20260611001223" unique_id=602464905]
+offset_left = -261.10306
+offset_top = -217.70334
+offset_right = -173.10306
+offset_bottom = -194.70334
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Stop the Rebirth Project"
+metadata/_edit_use_anchors_ = true
+
+[node name="Body" type="Label" parent="Screenshot20260611001223" unique_id=1874493328]
+custom_minimum_size = Vector2(650, 0)
+offset_left = -321.04498
+offset_top = -162.75917
+offset_right = -281.04498
+offset_bottom = -139.75917
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "Hello founder,
+
+As the head researcher of the miracle power department, I once again strongly urge you to reconsider the rebirth project. You ignored my suggestions and insisted we focus on humans as potential rebirth vessels, we are crossing ethical boundaries far beyond anything research prior. Moreover, even after centuries of research into miracle power, our understanding of this power source is still far beyond our grasp. Should something go wrong with the project, it could very well cause the end of humanity. The risk is far beyond anything beneficial that bringing the Envoy back could bring.
+
+I understand the Envoy was instrumental to our country’s rise in power, and that for centuries our nation had continued to prosper under their blessings. I won’t pretend to understand what you must have gone through nor the state of the world pre-contact. But your very existence proves that that era was not a complete lost cause, unlike the potential future that the rebirth project could bring about. We are talking about a planetary scale level of destruction, we are meddling with powers that can transcend the fundamental laws of physics.
+
+I once again reiterate, please reconsider the rebirth project. I can no longer support this company and its goals should we continue in this direction.
+
+Alvaro
+"
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="PlainText" parent="." unique_id=1201338786 instance=ExtResource("2_44gi7")]
+visible = false
+report_text = "Subject: Stop the Rebirth Project
+
+Hello founder,
+
+As the head researcher of the miracle power department, I once again strongly urge you to reconsider the rebirth project. You ignored my suggestions and insisted we focus on humans as potential rebirth vessels, we are crossing ethical boundaries far beyond anything research prior. Moreover, even after centuries of research into miracle power, our understanding of this power source is still far beyond our grasp. Should something go wrong with the project, it could very well cause the end of humanity. The risk is far beyond anything beneficial that bringing the Envoy back could bring.
+
+I understand the Envoy was instrumental to our country’s rise in power, and that for centuries our nation had continued to prosper under their blessings. I won’t pretend to understand what you must have gone through nor the state of the world pre-contact. But your very existence proves that that era was not a complete lost cause, unlike the potential future that the rebirth project could bring about. We are talking about a planetary scale level of destruction, we are meddling with powers that can transcend the fundamental laws of physics.
+
+I once again reiterate, please reconsider the rebirth project. I can no longer support this company and its goals should we continue in this direction.
+
+Alvaro"

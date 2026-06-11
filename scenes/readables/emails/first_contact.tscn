@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://bcib7bj24vmwo"]
+
+[ext_resource type="Texture2D" uid="uid://cdaq2nsghfcmu" path="res://assets/ui/Screenshot 2026-06-11 002154.png" id="1_dolls"]
+[ext_resource type="PackedScene" uid="uid://cmcrodc6fiexh" path="res://scenes/readables/plain_text.tscn" id="2_dolls"]
+
+[node name="FirstContact" type="Control" unique_id=85661495]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Screenshot20260611001223" type="Sprite2D" parent="." unique_id=1128881288]
+position = Vector2(559, 321)
+scale = Vector2(0.9842857, 0.9646154)
+texture = ExtResource("1_dolls")
+
+[node name="To" type="Label" parent="Screenshot20260611001223" unique_id=4164847]
+offset_left = -298.69376
+offset_top = -268.5008
+offset_right = -258.69376
+offset_bottom = -245.5008
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Karis"
+metadata/_edit_use_anchors_ = true
+
+[node name="Subject" type="Label" parent="Screenshot20260611001223" unique_id=2061121505]
+offset_left = -261.10306
+offset_top = -217.70334
+offset_right = -173.10306
+offset_bottom = -194.70334
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Take Responsibility"
+metadata/_edit_use_anchors_ = true
+
+[node name="Body" type="Label" parent="Screenshot20260611001223" unique_id=1680420109]
+custom_minimum_size = Vector2(650, 0)
+offset_left = -321.04498
+offset_top = -162.75917
+offset_right = -281.04498
+offset_bottom = -139.75917
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+text = "Karis,
+Some of our employees had reported that they heard a message transmitted directly into their heads saying that the rapture is coming. After internal investigations, we discovered the unsettling truth that none of the employees that were directly involved with our projects had heard the message. Do you understand what this implies? I strongly believe that those who have “sinned” did not hear the message. I have yet to share this hypothesis with anyone as to not incite panic, you are the first to hear this. The consequences that I have warned you about over and over again have finally arrived, and you need to do something about this.
+
+You were the brilliant mind that was the first to make contact with the divine centuries ago, yet that same achievement has doomed us all in the current day. Please give up on the rebirth project and focus on saving the people here and now. The divine has just declared us as their enemies, and continuing with this project is a lost cause. I have no doubt you are capable of finding a solution to our predicament, yet you are too stuck on trying to bring back the past.
+
+If I am to be honest, I am deathly scared of what’s to come in the future as I was also one of those that did not hear the warning. Perhaps nothing is going to happen, or perhaps the divine will send another angel down, but this time as an arbitrator instead of an envoy. Regardless of what happens, we must be prepared for what’s to come, and you are the only one capable of bringing us salvation. Do something.
+
+Alvaro
+Head Researcher of the Miracle Power Department
+"
+autowrap_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="PlainText" parent="." unique_id=1201338786 instance=ExtResource("2_dolls")]
+report_text = "Subject: Take Responsibility
+
+Karis,
+
+Some of our employees had reported that they heard a message transmitted directly into their heads saying that the rapture is coming. After internal investigations, we discovered the unsettling truth that none of the employees that were directly involved with our projects had heard the message. Do you understand what this implies? I strongly believe that those who have “sinned” did not hear the message. I have yet to share this hypothesis with anyone as to not incite panic, you are the first to hear this. The consequences that I have warned you about over and over again have finally arrived, and you need to do something about this.
+
+You were the brilliant mind that was the first to make contact with the divine centuries ago, yet that same achievement has doomed us all in the current day. Please give up on the rebirth project and focus on saving the people here and now. The divine has just declared us as their enemies, and continuing with this project is a lost cause. I have no doubt you are capable of finding a solution to our predicament, yet you are too stuck on trying to bring back the past.
+
+If I am to be honest, I am deathly scared of what’s to come in the future as I was also one of those that did not hear the warning. Perhaps nothing is going to happen, or perhaps the divine will send another angel down, but this time as an arbitrator instead of an envoy. Regardless of what happens, we must be prepared for what’s to come, and you are the only one capable of bringing us salvation. Do something.
+
+Alvaro
+Head Researcher of the Miracle Power Department"
