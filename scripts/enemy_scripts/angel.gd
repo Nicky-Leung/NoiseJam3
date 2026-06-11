@@ -65,8 +65,8 @@ func _physics_process(delta: float) -> void:
 	if ai_state == State.IDLE:
 	
 		move_to(delta, nav_agent.get_next_path_position())
-		var target_reached = nav_agent.is_target_reached()
-		if target_reached:
+	
+		if nav_agent.is_target_reached():
 			ai_state = State.PATROL
 			patrol_path.progress = patrol_path.get_parent().curve.get_closest_offset(to_local(global_position))
 	if ai_state == State.PATROL:
