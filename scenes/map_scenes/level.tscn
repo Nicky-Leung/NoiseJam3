@@ -51,11 +51,11 @@ position = Vector2(-2400, -1280)
 metadata/_edit_lock_ = true
 
 [node name="PuzzleRoom2" parent="Layout" unique_id=323118972 instance=ExtResource("3_s23tf")]
-position = Vector2(1600, 0)
+position = Vector2(1616, 0)
 metadata/_edit_lock_ = true
 
 [node name="PuzzleRoom3" parent="Layout" unique_id=777621045 instance=ExtResource("4_qlmbj")]
-position = Vector2(-160, -1600)
+position = Vector2(-160, -1584)
 metadata/_edit_lock_ = true
 
 [node name="StarterRoom" parent="Layout" unique_id=519425099 node_paths=PackedStringArray("player") instance=ExtResource("5_qi4jx")]
