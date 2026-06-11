@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://co0w164ofa0fi" path="res://assets/sprites/items/zombie_icons.png" id="9_ibtc7"]
 [ext_resource type="AudioStream" uid="uid://b8u380ep4btht" path="res://assets/sfx/interactables/Gate.ogg" id="10_rsiot"]
 [ext_resource type="AudioStream" uid="uid://d1gypfbfymk5w" path="res://assets/sfx/puzzles/Wrong.mp3" id="11_l1wol"]
+[ext_resource type="Texture2D" uid="uid://b6idtmdeskrp6" path="res://assets/sprites/world_objects/body2.png" id="14_mv07d"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ny5gj"]
 vertices = PackedVector2Array(316, 99, 316, 155, 188, 155, 36, 99, 388, 291, 388, 243, 484, 243, 484, 107, 388, 107, 388, 99, 604, 99, 604, 107, 524, 107, 524, 243, 676, 243, 676, 99, 748, 99, 748, 395, 436, 395, 436, 380, 348, 380, 188, 291, 348, 395, 36, 395, 36, 291, 180, 291, 180, 155, 36, 155)
@@ -193,6 +194,12 @@ type = 0
 in_world_sprite = ExtResource("8_60y0y")
 readable_menu = ExtResource("9_dysm0")
 is_wider_sprite = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Readables/RoomMechanic" unique_id=901466164]
+position = Vector2(29.999996, -12.000001)
+rotation = -1.5707964
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("14_mv07d")
 
 [node name="Pickups" type="Node2D" parent="." unique_id=1673193460]
 
