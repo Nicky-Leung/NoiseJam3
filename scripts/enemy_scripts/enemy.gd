@@ -17,6 +17,7 @@ enum State {
 @export var collision_box: CollisionShape2D = null
 
 # start state
+@export var hide_enemy: bool = true
 @export var collides_with_others: bool = false # check if enemy needs to collider with other enemies
 @export var is_active: bool = false # set it to true in editor if enemy should immediately work on scene load
 
@@ -48,7 +49,7 @@ func _ready():
 
 func _process(delta):
 	# hide enemy if they aren't in light
-	var target_alpha = 1 if in_light else 0
+	var target_alpha = 1 if in_light || !hide_enemy else 0
 	modulate.a = move_toward(modulate.a, target_alpha, delta * 7.5)
 	in_light = false
 
