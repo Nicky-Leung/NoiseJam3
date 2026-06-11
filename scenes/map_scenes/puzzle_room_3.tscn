@@ -53,6 +53,44 @@ region = Rect2(1275.6609, 10.787857, 254.22119, 222.27708)
 atlas = ExtResource("9_ibtc7")
 region = Rect2(1023, 10, 248, 232)
 
+[sub_resource type="Animation" id="Animation_ed302"]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AlarmFlash/Filter:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.36862746, 0.3019608, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_mv07d"]
+resource_name = "flash"
+length = 0.25
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AlarmFlash/Filter:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 0), Color(1, 0, 0, 0.34509805)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5whr7"]
+_data = {
+&"RESET": SubResource("Animation_ed302"),
+&"flash": SubResource("Animation_mv07d")
+}
+
 [node name="PuzzleRoom3" type="Node2D" unique_id=777621045 node_paths=PackedStringArray("cage_gate_layer", "room_gate_layer")]
 script = ExtResource("1_g6wl1")
 cage_gate_layer = NodePath("Layout/CageGate")
@@ -194,3 +232,13 @@ max_polyphony = 4
 [node name="GateCD" type="Timer" parent="Timers" unique_id=472240122]
 wait_time = 5.0
 one_shot = true
+
+[node name="AlarmFlash" type="AnimationPlayer" parent="." unique_id=1968647634]
+libraries/ = SubResource("AnimationLibrary_5whr7")
+
+[node name="Filter" type="ColorRect" parent="AlarmFlash" unique_id=2071278391]
+modulate = Color(1, 0.36862746, 0.3019608, 0)
+z_index = 1
+offset_right = 775.0
+offset_bottom = 425.03
+color = Color(1, 0, 0, 1)
