@@ -86,6 +86,10 @@ func look_at_idle_angle(delta: float):
 	face_direction = new_direction
 	doing_idle_movement = abs(global_rotation - idle_turn_angle) > 0.01
 
+func reset_rat():
+	patrol_path.progress = 0
+	last_patrol_position = patrol_path.global_position
+
 func on_view(seen_player: Player):
 	if !is_active: return
 	if in_light && seen_player.velocity.length() > 0.1: seen_player.attack(attack_damage, self) # give some leeway to velocity
