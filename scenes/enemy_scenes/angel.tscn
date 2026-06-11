@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bx48qd0705hn0" path="res://scripts/enemy_scripts/angel.gd" id="1_8owf6"]
 [ext_resource type="Texture2D" uid="uid://pqq1x0vaoh1p" path="res://assets/sprites/SpriteAngel.png" id="2_6gyu6"]
+[ext_resource type="PackedScene" uid="uid://t5keqhpx2c2x" path="res://scenes/components/vision_cone.tscn" id="3_p4h1f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_md0e3"]
 size = Vector2(2, 2)
@@ -49,11 +50,10 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Angel" type="CharacterBody2D" unique_id=1599280180]
+[node name="Angel" type="CharacterBody2D" unique_id=1599280180 node_paths=PackedStringArray("nav_agent", "collision_box")]
 script = ExtResource("1_8owf6")
-SPEED = null
-ACCELERATION = null
-FRICTION = null
+nav_agent = NodePath("NavigationAgent2D")
+collision_box = NodePath("CollisionShape2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1553818521]
 shape = SubResource("RectangleShape2D_md0e3")
@@ -61,6 +61,24 @@ shape = SubResource("RectangleShape2D_md0e3")
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1700016301]
 
 [node name="Body" type="AnimatedSprite2D" parent="." unique_id=865283464]
-scale = Vector2(0.3, 0.3)
+scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_dum8j")
 frame_progress = 0.30642027
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=729824718]
+
+[node name="VisionCone" parent="." unique_id=1495805894 node_paths=PackedStringArray("holder") instance=ExtResource("3_p4h1f")]
+holder = NodePath("..")
+cone_length = 600.0
+
+[node name="ResetTimer" type="Timer" parent="." unique_id=1374719611]
+one_shot = true
+
+[node name="IdleTimer" type="Timer" parent="." unique_id=1668651634]
+wait_time = 15.0
+autostart = true
+
+[node name="ChaseTimer" type="Timer" parent="." unique_id=121540090]
+wait_time = 4.0
+
+[connection signal="timeout" from="ChaseTimer" to="." method="_on_chase_timer_timeout"]

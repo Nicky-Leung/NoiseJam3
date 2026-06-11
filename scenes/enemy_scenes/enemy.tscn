@@ -51,6 +51,15 @@ animations = [{
 
 [node name="Angel" type="CharacterBody2D" unique_id=1599280180]
 script = ExtResource("1_adu1b")
+speed = null
+friction = null
+possible_spawn_points = null
+collides_with_others = null
+is_active = null
+attack_damage = null
+turn_rate = null
+acceleration = null
+base_speed = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1553818521]
 shape = SubResource("RectangleShape2D_md0e3")
@@ -61,3 +70,10 @@ shape = SubResource("RectangleShape2D_md0e3")
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_4ra3w")
 frame_progress = 0.017242642
+
+[node name="ResetTimer" type="Timer" parent="." unique_id=249701294]
+one_shot = true
+
+[node name="IdleTimer" type="Timer" parent="." unique_id=332983830]
+wait_time = 15.0
+autostart = true
