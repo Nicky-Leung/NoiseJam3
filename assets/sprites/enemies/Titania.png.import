@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://du7e4e6tpw3ji"
-path="res://.godot/imported/Lamb_animation_with_shadow.png-8d82c0a3fb67145e452dc2c6b9d9f984.ctex"
+uid="uid://cs81dlxwjq58u"
+path="res://.godot/imported/Titania.png-9d497a461c2a63aa7202c09fc635648c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/temp_sprites/Lamb_animation_with_shadow.png"
-dest_files=["res://.godot/imported/Lamb_animation_with_shadow.png-8d82c0a3fb67145e452dc2c6b9d9f984.ctex"]
+source_file="res://assets/sprites/enemies/Titania.png"
+dest_files=["res://.godot/imported/Titania.png-9d497a461c2a63aa7202c09fc635648c.ctex"]
 
 [params]
 

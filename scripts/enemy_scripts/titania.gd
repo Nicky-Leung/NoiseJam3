@@ -2,6 +2,19 @@ extends Enemy
 class_name Titania
 
 @onready var attack_ray: RayCast2D = $AttackRay
+@onready var sprite: AnimatedSprite2D = $Sprite
+
+func _ready():
+	super()
+	sprite.animation = "move"
+	sprite.animation_finished.connect(_on_animation_finished)
+
+func _process(delta):
+	super(delta)
+	if ai_state == State.PATROL || velocity.length() > 0:
+		sprite.play()
+	elif velocity.length() < 0 || !is_active:
+		sprite.pause()
 
 func _physics_process(delta: float) -> void:
 	if !is_active: return
@@ -23,6 +36,10 @@ func toggle_active(enable: bool) -> void:
 	super(enable)
 	ai_state = State.IDLE
 
+func _on_animation_finished():
+	if sprite.animation != "attack": return
+	sprite.animation = "move"
+
 func reset_patrol_path():
 	var current_pos = global_position
 	patrol_path.progress = 0
@@ -32,6 +49,7 @@ func try_damage_player():
 	var collider = attack_ray.get_collider()
 	if collider is not Player: return
 	(collider as Player).attack(attack_damage, self)
+	sprite.animation = "attack"
 
 func move_away_from_player(delta: float) -> bool:
 	if chase_target == null:

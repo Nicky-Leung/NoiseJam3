@@ -54,6 +54,7 @@ func _process(delta):
 
 func toggle_active(enable: bool) -> void:
 	is_active = enable
+	velocity = Vector2.ZERO
 
 func alert_sound(_alerter: Node2D) -> void: # expected to override in children class
 	pass
