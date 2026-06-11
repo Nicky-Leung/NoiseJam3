@@ -1,24 +1,20 @@
 [gd_scene format=3 uid="uid://do8ik56rbksw7"]
 
 [ext_resource type="Script" uid="uid://t5jui6nv7gqg" path="res://scripts/environment_object_scripts/censored_sin.gd" id="1_4j56h"]
-[ext_resource type="Texture2D" uid="uid://be53dd7qn2t21" path="res://assets/sprites/temp_sprites/temp_sin.png" id="1_ouwut"]
 [ext_resource type="Shader" uid="uid://depf50voukhc4" path="res://resources/shaders/glitch_effect.gdshader" id="2_2t3yp"]
+[ext_resource type="Texture2D" uid="uid://dtrdomdurnfci" path="res://assets/sprites/world_objects/censored_chair.png" id="3_4j56h"]
 [ext_resource type="PackedScene" uid="uid://djvd2vub3v3h1" path="res://scenes/components/interactable.tscn" id="4_n0bo8"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_4j56h"]
 viewport_path = NodePath("SpriteViewport")
 
-[sub_resource type="Gradient" id="Gradient_2t3yp"]
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(0, 0, 0, 1)
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4j56h"]
+width = 119
+height = 142
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_7e81x"]
-gradient = SubResource("Gradient_2t3yp")
-width = 75
-height = 100
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2t3yp"]
-size = Vector2(50, 50)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n0bo8"]
+radius = 33.54
+height = 130.05
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4j56h"]
 shader = ExtResource("2_2t3yp")
@@ -28,21 +24,33 @@ shader_parameter/shake_speed = 5.0
 shader_parameter/shake_block_size = 30.5
 shader_parameter/shake_color_rate = 0.03200000152
 
+[sub_resource type="Gradient" id="Gradient_2t3yp"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_7e81x"]
+gradient = SubResource("Gradient_2t3yp")
+width = 4096
+height = 4096
+
 [node name="CensoredSin" type="Node2D" unique_id=1865245503]
 script = ExtResource("1_4j56h")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1821370934]
+z_index = 1
+scale = Vector2(0.065, 0.065)
 texture = SubResource("ViewportTexture_4j56h")
+offset = Vector2(-125, 0)
 
 [node name="CensorBar" type="Sprite2D" parent="." unique_id=1065885293]
 z_index = 2
-texture = SubResource("GradientTexture2D_7e81x")
+texture = SubResource("GradientTexture2D_4j56h")
 
 [node name="Collider" type="StaticBody2D" parent="." unique_id=1785174278]
 collision_mask = 0
 
 [node name="Shape" type="CollisionShape2D" parent="Collider" unique_id=1124518802]
-shape = SubResource("RectangleShape2D_2t3yp")
+shape = SubResource("CapsuleShape2D_n0bo8")
 
 [node name="Interactable" parent="." unique_id=345271570 node_paths=PackedStringArray("parent_collider") instance=ExtResource("4_n0bo8")]
 parent_collider = NodePath("../Collider/Shape")
@@ -50,15 +58,13 @@ description = "You can't see that."
 
 [node name="SpriteViewport" type="SubViewport" parent="." unique_id=1001025109]
 transparent_bg = true
-size = Vector2i(50, 50)
+size = Vector2i(2048, 2048)
 
 [node name="Sin" type="Sprite2D" parent="SpriteViewport" unique_id=640042899]
-position = Vector2(25, 25)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_ouwut")
+position = Vector2(1024, 1024)
+texture = ExtResource("3_4j56h")
 
 [node name="GlitchFilter" type="Sprite2D" parent="SpriteViewport" unique_id=529095001]
 material = SubResource("ShaderMaterial_4j56h")
-position = Vector2(25, 25)
-scale = Vector2(0.715, 0.715)
+position = Vector2(2048, 2048)
 texture = SubResource("GradientTexture2D_7e81x")

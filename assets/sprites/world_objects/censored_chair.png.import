@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1l4h8kjqwmut"
-path="res://.godot/imported/temp_computer.png-6f4ab04b1e5f47b0d0ff004a6c9ee71b.ctex"
+uid="uid://dtrdomdurnfci"
+path="res://.godot/imported/censored_chair.png-2da3ee678e2f06e2f43baf1bed480d07.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/temp_sprites/temp_computer.png"
-dest_files=["res://.godot/imported/temp_computer.png-6f4ab04b1e5f47b0d0ff004a6c9ee71b.ctex"]
+source_file="res://assets/sprites/world_objects/censored_chair.png"
+dest_files=["res://.godot/imported/censored_chair.png-2da3ee678e2f06e2f43baf1bed480d07.ctex"]
 
 [params]
 

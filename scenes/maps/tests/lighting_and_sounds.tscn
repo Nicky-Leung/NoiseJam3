@@ -22,7 +22,7 @@
 [ext_resource type="Texture2D" uid="uid://co0w164ofa0fi" path="res://assets/sprites/items/zombie_icons.png" id="20_vs00i"]
 [ext_resource type="PackedScene" uid="uid://y6qgwf18h0bh" path="res://scenes/environment_objects/readable.tscn" id="22_5aceh"]
 [ext_resource type="PackedScene" uid="uid://c4474jfa50m8c" path="res://scenes/readables/lab_reports/dukkha_report.tscn" id="22_pwcmo"]
-[ext_resource type="Texture2D" uid="uid://be53dd7qn2t21" path="res://assets/sprites/temp_sprites/temp_sin.png" id="24_6xjky"]
+[ext_resource type="Texture2D" uid="uid://dlg3ms4m12swg" path="res://assets/sprites/items/puzzle_items/Turquoise.png" id="22_v6cij"]
 [ext_resource type="PackedScene" uid="uid://bobg83ssbt5c0" path="res://scenes/enemy_scenes/mole_rat.tscn" id="24_pwcmo"]
 [ext_resource type="PackedScene" uid="uid://b4sb233668vv4" path="res://scenes/readables/lab_reports/mole_rat_report.tscn" id="25_f6kyv"]
 [ext_resource type="PackedScene" uid="uid://c71u7fishy1lp" path="res://scenes/readables/lab_reports/titania_report.tscn" id="26_4n4r5"]
@@ -42,7 +42,7 @@ polygon = PackedVector2Array(0, 0, 50, 0, 50, 50, 0, 50)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_orjbe"]
 size = Vector2(600, 600)
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_21lwl"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_niegk"]
 viewport_path = NodePath("SpriteViewport")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mjy37"]
@@ -273,7 +273,7 @@ area2d_sound_zone = NodePath("..")
 position = Vector2(461, 418)
 
 [node name="Sprite" parent="CensoredSin" index="0" unique_id=1821370934]
-texture = SubResource("ViewportTexture_21lwl")
+texture = SubResource("ViewportTexture_niegk")
 
 [node name="Collider" parent="CensoredSin" index="2" unique_id=1785174278 groups=["navigation_polygon_source_geometry_group"]]
 
@@ -348,7 +348,7 @@ item_sprite = SubResource("AtlasTexture_twa2i")
 position = Vector2(157, 532)
 key_item_name = "Purple Keycard"
 item = 3
-item_sprite = ExtResource("24_6xjky")
+item_sprite = ExtResource("22_v6cij")
 
 [node name="Readables" type="Node" parent="." unique_id=1147870205]
 
