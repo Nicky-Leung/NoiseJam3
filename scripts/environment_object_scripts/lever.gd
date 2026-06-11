@@ -16,6 +16,7 @@ func _ready():
     animation_finished.connect(_on_animation_finished)
 
 func reset_lever():
+    if !is_pulled: return
     animation = up
     play()
     HELPERS.play_audio(audio_player, 0.95, 1.05, -10)
