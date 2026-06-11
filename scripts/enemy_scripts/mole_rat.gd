@@ -87,6 +87,7 @@ func look_at_idle_angle(delta: float):
 	doing_idle_movement = abs(global_rotation - idle_turn_angle) > 0.01
 
 func on_view(seen_player: Player):
+	if !is_active: return
 	if in_light && seen_player.velocity.length() > 0.1: seen_player.attack(attack_damage, self) # give some leeway to velocity
 
 func on_idle_timeout():
