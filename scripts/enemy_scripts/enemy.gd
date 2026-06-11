@@ -49,7 +49,7 @@ func _ready():
 func _process(delta):
 	# hide enemy if they aren't in light
 	var target_alpha = 1 if in_light else 0
-	modulate.a = move_toward(modulate.a, target_alpha, delta * 25)
+	modulate.a = move_toward(modulate.a, target_alpha, delta * 7.5)
 	in_light = false
 
 func toggle_active(enable: bool) -> void:
