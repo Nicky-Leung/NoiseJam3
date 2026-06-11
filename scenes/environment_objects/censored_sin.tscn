@@ -8,7 +8,12 @@
 [sub_resource type="ViewportTexture" id="ViewportTexture_4j56h"]
 viewport_path = NodePath("SpriteViewport")
 
+[sub_resource type="Gradient" id="Gradient_4j56h"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0, 0, 1)
+
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_4j56h"]
+gradient = SubResource("Gradient_4j56h")
 width = 119
 height = 142
 
