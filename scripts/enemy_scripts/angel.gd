@@ -42,6 +42,7 @@ func _ready() -> void:
 	vision.body_out_of_view.connect(_on_body_out_of_view)
 	chase_target = player
 	ai_state = State.IDLE
+	nav_agent.target_position = find_nearest_patrol_point()
 
 	# set_movement_target()
 	
