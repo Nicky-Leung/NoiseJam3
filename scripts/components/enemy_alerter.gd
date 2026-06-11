@@ -2,12 +2,12 @@ extends Area2D
 class_name EnemyAlerter
 
 enum Type {
-	SOUND,
-	VISUAL
+	SOUND, ## Player sound
+	VISUAL, ## Player flashlight
 }
 
 @export var alerter_shape: Shape2D = null
-@export var player: Player = null
+@export var player: Player = null ## Leave empty for light type
 @export var type: Type = Type.SOUND
 
 @onready var in_range_enemies: Array[Enemy] = []
@@ -39,6 +39,7 @@ func on_body_exited(body: Node2D): # might need to determine later if necessary 
 	in_range_enemies.remove_at(in_range_enemies.find(body as Enemy))
 
 func in_view(enemy: Enemy) -> bool:
+	var test_point = global_position if player == null else player.global_position
 	var space2d = get_world_2d().direct_space_state
-	var query = PhysicsRayQueryParameters2D.create(player.global_position, enemy.global_position, PHYS_LAYERS.TERRAIN)
+	var query = PhysicsRayQueryParameters2D.create(test_point, enemy.global_position, PHYS_LAYERS.TERRAIN)
 	return space2d.intersect_ray(query).is_empty()

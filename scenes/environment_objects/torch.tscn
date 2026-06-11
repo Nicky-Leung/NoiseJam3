@@ -83,7 +83,7 @@ radius = 15.89
 height = 135.94
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d0jgy"]
-radius = 450.0
+radius = 725.0
 
 [node name="SurroundingLight" type="PointLight2D" unique_id=463443211]
 scale = Vector2(0.355, 0.355)
@@ -99,7 +99,7 @@ material = SubResource("CanvasItemMaterial_v1mqk")
 scale = Vector2(2.085, 2.085)
 sprite_frames = SubResource("SpriteFrames_hdhug")
 autoplay = "default"
-frame_progress = 0.6900455
+frame_progress = 0.9086082
 
 [node name="Hitbox" type="StaticBody2D" parent="." unique_id=737925534]
 
