@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://doyy36q0pcmf2" path="res://scripts/room_scripts/room_managers/puzzle_room_2.gd" id="1_ayj5e"]
 [ext_resource type="PackedScene" uid="uid://bobg83ssbt5c0" path="res://scenes/enemy_scenes/mole_rat.tscn" id="2_bodve"]
 [ext_resource type="PackedScene" uid="uid://cdo62d3r37ayd" path="res://scenes/environment_objects/torch.tscn" id="3_s7a8w"]
-[ext_resource type="PackedScene" uid="uid://dkag3nwr7uqd8" path="res://scenes/player_scenes/player.tscn" id="4_dp8t0"]
 [ext_resource type="AudioStream" uid="uid://b6px6wc0nkea6" path="res://assets/sfx/puzzles/Correct.mp3" id="4_i4hhe"]
 [ext_resource type="Script" uid="uid://dccf8uvmmiq2x" path="res://scripts/room_scripts/lever_puzzle.gd" id="5_d0jgy"]
 [ext_resource type="PackedScene" uid="uid://dlcw0e3wiikrl" path="res://scenes/environment_objects/lever.tscn" id="5_dp8t0"]
@@ -318,9 +317,6 @@ curve = SubResource("Curve2D_pndgc")
 [node name="PathFollow2D" type="PathFollow2D" parent="PatrolPaths/Path2D11" unique_id=1897862607]
 position = Vector2(1151, 707)
 rotation = -1.5670927
-
-[node name="Player" parent="." unique_id=628625629 instance=ExtResource("4_dp8t0")]
-position = Vector2(143, 168)
 
 [node name="Pickups" type="Node2D" parent="." unique_id=1954371889]
 

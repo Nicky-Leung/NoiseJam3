@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://djhp2kxlk0efl" path="res://scripts/room_scripts/room_managers/puzzle_room_3.gd" id="1_g6wl1"]
 [ext_resource type="TileSet" uid="uid://bfc70hpaf234h" path="res://assets/tileset/main_tile_set.tres" id="1_ryy2w"]
-[ext_resource type="PackedScene" uid="uid://dkag3nwr7uqd8" path="res://scenes/player_scenes/player.tscn" id="3_0l7ns"]
 [ext_resource type="PackedScene" uid="uid://baot35gh10g7t" path="res://scenes/enemy_scenes/titania.tscn" id="3_r7j0v"]
 [ext_resource type="Script" uid="uid://d2lfdj2cgcrus" path="res://scripts/room_scripts/room_listener.gd" id="3_rsiot"]
 [ext_resource type="Script" uid="uid://c8tagqpqpmu3x" path="res://scripts/environment_object_scripts/gas.gd" id="5_dysm0"]
@@ -168,14 +167,11 @@ stream = ExtResource("8_ed302")
 volume_db = -8.21
 pitch_scale = 0.69
 
-[node name="Player" parent="." unique_id=628625629 instance=ExtResource("3_0l7ns")]
-position = Vector2(486.00003, 317)
-
 [node name="Titania" parent="." unique_id=876160626 node_paths=PackedStringArray("player", "patrol_path") instance=ExtResource("3_r7j0v")]
 position = Vector2(183, 133)
 rotation = 1.5707964
 scale = Vector2(1.0000001, 1.0000001)
-player = NodePath("../Player")
+player = NodePath("")
 patrol_path = NodePath("../Path2D/PathFollow2D")
 
 [node name="Path2D" type="Path2D" parent="." unique_id=624520975]
