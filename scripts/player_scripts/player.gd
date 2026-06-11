@@ -39,7 +39,7 @@ func _ready():
 	inventory.medkit_consumed.connect(full_heal)
 	inventory.trap_consumed.connect(place_trap)
 	inventory.battery_consumed.connect(replace_battery)
-	
+
 	flashlight.disable_light(false)
 	flashlight.battery_time = starting_flashlight_charge
 
@@ -65,7 +65,7 @@ func _physics_process(delta: float) -> void:
 		speed *= sprint_multiplier
 
 	velocity = input_vector * speed
-	footsteps.play_steps(velocity.length())
+	footsteps.play_steps(get_real_velocity().length())
 	move_and_slide()
 
 func _input(event: InputEvent) -> void:
