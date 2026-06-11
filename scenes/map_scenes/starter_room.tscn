@@ -61,7 +61,7 @@ script = ExtResource("3_13seb")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Layout/RoomListener" unique_id=411528699]
 shape = SubResource("RectangleShape2D_qqy6g")
 
-[node name="Readables" type="Node" parent="." unique_id=768018122]
+[node name="Readables" type="Node2D" parent="." unique_id=947740803]
 
 [node name="StartingNote" parent="Readables" unique_id=536321432 instance=ExtResource("3_p0vol")]
 position = Vector2(379, 310)
@@ -70,7 +70,7 @@ in_world_sprite = ExtResource("4_2ebnm")
 readable_menu = ExtResource("5_xlnik")
 is_wider_sprite = true
 
-[node name="Pickups" type="Node" parent="." unique_id=1115741370]
+[node name="Pickups" type="Node2D" parent="." unique_id=1344794497]
 
 [node name="Flashlight" parent="Pickups" unique_id=1314714567 instance=ExtResource("13_jectp")]
 position = Vector2(252, 342)
@@ -107,7 +107,7 @@ key_item_name = "West Key"
 item = 4
 item_sprite = ExtResource("10_i4p0j")
 
-[node name="Sounds" type="Node" parent="." unique_id=1589552129]
+[node name="Sounds" type="Node2D" parent="." unique_id=749855220]
 
 [node name="Drip" type="AudioStreamPlayer2D" parent="Sounds" unique_id=1615380089]
 position = Vector2(95, 445)
