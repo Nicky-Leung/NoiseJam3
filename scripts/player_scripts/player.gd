@@ -51,6 +51,8 @@ func _process(_delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	# calculate turning direction
+
+	_check_interact()
 	var new_direction = facing_direction.lerp(global_position.direction_to(get_global_mouse_position()), turn_rate * delta)
 	rotation = new_direction.angle() if !inputs_disabled else rotation
 	facing_direction = new_direction
@@ -82,6 +84,13 @@ func _input(event: InputEvent) -> void:
 		var collider = interact_ray.get_collider()
 		if collider is Interactable:
 			collider.interact(self)
+
+func _check_interact():
+	if interact_ray.is_colliding():
+		var collider = interact_ray.get_collider()
+		if collider is Interactable:
+			collider.show_interact_prompt()
+	
 
 func handle_pause(pause: bool):
 	overlay.visible = !pause
