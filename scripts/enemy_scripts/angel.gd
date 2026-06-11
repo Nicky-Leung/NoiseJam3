@@ -10,7 +10,7 @@ class_name Angel
 
 @onready var body = $Body
 @onready var main = get_parent()
-
+@onready var attack_ray: RayCast2D = $AttackRay
 
 # @onready var flashlight: Node = target.get_node("Flashlight")
 
@@ -50,6 +50,9 @@ func _ready() -> void:
 	
 	# flashlight.coverage_changed.connect(_on_flashlight_coverage_changed)
 
+func _process(delta):
+	super(delta)
+  
 
 
 func _physics_process(delta: float) -> void:
@@ -57,6 +60,7 @@ func _physics_process(delta: float) -> void:
 
 	if ai_state == State.CHASE:
 		chase(delta)
+		try_damage_player()
 
 	if ai_state == State.IDLE:
 	
@@ -123,3 +127,9 @@ func _on_chase_timer_timeout() -> void:
 	print("Angel lost sight of player, stopping chase.")
 	nav_agent.target_position = find_nearest_patrol_point()
 	ai_state = State.IDLE
+
+
+func try_damage_player():
+	var collider = attack_ray.get_collider()
+	if collider is not Player: return
+	(collider as Player).attack(attack_damage, self)

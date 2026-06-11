@@ -81,4 +81,8 @@ autostart = true
 [node name="ChaseTimer" type="Timer" parent="." unique_id=121540090]
 wait_time = 4.0
 
+[node name="AttackRay" type="RayCast2D" parent="." unique_id=851962581]
+target_position = Vector2(50, 0)
+collision_mask = 3
+
 [connection signal="timeout" from="ChaseTimer" to="." method="_on_chase_timer_timeout"]
