@@ -199,68 +199,46 @@ shape = SubResource("RectangleShape2D_6jss4")
 [node name="MoleRat" parent="Enemies" unique_id=1709345035 node_paths=PackedStringArray("patrol_path") instance=ExtResource("2_bodve")]
 position = Vector2(1780, 940)
 patrol_path = NodePath("../../PatrolPaths/Path2D/PathFollow2D")
-hide_enemy = false
-collides_with_others = true
 
 [node name="MoleRat2" parent="Enemies" unique_id=460377330 node_paths=PackedStringArray("patrol_path") instance=ExtResource("2_bodve")]
 position = Vector2(538, 826)
 patrol_path = NodePath("../../PatrolPaths/Path2D2/PathFollow2D")
-hide_enemy = false
-collides_with_others = true
 
 [node name="MoleRat3" parent="Enemies" unique_id=37169699 node_paths=PackedStringArray("patrol_path") instance=ExtResource("2_bodve")]
 position = Vector2(1305, 795)
 patrol_path = NodePath("../../PatrolPaths/Path2D3/PathFollow2D")
-hide_enemy = false
-collides_with_others = true
 
 [node name="MoleRat4" parent="Enemies" unique_id=397565282 node_paths=PackedStringArray("patrol_path") instance=ExtResource("2_bodve")]
 position = Vector2(871, 1039)
 patrol_path = NodePath("../../PatrolPaths/Path2D4/PathFollow2D")
-hide_enemy = false
-collides_with_others = true
 
 [node name="MoleRat5" parent="Enemies" unique_id=1464706791 node_paths=PackedStringArray("patrol_path") instance=ExtResource("2_bodve")]
 position = Vector2(1742, 422)
 patrol_path = NodePath("../../PatrolPaths/Path2D5/PathFollow2D")
-hide_enemy = false
-collides_with_others = true
 
 [node name="MoleRat6" parent="Enemies" unique_id=668325225 node_paths=PackedStringArray("patrol_path") instance=ExtResource("2_bodve")]
 position = Vector2(135, 1169)
 patrol_path = NodePath("../../PatrolPaths/Path2D6/PathFollow2D")
-hide_enemy = false
-collides_with_others = true
 
 [node name="MoleRat7" parent="Enemies" unique_id=226872087 node_paths=PackedStringArray("patrol_path") instance=ExtResource("2_bodve")]
 position = Vector2(445, 1465)
 patrol_path = NodePath("../../PatrolPaths/Path2D7/PathFollow2D")
-hide_enemy = false
-collides_with_others = true
 
 [node name="MoleRat8" parent="Enemies" unique_id=1209999846 node_paths=PackedStringArray("patrol_path") instance=ExtResource("2_bodve")]
 position = Vector2(2194, 1721)
 patrol_path = NodePath("../../PatrolPaths/Path2D8/PathFollow2D")
-hide_enemy = false
-collides_with_others = true
 
 [node name="MoleRat9" parent="Enemies" unique_id=1736199017 node_paths=PackedStringArray("patrol_path") instance=ExtResource("2_bodve")]
 position = Vector2(2205, 1171)
 patrol_path = NodePath("../../PatrolPaths/Path2D9/PathFollow2D")
-hide_enemy = false
-collides_with_others = true
 
 [node name="MoleRat10" parent="Enemies" unique_id=616091308 node_paths=PackedStringArray("patrol_path") instance=ExtResource("2_bodve")]
 position = Vector2(1729, 1463)
 patrol_path = NodePath("../../PatrolPaths/Path2D10/PathFollow2D")
-hide_enemy = false
-collides_with_others = true
 
 [node name="MoleRat11" parent="Enemies" unique_id=618893961 node_paths=PackedStringArray("patrol_path") instance=ExtResource("2_bodve")]
 position = Vector2(1018, 610)
 patrol_path = NodePath("../../PatrolPaths/Path2D11/PathFollow2D")
-hide_enemy = false
-collides_with_others = true
 
 [node name="PatrolPaths" type="Node2D" parent="." unique_id=1268088813]
 

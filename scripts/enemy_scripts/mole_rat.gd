@@ -12,7 +12,6 @@ extends Enemy
 
 # Runtime variables
 var scout_position: Vector2 = Vector2.ZERO
-var last_patrol_position: Vector2 = Vector2.ZERO
 var idle_turn_angle: float = 0
 var idle_move_frames: int = 0
 var doing_idle_movement: bool = false
@@ -24,6 +23,7 @@ func _ready():
 	vision.body_in_view.connect(on_view)
 	reset_timer.timeout.connect(on_reset_timeout)
 	idle_timer.timeout.connect(on_idle_timeout)
+	idle_timer.wait_time = randi() % 11 + 10
 	if !is_active: idle_timer.stop()
 
 func toggle_active(enable: bool) -> void:
@@ -36,7 +36,6 @@ func _physics_process(delta):
 
 	if ai_state == State.PATROL:
 		patrol(delta)
-		last_patrol_position = global_position
 		rotation = move_toward(rotation, 0, delta * turn_rate)
 		footsteps.play_steps(base_speed)
 
@@ -60,10 +59,11 @@ func _physics_process(delta):
 
 	elif ai_state == State.RETURN:
 		nav_agent.target_desired_distance = 1
-		var reached = move_to(delta, last_patrol_position)
+		var reached = move_to(delta, patrol_path.global_position)
 		footsteps.play_steps(velocity.length())
 		if reached:
 			ai_state = State.PATROL
+			global_position = patrol_path.global_position
 			idle_timer.start()
 
 	if randi() % 10000 == 0: HELPERS.play_audio(squeak, 0.03, 0.1)
@@ -88,11 +88,11 @@ func look_at_idle_angle(delta: float):
 
 func reset_rat():
 	patrol_path.progress = 0
-	last_patrol_position = patrol_path.global_position
+	global_position = patrol_path.global_position
 
 func on_view(seen_player: Player):
 	if !is_active: return
-	if in_light && seen_player.velocity.length() > 0.1: seen_player.attack(attack_damage, self) # give some leeway to velocity
+	if seen_player.velocity.length() > 0.1 || in_light: seen_player.attack(attack_damage, self)
 
 func on_idle_timeout():
 	ai_state = State.IDLE
