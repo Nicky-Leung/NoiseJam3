@@ -50,6 +50,7 @@ https://pixabay.com/sound-effects/film-special-effects-wrong-47985/
 https://pixabay.com/sound-effects/film-special-effects-notification-interface-success-positive-corrects-132471/
 https://pixabay.com/sound-effects/film-special-effects-stone-push-37412/
 https://opengameart.org/content/iron-door
+https://pixabay.com/sound-effects/film-special-effects-clank1-91862/
 
 #Tiles and Sprites
 https://opengameart.org/content/gemmed-items
@@ -63,3 +64,4 @@ https://opengameart.org/content/free-survival-props-pack
 https://opengameart.org/content/fast-food-benches-tables
 https://opengameart.org/content/lpc-animated-torch
 https://kenney.nl/assets/light-masks
+https://opengameart.org/content/switches

@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://dlcw0e3wiikrl"]
+
+[ext_resource type="Texture2D" uid="uid://dpgl4jy27r2ly" path="res://assets/sprites/items/puzzle_items/switch up.png" id="1_ljqdt"]
+[ext_resource type="Texture2D" uid="uid://bi4magpk3qtqm" path="res://assets/sprites/items/puzzle_items/middle switch.png" id="2_bfsou"]
+[ext_resource type="Texture2D" uid="uid://cknl0b6juubns" path="res://assets/sprites/items/puzzle_items/switch down.png" id="3_luv88"]
+[ext_resource type="Script" uid="uid://c0y4cuwofarlf" path="res://scripts/environment_object_scripts/lever.gd" id="4_luv88"]
+[ext_resource type="PackedScene" uid="uid://djvd2vub3v3h1" path="res://scenes/components/interactable.tscn" id="4_thg3p"]
+[ext_resource type="AudioStream" uid="uid://cy831uuij6w1q" path="res://assets/sfx/interactables/Lever.mp3" id="6_thg3p"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_faae2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ljqdt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_bfsou")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_luv88")
+}],
+"loop": false,
+"name": &"to_down",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_luv88")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_bfsou")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_ljqdt")
+}],
+"loop": false,
+"name": &"to_up",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3xwvu"]
+size = Vector2(325, 380)
+
+[node name="Lever" type="AnimatedSprite2D" unique_id=141270162]
+scale = Vector2(0.065, 0.065)
+sprite_frames = SubResource("SpriteFrames_faae2")
+animation = &"to_up"
+frame = 2
+frame_progress = 1.0
+offset = Vector2(35, 10)
+script = ExtResource("4_luv88")
+
+[node name="Hitbox" type="StaticBody2D" parent="." unique_id=987265597]
+
+[node name="Shape" type="CollisionShape2D" parent="Hitbox" unique_id=634000648]
+shape = SubResource("RectangleShape2D_3xwvu")
+
+[node name="Interactable" parent="." unique_id=345271570 node_paths=PackedStringArray("parent_collider") instance=ExtResource("4_thg3p")]
+interact_type = 1
+parent_collider = NodePath("../Hitbox/Shape")
+
+[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1241975593]
+stream = ExtResource("6_thg3p")
