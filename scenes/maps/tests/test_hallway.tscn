@@ -2,7 +2,6 @@
 
 [ext_resource type="Shader" uid="uid://c7m63o73qxpdk" path="res://resources/shaders/retro_filter.gdshader" id="1_pkcsw"]
 [ext_resource type="PackedScene" uid="uid://dkag3nwr7uqd8" path="res://scenes/player_scenes/player.tscn" id="2_qrypb"]
-[ext_resource type="PackedScene" uid="uid://s447nfjehl7g" path="res://scenes/enemy_scenes/enemy.tscn" id="4_pkcsw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bdrgs"]
 shader = ExtResource("1_pkcsw")
@@ -39,10 +38,6 @@ position = Vector2(491, 365)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1640404526]
 color = Color(0.14406255, 0.14406255, 0.14406249, 1)
-
-[node name="Angel" parent="." unique_id=1599280180 instance=ExtResource("4_pkcsw")]
-position = Vector2(157, 356)
-scale = Vector2(0.5, 0.5)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=575170977]
 navigation_polygon = SubResource("NavigationPolygon_pkcsw")

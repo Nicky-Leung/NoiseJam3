@@ -41,8 +41,7 @@ curve = SubResource("Curve2D_0no2g")
 position = Vector2(-22, -665)
 rotation = -0.0036900202
 
-[node name="Angel" parent="Path2D/PathFollow2D" unique_id=1599280180 node_paths=PackedStringArray("player", "patrol_path") instance=ExtResource("2_0no2g")]
-player = NodePath("../../../Player")
+[node name="Angel" parent="Path2D/PathFollow2D" unique_id=1599280180 node_paths=PackedStringArray("patrol_path") instance=ExtResource("2_0no2g")]
 patrol_path = NodePath("..")
 
 [node name="Player" parent="." unique_id=628625629 instance=ExtResource("3_0no2g")]
