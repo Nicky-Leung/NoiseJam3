@@ -10,7 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://b7ubesihad81q" path="res://assets/sfx/enemies/mole_rat_step3.mp3" id="6_qni71"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_saobd"]
-radius = 38.62
+radius = 20.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qni71"]
 animations = [{
