@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://ddwp5fi734po8"]
 
 [ext_resource type="TileSet" uid="uid://bfc70hpaf234h" path="res://assets/tileset/main_tile_set.tres" id="1_yt72g"]
-[ext_resource type="PackedScene" uid="uid://s447nfjehl7g" path="res://scenes/enemy_scenes/enemy.tscn" id="2_qgox0"]
+[ext_resource type="PackedScene" uid="uid://s447nfjehl7g" path="res://scenes/enemy_scenes/angel.tscn" id="2_0no2g"]
 [ext_resource type="PackedScene" uid="uid://dkag3nwr7uqd8" path="res://scenes/player_scenes/player.tscn" id="3_0no2g"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_yt72g"]
@@ -41,20 +41,9 @@ curve = SubResource("Curve2D_0no2g")
 position = Vector2(-22, -665)
 rotation = -0.0036900202
 
-[node name="Angel" parent="Path2D/PathFollow2D" unique_id=1599280180 node_paths=PackedStringArray("player", "patrol_path") instance=ExtResource("2_qgox0")]
-position = Vector2(-19.66034, 178.92867)
-rotation = 0.0036900202
-speed = 100
-friction = 400
-possible_spawn_points = Array[Vector2]([Vector2(-778, -1135), Vector2(-542, -701), Vector2(11, -464), Vector2(634, -696), Vector2(1073, 132)])
+[node name="Angel" parent="Path2D/PathFollow2D" unique_id=1599280180 node_paths=PackedStringArray("player", "patrol_path") instance=ExtResource("2_0no2g")]
 player = NodePath("../../../Player")
 patrol_path = NodePath("..")
-collides_with_others = false
-is_active = false
-attack_damage = 10
-turn_rate = 10.0
-acceleration = 20
-base_speed = 100
 
 [node name="Player" parent="." unique_id=628625629 instance=ExtResource("3_0no2g")]
 position = Vector2(-1044, -1125)

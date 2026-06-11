@@ -12,3 +12,10 @@ script = ExtResource("1_56v82")
 
 [node name="Hitbox" type="CollisionShape2D" parent="." unique_id=1426273576]
 shape = SubResource("RectangleShape2D_ij5l6")
+
+[node name="Hint" type="Label" parent="." unique_id=205756801]
+offset_left = 15.0
+offset_top = -30.0
+offset_right = 55.0
+offset_bottom = -7.0
+text = "Press E to Interact"
