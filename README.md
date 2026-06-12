@@ -10,6 +10,7 @@ https://fonts.google.com/specimen/Roboto
 ## Music
 
 https://opengameart.org/content/factory-ambiance
+https://opengameart.org/content/dark-ambience-loop
 
 ## Shaders
 
@@ -19,6 +20,8 @@ https://godotshaders.com/shader/retro-gameps1-shader/
 https://godotshaders.com/shader/2d-wind-sway-tree-grass-motion-shader/
 
 ## Sound Effects
+https://pixabay.com/sound-effects/film-special-effects-creepy-whale-song-323612/
+https://pixabay.com/sound-effects/nature-haunting-whale-song-515260/
 https://pixabay.com/sound-effects/film-special-effects-energy-90321/
 https://pixabay.com/sound-effects/musical-angels02-105519/
 https://pixabay.com/sound-effects/film-special-effects-angel-wings-opening02-177232/
