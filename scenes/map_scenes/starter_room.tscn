@@ -15,6 +15,13 @@
 [ext_resource type="AudioStream" uid="uid://chlf7madvxwws" path="res://assets/sfx/ambience/ambience-5.wav" id="10_vx3k8"]
 [ext_resource type="AudioStream" uid="uid://crqfuy4ymws5y" path="res://assets/sfx/puzzles/GateOpen.mp3" id="12_i4p0j"]
 [ext_resource type="PackedScene" uid="uid://cfslgv17irrxe" path="res://scenes/environment_objects/pickup.tscn" id="13_jectp"]
+[ext_resource type="Script" uid="uid://brruiv62t6tjx" path="res://scripts/room_scripts/cinematics/ending_cinematic.gd" id="16_5etsa"]
+[ext_resource type="FontFile" uid="uid://c155t83t8237k" path="res://assets/fonts/VCR.ttf" id="17_l65jo"]
+[ext_resource type="AudioStream" uid="uid://cek3qkevtvsew" path="res://assets/sfx/ending_sequence/1.mp3" id="18_pe5kr"]
+[ext_resource type="AudioStream" uid="uid://bsdsmlksy4khv" path="res://assets/sfx/ending_sequence/2.mp3" id="19_un833"]
+[ext_resource type="AudioStream" uid="uid://8jmx4trqr8i4" path="res://assets/sfx/ending_sequence/3.mp3" id="20_5grjp"]
+[ext_resource type="AudioStream" uid="uid://b3xu6daxqk2oe" path="res://assets/sfx/ending_sequence/4.mp3" id="21_ymwkn"]
+[ext_resource type="AudioStream" uid="uid://bug73exy24pm8" path="res://assets/sfx/ending_sequence/ed_music.mp3" id="22_ul2ax"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_5irx0"]
 vertices = PackedVector2Array(548, 212, 548, 108, 572, 100, 572, 508, 316, 100, 444, 108, 548, 484, 36, 508, 444, 484, 164, 484, 60, 484, 36, 100, 60, 380, 164, 212, 444, 212, 164, 380, 164, 108, 292, 100, 444, 380, 292, 84, 316, 84, 60, 108, 60, 212, 548, 380)
@@ -121,19 +128,20 @@ stream = ExtResource("12_i4p0j")
 [node name="CensoredSin" parent="." unique_id=1865245503 instance=ExtResource("7_ieuqq")]
 position = Vector2(306, 245)
 
-[node name="Cinematic" type="Node2D" parent="." unique_id=1690375132]
-script = ExtResource("9_ieuqq")
-skip_sequence = true
+[node name="Cinematics" type="Node2D" parent="." unique_id=1054569960]
 
-[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="Cinematic" unique_id=2139737607]
+[node name="Opening" type="Node2D" parent="Cinematics" unique_id=1690375132]
+script = ExtResource("9_ieuqq")
+
+[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="Cinematics/Opening" unique_id=2139737607]
 position = Vector2(304, -128)
 stream = ExtResource("10_vx3k8")
 
-[node name="Filter" type="CanvasLayer" parent="Cinematic" unique_id=806061465]
+[node name="Filter" type="CanvasLayer" parent="Cinematics/Opening" unique_id=806061465]
 layer = 2
 visible = false
 
-[node name="ColorRect" type="ColorRect" parent="Cinematic/Filter" unique_id=1608092429]
+[node name="ColorRect" type="ColorRect" parent="Cinematics/Opening/Filter" unique_id=1608092429]
 modulate = Color(0, 0, 0, 1)
 anchors_preset = 15
 anchor_right = 1.0
@@ -142,3 +150,49 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
+
+[node name="Ending" type="Node2D" parent="Cinematics" unique_id=2131703731]
+script = ExtResource("16_5etsa")
+
+[node name="Filter" type="CanvasLayer" parent="Cinematics/Ending" unique_id=1771768918]
+layer = 2
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="Cinematics/Ending/Filter" unique_id=1484044305]
+modulate = Color(0, 0, 0, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="Cinematics/Ending/Filter" unique_id=256375077]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("17_l65jo")
+theme_override_font_sizes/font_size = 96
+text = "THE RAPTURE
+IS HERE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Rustle" type="AudioStreamPlayer2D" parent="Cinematics/Ending" unique_id=1138181955]
+stream = ExtResource("18_pe5kr")
+
+[node name="Metal" type="AudioStreamPlayer2D" parent="Cinematics/Ending" unique_id=1826262418]
+stream = ExtResource("19_un833")
+
+[node name="Defib" type="AudioStreamPlayer2D" parent="Cinematics/Ending" unique_id=1615645622]
+stream = ExtResource("20_5grjp")
+
+[node name="Drop" type="AudioStreamPlayer2D" parent="Cinematics/Ending" unique_id=266402397]
+stream = ExtResource("21_ymwkn")
+
+[node name="Music" type="AudioStreamPlayer" parent="Cinematics/Ending" unique_id=1559055782]
+stream = ExtResource("22_ul2ax")

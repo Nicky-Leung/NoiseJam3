@@ -16,7 +16,7 @@ func uncensor(do_censor: bool = false):
     censor_bar.visible = do_censor
     is_censored = false
     if do_censor: interactable.update_desc("You're not allowed to see that")
-    else: interactable.update_desc("Wipe your memories again?")
+    else: interactable.update_desc("Begin the cycle anew?")
 
 func _on_interact(player: Player):
     if is_censored:
