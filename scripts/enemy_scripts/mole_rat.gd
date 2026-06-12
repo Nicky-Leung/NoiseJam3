@@ -60,7 +60,7 @@ func _physics_process(delta):
 		nav_agent.target_desired_distance = 50
 		var reached = move_to(delta, scout_position)
 		footsteps.play_steps(velocity.length())
-		if reached:
+		if reached || get_real_velocity().length_squared() < 9:
 			ai_state = State.IDLE
 			reset_timer.start()
 
@@ -68,7 +68,7 @@ func _physics_process(delta):
 		nav_agent.target_desired_distance = 1
 		var reached = move_to(delta, patrol_path.global_position)
 		footsteps.play_steps(velocity.length())
-		if reached:
+		if reached || get_real_velocity().length_squared() < 25:
 			ai_state = State.PATROL
 			global_position = patrol_path.global_position
 			idle_timer.start()
