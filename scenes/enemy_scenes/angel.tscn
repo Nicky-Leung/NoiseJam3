@@ -66,7 +66,7 @@ nav_agent = NodePath("NavigationAgent2D")
 animated_sprite = NodePath("Body")
 collision_box = NodePath("CollisionShape2D")
 acceleration = 50
-base_speed = 150
+base_speed = 125
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1553818521]
 shape = SubResource("CircleShape2D_p4h1f")
@@ -75,7 +75,6 @@ shape = SubResource("CircleShape2D_p4h1f")
 simplify_path = true
 avoidance_enabled = true
 radius = 20.0
-debug_enabled = true
 debug_path_custom_color = Color(1, 0, 0, 1)
 
 [node name="Body" type="AnimatedSprite2D" parent="." unique_id=865283464]

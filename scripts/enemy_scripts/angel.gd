@@ -68,6 +68,7 @@ func alert_sound(alerter: Node2D) -> void:
 func alert_visual(alerter: Node2D) -> void:
 	super(alerter)
 	if alerter is not Player: return
+	if global_position.distance_to(alerter.global_position) > 300: return
 	on_view(alerter as Player)
 
 func trigger_stun(stun_time: float) -> void:
