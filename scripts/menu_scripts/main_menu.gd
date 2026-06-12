@@ -37,7 +37,8 @@ func handle_options():
 	
 
 func handle_credits():
-	print("credits opened")
+	SCENE_MANAGER.open_sub_menu(SceneManager.SubMenus.CREDITS)
+
 
 func handle_quit():
 	get_tree().quit()

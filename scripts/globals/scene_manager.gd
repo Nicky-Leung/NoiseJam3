@@ -10,10 +10,12 @@ enum Scenes {
 @onready var main_menu_scene = load("res://scenes/menus/menu.tscn") as PackedScene
 @onready var in_game_scene = load("res://scenes/main.tscn") as PackedScene # placeholder
 @onready var game_over_scene = load("res://scenes/menus/game_over.tscn") as PackedScene
+@onready var credits_scene = load("res://scenes/menus/credits.tscn") as PackedScene
 
 enum SubMenus {
 	PAUSE_MENU, # implement later
-	OPTIONS
+	OPTIONS,
+	CREDITS
 }
 @onready var options_menu_scene = load("res://scenes/menus/options_menu.tscn") as PackedScene
 
@@ -33,5 +35,6 @@ func open_sub_menu(menu: SubMenus):
 		get_tree().current_scene.add_child(instance)
 	elif menu == SubMenus.PAUSE_MENU:
 		print("implement later")
-
-
+	if menu == SubMenus.CREDITS:
+		var instance = credits_scene.instantiate()
+		get_tree().current_scene.add_child(instance)

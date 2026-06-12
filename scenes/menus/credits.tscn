@@ -1,6 +1,18 @@
 [gd_scene format=3 uid="uid://dwcxx7ujno1l1"]
 
-[ext_resource type="VideoStream" uid="uid://c5byq38gpwp8i" path="res://assets/video/MenuBG.ogv" id="1_fkeg8"]
+[ext_resource type="VideoStream" uid="uid://cyikafd4omiqg" path="res://assets/video/Menu.ogv" id="1_cu0al"]
+[ext_resource type="FontFile" uid="uid://c155t83t8237k" path="res://assets/fonts/VCR.ttf" id="2_iiqlc"]
+[ext_resource type="Texture2D" uid="uid://bpmigqxfq3lll" path="res://assets/video/CLOSE.png" id="2_xvxbb"]
+[ext_resource type="Script" uid="uid://bv8hjeotplx1c" path="res://scripts/menu_scripts/OnClickScreen.gd" id="3_xlnvo"]
+[ext_resource type="Shader" uid="uid://bbe32t51umhq4" path="res://resources/shaders/vcr.gdshader" id="3_yrcfj"]
+[ext_resource type="Script" uid="uid://c7shhjwvgigga" path="res://scripts/menu_scripts/shadertime.gd" id="4_44wmd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xvxbb"]
+shader = ExtResource("3_yrcfj")
+shader_parameter/wiggle = 0.03
+shader_parameter/wiggle_speed = 25.0
+shader_parameter/smear = 1.0
+shader_parameter/blur_samples = 15
 
 [node name="Credits" type="Control" unique_id=797164754]
 layout_mode = 3
@@ -9,11 +21,142 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_right = -1152.0
 offset_bottom = -648.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=312848082]
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="." unique_id=2024740249]
 layout_mode = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
-stream = ExtResource("1_fkeg8")
+offset_left = -160.0
+offset_top = -85.0
+offset_right = 96.0
+offset_bottom = 59.0
+scale = Vector2(6, 6)
+stream = ExtResource("1_cu0al")
 autoplay = true
 loop = true
+
+[node name="Control" type="Control" parent="." unique_id=978829662]
+anchors_preset = 0
+offset_left = 65.0
+offset_top = 41.0
+offset_right = 65.0
+offset_bottom = 41.0
+
+[node name="OnClickScreen" type="TextureButton" parent="Control" unique_id=506087370]
+layout_mode = 0
+offset_left = 388.0
+offset_top = 528.0
+offset_right = 563.0
+offset_bottom = 592.0
+texture_normal = ExtResource("2_xvxbb")
+script = ExtResource("3_xlnvo")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1864028121]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 41.0
+offset_right = 1116.0
+offset_bottom = 534.0
+
+[node name="Label" type="Label" parent="ScrollContainer" unique_id=1285950602]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_iiqlc")
+theme_override_font_sizes/font_size = 20
+text = "# Asset compilation
+
+## Fonts
+
+https://www.fontsquirrel.com/fonts/Berylium
+
+
+https://fonts.google.com/specimen/Cormorant+Garamond
+https://fonts.google.com/specimen/Science+Gothic
+https://fonts.google.com/specimen/Roboto
+
+## Music
+
+https://opengameart.org/content/factory-ambiance
+https://opengameart.org/content/dark-ambience-loop
+https://opengameart.org/content/cold-night
+
+## Shaders
+
+https://godotshaders.com/shader/glitch-effect-shader-for-godot-engine-4/
+https://godotshaders.com/shader/dissolve-add-details-pixel-art/
+https://godotshaders.com/shader/retro-gameps1-shader/
+https://godotshaders.com/shader/2d-wind-sway-tree-grass-motion-shader/
+
+## Sound Effects
+https://pixabay.com/sound-effects/film-special-effects-rustling-bushes-dried-leaves-6-230205/
+https://pixabay.com/sound-effects/film-special-effects-large-monster-attack-195713/
+https://pixabay.com/sound-effects/film-special-effects-rustling-bushes-dried-leaves-2-230202/
+https://pixabay.com/sound-effects/film-special-effects-rustling-bushes-dried-leaves-1-230200/
+https://pixabay.com/sound-effects/film-special-effects-fabric-flap-80054/
+https://pixabay.com/sound-effects/film-special-effects-creepy-whale-song-323612/
+https://pixabay.com/sound-effects/nature-haunting-whale-song-515260/
+https://pixabay.com/sound-effects/musical-angels02-105519/
+https://pixabay.com/sound-effects/film-special-effects-angel-wings-opening02-177232/
+https://pixabay.com/sound-effects/film-special-effects-angel-wings-opening01-177180/
+https://pixabay.com/sound-effects/film-special-effects-screech-103213/\\
+https://pixabay.com/sound-effects/film-special-effects-monster-screech-368677/
+https://opengameart.org/content/scary-ghost-1
+https://opengameart.org/content/dripping-water-loop
+https://opengameart.org/content/ghost-monster-voice-moaning-growling
+https://opengameart.org/content/dark-ambiences
+https://opengameart.org/content/breaking-bottle
+https://pixabay.com/sound-effects/film-special-effects-flashlight-102291/
+https://pixabay.com/sound-effects/film-special-effects-st3-footstep-sfx-323056/
+https://pixabay.com/sound-effects/film-special-effects-st1-footstep-sfx-323053/
+https://pixabay.com/sound-effects/film-special-effects-st2-footstep-sfx-323055/
+https://pixabay.com/sound-effects/film-special-effects-footstep-1-83098/
+https://pixabay.com/sound-effects/film-special-effects-walk-on-dirt-1-291981/
+https://pixabay.com/sound-effects/people-ough-47202/
+https://pixabay.com/sound-effects/film-special-effects-wooden-trunk-latch-2-183945/
+https://pixabay.com/sound-effects/film-special-effects-electricity-106510/
+https://pixabay.com/sound-effects/film-special-effects-item-equip-6904/
+https://pixabay.com/sound-effects/film-special-effects-duct-tape-1-86753/
+https://pixabay.com/sound-effects/film-special-effects-paper-rustle-81855/
+https://pixabay.com/sound-effects/film-special-effects-system-notification-199277/
+https://pixabay.com/sound-effects/film-special-effects-whoosh-03-410868/
+https://pixabay.com/sound-effects/film-special-effects-zipper-zip-83542/
+https://freesound.org/people/kwahmah_02/sounds/274752/
+https://pixabay.com/sound-effects/nature-rustling-grass-4-101281/
+https://pixabay.com/sound-effects/nature-rustling-grass-1-101282/
+https://pixabay.com/sound-effects/nature-rustling-grass-2-101283/
+https://pixabay.com/sound-effects/nature-mouse-squeak-261126/
+https://pixabay.com/sound-effects/film-special-effects-correct-choice-43861/
+https://pixabay.com/sound-effects/film-special-effects-wrong-47985/
+https://pixabay.com/sound-effects/film-special-effects-notification-interface-success-positive-corrects-132471/
+https://pixabay.com/sound-effects/film-special-effects-stone-push-37412/
+https://opengameart.org/content/iron-door
+https://pixabay.com/sound-effects/film-special-effects-clank1-91862/
+https://pixabay.com/sound-effects/film-special-effects-sfx-getting-out-of-bed-irritated-380647/
+https://pixabay.com/sound-effects/film-special-effects-soft-ruffle-85809/
+https://pixabay.com/sound-effects/film-special-effects-defibrillator-6961/
+https://pixabay.com/sound-effects/horror-horror-body-drop-152091/
+
+#Tiles and Sprites
+https://opengameart.org/content/gemmed-items
+https://opengameart.org/content/zombie-ui-pack
+https://craftpix.net/freebies/free-top-down-animals-farm-pixel-art-sprites/
+https://craftpix.net/freebies/free-2d-top-down-pixel-dungeon-asset-pack/
+https://szadiart.itch.io/rogue-fantasy-catacombs
+https://opengameart.org/content/old-parchment-paper
+https://opengameart.org/content/horror-game-note-page-background-old-paper-png
+https://opengameart.org/content/free-survival-props-pack
+https://opengameart.org/content/fast-food-benches-tables
+https://opengameart.org/content/lpc-animated-torch
+https://kenney.nl/assets/light-masks
+https://opengameart.org/content/switches
+"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=162779668]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=951547710]
+material = SubResource("ShaderMaterial_xvxbb")
+offset_right = 1145.0
+offset_bottom = 643.0
+mouse_filter = 2
+script = ExtResource("4_44wmd")
+
+[connection signal="pressed" from="Control/OnClickScreen" to="Control/OnClickScreen" method="_on_pressed"]
