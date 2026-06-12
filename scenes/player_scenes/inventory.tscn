@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://co0w164ofa0fi" path="res://assets/sprites/items/zombie_icons.png" id="2_j21a5"]
 [ext_resource type="Theme" uid="uid://yfrti8gy2ey2" path="res://resources/theme/Ui.tres" id="5_mhtwu"]
 [ext_resource type="AudioStream" uid="uid://dbou5m8cuagd6" path="res://assets/sfx/player/inventoryOpen.mp3" id="6_37vb7"]
+[ext_resource type="Shader" uid="uid://c7m63o73qxpdk" path="res://resources/shaders/retro_filter.gdshader" id="6_j21a5"]
 [ext_resource type="AudioStream" uid="uid://d2ehjbabboygl" path="res://assets/sfx/player/inventorySwipe.mp3" id="6_shujo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mhtwu"]
@@ -30,6 +31,19 @@ corner_radius_top_right = 25
 corner_radius_bottom_right = 25
 corner_radius_bottom_left = 25
 corner_detail = 20
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mhtwu"]
+shader = ExtResource("6_j21a5")
+shader_parameter/resolution_x = 302
+shader_parameter/resolution_y = 351
+shader_parameter/color_bit_depth = 4
+shader_parameter/dither_strength = 0.03
+shader_parameter/jitter_amount = 0.001
+shader_parameter/jitter_speed = 1.2
+shader_parameter/jitter_frequency = 10.0
+shader_parameter/chromatic_aberration_strength = 0.015
+shader_parameter/vignette_strength = 0.8
+shader_parameter/vignette_radius = 0.9
 
 [node name="Inventory" type="Control" unique_id=1444212898]
 layout_mode = 3
@@ -133,6 +147,15 @@ theme_override_font_sizes/font_size = 48
 text = "Use to refill flashlight charge"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Retro" type="ColorRect" parent="." unique_id=1258045141]
+material = SubResource("ShaderMaterial_mhtwu")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="AudioPlayer" type="AudioStreamPlayer2D" parent="." unique_id=851056530]
 stream = ExtResource("6_shujo")

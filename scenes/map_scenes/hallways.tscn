@@ -150,7 +150,6 @@ stream = ExtResource("6_7htlt")
 position = Vector2(-68, -700)
 rotation = 0.006644421
 patrol_path = NodePath("../Path2D/PathFollow2D")
-hide_enemy = false
 is_active = true
 
 [node name="Readables" type="Node2D" parent="." unique_id=1311762866]

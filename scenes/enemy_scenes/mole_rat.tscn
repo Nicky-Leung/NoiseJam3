@@ -93,7 +93,6 @@ collision_box = NodePath("Hitbox")
 shape = SubResource("CircleShape2D_saobd")
 
 [node name="Nav" type="NavigationAgent2D" parent="." unique_id=1521571511]
-debug_enabled = true
 debug_path_custom_color = Color(1, 0, 0, 1)
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1203910543]

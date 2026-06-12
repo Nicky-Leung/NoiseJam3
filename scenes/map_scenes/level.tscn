@@ -26,6 +26,7 @@ shader_parameter/vignette_radius = 0.9
 script = ExtResource("1_uetgf")
 
 [node name="VFX" type="CanvasLayer" parent="." unique_id=2070925069]
+visible = false
 
 [node name="Retro" type="ColorRect" parent="VFX" unique_id=1652324675]
 material = SubResource("ShaderMaterial_qi4jx")
@@ -36,6 +37,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Darkness" type="CanvasModulate" parent="." unique_id=148892815]
+visible = false
 color = Color(0.10019137, 0.08478504, 0.12660226, 0.9647059)
 
 [node name="Player" parent="." unique_id=628625629 instance=ExtResource("7_qlmbj")]
