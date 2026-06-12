@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://di57b4t8vimy" path="res://scripts/enemy_scripts/titania.gd" id="1_3l7ik"]
 [ext_resource type="Texture2D" uid="uid://cs81dlxwjq58u" path="res://assets/sprites/enemies/Titania.png" id="2_7bkc1"]
+[ext_resource type="AudioStream" uid="uid://geakmm3lh64l" path="res://assets/sfx/enemies/virtual_vibes-baby-weeping-sound-464553.mp3" id="3_y4ugl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y4ugl"]
 atlas = ExtResource("2_7bkc1")
@@ -127,3 +128,6 @@ shape = SubResource("CircleShape2D_7bkc1")
 [node name="AttackRay" type="RayCast2D" parent="." unique_id=16832297]
 target_position = Vector2(50, 0)
 collision_mask = 2
+
+[node name="WeepingSound" type="AudioStreamPlayer2D" parent="." unique_id=1343771335]
+stream = ExtResource("3_y4ugl")
