@@ -2,7 +2,7 @@ extends Node2D
 class_name EnemyVision
 
 signal body_in_view(player: Player)
-signal body_out_of_view(player: Player)
+signal body_out_of_view
 
 @export var holder: Node2D = null
 @export var cone_arc: float = 45
@@ -28,8 +28,7 @@ func _ready():
 func _physics_process(_delta):
 	for ray in ray_list:
 		var collider = ray.get_collider()
-		if collider is not Player:
-			body_out_of_view.emit(collider as Player)
-			continue
+		if collider is not Player: continue
 		body_in_view.emit(collider as Player)
 		return
+	body_out_of_view.emit()
