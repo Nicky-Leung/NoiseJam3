@@ -19,7 +19,6 @@
 [ext_resource type="AudioStream" uid="uid://b8u380ep4btht" path="res://assets/sfx/interactables/Gate.ogg" id="10_rsiot"]
 [ext_resource type="AudioStream" uid="uid://d1gypfbfymk5w" path="res://assets/sfx/puzzles/Wrong.mp3" id="11_l1wol"]
 [ext_resource type="Texture2D" uid="uid://b6idtmdeskrp6" path="res://assets/sprites/world_objects/body2.png" id="14_mv07d"]
-[ext_resource type="PackedScene" uid="uid://dkag3nwr7uqd8" path="res://scenes/player_scenes/player.tscn" id="20_mv07d"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ny5gj"]
 vertices = PackedVector2Array(316, 99, 316, 155, 188, 155, 36, 99, 388, 291, 388, 243, 484, 243, 484, 107, 388, 107, 388, 99, 604, 99, 604, 107, 524, 107, 524, 243, 676, 243, 676, 99, 748, 99, 748, 395, 436, 395, 436, 380, 348, 380, 188, 291, 348, 395, 36, 395, 36, 291, 180, 291, 180, 155, 36, 155)
@@ -243,6 +242,3 @@ z_index = 1
 offset_right = 775.0
 offset_bottom = 425.03
 color = Color(1, 0, 0, 1)
-
-[node name="Player" parent="." unique_id=628625629 instance=ExtResource("20_mv07d")]
-position = Vector2(389, 368)
