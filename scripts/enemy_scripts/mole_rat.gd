@@ -9,6 +9,7 @@ extends Enemy
 @onready var idle_timer = $IdleTimer
 @onready var footsteps = $Footsteps
 @onready var squeak = $Squeak
+@onready var attack = $Attack
 @onready var sprite = $Sprite
 
 # Runtime variables
@@ -105,7 +106,9 @@ func reset_rat():
 func on_view(seen_player: Player):
 	if !is_active: return
 	if seen_player.velocity.length() > 0.1 || in_light:
-		if seen_player.attack(attack_damage, self): sprite.animation = "attack"
+		if seen_player.attack(attack_damage, self):
+			sprite.animation = "attack"
+			HELPERS.play_audio(attack, 0.9, 1.1)
 
 func on_idle_timeout():
 	ai_state = State.IDLE

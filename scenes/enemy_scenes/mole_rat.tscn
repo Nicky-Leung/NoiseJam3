@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://vll2f4xsik7i" path="res://assets/sfx/enemies/mole_rat_step2.mp3" id="5_saobd"]
 [ext_resource type="PackedScene" uid="uid://t5keqhpx2c2x" path="res://scenes/components/vision_cone.tscn" id="5_y8xpa"]
 [ext_resource type="AudioStream" uid="uid://b7ubesihad81q" path="res://assets/sfx/enemies/mole_rat_step3.mp3" id="6_qni71"]
+[ext_resource type="AudioStream" uid="uid://bapdmg5aiyiep" path="res://assets/sfx/enemies/mole_rat_attack.mp3" id="10_saobd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_saobd"]
 radius = 20.0
@@ -121,3 +122,6 @@ autostart = true
 [node name="Squeak" type="AudioStreamPlayer2D" parent="." unique_id=1387080876]
 stream = ExtResource("5_fo5g2")
 max_polyphony = 3
+
+[node name="Attack" type="AudioStreamPlayer2D" parent="." unique_id=1815961249]
+stream = ExtResource("10_saobd")
