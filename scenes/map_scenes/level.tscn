@@ -8,6 +8,23 @@
 [ext_resource type="PackedScene" uid="uid://d7y6roxiu1oy" path="res://scenes/map_scenes/puzzle_room_3.tscn" id="4_qlmbj"]
 [ext_resource type="PackedScene" uid="uid://bghi2u4g0lp47" path="res://scenes/map_scenes/starter_room.tscn" id="5_qi4jx"]
 [ext_resource type="PackedScene" uid="uid://dkag3nwr7uqd8" path="res://scenes/player_scenes/player.tscn" id="7_qlmbj"]
+[ext_resource type="PackedScene" uid="uid://y6qgwf18h0bh" path="res://scenes/environment_objects/readable.tscn" id="9_lpxfr"]
+[ext_resource type="Texture2D" uid="uid://b7wau1b5i0ra2" path="res://assets/sprites/items/readables/Phone1.png" id="10_cnguk"]
+[ext_resource type="PackedScene" uid="uid://b8o53c5m2fypt" path="res://scenes/readables/text_messages/about_rapture.tscn" id="11_f5kjc"]
+[ext_resource type="PackedScene" uid="uid://dxtjqjtwc6hd4" path="res://scenes/readables/text_messages/rapture_warning.tscn" id="12_xpasg"]
+[ext_resource type="PackedScene" uid="uid://ujt5ni8nanaa" path="res://scenes/readables/text_messages/founder_age.tscn" id="13_i37ke"]
+[ext_resource type="PackedScene" uid="uid://1y6g8qaest6m" path="res://scenes/readables/text_messages/unethical_experiments.tscn" id="14_alp0p"]
+[ext_resource type="PackedScene" uid="uid://hynncwkpcprv" path="res://scenes/readables/text_messages/about_founder.tscn" id="15_alp0p"]
+[ext_resource type="PackedScene" uid="uid://cdonoa31oh7am" path="res://scenes/readables/text_messages/angel_final_words.tscn" id="16_v4k3w"]
+[ext_resource type="PackedScene" uid="uid://c4474jfa50m8c" path="res://scenes/readables/lab_reports/dukkha_report.tscn" id="17_3nmt2"]
+[ext_resource type="PackedScene" uid="uid://c71u7fishy1lp" path="res://scenes/readables/lab_reports/titania_report.tscn" id="18_qc3uf"]
+[ext_resource type="PackedScene" uid="uid://b4sb233668vv4" path="res://scenes/readables/lab_reports/mole_rat_report.tscn" id="19_ktls2"]
+[ext_resource type="PackedScene" uid="uid://t5f5j1egih5q" path="res://scenes/readables/lab_reports/rapture_solution.tscn" id="20_svgwh"]
+[ext_resource type="PackedScene" uid="uid://sfevrc6ehroh" path="res://scenes/readables/lab_reports/envoy_sickness.tscn" id="21_0vfiv"]
+[ext_resource type="Texture2D" uid="uid://bswnr3qkmox8x" path="res://assets/sprites/items/readables/Tablet.png" id="22_v1gmj"]
+[ext_resource type="PackedScene" uid="uid://dl18rj7mjp3pe" path="res://scenes/readables/emails/envoy_death.tscn" id="23_v3ai6"]
+[ext_resource type="PackedScene" uid="uid://c2op5h18ikvrf" path="res://scenes/readables/emails/about_centuries.tscn" id="24_8jg4x"]
+[ext_resource type="PackedScene" uid="uid://bcib7bj24vmwo" path="res://scenes/readables/emails/first_contact.tscn" id="25_nqiif"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qi4jx"]
 shader = ExtResource("2_qlmbj")
@@ -43,8 +60,10 @@ position = Vector2(308, 377)
 rotation = 1.5707964
 has_flashlight = false
 starting_flashlight_charge = 10.0
+immortal = true
 
 [node name="Layout" type="Node2D" parent="." unique_id=1727849891]
+metadata/_edit_lock_ = true
 
 [node name="Hallways" parent="Layout" unique_id=1870240753 instance=ExtResource("2_s23tf")]
 
@@ -64,8 +83,92 @@ metadata/_edit_lock_ = true
 player = NodePath("../../Player")
 metadata/_edit_lock_ = true
 
+[node name="Flashlight" parent="Layout/StarterRoom/Pickups" parent_id_path=PackedInt32Array(519425099, 1344794497) index="0" unique_id=1314714567]
+tutorial = true
+
+[node name="Battery" parent="Layout/StarterRoom/Pickups" parent_id_path=PackedInt32Array(519425099, 1344794497) index="1" unique_id=1777926941]
+tutorial = true
+
+[node name="Medkit" parent="Layout/StarterRoom/Pickups" parent_id_path=PackedInt32Array(519425099, 1344794497) index="3" unique_id=925739377]
+tutorial = true
+
 [node name="Opening" parent="Layout/StarterRoom/Cinematics" parent_id_path=PackedInt32Array(519425099, 1054569960) index="0" unique_id=1690375132 node_paths=PackedStringArray("player")]
-skip_sequence = false
+skip_sequence = true
 player = NodePath("../../../../Player")
+
+[node name="Readables" type="Node2D" parent="." unique_id=571430683]
+
+[node name="AboutRapture" parent="Readables" unique_id=536321432 instance=ExtResource("9_lpxfr")]
+position = Vector2(260, 76)
+in_world_sprite = ExtResource("10_cnguk")
+readable_menu = ExtResource("11_f5kjc")
+
+[node name="AboutRaptureWarning" parent="Readables" unique_id=1152955035 instance=ExtResource("9_lpxfr")]
+position = Vector2(-663, -777)
+in_world_sprite = ExtResource("10_cnguk")
+readable_menu = ExtResource("12_xpasg")
+
+[node name="AboutFounderAge" parent="Readables" unique_id=879650971 instance=ExtResource("9_lpxfr")]
+position = Vector2(821, -631)
+in_world_sprite = ExtResource("10_cnguk")
+readable_menu = ExtResource("13_i37ke")
+
+[node name="AboutExperiments" parent="Readables" unique_id=38634454 instance=ExtResource("9_lpxfr")]
+position = Vector2(1065, 68)
+in_world_sprite = ExtResource("10_cnguk")
+readable_menu = ExtResource("14_alp0p")
+
+[node name="AboutFounder" parent="Readables" unique_id=1701769566 instance=ExtResource("9_lpxfr")]
+position = Vector2(-1319, -1058)
+in_world_sprite = ExtResource("10_cnguk")
+readable_menu = ExtResource("15_alp0p")
+
+[node name="AboutFinalWords" parent="Readables" unique_id=100414251 instance=ExtResource("9_lpxfr")]
+position = Vector2(3169, 827)
+in_world_sprite = ExtResource("10_cnguk")
+readable_menu = ExtResource("16_v4k3w")
+
+[node name="DukkhaReport" parent="Readables" unique_id=963997462 instance=ExtResource("9_lpxfr")]
+position = Vector2(-1095, -1063)
+type = 0
+readable_menu = ExtResource("17_3nmt2")
+
+[node name="TitaniaReport" parent="Readables" unique_id=243472288 instance=ExtResource("9_lpxfr")]
+position = Vector2(439, -1509)
+type = 0
+readable_menu = ExtResource("18_qc3uf")
+
+[node name="MoleRatReport" parent="Readables" unique_id=1641706131 instance=ExtResource("9_lpxfr")]
+position = Vector2(2246, 77)
+type = 0
+readable_menu = ExtResource("19_ktls2")
+
+[node name="RaptureSolution" parent="Readables" unique_id=1649436565 instance=ExtResource("9_lpxfr")]
+position = Vector2(185, -1314)
+type = 0
+readable_menu = ExtResource("20_svgwh")
+
+[node name="EnvoySickness" parent="Readables" unique_id=2062374834 instance=ExtResource("9_lpxfr")]
+position = Vector2(3600, 1661)
+type = 0
+readable_menu = ExtResource("21_0vfiv")
+
+[node name="AboutEnvoyDeath" parent="Readables" unique_id=1826951640 instance=ExtResource("9_lpxfr")]
+position = Vector2(55, -536)
+type = 2
+in_world_sprite = ExtResource("22_v1gmj")
+readable_menu = ExtResource("23_v3ai6")
+
+[node name="AboutCenturies" parent="Readables" unique_id=1241048004 instance=ExtResource("9_lpxfr")]
+position = Vector2(1839, 1664)
+type = 2
+in_world_sprite = ExtResource("22_v1gmj")
+readable_menu = ExtResource("24_8jg4x")
+
+[node name="AboutFirstContact" parent="Readables" unique_id=1917715640 instance=ExtResource("9_lpxfr")]
+position = Vector2(-114, -1512)
+type = 2
+in_world_sprite = ExtResource("22_v1gmj")
+readable_menu = ExtResource("25_nqiif")
 
 [editable path="Layout/StarterRoom"]

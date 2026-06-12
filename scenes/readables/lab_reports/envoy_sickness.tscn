@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://sfevrc6ehroh"]
+
+[ext_resource type="Texture2D" uid="uid://ciwpfify4yd1q" path="res://assets/sprites/items/readables/paper.png" id="1_jbjde"]
+[ext_resource type="FontFile" uid="uid://hcag880c0r41" path="res://assets/fonts/CormorantGaramond-VariableFont_wght.ttf" id="2_4ar5r"]
+[ext_resource type="PackedScene" uid="uid://b7x6h2aoyk3a0" path="res://scenes/readables/company_logo.tscn" id="3_47ihd"]
+[ext_resource type="PackedScene" uid="uid://cmcrodc6fiexh" path="res://scenes/readables/plain_text.tscn" id="4_px0sw"]
+
+[node name="EnvoySickness" type="Control" unique_id=1150323895]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="." unique_id=773029977]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -212.5
+offset_top = -310.7915
+offset_right = 212.5
+offset_bottom = 310.7915
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_jbjde")
+expand_mode = 5
+
+[node name="Label" type="RichTextLabel" parent="Background" unique_id=1474890017]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -197.5
+offset_top = -290.7915
+offset_right = 197.5
+offset_bottom = 290.7915
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/normal_font = ExtResource("2_4ar5r")
+theme_override_font_sizes/normal_font_size = 15
+text = "
+
+Documents pertaining to the Envoy’s sickness as of  ████████  have been archived and this document shall serve as a summary of circumstances. From our current understandings, the Envoy’s symptoms most closely resemble the following: mania, weakness, fever, hallucinations, delusions, and mood swings. No treatment has been deemed effective at treating the sickness that the Envoy has endured. Pressure has been mounting as the output of the Envoy’s abilities have been vastly diminished. 
+
+Despite an entirely new team formed around potential treatment plans and restoration, progress has been minimal. The collaboration between doctors, psychiatrists, priests and scientists have not been able to formulate any potential cause. The illness has worsened day by day. We are slowly and steadily losing them. Its abilities continue to fade as its power fades. This in turn has affected progress on other programs and projects that are reliant on the Envoy’s abilities. Efficiency at the lab has dropped to glacial levels.
+
+At first the group believed that it was an onset of a novel disease or condition that may have arisen from contamination from other projects and programs, however future testing reveals that the hypothesis is inconclusive. No pathogens or foreign agents have been detected in the envoy. We will continue to monitor the situation and pray for the best outcome.
+"
+scroll_active = false
+autowrap_mode = 2
+
+[node name="CompanyLogo" parent="Background" unique_id=2043224503 instance=ExtResource("3_47ihd")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -221.5
+offset_top = 11.791504
+offset_right = -221.5
+offset_bottom = 11.791504
+grow_horizontal = 0
+
+[node name="PlainText" parent="." unique_id=1201338786 instance=ExtResource("4_px0sw")]
+visible = false
+report_text = "Documents pertaining to the Envoy’s sickness as of  ████████  have been archived and this document shall serve as a summary of circumstances. From our current understandings, the Envoy’s symptoms most closely resemble the following: mania, weakness, fever, hallucinations, delusions, and mood swings. No treatment has been deemed effective at treating the sickness that the Envoy has endured. Pressure has been mounting as the output of the Envoy’s abilities have been vastly diminished. 
+
+Despite an entirely new team formed around potential treatment plans and restoration, progress has been minimal. The collaboration between doctors, psychiatrists, priests and scientists have not been able to formulate any potential cause. The illness has worsened day by day. We are slowly and steadily losing them. Its abilities continue to fade as its power fades. This in turn has affected progress on other programs and projects that are reliant on the Envoy’s abilities. Efficiency at the lab has dropped to glacial levels.
+
+At first the group believed that it was an onset of a novel disease or condition that may have arisen from contamination from other projects and programs, however future testing reveals that the hypothesis is inconclusive. No pathogens or foreign agents have been detected in the envoy. We will continue to monitor the situation and pray for the best outcome.
+"

@@ -14,10 +14,14 @@ enum Item {
 @export var item: Item = Item.BATTERY
 @export var item_sprite: Texture2D = null
 @export var can_pickup: bool = true
+@export var tutorial: bool = false # whether or not this pickup should trigger the tutorial when picked up
+
 
 @onready var sprite: TextureRect = $Sprite
 @onready var interactable: Interactable = $Interactable
 @onready var audio_player: AudioStreamPlayer2D = $AudioPlayer
+
+
 
 func _ready():
 	sprite.texture = item_sprite
@@ -50,3 +54,11 @@ func on_interacted(player: Player):
 	else:
 		# probably put some UI saying inventory is full, for now just print it
 		print("Cannot add " + str(Item.keys()[item]) + " because inventory is full")
+	if tutorial: 
+		if item == Item.BATTERY:
+			player.show_tutorial("battery", "Press B to open your inventory and E to use")
+		elif item == Item.MEDKIT:
+			player.show_tutorial("medkit", "Press B to open your inventory and E to use")
+		elif item ==Item.FLASHLIGHT:
+			player.show_tutorial("flashlight", "Right Click the flashlight to toggle it on/off.")
+

@@ -4,7 +4,8 @@ class_name SceneManager
 enum Scenes {
 	MAIN_MENU,
 	IN_GAME,
-	ENDING_SEQUENCE # maybe?
+	ENDING_SEQUENCE, # maybe?
+	GAME_OVER
 }
 @onready var main_menu_scene = load("res://scenes/menus/menu.tscn") as PackedScene
 @onready var in_game_scene = load("res://scenes/main.tscn") as PackedScene # placeholder
@@ -25,6 +26,8 @@ func change_scene(scene: Scenes) -> void:
 		get_tree().change_scene_to_packed(in_game_scene)
 	elif scene == Scenes.ENDING_SEQUENCE:
 		print("don't even know if this is necessary")
+	elif scene == Scenes.GAME_OVER:
+		get_tree().change_scene_to_packed(game_over_scene)
 
 func open_sub_menu(menu: SubMenus):
 	if menu == SubMenus.OPTIONS:
@@ -35,4 +38,3 @@ func open_sub_menu(menu: SubMenus):
 	if menu == SubMenus.CREDITS:
 		var instance = credits_scene.instantiate()
 		get_tree().current_scene.add_child(instance)
-	

@@ -28,12 +28,22 @@ signal player_died(killer: Enemy)
 @export var backward_speed: int = 75
 @export var turn_rate: float = 7.5
 
+@export var immortal: bool = false # for testing remove later
+
 # Runtime variables
 var inputs_disabled: bool = false
 var health: int = max_health
 var is_sprinting: bool = false
 var input_vector: Vector2 = Vector2.ZERO
 var facing_direction: Vector2 = Vector2.ZERO
+
+
+
+var tutorial = {
+	"medkit": false,
+	"battery": false,
+	"flashlight": false
+}
 
 func _ready():
 	inventory.medkit_consumed.connect(full_heal)
@@ -91,6 +101,10 @@ func _check_interact():
 		if collider is Interactable:
 			collider.show_interact_prompt()
 
+func show_tutorial(tutorial_name: String, tutorial_message: String = ""):
+	if tutorial.has(tutorial_name) && !tutorial[tutorial_name]:
+		hud.display_flavor_text(tutorial_message)
+		tutorial[tutorial_name] = true 
 
 func handle_pause(pause: bool):
 	overlay.visible = !pause
@@ -106,7 +120,10 @@ func full_heal():
 
 func damage(amount: int): # called for environmental hazards
 	health -= amount
-	if health <= 0: player_died.emit(null)
+	if health <= 0: 
+		player_died.emit(null)
+		if !immortal:
+			SCENE_MANAGER.change_scene(SCENE_MANAGER.Scenes.GAME_OVER)
 
 func replace_battery():
 	flashlight.refill_battery()
@@ -131,4 +148,6 @@ func attack(amount: int, attacker: Enemy) -> bool: # called for enemy attacks (r
 	if health <= 0:
 		player_died.emit(attacker)
 		print("player died to " + str(attacker))
+		if !immortal:
+			SCENE_MANAGER.change_scene(SCENE_MANAGER.Scenes.GAME_OVER)
 	return true

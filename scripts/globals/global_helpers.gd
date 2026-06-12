@@ -24,3 +24,4 @@ func play_audio_from_point(audio: AudioStreamPlayer2D, point: float, lower: floa
     else:
         audio.pitch_scale = randf_range(lower, upper)
         audio.play(point)
+

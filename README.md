@@ -82,3 +82,4 @@ https://opengameart.org/content/fast-food-benches-tables
 https://opengameart.org/content/lpc-animated-torch
 https://kenney.nl/assets/light-masks
 https://opengameart.org/content/switches
+https://kenney.nl/assets/input-prompts-pixel
