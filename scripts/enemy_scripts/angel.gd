@@ -20,10 +20,10 @@ var scout_position: Vector2 = Vector2.ZERO
 
 
 func _ready() -> void:
+	super()
 
-	collision_mask = PHYS_LAYERS.TERRAIN + PHYS_LAYERS.PLAYER
-	collision_layer = PHYS_LAYERS.ENEMY
-
+	# collision_mask = PHYS_LAYERS.TERRAIN + PHYS_LAYERS.PLAYER
+	# collision_layer = PHYS_LAYERS.ENEMY
 
 	nav_agent.path_desired_distance = 100.0
 	nav_agent.target_desired_distance = 1.0
@@ -42,7 +42,6 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 
-	print(ai_state)
 	if ai_state == State.CHASE:
 		chase(delta)
 		try_damage_player()
@@ -54,7 +53,7 @@ func _physics_process(delta: float) -> void:
 			patrol_path.progress = patrol_path.get_parent().curve.get_closest_offset(to_local(global_position))
 
 	if ai_state == State.PATROL:
-		print("Angel is patrolling.")
+		# print("Angel is patrolling.")
 		patrol(delta)
 		# rotation = move_toward(rotation, 0, delta * turn_rate)
 
@@ -114,7 +113,7 @@ func _on_body_out_of_view(player: Player) -> void:
 
 func _on_chase_timer_timeout() -> void:
 	chase_timer.stop()
-	print("Angel lost sight of player, stopping chase.")
+	# print("Angel lost sight of player, stopping chase.")
 	nav_agent.target_position = find_nearest_patrol_point()
 	ai_state = State.IDLE
 

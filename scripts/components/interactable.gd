@@ -13,7 +13,6 @@ enum Type {
 @export var parent_collider: CollisionShape2D = null
 @export var description: String = ""
 
-
 signal interacted(player: Player)
 
 func _ready():
@@ -29,7 +28,7 @@ func update_desc(new_desc: String):
 	description = new_desc
 
 func enable(do_enable):
-	set_deferred("disabled", !do_enable)
+	hitbox.set_deferred("disabled", !do_enable)
 
 func interact(player: Player):
 	if interact_type == Type.SIGNALER:

@@ -1,14 +1,26 @@
 [gd_scene format=4 uid="uid://ddwp5fi734po8"]
 
+[ext_resource type="Script" uid="uid://cyherup6g8uig" path="res://scripts/room_scripts/room_managers/hallways.gd" id="1_1446t"]
 [ext_resource type="TileSet" uid="uid://bfc70hpaf234h" path="res://assets/tileset/main_tile_set.tres" id="1_yt72g"]
 [ext_resource type="PackedScene" uid="uid://s447nfjehl7g" path="res://scenes/enemy_scenes/angel.tscn" id="2_0no2g"]
 [ext_resource type="PackedScene" uid="uid://dkag3nwr7uqd8" path="res://scenes/player_scenes/player.tscn" id="3_0no2g"]
+[ext_resource type="PackedScene" uid="uid://djvd2vub3v3h1" path="res://scenes/components/interactable.tscn" id="3_r82la"]
+[ext_resource type="PackedScene" uid="uid://cfslgv17irrxe" path="res://scenes/environment_objects/pickup.tscn" id="4_vwprq"]
+[ext_resource type="Texture2D" uid="uid://2ukxugwj42vt" path="res://assets/sprites/items/puzzle_items/WestKey.png" id="5_yxog5"]
+[ext_resource type="AudioStream" uid="uid://crqfuy4ymws5y" path="res://assets/sfx/puzzles/GateOpen.mp3" id="6_7htlt"]
+[ext_resource type="Texture2D" uid="uid://c1nsyko11v02" path="res://assets/sprites/items/puzzle_items/Key1.png" id="6_yxog5"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_yt72g"]
 vertices = PackedVector2Array(1015, -743, 921, -423, 921, -569, 1015, 89, 519, -633, 489, -583, 489, -729, 519, -487, 905, -583, 759, -569, 743, -583, 759, -423, 681, -487, 681, -633, 743, -729, 137, -519, 327, -583, 137, -665, 327, -729, 905, -729, 279, -743, 185, -743, 185, -1111, 279, -1111, 1559, 89, 1559, 183, 921, 183, 921, -409, 343, -409, 343, -25, 265, -25, 265, -409, -119, -409, -25, -519, -119, -649, -25, -665, -823, -1081, -1175, -1081, -1175, -1113, -1207, -1113, -1207, -1143, -1175, -1143, -1175, -1175, -681, -1175, -681, -743, -823, -649)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(1, 0, 3), PackedInt32Array(4, 5, 6), PackedInt32Array(5, 4, 7), PackedInt32Array(8, 2, 9), PackedInt32Array(10, 8, 9), PackedInt32Array(9, 11, 12), PackedInt32Array(9, 12, 13), PackedInt32Array(10, 9, 13), PackedInt32Array(14, 10, 13), PackedInt32Array(5, 7, 15), PackedInt32Array(16, 5, 15), PackedInt32Array(16, 15, 17), PackedInt32Array(18, 16, 17), PackedInt32Array(0, 2, 8), PackedInt32Array(0, 8, 19), PackedInt32Array(20, 0, 19), PackedInt32Array(20, 19, 14), PackedInt32Array(21, 22, 23), PackedInt32Array(21, 23, 20), PackedInt32Array(3, 24, 25), PackedInt32Array(3, 25, 26), PackedInt32Array(3, 26, 27), PackedInt32Array(1, 3, 27), PackedInt32Array(11, 1, 27), PackedInt32Array(11, 27, 28), PackedInt32Array(12, 11, 28), PackedInt32Array(7, 12, 28), PackedInt32Array(15, 7, 28), PackedInt32Array(28, 29, 30), PackedInt32Array(28, 30, 31), PackedInt32Array(15, 28, 31), PackedInt32Array(15, 31, 32), PackedInt32Array(33, 15, 32), PackedInt32Array(33, 32, 34), PackedInt32Array(35, 33, 34), PackedInt32Array(36, 37, 38), PackedInt32Array(38, 39, 40), PackedInt32Array(38, 40, 41), PackedInt32Array(41, 42, 43), PackedInt32Array(38, 41, 43), PackedInt32Array(36, 38, 43), PackedInt32Array(36, 43, 44), PackedInt32Array(45, 36, 44), PackedInt32Array(34, 45, 44), PackedInt32Array(34, 44, 21), PackedInt32Array(35, 34, 21), PackedInt32Array(17, 35, 21), PackedInt32Array(18, 17, 21), PackedInt32Array(18, 21, 20), PackedInt32Array(13, 4, 6), PackedInt32Array(14, 13, 6), PackedInt32Array(20, 14, 6), PackedInt32Array(18, 20, 6)])
 sample_partition_type = 1
 agent_radius = 25.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r82la"]
+size = Vector2(50, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iwcrx"]
+size = Vector2(80, 50)
 
 [sub_resource type="Curve2D" id="Curve2D_0no2g"]
 _data = {
@@ -17,6 +29,7 @@ _data = {
 point_count = 24
 
 [node name="Hallways" type="Node2D" unique_id=1870240753]
+script = ExtResource("1_1446t")
 metadata/_edit_lock_ = true
 
 [node name="Layout" type="NavigationRegion2D" parent="." unique_id=1573180781]
@@ -38,6 +51,36 @@ tile_map_data = PackedByteArray("AAA4AA0AAgAFAAMAAAA5AA0AAgAGAAMAAAA6AA0AAgAHAAM
 tile_set = ExtResource("1_yt72g")
 metadata/_edit_lock_ = true
 
+[node name="NorthGate" type="TileMapLayer" parent="Layout" unique_id=1807801636]
+tile_map_data = PackedByteArray("AAANALf/AgAgAAIAAAAOALf/AgAiAAIAAAAPALf/AgAjAAIAAAAOALj/AgAiAAUAAAAPALj/AgAjAAUAAAANALj/AgAgAAUAAAA=")
+tile_set = ExtResource("1_yt72g")
+
+[node name="EastGate" type="TileMapLayer" parent="Layout" unique_id=1232400603]
+tile_map_data = PackedByteArray("AABjAAcAAgAfAAIAAABjAAgAAgAfAAIAAABjAAkAAgAfAAIAAAA=")
+tile_set = ExtResource("1_yt72g")
+
+[node name="GateTriggers" type="Node2D" parent="." unique_id=770874294]
+
+[node name="TriggerShape" type="CollisionShape2D" parent="GateTriggers" unique_id=301929572]
+position = Vector2(1591, 136)
+shape = SubResource("RectangleShape2D_r82la")
+
+[node name="EastTrigger" parent="GateTriggers/TriggerShape" unique_id=1496959412 node_paths=PackedStringArray("parent_collider") instance=ExtResource("3_r82la")]
+unique_name_in_owner = true
+interact_type = 1
+parent_collider = NodePath("..")
+description = "It's locked"
+
+[node name="TriggerShape2" type="CollisionShape2D" parent="GateTriggers" unique_id=250897189]
+position = Vector2(231, -1150)
+shape = SubResource("RectangleShape2D_iwcrx")
+
+[node name="NorthTrigger" parent="GateTriggers/TriggerShape2" unique_id=345271570 node_paths=PackedStringArray("parent_collider") instance=ExtResource("3_r82la")]
+unique_name_in_owner = true
+interact_type = 1
+parent_collider = NodePath("..")
+description = "It's locked"
+
 [node name="Path2D" type="Path2D" parent="." unique_id=1512377126]
 curve = SubResource("Curve2D_0no2g")
 
@@ -46,9 +89,32 @@ position = Vector2(-68, -700)
 rotation = 0.006644421
 rotates = false
 
-[node name="Angel" parent="Path2D/PathFollow2D" unique_id=1599280180 node_paths=PackedStringArray("patrol_path") instance=ExtResource("2_0no2g")]
-patrol_path = NodePath("..")
+[node name="Pickups" type="Node2D" parent="." unique_id=1082126274]
+
+[node name="TestKeyDeleteLater" type="Node2D" parent="Pickups" unique_id=1787600893]
+
+[node name="Pickup" parent="Pickups/TestKeyDeleteLater" unique_id=1314714567 instance=ExtResource("4_vwprq")]
+position = Vector2(1484, 176)
+key_item_name = "East Key"
+item = 4
+item_sprite = ExtResource("5_yxog5")
+
+[node name="Key" parent="Pickups/TestKeyDeleteLater" unique_id=767042688 instance=ExtResource("4_vwprq")]
+position = Vector2(277, -1058)
+key_item_name = "North Key"
+item = 4
+item_sprite = ExtResource("6_yxog5")
+
+[node name="Sounds" type="Node2D" parent="." unique_id=942194394]
+
+[node name="GateSound" type="AudioStreamPlayer2D" parent="Sounds" unique_id=1532854880]
+stream = ExtResource("6_7htlt")
+
+[node name="Angel" parent="." unique_id=1599280180 node_paths=PackedStringArray("patrol_path") instance=ExtResource("2_0no2g")]
+position = Vector2(-68, -700)
+rotation = 0.006644421
+patrol_path = NodePath("../Path2D/PathFollow2D")
 hide_enemy = false
 
 [node name="Player" parent="." unique_id=628625629 instance=ExtResource("3_0no2g")]
-position = Vector2(313, -337)
+position = Vector2(228, -1053)
