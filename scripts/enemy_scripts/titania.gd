@@ -11,9 +11,9 @@ func _ready():
 
 func _process(delta):
 	super(delta)
-	if ai_state == State.PATROL || velocity.length() > 0:
+	if ai_state == State.PATROL || velocity.length_squared() > 5:
 		sprite.play()
-	elif velocity.length() < 0 || !is_active:
+	elif velocity.length_squared() < 5 || !is_active:
 		sprite.pause()
 
 func _physics_process(delta: float) -> void:
