@@ -8,7 +8,6 @@ var is_censored: bool = true
 func _ready():
     interactable.interacted.connect(_on_interact)
     interactable.update_desc("You're not allowed to see that")
-    uncensor(false)
 
 func uncensor(do_censor: bool = false):
     censor_bar.visible = do_censor
