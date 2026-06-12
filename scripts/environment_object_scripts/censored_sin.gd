@@ -3,7 +3,10 @@ extends Node2D
 @onready var censor_bar = $CensorBar
 @onready var interactable = $Interactable
 
+signal uncensored_interacted
+
 var is_censored: bool = true
+var second_interact: bool = false
 
 func _ready():
     interactable.interacted.connect(_on_interact)
@@ -13,12 +16,14 @@ func uncensor(do_censor: bool = false):
     censor_bar.visible = do_censor
     is_censored = false
     if do_censor: interactable.update_desc("You're not allowed to see that")
-    else: interactable.update_desc("Are you proud of yourself?")
+    else: interactable.update_desc("Wipe your memories again?")
 
 func _on_interact(player: Player):
     if is_censored:
         player.hud.display_flavor_text(interactable.description)
         return
-    # emit sequence here
-    player.hud.display_flavor_text(interactable.description)
-    print("Game ended wow.")
+    if !second_interact:
+        player.hud.display_flavor_text(interactable.description)
+        second_interact = true
+        return
+    uncensored_interacted.emit()

@@ -11,9 +11,12 @@ class_name StarterRoom
 @onready var open_sfx: AudioStreamPlayer2D = $Sounds/Open
 @onready var cinematic: StartCinematic = $Cinematic
 
+signal initiate_ending
+
 func _ready():
 	player.disable_inputs(true)
 	cinematic.finish_cinematic.connect(_on_finished_cinematic)
+	censored_sin.uncensored_interacted.connect(func(): initiate_ending.emit())
 	for pickup in required_pickups:
 		pickup.tree_exiting.connect(func():
 			required_pickups.remove_at(required_pickups.find(pickup))
@@ -22,7 +25,7 @@ func _ready():
 	cinematic.play_sequence()
 
 func uncensor_sin():
-	censored_sin.uncensor(false)
+	censored_sin.uncensor()
 
 func try_unlock_door():
 	if required_pickups.size() > 0: return

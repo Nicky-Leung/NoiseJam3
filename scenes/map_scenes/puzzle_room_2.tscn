@@ -163,7 +163,7 @@ position = Vector2(1770.9999, 147)
 rotation = -1.5707964
 
 [node name="Key" parent="Layout/LeverPuzzle" unique_id=1314714567 instance=ExtResource("8_hym7c")]
-position = Vector2(1768, 1851)
+position = Vector2(318, 166)
 key_item_name = "North Key"
 item = 4
 item_sprite = ExtResource("9_6jss4")
