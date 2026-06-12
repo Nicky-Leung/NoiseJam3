@@ -2,6 +2,7 @@ extends Control
 class_name Inventory
 
 const key_item_desc: String = "Perhaps this could be used somewhere?"
+const diamond_desc: String = "Return to where it all began"
 const medkit_name: String = "MedKit"
 const medkit_desc: String = "Use to heal to max health"
 const battery_name: String = "Battery"
@@ -188,6 +189,7 @@ func _get_description(item_name: String) -> String:
 	if item_name == medkit_name: return medkit_desc
 	elif item_name == battery_name: return battery_desc
 	elif item_name == trap_name: return trap_desc
+	elif item_name == "Diamond": return diamond_desc
 	elif item_name == "": return ""
 	return key_item_desc
 
