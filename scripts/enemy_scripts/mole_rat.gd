@@ -73,7 +73,7 @@ func _physics_process(delta):
 			global_position = patrol_path.global_position
 			idle_timer.start()
 
-	if randi() % 10000 == 0: HELPERS.play_audio(squeak, 0.03, 0.1)
+	if randi() % 10000 == 0 && !squeak.playing: HELPERS.play_audio(squeak, 0.03, 0.1)
 
 func toggle_active(enable: bool) -> void:
 	super(enable)
