@@ -3,12 +3,13 @@
 [ext_resource type="Script" uid="uid://cyherup6g8uig" path="res://scripts/room_scripts/room_managers/hallways.gd" id="1_1446t"]
 [ext_resource type="TileSet" uid="uid://bfc70hpaf234h" path="res://assets/tileset/main_tile_set.tres" id="1_yt72g"]
 [ext_resource type="PackedScene" uid="uid://s447nfjehl7g" path="res://scenes/enemy_scenes/angel.tscn" id="2_0no2g"]
-[ext_resource type="PackedScene" uid="uid://dkag3nwr7uqd8" path="res://scenes/player_scenes/player.tscn" id="3_0no2g"]
 [ext_resource type="PackedScene" uid="uid://djvd2vub3v3h1" path="res://scenes/components/interactable.tscn" id="3_r82la"]
 [ext_resource type="PackedScene" uid="uid://cfslgv17irrxe" path="res://scenes/environment_objects/pickup.tscn" id="4_vwprq"]
-[ext_resource type="Texture2D" uid="uid://2ukxugwj42vt" path="res://assets/sprites/items/puzzle_items/WestKey.png" id="5_yxog5"]
 [ext_resource type="AudioStream" uid="uid://crqfuy4ymws5y" path="res://assets/sfx/puzzles/GateOpen.mp3" id="6_7htlt"]
-[ext_resource type="Texture2D" uid="uid://c1nsyko11v02" path="res://assets/sprites/items/puzzle_items/Key1.png" id="6_yxog5"]
+[ext_resource type="Texture2D" uid="uid://co0w164ofa0fi" path="res://assets/sprites/items/zombie_icons.png" id="7_cmk56"]
+[ext_resource type="PackedScene" uid="uid://y6qgwf18h0bh" path="res://scenes/environment_objects/readable.tscn" id="7_yxog5"]
+[ext_resource type="Texture2D" uid="uid://b7wau1b5i0ra2" path="res://assets/sprites/items/readables/Phone1.png" id="8_7htlt"]
+[ext_resource type="PackedScene" uid="uid://do34ivvcx6g6g" path="res://scenes/readables/text_messages/grate_puzzle_hint.tscn" id="9_mjr0x"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_yt72g"]
 vertices = PackedVector2Array(1015, -743, 841, -519, 841, -665, 279, -743, 679, -665, 185, -743, 185, -1111, 279, -1111, 679, -519, 137, -519, 137, -665, -681, -743, -25, -665, 1015, 89, 1559, 89, 1559, 183, 921, 183, 921, -409, 343, -409, 343, -25, 265, -25, 265, -409, -119, -409, -25, -519, -119, -649, -823, -649, -823, -1081, -681, -1175, -1175, -1175, -1175, -1143, -1175, -1081, -1175, -1113, -1207, -1113, -1207, -1143)
@@ -27,6 +28,14 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, -68, -703, 0, 0, 0, 0, 233, -706, 0, 0, 0, 0, 249, -454, 0, 0, 0, 0, 593, -466, 0, 0, 0, 0, 592, -710, 0, 0, 0, 0, 938, -704, 0, 0, 0, 0, 940, -455, 0, 0, 0, 0, 593, -466, 0, 0, 0, 0, 592, -711, 0, 0, 0, 0, 234, -706, 0, 0, 0, 0, 248, -453, 0, 0, 0, 0, -70, -454, 0, 0, 0, 0, -68, -703)
 }
 point_count = 13
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eqycu"]
+atlas = ExtResource("7_cmk56")
+region = Rect2(1275.6609, 10.787857, 254.22119, 222.27708)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lf4mn"]
+atlas = ExtResource("7_cmk56")
+region = Rect2(1023, 10, 248, 232)
 
 [node name="Hallways" type="Node2D" unique_id=1870240753]
 script = ExtResource("1_1446t")
@@ -92,19 +101,31 @@ rotation = -0.009966447
 
 [node name="Pickups" type="Node2D" parent="." unique_id=1082126274]
 
-[node name="TestKeyDeleteLater" type="Node2D" parent="Pickups" unique_id=1787600893]
+[node name="Battery" parent="Pickups" unique_id=1314714567 instance=ExtResource("4_vwprq")]
+position = Vector2(760, -533)
+item_sprite = SubResource("AtlasTexture_eqycu")
 
-[node name="Pickup" parent="Pickups/TestKeyDeleteLater" unique_id=1314714567 instance=ExtResource("4_vwprq")]
-position = Vector2(1484, 176)
-key_item_name = "East Key"
-item = 4
-item_sprite = ExtResource("5_yxog5")
+[node name="Medkit" parent="Pickups" unique_id=25870872 instance=ExtResource("4_vwprq")]
+position = Vector2(411, -540)
+item = 1
+item_sprite = SubResource("AtlasTexture_lf4mn")
 
-[node name="Key" parent="Pickups/TestKeyDeleteLater" unique_id=767042688 instance=ExtResource("4_vwprq")]
-position = Vector2(277, -1058)
-key_item_name = "North Key"
-item = 4
-item_sprite = ExtResource("6_yxog5")
+[node name="Battery2" parent="Pickups" unique_id=743031103 instance=ExtResource("4_vwprq")]
+position = Vector2(-825, -646)
+item_sprite = SubResource("AtlasTexture_eqycu")
+
+[node name="Battery3" parent="Pickups" unique_id=705028541 instance=ExtResource("4_vwprq")]
+position = Vector2(1569, 66)
+item_sprite = SubResource("AtlasTexture_eqycu")
+
+[node name="Medkit2" parent="Pickups" unique_id=1948555680 instance=ExtResource("4_vwprq")]
+position = Vector2(170, -1133)
+item = 1
+item_sprite = SubResource("AtlasTexture_lf4mn")
+
+[node name="Battery4" parent="Pickups" unique_id=792708468 instance=ExtResource("4_vwprq")]
+position = Vector2(-1186, -1195)
+item_sprite = SubResource("AtlasTexture_eqycu")
 
 [node name="Sounds" type="Node2D" parent="." unique_id=942194394]
 
@@ -118,11 +139,9 @@ patrol_path = NodePath("../Path2D/PathFollow2D")
 hide_enemy = false
 is_active = true
 
-[node name="Player" parent="." unique_id=628625629 instance=ExtResource("3_0no2g")]
-position = Vector2(876, -588)
+[node name="Readables" type="Node2D" parent="." unique_id=1311762866]
 
-[node name="Camera" parent="Player" index="1" unique_id=1935661433]
-zoom = Vector2(1, 1)
-
-[editable path="Player"]
-[editable path="Player/Flashlight"]
+[node name="Electronic" parent="Readables" unique_id=536321432 instance=ExtResource("7_yxog5")]
+position = Vector2(362, -134)
+in_world_sprite = ExtResource("8_7htlt")
+readable_menu = ExtResource("9_mjr0x")

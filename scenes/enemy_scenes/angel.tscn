@@ -59,7 +59,6 @@ animations = [{
 }]
 
 [node name="Angel" type="CharacterBody2D" unique_id=1599280180 node_paths=PackedStringArray("nav_agent", "animated_sprite", "collision_box")]
-position = Vector2(1, 0)
 script = ExtResource("1_8owf6")
 teleport_sounds = Array[AudioStream]([ExtResource("2_4qhns"), ExtResource("3_j8bvy")])
 ambience_sounds = Array[AudioStream]([ExtResource("4_40oym"), ExtResource("5_2hpme"), ExtResource("6_3iovx")])
@@ -89,7 +88,7 @@ offset = Vector2(-36.185, -41.25)
 
 [node name="VisionCone" parent="." unique_id=1495805894 node_paths=PackedStringArray("holder") instance=ExtResource("3_p4h1f")]
 holder = NodePath("..")
-cone_length = 400.0
+cone_length = 300.0
 
 [node name="RayCast2D" type="RayCast2D" parent="VisionCone" unique_id=206099918]
 

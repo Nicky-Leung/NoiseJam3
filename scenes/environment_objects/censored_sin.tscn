@@ -58,8 +58,8 @@ collision_mask = 0
 shape = SubResource("CapsuleShape2D_n0bo8")
 
 [node name="Interactable" parent="." unique_id=345271570 node_paths=PackedStringArray("parent_collider") instance=ExtResource("4_n0bo8")]
+interact_type = 1
 parent_collider = NodePath("../Collider/Shape")
-description = "You can't see that."
 
 [node name="SpriteViewport" type="SubViewport" parent="." unique_id=1001025109]
 transparent_bg = true
