@@ -33,9 +33,9 @@ func _physics_process(delta: float) -> void:
 		ai_state = State.CHASE
 		chase_target = player
 
-	if ai_state == State.CHASE:
-		footsteps.play_steps(get_real_velocity().length())
-
+	if ai_state != State.CHASE: return
+	
+	footsteps.play_steps(get_real_velocity().length())
 	if in_light:
 		move_away_from_player(delta)
 		if !is_moving_away_from_player:
@@ -99,3 +99,4 @@ func start_patrol_phase() -> void:
 	ai_state = State.PATROL
 	patrol_path.progress = 0
 	global_position = patrol_path.global_position
+	chase_target = null
