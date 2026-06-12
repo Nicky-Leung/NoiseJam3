@@ -3,14 +3,21 @@ class_name Titania
 
 @onready var attack_ray: RayCast2D = $AttackRay
 @onready var sprite: AnimatedSprite2D = $Sprite
+@onready var weeping_sound: AudioStreamPlayer2D = $WeepingSound
+
+
+var is_moving_away_from_player: bool = false
+
+var paused_position: float = 0.0
+
 
 func _ready():
 	super()
 	sprite.animation = "move"
 	sprite.animation_finished.connect(_on_animation_finished)
 
-func _process(delta):
-	super(delta)
+func _process(_delta):
+	# super(delta)
 	if ai_state == State.PATROL || velocity.length_squared() > 5:
 		sprite.play()
 	elif velocity.length_squared() < 5 || !is_active:
@@ -26,11 +33,19 @@ func _physics_process(delta: float) -> void:
 		ai_state = State.CHASE
 		chase_target = player
 
-	if ai_state != State.CHASE: return
-	if in_light: move_away_from_player(delta)
+	if ai_state != State.CHASE:
+		in_light = false
+		return
+	if in_light:
+		move_away_from_player(delta)
+		if !is_moving_away_from_player:
+			change_moving_away_from_player(true)
+
 	else:
 		chase(delta)
 		try_damage_player()
+		change_moving_away_from_player(false)
+	in_light = false
 
 func toggle_active(enable: bool) -> void:
 	super(enable)
@@ -50,6 +65,19 @@ func try_damage_player():
 	if collider is not Player: return
 	(collider as Player).attack(attack_damage, self)
 	sprite.animation = "attack"
+
+func change_moving_away_from_player(is_moving_away: bool) -> void:
+	if is_moving_away:
+		is_moving_away_from_player = true
+		weeping_sound.play(paused_position)
+	else:
+		is_moving_away_from_player = false
+		if weeping_sound.get_playback_position() > 0:
+			paused_position = weeping_sound.get_playback_position()
+		print ("Paused weeping sound at position: ", paused_position)
+		weeping_sound.stop()
+
+
 
 func move_away_from_player(delta: float) -> bool:
 	if chase_target == null:
