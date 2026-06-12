@@ -44,7 +44,7 @@ func _physics_process(delta: float) -> void:
 	elif ai_state == State.SCOUT:
 		nav_agent.target_desired_distance = 50
 		var reached = move_to(delta, scout_position)
-		if reached:
+		if reached || get_real_velocity().length_squared() < 25:
 			reset_timer.start()
 			ai_state = State.IDLE
 
@@ -96,6 +96,8 @@ func _on_body_out_of_view() -> void:
 
 func _on_reset_timeout() -> void:
 	global_position = patrol_path.global_position
+	global_rotation = patrol_path.global_rotation
+	sprite.rotation = -global_rotation
 	ai_state = State.PATROL
 	teleport_audio.stream = teleport_sounds[randi() % teleport_sounds.size()]
 	is_first_encounter = true

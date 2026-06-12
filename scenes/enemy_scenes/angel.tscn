@@ -116,7 +116,7 @@ cone_length = 600.0
 [node name="RayCast2D12" type="RayCast2D" parent="VisionCone" unique_id=212684334]
 
 [node name="ResetTimer" type="Timer" parent="." unique_id=1374719611]
-wait_time = 5.0
+wait_time = 7.5
 one_shot = true
 
 [node name="AttackRay" type="RayCast2D" parent="." unique_id=851962581]
