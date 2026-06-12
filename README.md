@@ -11,6 +11,7 @@ https://fonts.google.com/specimen/Roboto
 
 https://opengameart.org/content/factory-ambiance
 https://opengameart.org/content/dark-ambience-loop
+https://opengameart.org/content/cold-night
 
 ## Shaders
 
@@ -63,6 +64,10 @@ https://pixabay.com/sound-effects/film-special-effects-notification-interface-su
 https://pixabay.com/sound-effects/film-special-effects-stone-push-37412/
 https://opengameart.org/content/iron-door
 https://pixabay.com/sound-effects/film-special-effects-clank1-91862/
+https://pixabay.com/sound-effects/film-special-effects-sfx-getting-out-of-bed-irritated-380647/
+https://pixabay.com/sound-effects/film-special-effects-soft-ruffle-85809/
+https://pixabay.com/sound-effects/film-special-effects-defibrillator-6961/
+https://pixabay.com/sound-effects/horror-horror-body-drop-152091/
 
 #Tiles and Sprites
 https://opengameart.org/content/gemmed-items
