@@ -1,8 +1,16 @@
 [gd_scene format=3 uid="uid://s447nfjehl7g"]
 
 [ext_resource type="Script" uid="uid://bx48qd0705hn0" path="res://scripts/enemy_scripts/angel.gd" id="1_8owf6"]
+[ext_resource type="AudioStream" uid="uid://dmbb0oo32t0fs" path="res://assets/sfx/enemies/angel_tp1.mp3" id="2_4qhns"]
 [ext_resource type="Texture2D" uid="uid://pqq1x0vaoh1p" path="res://assets/sprites/SpriteAngel.png" id="2_6gyu6"]
+[ext_resource type="AudioStream" uid="uid://b1pk1jdmum21t" path="res://assets/sfx/enemies/angel_tp2.mp3" id="3_j8bvy"]
 [ext_resource type="PackedScene" uid="uid://t5keqhpx2c2x" path="res://scenes/components/vision_cone.tscn" id="3_p4h1f"]
+[ext_resource type="AudioStream" uid="uid://d1eykhrs4vxap" path="res://assets/sfx/enemies/angel_ambience2.mp3" id="4_40oym"]
+[ext_resource type="PackedScene" uid="uid://c2bl8q3eud8na" path="res://scenes/components/footsteps.tscn" id="4_prwfr"]
+[ext_resource type="AudioStream" uid="uid://c8xt2idnwlamu" path="res://assets/sfx/enemies/angel_ambience3.mp3" id="5_2hpme"]
+[ext_resource type="AudioStream" uid="uid://mkvqixx1xepo" path="res://assets/sfx/enemies/angel_ambience.mp3" id="6_3iovx"]
+[ext_resource type="AudioStream" uid="uid://b0yagu03c58n" path="res://assets/sfx/enemies/angel_step.mp3" id="7_4qhns"]
+[ext_resource type="AudioStream" uid="uid://bmibnfme7sk2m" path="res://assets/sfx/enemies/angel_enter_chase.mp3" id="8_ugouw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_p4h1f"]
 radius = 20.0
@@ -47,11 +55,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 12.0
 }]
 
 [node name="Angel" type="CharacterBody2D" unique_id=1599280180 node_paths=PackedStringArray("nav_agent", "animated_sprite", "collision_box")]
+position = Vector2(1, 0)
 script = ExtResource("1_8owf6")
+teleport_sounds = Array[AudioStream]([ExtResource("2_4qhns"), ExtResource("3_j8bvy")])
+ambience_sounds = Array[AudioStream]([ExtResource("4_40oym"), ExtResource("5_2hpme"), ExtResource("6_3iovx")])
 nav_agent = NodePath("NavigationAgent2D")
 animated_sprite = NodePath("Body")
 collision_box = NodePath("CollisionShape2D")
@@ -105,9 +116,25 @@ cone_length = 600.0
 [node name="RayCast2D12" type="RayCast2D" parent="VisionCone" unique_id=212684334]
 
 [node name="ResetTimer" type="Timer" parent="." unique_id=1374719611]
-wait_time = 10.0
+wait_time = 5.0
 one_shot = true
 
 [node name="AttackRay" type="RayCast2D" parent="." unique_id=851962581]
 target_position = Vector2(50, 0)
 collision_mask = 3
+
+[node name="Sounds" type="Node2D" parent="." unique_id=1857286198]
+
+[node name="Footsteps" parent="Sounds" unique_id=1515918579 instance=ExtResource("4_prwfr")]
+attenuation = 2.0705278
+max_polyphony = 4
+step_collection = Array[AudioStream]([ExtResource("7_4qhns")])
+
+[node name="Teleport" type="AudioStreamPlayer2D" parent="Sounds" unique_id=1122943699]
+
+[node name="Ambience" type="AudioStreamPlayer2D" parent="Sounds" unique_id=1831815166]
+attenuation = 2.0705302
+
+[node name="Screech" type="AudioStreamPlayer2D" parent="Sounds" unique_id=1945350681]
+stream = ExtResource("8_ugouw")
+pitch_scale = 1.39

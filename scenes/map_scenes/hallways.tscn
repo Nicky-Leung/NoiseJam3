@@ -114,6 +114,7 @@ position = Vector2(-68, -700)
 rotation = 0.006644421
 patrol_path = NodePath("../Path2D/PathFollow2D")
 hide_enemy = false
+is_active = true
 
 [node name="Player" parent="." unique_id=628625629 instance=ExtResource("3_0no2g")]
 position = Vector2(876, -588)

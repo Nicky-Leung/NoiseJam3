@@ -1,6 +1,13 @@
 extends Enemy
 class_name Angel
 
+@export var teleport_sounds: Array[AudioStream] = []
+@export var ambience_sounds: Array[AudioStream] = []
+
+@onready var footsteps = $Sounds/Footsteps
+@onready var teleport_audio = $Sounds/Teleport
+@onready var ambience_audio = $Sounds/Ambience
+@onready var screech_audio = $Sounds/Screech
 @onready var vision: EnemyVision = $VisionCone
 @onready var reset_timer = $ResetTimer
 @onready var sprite: AnimatedSprite2D = $Body
@@ -10,7 +17,7 @@ class_name Angel
 
 var spawn_position: Vector2
 var scout_position: Vector2 = Vector2.ZERO
-
+var is_first_encounter: bool = true
 
 func _ready() -> void:
 	super()
@@ -21,16 +28,18 @@ func _ready() -> void:
 	ai_state = State.PATROL
 
 func _physics_process(delta: float) -> void:
-	if is_stunned: return
+	if is_stunned || !is_active: return
 
 	if ai_state == State.CHASE:
 		nav_agent.target_desired_distance = 5
 		chase(delta)
 		try_damage_player()
+		footsteps.play_steps(velocity.length(), 0.5, 0.8, 1.2)
 
 	elif ai_state == State.PATROL:
 		patrol(delta)
 		sprite.rotation = -global_rotation
+		footsteps.play_steps(base_speed, 0.5, 0.8, 1.2)
 
 	elif ai_state == State.SCOUT:
 		nav_agent.target_desired_distance = 50
@@ -43,6 +52,10 @@ func _physics_process(delta: float) -> void:
 		if chase_target:
 			global_rotation = global_position.direction_to(chase_target.global_position).angle()
 			sprite.rotation = -global_rotation
+
+	if randi() % 10000 == 0 && !ambience_audio.playing:
+		ambience_audio.stream = ambience_sounds[randi() % ambience_sounds.size()]
+		HELPERS.play_audio(ambience_audio)
 
 func alert_sound(alerter: Node2D) -> void:
 	ai_state = State.SCOUT
@@ -72,21 +85,23 @@ func on_view(seen_player: Player) -> void:
 	ai_state = State.CHASE
 	chase_target = seen_player
 	reset_timer.stop()
+	if is_first_encounter:
+		HELPERS.play_audio(screech_audio, 1.67, 1.67, -10)
+		is_first_encounter = false
 
 func _on_body_out_of_view() -> void:
 	if ai_state != State.CHASE: return
 	if reset_timer.time_left == 0: reset_timer.start()
 	ai_state = State.IDLE
-	# play screech noise here
 
 func _on_reset_timeout() -> void:
-	# play teleport sound effect
 	global_position = patrol_path.global_position
 	ai_state = State.PATROL
+	teleport_audio.stream = teleport_sounds[randi() % teleport_sounds.size()]
+	is_first_encounter = true
+	HELPERS.play_audio(teleport_audio)
 
 func try_damage_player():
 	var collider = attack_ray.get_collider()
 	if collider is not Player: return
-	if (collider as Player).attack(attack_damage, self):
-		# play sound effect of damaging player
-		pass
+	(collider as Player).attack(attack_damage, self)
