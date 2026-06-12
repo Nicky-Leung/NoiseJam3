@@ -1,14 +1,9 @@
 extends Enemy
 class_name Angel
 
-@export var speed: int = 100
-@export var friction: int = 400
-
 @onready var vision: EnemyVision = $VisionCone
 @onready var reset_timer = $ResetTimer
 @onready var sprite: AnimatedSprite2D = $Body
-
-@onready var body = $Body
 @onready var attack_ray: RayCast2D = $AttackRay
 @onready var is_in_light: bool = false
 @onready var is_stunned: bool = false
@@ -35,7 +30,7 @@ func _physics_process(delta: float) -> void:
 
 	elif ai_state == State.PATROL:
 		patrol(delta)
-		body.rotation = -global_rotation
+		sprite.rotation = -global_rotation
 
 	elif ai_state == State.SCOUT:
 		nav_agent.target_desired_distance = 50
@@ -47,7 +42,7 @@ func _physics_process(delta: float) -> void:
 	elif ai_state == State.IDLE:
 		if chase_target:
 			global_rotation = global_position.direction_to(chase_target.global_position).angle()
-			body.rotation = -global_rotation
+			sprite.rotation = -global_rotation
 
 func alert_sound(alerter: Node2D) -> void:
 	ai_state = State.SCOUT
@@ -67,7 +62,7 @@ func trigger_stun(stun_time: float) -> void:
 
 func turn_process(delta):
 	super(delta)
-	body.rotation = -global_rotation
+	sprite.rotation = -global_rotation
 	var direction = get_real_velocity().x
 	if direction > 0: sprite.flip_h = true
 	elif direction < 0: sprite.flip_h = false
