@@ -19,7 +19,12 @@ https://godotshaders.com/shader/retro-gameps1-shader/
 https://godotshaders.com/shader/2d-wind-sway-tree-grass-motion-shader/
 
 ## Sound Effects
-
+https://pixabay.com/sound-effects/film-special-effects-energy-90321/
+https://pixabay.com/sound-effects/musical-angels02-105519/
+https://pixabay.com/sound-effects/film-special-effects-angel-wings-opening02-177232/
+https://pixabay.com/sound-effects/film-special-effects-angel-wings-opening01-177180/
+https://pixabay.com/sound-effects/film-special-effects-screech-103213/\
+https://pixabay.com/sound-effects/film-special-effects-monster-screech-368677/
 https://opengameart.org/content/scary-ghost-1
 https://opengameart.org/content/dripping-water-loop
 https://opengameart.org/content/ghost-monster-voice-moaning-growling
