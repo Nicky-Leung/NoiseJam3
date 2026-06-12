@@ -105,8 +105,7 @@ func reset_rat():
 func on_view(seen_player: Player):
 	if !is_active: return
 	if seen_player.velocity.length() > 0.1 || in_light:
-		sprite.animation = "attack"
-		seen_player.attack(attack_damage, self)
+		if seen_player.attack(attack_damage, self): sprite.animation = "attack"
 
 func on_idle_timeout():
 	ai_state = State.IDLE
