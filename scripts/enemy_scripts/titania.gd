@@ -62,14 +62,12 @@ func try_damage_player():
 func change_moving_away_from_player(is_moving_away: bool) -> void:
 	if is_moving_away:
 		is_moving_away_from_player = true
-		weeping_sound.play(paused_position)
+		HELPERS.play_audio_from_point(weeping_sound, paused_position)
 	else:
 		is_moving_away_from_player = false
 		if weeping_sound.get_playback_position() > 0:
 			paused_position = weeping_sound.get_playback_position()
 		weeping_sound.stop()
-
-
 
 func move_away_from_player(delta: float) -> bool:
 	if chase_target == null:

@@ -14,3 +14,13 @@ func play_audio(audio: AudioStreamPlayer2D, lower: float = 0, upper: float = 0, 
     else:
         audio.pitch_scale = randf_range(lower, upper)
         audio.play()
+
+func play_audio_from_point(audio: AudioStreamPlayer2D, point: float, lower: float = 0, upper: float = 0, base_volume: float = 0):
+    audio.volume_db = factor_to_db(OPTIONS.SFX) + base_volume if OPTIONS.SFX > 0 else factor_to_db(OPTIONS.SFX)
+    lower = audio.pitch_scale if lower == 0 else lower
+    upper = audio.pitch_scale if upper == 0 else upper
+
+    if upper == lower: audio.play(point)
+    else:
+        audio.pitch_scale = randf_range(lower, upper)
+        audio.play(point)
