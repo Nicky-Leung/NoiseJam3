@@ -41,6 +41,8 @@ color = Color(0.10019137, 0.08478504, 0.12660226, 0.9647059)
 [node name="Player" parent="." unique_id=628625629 instance=ExtResource("7_qlmbj")]
 position = Vector2(308, 377)
 rotation = 1.5707964
+has_flashlight = false
+starting_flashlight_charge = 10.0
 
 [node name="Layout" type="Node2D" parent="." unique_id=1727849891]
 

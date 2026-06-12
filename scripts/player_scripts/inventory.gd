@@ -74,8 +74,6 @@ func remove_key_item(key_item_name: String):
 	items.erase(key_item_name)
 
 func has_key_item(key_item_name: String):
-	print(str(items))
-	print(items.has(key_item_name))
 	return items.has(key_item_name)
 
 func try_change_medkit(is_adding: bool) -> bool:
