@@ -18,9 +18,12 @@ class_name Angel
 var spawn_position: Vector2
 var scout_position: Vector2 = Vector2.ZERO
 var is_first_encounter: bool = true
+var is_chasing: bool:
+	get: return ai_state == State.CHASE
 
 func _ready() -> void:
 	super()
+	collision_mask -= PHYS_LAYERS.NO_OCCLUSION_TERRAIN
 	vision.body_in_view.connect(on_view)
 	vision.body_out_of_view.connect(_on_body_out_of_view)
 	reset_timer.timeout.connect(_on_reset_timeout)

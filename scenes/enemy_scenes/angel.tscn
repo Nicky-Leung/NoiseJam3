@@ -89,7 +89,7 @@ offset = Vector2(-36.185, -41.25)
 
 [node name="VisionCone" parent="." unique_id=1495805894 node_paths=PackedStringArray("holder") instance=ExtResource("3_p4h1f")]
 holder = NodePath("..")
-cone_length = 600.0
+cone_length = 400.0
 
 [node name="RayCast2D" type="RayCast2D" parent="VisionCone" unique_id=206099918]
 
@@ -126,7 +126,6 @@ collision_mask = 3
 [node name="Sounds" type="Node2D" parent="." unique_id=1857286198]
 
 [node name="Footsteps" parent="Sounds" unique_id=1515918579 instance=ExtResource("4_prwfr")]
-attenuation = 2.0705278
 max_polyphony = 4
 step_collection = Array[AudioStream]([ExtResource("7_4qhns")])
 
