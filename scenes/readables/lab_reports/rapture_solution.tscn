@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://t5f5j1egih5q"]
+
+[ext_resource type="Texture2D" uid="uid://ciwpfify4yd1q" path="res://assets/sprites/items/readables/paper.png" id="1_acfqt"]
+[ext_resource type="FontFile" uid="uid://hcag880c0r41" path="res://assets/fonts/CormorantGaramond-VariableFont_wght.ttf" id="2_k0w7g"]
+[ext_resource type="PackedScene" uid="uid://b7x6h2aoyk3a0" path="res://scenes/readables/company_logo.tscn" id="3_ys4qs"]
+[ext_resource type="PackedScene" uid="uid://cmcrodc6fiexh" path="res://scenes/readables/plain_text.tscn" id="4_c1eey"]
+
+[node name="RaptureSolution" type="Control" unique_id=1859019210]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="." unique_id=958777455]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -212.5
+offset_top = -310.7915
+offset_right = 212.5
+offset_bottom = 310.7915
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_acfqt")
+expand_mode = 5
+
+[node name="Label" type="RichTextLabel" parent="Background" unique_id=869694984]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -197.5
+offset_top = -290.7915
+offset_right = 197.5
+offset_bottom = 290.7915
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/normal_font = ExtResource("2_k0w7g")
+theme_override_font_sizes/normal_font_size = 15
+text = "
+Project Salvation
+Proposed By: Karis
+Objective: To mitigate the effects of the upcoming rapture through the creation of a new self
+
+Summary
+With the failure of the rebirth project, it is clear that we need to shift priorities to damage mitigation rather than prevention. This is an issue that we cannot solve through conventional means, instead we need a shift in perspective. It is clear that one cannot escape divine punishment, so instead this project offers an opportunity for us to delegate our punishment to another. The self is made from the collection of one’s past memories, therefore if we eliminate all those memories, we cease becoming the person that we currently are. This new self would be an entirely different entity from the current self, and therefore have no sin for the divine to judge. Should the divine still choose to pass judgment, any resulting punishment would fall upon the new self rather than the original individual.
+
+While it may seem impossible to cleanly wipe away one’s memories without damage to the brain, in actuality there is one possible way of achieving this. The remains of the Envoy still hold very residual miracle power that we can repurpose into a device capable of wiping away one’s memories. I estimate this will take a couple of months to achieve, something we may not have given that it has been nearly half a year since the divine’s declaration. We still do not know when they will deliver punishment, it is of utmost urgency that this project be greenlit to avoid such a catastrophe.
+"
+scroll_active = false
+autowrap_mode = 2
+
+[node name="CompanyLogo" parent="Background" unique_id=2043224503 instance=ExtResource("3_ys4qs")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -221.5
+offset_top = 11.791504
+offset_right = -221.5
+offset_bottom = 11.791504
+grow_horizontal = 0
+
+[node name="PlainText" parent="." unique_id=1201338786 instance=ExtResource("4_c1eey")]
+visible = false
+report_text = "Project Salvation
+Proposed By: Karis
+Objective: To mitigate the effects of the upcoming rapture through the creation of a new self
+
+Summary
+With the failure of the rebirth project, it is clear that we need to shift priorities to damage mitigation rather than prevention. This is an issue that we cannot solve through conventional means, instead we need a shift in perspective. It is clear that one cannot escape divine punishment, so instead this project offers an opportunity for us to delegate our punishment to another. The self is made from the collection of one’s past memories, therefore if we eliminate all those memories, we cease becoming the person that we currently are. This new self would be an entirely different entity from the current self, and therefore have no sin for the divine to judge. Should the divine still choose to pass judgment, any resulting punishment would fall upon the new self rather than the original individual.
+
+While it may seem impossible to cleanly wipe away one’s memories without damage to the brain, in actuality there is one possible way of achieving this. The remains of the Envoy still hold very residual miracle power that we can repurpose into a device capable of wiping away one’s memories. I estimate this will take a couple of months to achieve, something we may not have given that it has been nearly half a year since the divine’s declaration. We still do not know when they will deliver punishment, it is of utmost urgency that this project be greenlit to avoid such a catastrophe.
+"
