@@ -103,7 +103,7 @@ shape = SubResource("RectangleShape2D_jakhy")
 
 [node name="Pickup" parent="GratePuzzle" unique_id=1314714567 instance=ExtResource("3_6sbsl")]
 position = Vector2(1112, 151)
-key_item_name = "West Key"
+key_item_name = "East Key"
 item = 3
 item_sprite = ExtResource("6_f2xk5")
 can_pickup = false
