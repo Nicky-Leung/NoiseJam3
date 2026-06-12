@@ -46,7 +46,7 @@ theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 1
 theme_override_fonts/normal_font = ExtResource("2_k0w7g")
-theme_override_font_sizes/normal_font_size = 15
+theme_override_font_sizes/normal_font_size = 14
 text = "
 Project Salvation
 Proposed By: Karis
@@ -55,7 +55,7 @@ Objective: To mitigate the effects of the upcoming rapture through the creation 
 Summary
 With the failure of the rebirth project, it is clear that we need to shift priorities to damage mitigation rather than prevention. This is an issue that we cannot solve through conventional means, instead we need a shift in perspective. It is clear that one cannot escape divine punishment, so instead this project offers an opportunity for us to delegate our punishment to another. The self is made from the collection of one’s past memories, therefore if we eliminate all those memories, we cease becoming the person that we currently are. This new self would be an entirely different entity from the current self, and therefore have no sin for the divine to judge. Should the divine still choose to pass judgment, any resulting punishment would fall upon the new self rather than the original individual.
 
-While it may seem impossible to cleanly wipe away one’s memories without damage to the brain, in actuality there is one possible way of achieving this. The remains of the Envoy still hold very residual miracle power that we can repurpose into a device capable of wiping away one’s memories. I estimate this will take a couple of months to achieve, something we may not have given that it has been nearly half a year since the divine’s declaration. We still do not know when they will deliver punishment, it is of utmost urgency that this project be greenlit to avoid such a catastrophe.
+While it may seem impossible to cleanly wipe away one’s memories without damage to the brain, in actuality there is one possible way of achieving this. The remains of the Envoy still hold very residual miracle power that we can repurpose into a device capable of wiping away one’s memories. I estimate this will take a couple of months to achieve, something we may not have given that it has been nearly half a year since the divine’s declaration. Additionally, this project will likely be costly as extracting miracle power requires gemstones as catalysts for the process. We still do not know when they will deliver punishment, it is of utmost urgency that this project be greenlit to avoid such a catastrophe.
 "
 scroll_active = false
 autowrap_mode = 2
@@ -80,5 +80,5 @@ Objective: To mitigate the effects of the upcoming rapture through the creation 
 Summary
 With the failure of the rebirth project, it is clear that we need to shift priorities to damage mitigation rather than prevention. This is an issue that we cannot solve through conventional means, instead we need a shift in perspective. It is clear that one cannot escape divine punishment, so instead this project offers an opportunity for us to delegate our punishment to another. The self is made from the collection of one’s past memories, therefore if we eliminate all those memories, we cease becoming the person that we currently are. This new self would be an entirely different entity from the current self, and therefore have no sin for the divine to judge. Should the divine still choose to pass judgment, any resulting punishment would fall upon the new self rather than the original individual.
 
-While it may seem impossible to cleanly wipe away one’s memories without damage to the brain, in actuality there is one possible way of achieving this. The remains of the Envoy still hold very residual miracle power that we can repurpose into a device capable of wiping away one’s memories. I estimate this will take a couple of months to achieve, something we may not have given that it has been nearly half a year since the divine’s declaration. We still do not know when they will deliver punishment, it is of utmost urgency that this project be greenlit to avoid such a catastrophe.
+While it may seem impossible to cleanly wipe away one’s memories without damage to the brain, in actuality there is one possible way of achieving this. The remains of the Envoy still hold very residual miracle power that we can repurpose into a device capable of wiping away one’s memories. I estimate this will take a couple of months to achieve, something we may not have given that it has been nearly half a year since the divine’s declaration. Additionally, this project will likely be costly as extracting miracle power requires gemstones as catalysts for the process. We still do not know when they will deliver punishment, it is of utmost urgency that this project be greenlit to avoid such a catastrophe.
 "
