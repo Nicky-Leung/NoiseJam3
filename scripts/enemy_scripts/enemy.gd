@@ -51,7 +51,6 @@ func _process(delta):
 	# hide enemy if they aren't in light
 	var target_alpha = 1 if in_light || !hide_enemy else 0
 	modulate.a = move_toward(modulate.a, target_alpha, delta * 7.5)
-	in_light = false
 
 func toggle_active(enable: bool) -> void:
 	is_active = enable
@@ -62,6 +61,9 @@ func alert_sound(_alerter: Node2D) -> void: # expected to override in children c
 
 func alert_visual(_alerter: Node2D) -> void: # expected to override in children class
 	in_light = true
+
+func alert_no_visual() -> void: # expected to override in children class
+	in_light = false
 
 func chase(delta: float) -> bool: # default chase behavior implementation subclasses can use -> returns true if done chasing, false if in middle of chasing
 	if chase_target != null && nav_agent.target_position.distance_squared_to(chase_target.global_position) > (nav_agent.target_desired_distance * 5) ** 2:

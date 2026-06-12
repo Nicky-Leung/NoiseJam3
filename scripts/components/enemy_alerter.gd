@@ -24,18 +24,23 @@ func _physics_process(_delta):
 	if type == Type.SOUND: return
 	for enemy in in_range_enemies:
 		if in_view(enemy): enemy.alert_visual(player)
+		else: enemy.alert_no_visual()
 
 func enable(do_enable: bool):
 	monitoring = do_enable
-	if !do_enable: in_range_enemies.clear()
+	if !do_enable:
+		for enemy in in_range_enemies:
+			enemy.alert_no_visual()
+		in_range_enemies.clear()
 
 func on_body_entered(body: Node2D):
 	if body is not Enemy: return
 	if type == Type.SOUND: body.alert_sound(player)
 	else: in_range_enemies.append(body as Enemy)
 
-func on_body_exited(body: Node2D): # might need to determine later if necessary to unalert enemy
+func on_body_exited(body: Node2D):
 	if body is not Enemy || type == Type.SOUND: return
+	(body as Enemy).alert_no_visual()
 	in_range_enemies.remove_at(in_range_enemies.find(body as Enemy))
 
 func in_view(enemy: Enemy) -> bool:
