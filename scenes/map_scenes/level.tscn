@@ -43,6 +43,7 @@ position = Vector2(308, 377)
 rotation = 1.5707964
 has_flashlight = false
 starting_flashlight_charge = 10.0
+immortal = true
 
 [node name="Layout" type="Node2D" parent="." unique_id=1727849891]
 
@@ -73,10 +74,7 @@ tutorial = true
 [node name="Medkit" parent="Layout/StarterRoom/Pickups" parent_id_path=PackedInt32Array(519425099, 1344794497) index="3" unique_id=925739377]
 tutorial = true
 
-[node name="Cinematic" parent="Layout/StarterRoom" index="5" unique_id=1690375132 node_paths=PackedStringArray("player")]
-player = NodePath("../../../Player")
 [node name="Opening" parent="Layout/StarterRoom/Cinematics" parent_id_path=PackedInt32Array(519425099, 1054569960) index="0" unique_id=1690375132 node_paths=PackedStringArray("player")]
-skip_sequence = false
 player = NodePath("../../../../Player")
 
 [editable path="Layout/StarterRoom"]

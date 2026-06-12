@@ -51,6 +51,9 @@ func on_interacted(player: Player):
 		var delay = create_tween()
 		delay.tween_interval(audio_player.stream.get_length())
 		delay.tween_callback(queue_free)
+	else:
+		# probably put some UI saying inventory is full, for now just print it
+		print("Cannot add " + str(Item.keys()[item]) + " because inventory is full")
 	if tutorial: 
 		if item == Item.BATTERY:
 			player.show_tutorial("battery", "Press B to open your inventory and E to use")
@@ -58,6 +61,4 @@ func on_interacted(player: Player):
 			player.show_tutorial("medkit", "Press B to open your inventory and E to use")
 		elif item ==Item.FLASHLIGHT:
 			player.show_tutorial("flashlight", "Right Click the flashlight to toggle it on/off.")
-	else:
-		# probably put some UI saying inventory is full, for now just print it
-		print("Cannot add " + str(Item.keys()[item]) + " because inventory is full")
+
