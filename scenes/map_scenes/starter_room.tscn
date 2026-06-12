@@ -8,7 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://b168pec4gx1by" path="res://scenes/readables/starting_note.tscn" id="5_xlnik"]
 [ext_resource type="AudioStream" uid="uid://drmnb1fc0ut8y" path="res://assets/sfx/ambience/dripLoop.mp3" id="7_1mxng"]
 [ext_resource type="PackedScene" uid="uid://do8ik56rbksw7" path="res://scenes/environment_objects/censored_sin.tscn" id="7_ieuqq"]
+[ext_resource type="Texture2D" uid="uid://b7wau1b5i0ra2" path="res://assets/sprites/items/readables/Phone1.png" id="7_pe5kr"]
 [ext_resource type="PackedScene" uid="uid://dvs1p1qihi21c" path="res://scenes/player_scenes/flashlight.tscn" id="8_2ebnm"]
+[ext_resource type="PackedScene" uid="uid://do34ivvcx6g6g" path="res://scenes/readables/text_messages/grate_puzzle_hint.tscn" id="8_un833"]
 [ext_resource type="Script" uid="uid://wifn5vopm6so" path="res://scripts/room_scripts/cinematics/start_cinematic.gd" id="9_ieuqq"]
 [ext_resource type="Texture2D" uid="uid://co0w164ofa0fi" path="res://assets/sprites/items/zombie_icons.png" id="9_o8qwr"]
 [ext_resource type="Texture2D" uid="uid://bhj600k2c4lo3" path="res://assets/sprites/items/puzzle_items/Key3.png" id="10_i4p0j"]
@@ -76,6 +78,11 @@ type = 0
 in_world_sprite = ExtResource("4_2ebnm")
 readable_menu = ExtResource("5_xlnik")
 is_wider_sprite = true
+
+[node name="Electronic" parent="Readables" unique_id=664705137 instance=ExtResource("3_p0vol")]
+position = Vector2(566, 429)
+in_world_sprite = ExtResource("7_pe5kr")
+readable_menu = ExtResource("8_un833")
 
 [node name="Pickups" type="Node2D" parent="." unique_id=1344794497]
 

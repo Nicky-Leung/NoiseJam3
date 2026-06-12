@@ -7,9 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://cfslgv17irrxe" path="res://scenes/environment_objects/pickup.tscn" id="4_vwprq"]
 [ext_resource type="AudioStream" uid="uid://crqfuy4ymws5y" path="res://assets/sfx/puzzles/GateOpen.mp3" id="6_7htlt"]
 [ext_resource type="Texture2D" uid="uid://co0w164ofa0fi" path="res://assets/sprites/items/zombie_icons.png" id="7_cmk56"]
-[ext_resource type="PackedScene" uid="uid://y6qgwf18h0bh" path="res://scenes/environment_objects/readable.tscn" id="7_yxog5"]
-[ext_resource type="Texture2D" uid="uid://b7wau1b5i0ra2" path="res://assets/sprites/items/readables/Phone1.png" id="8_7htlt"]
-[ext_resource type="PackedScene" uid="uid://do34ivvcx6g6g" path="res://scenes/readables/text_messages/grate_puzzle_hint.tscn" id="9_mjr0x"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_yt72g"]
 vertices = PackedVector2Array(1015, -743, 841, -519, 841, -665, 279, -743, 679, -665, 185, -743, 185, -1111, 279, -1111, 679, -519, 137, -519, 137, -665, -681, -743, -25, -665, 1015, 89, 1559, 89, 1559, 183, 921, 183, 921, -409, 343, -409, 343, -25, 265, -25, 265, -409, -119, -409, -25, -519, -119, -649, -823, -649, -823, -1081, -681, -1175, -1175, -1175, -1175, -1081)
@@ -153,8 +150,3 @@ patrol_path = NodePath("../Path2D/PathFollow2D")
 is_active = true
 
 [node name="Readables" type="Node2D" parent="." unique_id=1311762866]
-
-[node name="Electronic" parent="Readables" unique_id=536321432 instance=ExtResource("7_yxog5")]
-position = Vector2(362, -134)
-in_world_sprite = ExtResource("8_7htlt")
-readable_menu = ExtResource("9_mjr0x")
