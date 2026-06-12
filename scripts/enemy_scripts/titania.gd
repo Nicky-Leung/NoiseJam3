@@ -3,7 +3,9 @@ class_name Titania
 
 @onready var attack_ray: RayCast2D = $AttackRay
 @onready var sprite: AnimatedSprite2D = $Sprite
-@onready var weeping_sound: AudioStreamPlayer2D = $WeepingSound
+@onready var weeping_sound: AudioStreamPlayer2D = $Sounds/WeepingSound
+@onready var attack_sound: AudioStreamPlayer2D = $Sounds/Attack
+@onready var footsteps = $Sounds/Footsteps
 
 var is_moving_away_from_player: bool = false
 var paused_position: float = 0.0
@@ -25,10 +27,14 @@ func _physics_process(delta: float) -> void:
 	if ai_state == State.PATROL:
 		patrol(delta)
 		rotation = move_toward(rotation, 0, delta * turn_rate)
+		footsteps.play_steps(base_speed)
 
 	if patrol_path.progress_ratio >= 0.95:
 		ai_state = State.CHASE
 		chase_target = player
+
+	if ai_state == State.CHASE:
+		footsteps.play_steps(get_real_velocity().length())
 
 	if in_light:
 		move_away_from_player(delta)
@@ -38,7 +44,6 @@ func _physics_process(delta: float) -> void:
 		chase(delta)
 		try_damage_player()
 		change_moving_away_from_player(false)
-	in_light = false
 
 func toggle_active(enable: bool) -> void:
 	super(enable)
@@ -56,8 +61,9 @@ func reset_patrol_path():
 func try_damage_player():
 	var collider = attack_ray.get_collider()
 	if collider is not Player: return
-	(collider as Player).attack(attack_damage, self)
-	sprite.animation = "attack"
+	if (collider as Player).attack(attack_damage, self):
+		sprite.animation = "attack"
+		HELPERS.play_audio(attack_sound, 0.9, 1.1)
 
 func change_moving_away_from_player(is_moving_away: bool) -> void:
 	if is_moving_away:

@@ -2,7 +2,12 @@
 
 [ext_resource type="Script" uid="uid://di57b4t8vimy" path="res://scripts/enemy_scripts/titania.gd" id="1_3l7ik"]
 [ext_resource type="Texture2D" uid="uid://cs81dlxwjq58u" path="res://assets/sprites/enemies/Titania.png" id="2_7bkc1"]
-[ext_resource type="AudioStream" uid="uid://geakmm3lh64l" path="res://assets/sfx/enemies/virtual_vibes-baby-weeping-sound-464553.mp3" id="3_y4ugl"]
+[ext_resource type="AudioStream" uid="uid://bnvgk4qs0u1f0" path="res://assets/sfx/enemies/titania_attack.mp3" id="3_q1yt5"]
+[ext_resource type="AudioStream" uid="uid://clylcjcg1udkt" path="res://assets/sfx/enemies/titania_flee_sound.mp3" id="3_y4ugl"]
+[ext_resource type="PackedScene" uid="uid://c2bl8q3eud8na" path="res://scenes/components/footsteps.tscn" id="4_teykq"]
+[ext_resource type="AudioStream" uid="uid://bdsye4rlk34e5" path="res://assets/sfx/enemies/titania_step1.mp3" id="5_q1yt5"]
+[ext_resource type="AudioStream" uid="uid://dd4rtnf1jse6k" path="res://assets/sfx/enemies/titania_step2.mp3" id="6_nipnq"]
+[ext_resource type="AudioStream" uid="uid://ckfuf1k5pai1x" path="res://assets/sfx/enemies/titania_step3.mp3" id="7_ycaas"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y4ugl"]
 atlas = ExtResource("2_7bkc1")
@@ -114,13 +119,12 @@ base_speed = 80
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1077026022]
 rotation = -1.5707964
-scale = Vector2(0.125, 0.125)
+scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_4kraf")
 animation = &"move"
-offset = Vector2(0, 25)
+offset = Vector2(32.645, 13.03)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=371903554]
-position = Vector2(2.4999995, 1.4999998)
 shape = SubResource("CircleShape2D_7bkc1")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=147871982]
@@ -129,5 +133,15 @@ shape = SubResource("CircleShape2D_7bkc1")
 target_position = Vector2(50, 0)
 collision_mask = 2
 
-[node name="WeepingSound" type="AudioStreamPlayer2D" parent="." unique_id=1343771335]
+[node name="Sounds" type="Node2D" parent="." unique_id=1021601782]
+
+[node name="Attack" type="AudioStreamPlayer2D" parent="Sounds" unique_id=1437429332]
+stream = ExtResource("3_q1yt5")
+
+[node name="Footsteps" parent="Sounds" unique_id=1515918579 instance=ExtResource("4_teykq")]
+attenuation = 11.3137045
+max_polyphony = 3
+step_collection = Array[AudioStream]([ExtResource("5_q1yt5"), ExtResource("6_nipnq"), ExtResource("7_ycaas")])
+
+[node name="WeepingSound" type="AudioStreamPlayer2D" parent="Sounds" unique_id=1343771335]
 stream = ExtResource("3_y4ugl")

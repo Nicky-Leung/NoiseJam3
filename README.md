@@ -20,6 +20,10 @@ https://godotshaders.com/shader/retro-gameps1-shader/
 https://godotshaders.com/shader/2d-wind-sway-tree-grass-motion-shader/
 
 ## Sound Effects
+https://pixabay.com/sound-effects/film-special-effects-rustling-bushes-dried-leaves-6-230205/
+https://pixabay.com/sound-effects/film-special-effects-large-monster-attack-195713/
+https://pixabay.com/sound-effects/film-special-effects-rustling-bushes-dried-leaves-2-230202/
+https://pixabay.com/sound-effects/film-special-effects-rustling-bushes-dried-leaves-1-230200/
 https://pixabay.com/sound-effects/film-special-effects-fabric-flap-80054/
 https://pixabay.com/sound-effects/film-special-effects-creepy-whale-song-323612/
 https://pixabay.com/sound-effects/nature-haunting-whale-song-515260/
@@ -59,7 +63,6 @@ https://pixabay.com/sound-effects/film-special-effects-notification-interface-su
 https://pixabay.com/sound-effects/film-special-effects-stone-push-37412/
 https://opengameart.org/content/iron-door
 https://pixabay.com/sound-effects/film-special-effects-clank1-91862/
-https://pixabay.com/sound-effects/search/weeping/
 
 #Tiles and Sprites
 https://opengameart.org/content/gemmed-items

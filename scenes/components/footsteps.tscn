@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://cci1bmrjn5oe" path="res://scripts/components/footsteps_sounds.gd" id="1_n50oq"]
 
-[node name="Footsteps" type="AudioStreamPlayer2D" unique_id=1515918579 node_paths=PackedStringArray("alerter")]
+[node name="Footsteps" type="AudioStreamPlayer2D" unique_id=1515918579]
+attenuation = 2.0705302
 script = ExtResource("1_n50oq")
-alerter = NodePath("")
 
 [node name="Timer" type="Timer" parent="." unique_id=660426993]
 one_shot = true
