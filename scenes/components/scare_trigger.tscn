@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://c4whabkwhhiyp"]
+
+[ext_resource type="Script" uid="uid://dbbe2hgfxfk4k" path="res://scripts/components/scare_trigger.gd" id="1_738rr"]
+
+[node name="ScareTrigger" type="Area2D" unique_id=372550792]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_738rr")
+
+[node name="AudioPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1592472241]
