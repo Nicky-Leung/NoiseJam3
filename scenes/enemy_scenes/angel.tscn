@@ -50,15 +50,21 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Angel" type="CharacterBody2D" unique_id=1599280180 node_paths=PackedStringArray("nav_agent", "collision_box")]
+[node name="Angel" type="CharacterBody2D" unique_id=1599280180 node_paths=PackedStringArray("nav_agent", "animated_sprite", "collision_box")]
 script = ExtResource("1_8owf6")
 nav_agent = NodePath("NavigationAgent2D")
+animated_sprite = NodePath("Body")
 collision_box = NodePath("CollisionShape2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1553818521]
 shape = SubResource("CircleShape2D_p4h1f")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1700016301]
+simplify_path = true
+avoidance_enabled = true
+radius = 20.0
+debug_enabled = true
+debug_path_custom_color = Color(1, 0, 0, 1)
 
 [node name="Body" type="AnimatedSprite2D" parent="." unique_id=865283464]
 scale = Vector2(0.17, 0.17)
@@ -72,18 +78,34 @@ offset = Vector2(-36.185, -41.25)
 holder = NodePath("..")
 cone_length = 600.0
 
+[node name="RayCast2D" type="RayCast2D" parent="VisionCone" unique_id=206099918]
+
+[node name="RayCast2D2" type="RayCast2D" parent="VisionCone" unique_id=271513016]
+
+[node name="RayCast2D3" type="RayCast2D" parent="VisionCone" unique_id=1929400888]
+
+[node name="RayCast2D4" type="RayCast2D" parent="VisionCone" unique_id=855843905]
+
+[node name="RayCast2D5" type="RayCast2D" parent="VisionCone" unique_id=1695129314]
+
+[node name="RayCast2D6" type="RayCast2D" parent="VisionCone" unique_id=1047081381]
+
+[node name="RayCast2D7" type="RayCast2D" parent="VisionCone" unique_id=366470783]
+
+[node name="RayCast2D8" type="RayCast2D" parent="VisionCone" unique_id=2118662582]
+
+[node name="RayCast2D9" type="RayCast2D" parent="VisionCone" unique_id=738521861]
+
+[node name="RayCast2D10" type="RayCast2D" parent="VisionCone" unique_id=1102762739]
+
+[node name="RayCast2D11" type="RayCast2D" parent="VisionCone" unique_id=517001892]
+
+[node name="RayCast2D12" type="RayCast2D" parent="VisionCone" unique_id=212684334]
+
 [node name="ResetTimer" type="Timer" parent="." unique_id=1374719611]
+wait_time = 10.0
 one_shot = true
-
-[node name="IdleTimer" type="Timer" parent="." unique_id=1668651634]
-wait_time = 15.0
-autostart = true
-
-[node name="ChaseTimer" type="Timer" parent="." unique_id=121540090]
-wait_time = 4.0
 
 [node name="AttackRay" type="RayCast2D" parent="." unique_id=851962581]
 target_position = Vector2(50, 0)
 collision_mask = 3
-
-[connection signal="timeout" from="ChaseTimer" to="." method="_on_chase_timer_timeout"]
