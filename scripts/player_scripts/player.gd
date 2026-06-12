@@ -90,7 +90,7 @@ func _check_interact():
 		var collider = interact_ray.get_collider()
 		if collider is Interactable:
 			collider.show_interact_prompt()
-	
+
 
 func handle_pause(pause: bool):
 	overlay.visible = !pause
@@ -116,8 +116,8 @@ func place_trap(): # TODO: Trap isn't placing?
 	trap.global_position = global_position + facing_direction * 16
 	get_parent().add_child(trap)
 
-func attack(amount: int, attacker: Enemy): # called for enemy attacks
-	if i_frame.time_left > 0 || health <= 0: return
+func attack(amount: int, attacker: Enemy) -> bool: # called for enemy attacks (returns true if successfully attacked)
+	if i_frame.time_left > 0 || health <= 0: return false
 
 	i_frame.start()
 	HELPERS.play_audio(hurtSFX, 0.8, 0.9)
@@ -131,4 +131,4 @@ func attack(amount: int, attacker: Enemy): # called for enemy attacks
 	if health <= 0:
 		player_died.emit(attacker)
 		print("player died to " + str(attacker))
-		return
+	return true
