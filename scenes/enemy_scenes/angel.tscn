@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://pqq1x0vaoh1p" path="res://assets/sprites/SpriteAngel.png" id="2_6gyu6"]
 [ext_resource type="PackedScene" uid="uid://t5keqhpx2c2x" path="res://scenes/components/vision_cone.tscn" id="3_p4h1f"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_md0e3"]
-size = Vector2(2, 2)
+[sub_resource type="CircleShape2D" id="CircleShape2D_p4h1f"]
+radius = 20.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_whldq"]
 atlas = ExtResource("2_6gyu6")
@@ -56,14 +56,14 @@ nav_agent = NodePath("NavigationAgent2D")
 collision_box = NodePath("CollisionShape2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1553818521]
-shape = SubResource("RectangleShape2D_md0e3")
+shape = SubResource("CircleShape2D_p4h1f")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1700016301]
 
 [node name="Body" type="AnimatedSprite2D" parent="." unique_id=865283464]
-scale = Vector2(0.2, 0.2)
+scale = Vector2(0.17, 0.17)
 sprite_frames = SubResource("SpriteFrames_dum8j")
-frame_progress = 0.30642027
+offset = Vector2(-36.185, -41.25)
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=729824718]
 
