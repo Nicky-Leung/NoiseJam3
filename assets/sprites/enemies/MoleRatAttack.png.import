@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crlm5b2wcw0bs"
-path="res://.godot/imported/temp_mole_rat.png-218ec45ae0ea34ad6195ed97127f108d.ctex"
+uid="uid://bf8nkyuhlsfox"
+path="res://.godot/imported/MoleRatAttack.png-33a5492ee9a99dc62145b2897205d464.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/temp_sprites/temp_mole_rat.png"
-dest_files=["res://.godot/imported/temp_mole_rat.png-218ec45ae0ea34ad6195ed97127f108d.ctex"]
+source_file="res://assets/sprites/enemies/MoleRatAttack.png"
+dest_files=["res://.godot/imported/MoleRatAttack.png-33a5492ee9a99dc62145b2897205d464.ctex"]
 
 [params]
 

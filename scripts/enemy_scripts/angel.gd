@@ -3,25 +3,19 @@ class_name Angel
 
 @export var speed: int = 100
 @export var friction: int = 400
+
 @onready var vision: EnemyVision = $VisionCone
 @onready var reset_timer = $ResetTimer
 @onready var idle_timer = $IdleTimer
 @onready var chase_timer = $ChaseTimer
+@onready var sprite: AnimatedSprite2D = $Body
 
 @onready var body = $Body
-@onready var main = get_parent()
 @onready var attack_ray: RayCast2D = $AttackRay
-
-# @onready var flashlight: Node = target.get_node("Flashlight")
-
 @onready var is_in_light: bool = false
-
 @onready var is_stunned: bool = false
-@export var possible_spawn_points: Array[Vector2] = []
+
 var spawn_position: Vector2
-
-@export var nav_region: NavigationRegion2D = null
-
 var scout_position: Vector2 = Vector2.ZERO
 
 
@@ -30,10 +24,6 @@ func _ready() -> void:
 	collision_mask = PHYS_LAYERS.TERRAIN + PHYS_LAYERS.PLAYER
 	collision_layer = PHYS_LAYERS.ENEMY
 
-	# randomize spawn position
-	# spawn_position = possible_spawn_points[randi() % possible_spawn_points.size()]
-	# print("Angel spawned at: ", spawn_position)
-	# global_position = spawn_position
 
 	nav_agent.path_desired_distance = 100.0
 	nav_agent.target_desired_distance = 1.0
@@ -45,41 +35,35 @@ func _ready() -> void:
 	nav_agent.target_position = find_nearest_patrol_point()
 
 	# set_movement_target()
-	
-	
-	
+
+
+
 	# flashlight.coverage_changed.connect(_on_flashlight_coverage_changed)
-
-func _process(delta):
-	super(delta)
-  
-
 
 func _physics_process(delta: float) -> void:
 
-
+	print(ai_state)
 	if ai_state == State.CHASE:
 		chase(delta)
 		try_damage_player()
 
 	if ai_state == State.IDLE:
-	
 		move_to(delta, nav_agent.get_next_path_position())
-	
 		if nav_agent.is_target_reached():
 			ai_state = State.PATROL
 			patrol_path.progress = patrol_path.get_parent().curve.get_closest_offset(to_local(global_position))
+
 	if ai_state == State.PATROL:
 		print("Angel is patrolling.")
 		patrol(delta)
 		# rotation = move_toward(rotation, 0, delta * turn_rate)
-		
+
 
 	# elif ai_state == State.SCOUT:
 	# 	nav_agent.target_desired_distance = 50
 	# 	var reached = move_to(delta, scout_position)
 
-	
+
 func alert_sound(alerter: Node2D) -> void:
 	ai_state = State.SCOUT
 	scout_position = alerter.global_position + alerter.global_position.direction_to(global_position) * 50 # offset from player by tiny bit
@@ -110,6 +94,12 @@ func trigger_stun(stun_time: float) -> void:
 	await get_tree().create_timer(stun_time).timeout
 	is_stunned = false
 
+func turn_process(delta):
+	super(delta)
+	body.rotation = -global_rotation
+	var direction = get_real_velocity().x
+	if direction > 0: sprite.flip_h = true
+	elif direction < 0: sprite.flip_h = false
 
 func on_view(player: Player) -> void:
 	if ai_state != State.CHASE:
