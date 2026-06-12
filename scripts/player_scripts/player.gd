@@ -35,6 +35,12 @@ var is_sprinting: bool = false
 var input_vector: Vector2 = Vector2.ZERO
 var facing_direction: Vector2 = Vector2.ZERO
 
+var tutorial = {
+	"medkit": false,
+	"battery": false,
+	"flashlight": false
+}
+
 func _ready():
 	inventory.medkit_consumed.connect(full_heal)
 	inventory.trap_consumed.connect(place_trap)
@@ -91,6 +97,10 @@ func _check_interact():
 		if collider is Interactable:
 			collider.show_interact_prompt()
 
+func show_tutorial(tutorial_name: String, tutorial_message: String = ""):
+	if tutorial.has(tutorial_name) && !tutorial[tutorial_name]:
+		hud.display_flavor_text(tutorial_message)
+		tutorial[tutorial_name] = true 
 
 func handle_pause(pause: bool):
 	overlay.visible = !pause

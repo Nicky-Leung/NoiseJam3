@@ -82,6 +82,17 @@ metadata/_edit_lock_ = true
 player = NodePath("../../Player")
 metadata/_edit_lock_ = true
 
+[node name="Flashlight" parent="Layout/StarterRoom/Pickups" parent_id_path=PackedInt32Array(519425099, 1344794497) index="0" unique_id=1314714567]
+tutorial = true
+
+[node name="Battery" parent="Layout/StarterRoom/Pickups" parent_id_path=PackedInt32Array(519425099, 1344794497) index="1" unique_id=1777926941]
+tutorial = true
+
+[node name="Medkit" parent="Layout/StarterRoom/Pickups" parent_id_path=PackedInt32Array(519425099, 1344794497) index="3" unique_id=925739377]
+tutorial = true
+
+[node name="Cinematic" parent="Layout/StarterRoom" index="5" unique_id=1690375132 node_paths=PackedStringArray("player")]
+player = NodePath("../../../Player")
 [node name="Opening" parent="Layout/StarterRoom/Cinematics" parent_id_path=PackedInt32Array(519425099, 1054569960) index="0" unique_id=1690375132 node_paths=PackedStringArray("player")]
 player = NodePath("../../../../Player")
 
