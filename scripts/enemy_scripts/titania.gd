@@ -16,13 +16,11 @@ func _ready():
 	sprite.animation = "move"
 	sprite.animation_finished.connect(_on_animation_finished)
 
-func _process(delta):
+func _process(_delta):
 	# super(delta)
-	var target_alpha = 1 if in_light || !hide_enemy else 0
-	modulate.a = move_toward(modulate.a, target_alpha, delta * 7.5)
-	if ai_state == State.PATROL || velocity.length() > 0:
+	if ai_state == State.PATROL || velocity.length_squared() > 5:
 		sprite.play()
-	elif velocity.length() < 0 || !is_active:
+	elif velocity.length_squared() < 5 || !is_active:
 		sprite.pause()
 
 func _physics_process(delta: float) -> void:
@@ -38,11 +36,11 @@ func _physics_process(delta: float) -> void:
 	if ai_state != State.CHASE:
 		in_light = false
 		return
-	if in_light: 
+	if in_light:
 		move_away_from_player(delta)
 		if !is_moving_away_from_player:
 			change_moving_away_from_player(true)
-	
+
 	else:
 		chase(delta)
 		try_damage_player()
@@ -79,7 +77,7 @@ func change_moving_away_from_player(is_moving_away: bool) -> void:
 		print ("Paused weeping sound at position: ", paused_position)
 		weeping_sound.stop()
 
-	
+
 
 func move_away_from_player(delta: float) -> bool:
 	if chase_target == null:

@@ -20,17 +20,23 @@ var doing_idle_movement: bool = false
 func _ready():
 	super()
 	ai_state = State.PATROL
+	sprite.animation = "move"
 	reset_timer.wait_time = attention_time
 	vision.body_in_view.connect(on_view)
 	reset_timer.timeout.connect(on_reset_timeout)
 	idle_timer.timeout.connect(on_idle_timeout)
+	sprite.animation_finished.connect(_on_animation_finished)
 	idle_timer.wait_time = randi() % 11 + 10
 	if !is_active: idle_timer.stop()
 
-func toggle_active(enable: bool) -> void:
-	super(enable)
-	if is_active: idle_timer.start()
-	else: idle_timer.stop()
+func _process(delta):
+	super(delta)
+	if get_real_velocity().length_squared() > 5 || ai_state == State.PATROL:
+		var fps: float = 12.0 if ai_state == State.PATROL else 12 * get_real_velocity().length_squared() / base_speed ** 2
+		sprite.sprite_frames.set_animation_speed("move", fps)
+		sprite.play()
+	elif velocity.length_squared() < 5 || !is_active:
+		sprite.pause()
 
 func _physics_process(delta):
 	if !is_active: return
@@ -69,6 +75,11 @@ func _physics_process(delta):
 
 	if randi() % 10000 == 0: HELPERS.play_audio(squeak, 0.03, 0.1)
 
+func toggle_active(enable: bool) -> void:
+	super(enable)
+	if is_active: idle_timer.start()
+	else: idle_timer.stop()
+
 func alert_sound(alerter: Node2D) -> void:
 	ai_state = State.SCOUT
 	scout_position = alerter.global_position + alerter.global_position.direction_to(global_position) * 50 # offset from player by tiny bit
@@ -93,7 +104,9 @@ func reset_rat():
 
 func on_view(seen_player: Player):
 	if !is_active: return
-	if seen_player.velocity.length() > 0.1 || in_light: seen_player.attack(attack_damage, self)
+	if seen_player.velocity.length() > 0.1 || in_light:
+		sprite.animation = "attack"
+		seen_player.attack(attack_damage, self)
 
 func on_idle_timeout():
 	ai_state = State.IDLE
@@ -102,3 +115,7 @@ func on_idle_timeout():
 
 func on_reset_timeout():
 	ai_state = State.RETURN
+
+func _on_animation_finished():
+	if sprite.animation != "attack": return
+	sprite.animation = "move"
