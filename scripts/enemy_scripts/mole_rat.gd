@@ -9,6 +9,7 @@ extends Enemy
 @onready var idle_timer = $IdleTimer
 @onready var footsteps = $Footsteps
 @onready var squeak = $Squeak
+@onready var sprite = $Sprite
 
 # Runtime variables
 var scout_position: Vector2 = Vector2.ZERO

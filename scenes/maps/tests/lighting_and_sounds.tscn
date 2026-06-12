@@ -39,12 +39,6 @@ size = Vector2(50, 50)
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ob7ho"]
 polygon = PackedVector2Array(0, 0, 50, 0, 50, 50, 0, 50)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_orjbe"]
-size = Vector2(600, 600)
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_v6cij"]
-viewport_path = NodePath("SpriteViewport")
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mjy37"]
 shader = ExtResource("17_f1l1a")
 shader_parameter/resolution_x = 320
@@ -57,6 +51,12 @@ shader_parameter/jitter_frequency = 10.0
 shader_parameter/chromatic_aberration_strength = 0.015
 shader_parameter/vignette_strength = 0.8
 shader_parameter/vignette_radius = 0.9
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_orjbe"]
+size = Vector2(600, 600)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_v6cij"]
+viewport_path = NodePath("SpriteViewport")
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_mjy37"]
 vertices = PackedVector2Array(496, 383, 426, 383, 225, 348, 329, 348, 567, 278, 497, 278, 225, 228, 327, 228, 1135.9766, 654.97656, 496, 453, 567, 348, 1135.0078, 14.0390625, 20.976563, 653.0078, 426, 453, 497, 348, 566, 228, 566, 158, 20.007813, 18.953125, 496, 158, 399, 348, 399, 278, 329, 278, 496, 228, 397, 228, 397, 158, 327, 158, 155, 348, 155, 278, 155, 228, 225, 278, 155, 158, 225, 158)
@@ -233,8 +233,17 @@ metadata/_edit_lock_ = true
 position = Vector2(-25, -25)
 occluder = SubResource("OccluderPolygon2D_ob7ho")
 
+[node name="Shaders" type="CanvasLayer" parent="." unique_id=1828645710]
+
+[node name="Retro" type="ColorRect" parent="Shaders" unique_id=926938697]
+material = SubResource("ShaderMaterial_mjy37")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=169965248]
-visible = false
 color = Color(0.10019137, 0.08478504, 0.12660226, 0.9647059)
 
 [node name="TestEnvironmentAmbience" type="AudioStreamPlayer2D" parent="." unique_id=62555644]
@@ -276,17 +285,6 @@ position = Vector2(461, 418)
 texture = SubResource("ViewportTexture_v6cij")
 
 [node name="Collider" parent="CensoredSin" index="2" unique_id=1785174278 groups=["navigation_polygon_source_geometry_group"]]
-
-[node name="Shaders" type="CanvasLayer" parent="." unique_id=1828645710]
-visible = false
-
-[node name="Retro" type="ColorRect" parent="Shaders" unique_id=926938697]
-material = SubResource("ShaderMaterial_mjy37")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="WeepingAngel" parent="." unique_id=1557746182 node_paths=PackedStringArray("player") instance=ExtResource("18_mjy37")]
 position = Vector2(797, 88)
