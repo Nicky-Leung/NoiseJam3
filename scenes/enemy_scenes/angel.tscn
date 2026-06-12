@@ -63,6 +63,7 @@ shape = SubResource("CircleShape2D_p4h1f")
 [node name="Body" type="AnimatedSprite2D" parent="." unique_id=865283464]
 scale = Vector2(0.17, 0.17)
 sprite_frames = SubResource("SpriteFrames_dum8j")
+autoplay = "default"
 offset = Vector2(-36.185, -41.25)
 
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=729824718]
