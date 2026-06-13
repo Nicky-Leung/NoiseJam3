@@ -160,7 +160,7 @@ func attack(amount: int, attacker: Enemy) -> bool: # called for enemy attacks (r
 func sprint_tutorial():
 	if !tutorial["sprint"]:
 		await get_tree().create_timer(20.0).timeout
-		show_tutorial("sprint", "Hold Shift to Sprint, noise attracts enemies!")
+		show_tutorial("sprint", "Hold Shift to Sprint, but be careful: noise attracts enemies!")
 
 func handle_die_sequence():
 	disable_inputs(true)
