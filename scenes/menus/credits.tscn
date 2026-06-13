@@ -35,22 +35,6 @@ stream = ExtResource("1_cu0al")
 autoplay = true
 loop = true
 
-[node name="Control" type="Control" parent="." unique_id=978829662]
-anchors_preset = 0
-offset_left = 65.0
-offset_top = 41.0
-offset_right = 65.0
-offset_bottom = 41.0
-
-[node name="OnClickScreen" type="TextureButton" parent="Control" unique_id=506087370]
-layout_mode = 0
-offset_left = 388.0
-offset_top = 528.0
-offset_right = 563.0
-offset_bottom = 592.0
-texture_normal = ExtResource("2_xvxbb")
-script = ExtResource("3_xlnvo")
-
 [node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1864028121]
 layout_mode = 0
 offset_left = 65.0
@@ -138,7 +122,6 @@ This Font Software is licensed under the SIL Open Font License, Version 1.1 . Th
 "
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=162779668]
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=951547710]
 material = SubResource("ShaderMaterial_xvxbb")
@@ -146,5 +129,21 @@ offset_right = 1145.0
 offset_bottom = 643.0
 mouse_filter = 2
 script = ExtResource("4_44wmd")
+
+[node name="Control" type="Control" parent="." unique_id=978829662]
+anchors_preset = 0
+offset_left = 65.0
+offset_top = 41.0
+offset_right = 65.0
+offset_bottom = 41.0
+
+[node name="OnClickScreen" type="TextureButton" parent="Control" unique_id=506087370]
+layout_mode = 0
+offset_left = 388.0
+offset_top = 528.0
+offset_right = 563.0
+offset_bottom = 592.0
+texture_normal = ExtResource("2_xvxbb")
+script = ExtResource("3_xlnvo")
 
 [connection signal="pressed" from="Control/OnClickScreen" to="Control/OnClickScreen" method="_on_pressed"]

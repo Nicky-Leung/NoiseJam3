@@ -35,6 +35,15 @@ offset_right = 1142.0
 offset_bottom = 393.0
 texture = ExtResource("2_asori")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=926130525]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=490620734]
+material = SubResource("ShaderMaterial_vg4au")
+offset_right = 1145.0
+offset_bottom = 643.0
+mouse_filter = 2
+script = ExtResource("5_djsq2")
+
 [node name="Control" type="Control" parent="." unique_id=724374775]
 anchors_preset = 0
 offset_right = 40.0
@@ -48,14 +57,5 @@ offset_right = 462.19998
 offset_bottom = 264.4
 scale = Vector2(2.5, 2.5)
 script = ExtResource("4_0gvls")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=926130525]
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=490620734]
-material = SubResource("ShaderMaterial_vg4au")
-offset_right = 1145.0
-offset_bottom = 643.0
-mouse_filter = 2
-script = ExtResource("5_djsq2")
 
 [connection signal="pressed" from="Control/OnClickScreen" to="Control/OnClickScreen" method="_on_pressed"]
