@@ -14,6 +14,7 @@
 [ext_resource type="AudioStream" uid="uid://jydv3l3epbrr" path="res://assets/sfx/player/hurt.mp3" id="12_ou8ok"]
 [ext_resource type="PackedScene" uid="uid://bqkdw6kqtd3kx" path="res://scenes/player_scenes/inventory.tscn" id="12_whhsb"]
 [ext_resource type="AudioStream" uid="uid://bhcvrxywqgqfe" path="res://assets/sfx/player/healSFX.mp3" id="13_5ro12"]
+[ext_resource type="AudioStream" uid="uid://un1px68olhko" path="res://assets/sfx/player/dieSFX.mp3" id="16_8sxmk"]
 [ext_resource type="PackedScene" uid="uid://cpba8r0c427gt" path="res://scenes/ui/player_information.tscn" id="16_o03eq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qlg0r"]
@@ -277,6 +278,16 @@ scale = Vector2(0.300541, 0.25946778)
 pivot_offset = Vector2(50, 50)
 player = NodePath("../..")
 
+[node name="RedFilter" type="ColorRect" parent="Overlay" unique_id=1949897994]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 0, 0, 1)
+
 [node name="IFrameTimer" type="Timer" parent="." unique_id=19171508]
 wait_time = 1.5
 one_shot = true
@@ -286,5 +297,8 @@ stream = ExtResource("12_ou8ok")
 
 [node name="HealSFX" type="AudioStreamPlayer2D" parent="." unique_id=1959729745]
 stream = ExtResource("13_5ro12")
+
+[node name="DieSFX" type="AudioStreamPlayer2D" parent="." unique_id=1804877742]
+stream = ExtResource("16_8sxmk")
 
 [editable path="Flashlight"]

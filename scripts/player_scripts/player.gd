@@ -14,8 +14,10 @@ signal player_died(killer: Enemy)
 @onready var i_frame = $IFrameTimer
 @onready var hurtSFX = $HurtSFX
 @onready var healSFX = $HealSFX
+@onready var dieSFX = $DieSFX
 @onready var camera = $Camera
 @onready var overlay = $Overlay
+@onready var red_filter = $Overlay/RedFilter
 
 @onready var trap_scene : PackedScene = preload("res://scenes/environment_objects/trap.tscn")
 
@@ -37,8 +39,6 @@ var is_sprinting: bool = false
 var input_vector: Vector2 = Vector2.ZERO
 var facing_direction: Vector2 = Vector2.ZERO
 
-
-
 var tutorial = {
 	"medkit": false,
 	"battery": false,
@@ -53,6 +53,7 @@ func _ready():
 
 	flashlight.disable_light(false)
 	flashlight.battery_time = starting_flashlight_charge
+	red_filter.visible = false
 
 	sprint_tutorial()
 
@@ -107,7 +108,7 @@ func _check_interact():
 func show_tutorial(tutorial_name: String, tutorial_message: String = ""):
 	if tutorial.has(tutorial_name) && !tutorial[tutorial_name]:
 		hud.display_flavor_text(tutorial_message)
-		tutorial[tutorial_name] = true 
+		tutorial[tutorial_name] = true
 
 func handle_pause(pause: bool):
 	overlay.visible = !pause
@@ -123,10 +124,10 @@ func full_heal():
 
 func damage(amount: int): # called for environmental hazards
 	health -= amount
-	if health <= 0: 
+	if health <= 0:
 		player_died.emit(null)
 		if !immortal:
-			SCENE_MANAGER.change_scene(SCENE_MANAGER.Scenes.GAME_OVER)
+			handle_die_sequence()
 
 func replace_battery():
 	flashlight.refill_battery()
@@ -140,7 +141,6 @@ func attack(amount: int, attacker: Enemy) -> bool: # called for enemy attacks (r
 	if i_frame.time_left > 0 || health <= 0: return false
 
 	i_frame.start()
-	HELPERS.play_audio(hurtSFX, 0.8, 0.9)
 
 	var tween = create_tween()
 	tween.tween_property(self, "modulate", Color.RED, i_frame.wait_time / 2)
@@ -150,12 +150,24 @@ func attack(amount: int, attacker: Enemy) -> bool: # called for enemy attacks (r
 	health -= amount
 	if health <= 0:
 		player_died.emit(attacker)
-		print("player died to " + str(attacker))
 		if !immortal:
-			SCENE_MANAGER.change_scene(SCENE_MANAGER.Scenes.GAME_OVER)
+			handle_die_sequence()
+
+	if health > 0: HELPERS.play_audio(hurtSFX, 0.8, 0.9)
 	return true
 
 func sprint_tutorial():
 	if !tutorial["sprint"]:
 		await get_tree().create_timer(20.0).timeout
 		show_tutorial("sprint", "Hold Shift to Sprint, noise attracts enemies!")
+
+func handle_die_sequence():
+	disable_inputs(true)
+	HELPERS.play_audio(dieSFX)
+	red_filter.visible = true
+	red_filter.modulate = Color.TRANSPARENT
+	var tween = create_tween()
+	tween.tween_property(red_filter, "modulate", Color.WHITE, 1)
+	tween.tween_interval(3)
+	tween.tween_callback(func(): SCENE_MANAGER.change_scene(SCENE_MANAGER.Scenes.GAME_OVER))
+	tween.play()
