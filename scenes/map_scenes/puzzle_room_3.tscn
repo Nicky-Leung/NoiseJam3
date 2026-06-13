@@ -91,10 +91,11 @@ _data = {
 &"flash": SubResource("Animation_mv07d")
 }
 
-[node name="PuzzleRoom3" type="Node2D" unique_id=777621045 node_paths=PackedStringArray("cage_gate_layer", "room_gate_layer")]
+[node name="PuzzleRoom3" type="Node2D" unique_id=777621045 node_paths=PackedStringArray("cage_gate_layer", "room_gate_layer", "required_pickups")]
 script = ExtResource("1_g6wl1")
 cage_gate_layer = NodePath("Layout/CageGate")
 room_gate_layer = NodePath("Layout/RoomGate")
+required_pickups = [NodePath("Pickups/Diamond")]
 
 [node name="Layout" type="NavigationRegion2D" parent="." unique_id=164521379]
 navigation_polygon = SubResource("NavigationPolygon_ny5gj")
