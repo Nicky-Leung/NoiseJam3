@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://co0w164ofa0fi" path="res://assets/sprites/items/zombie_icons.png" id="7_cmk56"]
 [ext_resource type="Texture2D" uid="uid://bmr2bqw641g61" path="res://assets/sprites/world_objects/body.png" id="8_yxog5"]
 [ext_resource type="Texture2D" uid="uid://b6idtmdeskrp6" path="res://assets/sprites/world_objects/body2.png" id="9_7htlt"]
-[ext_resource type="AudioStream" uid="uid://clylcjcg1udkt" path="res://assets/sfx/enemies/titania_flee_sound.mp3" id="9_pij55"]
 [ext_resource type="PackedScene" uid="uid://c4whabkwhhiyp" path="res://scenes/components/scare_trigger.tscn" id="10_7htlt"]
 [ext_resource type="AudioStream" uid="uid://bapdmg5aiyiep" path="res://assets/sfx/enemies/mole_rat_attack.mp3" id="10_y5853"]
 [ext_resource type="PackedScene" uid="uid://blkdmem371i3" path="res://scenes/components/ambience_zone.tscn" id="11_lf4mn"]
@@ -167,14 +166,6 @@ scare_noise = ExtResource("11_mjr0x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sounds/GlassTrigger" unique_id=327170913]
 position = Vector2(8, 11.25)
-shape = SubResource("RectangleShape2D_mjr0x")
-
-[node name="titania" parent="Sounds" unique_id=2089416204 instance=ExtResource("10_7htlt")]
-position = Vector2(1470, 119)
-scare_noise = ExtResource("9_pij55")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sounds/titania" unique_id=1066800823]
-position = Vector2(8, 18.5)
 shape = SubResource("RectangleShape2D_mjr0x")
 
 [node name="Weeping" parent="Sounds" unique_id=811099163 instance=ExtResource("10_7htlt")]
