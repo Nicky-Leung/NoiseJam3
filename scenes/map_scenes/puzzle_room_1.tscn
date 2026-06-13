@@ -11,6 +11,9 @@
 [ext_resource type="AudioStream" uid="uid://cne0eheiacbp0" path="res://assets/sfx/puzzles/Complete.mp3" id="7_yqbg5"]
 [ext_resource type="PackedScene" uid="uid://wieit1tmn5r1" path="res://scenes/enemy_scenes/weeping_angel.tscn" id="11_5y23t"]
 [ext_resource type="Texture2D" uid="uid://co0w164ofa0fi" path="res://assets/sprites/items/zombie_icons.png" id="11_jcqk7"]
+[ext_resource type="PackedScene" uid="uid://y6qgwf18h0bh" path="res://scenes/environment_objects/readable.tscn" id="12_nqodb"]
+[ext_resource type="Texture2D" uid="uid://b7wau1b5i0ra2" path="res://assets/sprites/items/readables/Phone1.png" id="13_6guud"]
+[ext_resource type="PackedScene" uid="uid://do34ivvcx6g6g" path="res://scenes/readables/text_messages/grate_puzzle_hint.tscn" id="14_sy7ir"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_5y23t"]
 vertices = PackedVector2Array(940, 532, 1092, 532, 708, 548, 244, 772, 1148, 812, 36, 812, 244, 292, 1092, 396, 940, 396, 92, 772, 1148, 100, 1092, 292, 1092, 156, 36, 100, 940, 156, 92, 636, 708, 364, 476, 364, 476, 548, 244, 532, 244, 396, 92, 292, 92, 396, 940, 636, 940, 772, 820, 772, 820, 636, 940, 292, 820, 292, 820, 156, 668, 156, 1092, 772, 1092, 636, 668, 636, 668, 772, 668, 292, 516, 292, 516, 156, 364, 156, 364, 292, 244, 156, 92, 156, 92, 532, 244, 636, 516, 772, 516, 636, 364, 636, 364, 772)
@@ -138,3 +141,8 @@ item_sprite = SubResource("AtlasTexture_nqodb")
 [node name="EnemyResetTimer" type="Timer" parent="." unique_id=833526184]
 wait_time = 20.0
 one_shot = true
+
+[node name="Electronic" parent="." unique_id=536321432 instance=ExtResource("12_nqodb")]
+position = Vector2(1063, 99)
+in_world_sprite = ExtResource("13_6guud")
+readable_menu = ExtResource("14_sy7ir")
