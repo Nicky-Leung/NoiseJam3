@@ -297,7 +297,7 @@ animation = &"idle"
 [node name="SurroundingLight" type="PointLight2D" parent="." unique_id=1932149789]
 scale = Vector2(0.355, 0.355)
 color = Color(0.8509804, 0.7647059, 0.4862745, 1)
-energy = 3.0
+energy = 5.0
 shadow_enabled = true
 texture = ExtResource("2_onrkg")
 texture_scale = 0.8
