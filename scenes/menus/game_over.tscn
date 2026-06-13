@@ -3,8 +3,8 @@
 [ext_resource type="VideoStream" uid="uid://dvr3xns4hn86w" path="res://assets/video/GAMEOVER.ogv" id="1_ujjcl"]
 [ext_resource type="Texture2D" uid="uid://ch5dvoutql0yv" path="res://assets/video/GameOver.png" id="2_asori"]
 [ext_resource type="Shader" uid="uid://bbe32t51umhq4" path="res://resources/shaders/vcr.gdshader" id="3_gypcw"]
-[ext_resource type="Script" uid="uid://c7shhjwvgigga" path="res://scripts/menu_scripts/shadertime.gd" id="3_vg4au"]
 [ext_resource type="Script" uid="uid://bv8hjeotplx1c" path="res://scripts/menu_scripts/OnClickScreen.gd" id="4_0gvls"]
+[ext_resource type="Script" uid="uid://dtupio2eyyd2n" path="res://scripts/menu_scripts/shadertime_texture.gd" id="5_djsq2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vg4au"]
 shader = ExtResource("3_gypcw")
@@ -51,11 +51,11 @@ script = ExtResource("4_0gvls")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=926130525]
 
-[node name="ColorRect" type="TextureRect" parent="CanvasLayer" unique_id=490620734]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=490620734]
 material = SubResource("ShaderMaterial_vg4au")
 offset_right = 1145.0
 offset_bottom = 643.0
 mouse_filter = 2
-script = ExtResource("3_vg4au")
+script = ExtResource("5_djsq2")
 
 [connection signal="pressed" from="Control/OnClickScreen" to="Control/OnClickScreen" method="_on_pressed"]
