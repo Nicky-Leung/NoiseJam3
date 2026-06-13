@@ -12,7 +12,11 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	health_bar.value = player.health
-	battery_bar.value = player.flashlight.battery_time
+
+	if player.has_flashlight:
+		battery_bar.value = player.flashlight.battery_time
+	else:
+		battery_bar.value = 0
 
 func set_max():
 	health_bar.max_value = player.max_health
