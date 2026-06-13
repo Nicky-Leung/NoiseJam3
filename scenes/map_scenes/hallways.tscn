@@ -36,9 +36,6 @@ region = Rect2(1275.6609, 10.787857, 254.22119, 222.27708)
 atlas = ExtResource("7_cmk56")
 region = Rect2(1023, 10, 248, 232)
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mjr0x"]
-light_mode = 1
-
 [node name="Hallways" type="Node2D" unique_id=1870240753]
 script = ExtResource("1_1446t")
 metadata/_edit_lock_ = true
@@ -159,7 +156,6 @@ is_active = true
 [node name="Bodies" type="Node2D" parent="." unique_id=1161284946]
 
 [node name="Darren" type="Sprite2D" parent="Bodies" unique_id=1597469705]
-material = SubResource("CanvasItemMaterial_mjr0x")
 position = Vector2(-64, -491)
 scale = Vector2(0.065, 0.065)
 texture = ExtResource("8_yxog5")

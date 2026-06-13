@@ -1,14 +1,17 @@
 [gd_scene format=3 uid="uid://gim4qilqrtkd"]
 
 [ext_resource type="Script" uid="uid://kf42cu7gfer" path="res://scripts/room_scripts/level_manager.gd" id="1_uetgf"]
+[ext_resource type="AudioStream" uid="uid://bsedxhtrv2gc5" path="res://assets/music/Factory.ogg" id="2_8jg4x"]
 [ext_resource type="Shader" uid="uid://c7m63o73qxpdk" path="res://resources/shaders/retro_filter.gdshader" id="2_qlmbj"]
 [ext_resource type="PackedScene" uid="uid://ddwp5fi734po8" path="res://scenes/map_scenes/hallways.tscn" id="2_s23tf"]
 [ext_resource type="PackedScene" uid="uid://pdqaljjykij5" path="res://scenes/map_scenes/puzzle_room_1.tscn" id="2_uetgf"]
 [ext_resource type="Shader" uid="uid://6d5aeiahe18f" path="res://resources/shaders/vignette.gdshader" id="3_0vfiv"]
+[ext_resource type="AudioStream" uid="uid://b8s3jyjwrblrp" path="res://assets/music/ChaseMusic.mp3" id="3_nqiif"]
 [ext_resource type="PackedScene" uid="uid://200yrnwx02mc" path="res://scenes/map_scenes/puzzle_room_2.tscn" id="3_s23tf"]
 [ext_resource type="Script" uid="uid://cbsfhq48nr1ci" path="res://scripts/player_scripts/health_vignette.gd" id="3_v1gmj"]
 [ext_resource type="PackedScene" uid="uid://d7y6roxiu1oy" path="res://scenes/map_scenes/puzzle_room_3.tscn" id="4_qlmbj"]
 [ext_resource type="PackedScene" uid="uid://bghi2u4g0lp47" path="res://scenes/map_scenes/starter_room.tscn" id="5_qi4jx"]
+[ext_resource type="AudioStream" uid="uid://lvambllw6ciw" path="res://assets/sfx/player/heartbeat.mp3" id="6_nqiif"]
 [ext_resource type="PackedScene" uid="uid://dkag3nwr7uqd8" path="res://scenes/player_scenes/player.tscn" id="7_qlmbj"]
 [ext_resource type="PackedScene" uid="uid://y6qgwf18h0bh" path="res://scenes/environment_objects/readable.tscn" id="9_lpxfr"]
 [ext_resource type="Texture2D" uid="uid://b7wau1b5i0ra2" path="res://assets/sprites/items/readables/Phone1.png" id="10_cnguk"]
@@ -53,12 +56,21 @@ shader_parameter/vignette_radius = 0.9
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_v1gmj"]
 
-[node name="Level" type="Node2D" unique_id=931812444]
+[node name="Level" type="Node2D" unique_id=931812444 node_paths=PackedStringArray("angel")]
 script = ExtResource("1_uetgf")
+angel = NodePath("Layout/Hallways/Angel")
+
+[node name="Musics" type="Node" parent="." unique_id=56373349]
+
+[node name="AmbientMusic" type="AudioStreamPlayer" parent="Musics" unique_id=1217003082]
+stream = ExtResource("2_8jg4x")
+
+[node name="ChaseMusic" type="AudioStreamPlayer" parent="Musics" unique_id=122858645]
+stream = ExtResource("3_nqiif")
 
 [node name="VFX" type="CanvasLayer" parent="." unique_id=2070925069]
 
-[node name="Vignette" type="TextureRect" parent="VFX" unique_id=315737758 node_paths=PackedStringArray("player")]
+[node name="Vignette" type="TextureRect" parent="VFX" unique_id=315737758 node_paths=PackedStringArray("player", "heartbeat")]
 material = SubResource("ShaderMaterial_v1gmj")
 anchors_preset = 15
 anchor_right = 1.0
@@ -70,6 +82,10 @@ grow_vertical = 2
 texture = SubResource("PlaceholderTexture2D_0vfiv")
 script = ExtResource("3_v1gmj")
 player = NodePath("../../Player")
+heartbeat = NodePath("Heartbeat")
+
+[node name="Heartbeat" type="AudioStreamPlayer" parent="VFX/Vignette" unique_id=1747878146]
+stream = ExtResource("6_nqiif")
 
 [node name="Retro" type="ColorRect" parent="VFX" unique_id=1652324675]
 material = SubResource("ShaderMaterial_qi4jx")
