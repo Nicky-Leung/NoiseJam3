@@ -274,6 +274,7 @@ offset_right = 3.0517578e-05
 grow_horizontal = 1
 grow_vertical = 1
 scale = Vector2(0.300541, 0.25946778)
+pivot_offset = Vector2(50, 50)
 player = NodePath("../..")
 
 [node name="IFrameTimer" type="Timer" parent="." unique_id=19171508]
