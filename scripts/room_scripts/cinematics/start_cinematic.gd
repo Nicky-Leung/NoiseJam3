@@ -25,10 +25,13 @@ func skip():
 func play_sequence():
 	if skip_sequence: return
 
+	player.sprite.animation = "wake"
+	player.sprite.frame = 0
+
 	var tween = create_tween()
 	tween.tween_property(black_screen, "modulate", Color.TRANSPARENT, 4).set_ease(Tween.EaseType.EASE_IN).set_trans(Tween.TransitionType.TRANS_EXPO)
-	# call some wakeup animation in player
-	tween.tween_interval(1) # simulate wake up animation
+	tween.tween_callback(func(): player.sprite.play())
+	tween.tween_interval(1)
 	tween.tween_property(player, "rotation", PI / 4, 0.75)
 	tween.tween_interval(0.3)
 	tween.tween_property(player, "rotation", PI * 3 / 4, 0.75)

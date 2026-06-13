@@ -142,7 +142,6 @@ tutorial = true
 tutorial = true
 
 [node name="Opening" parent="Layout/StarterRoom/Cinematics" parent_id_path=PackedInt32Array(519425099, 1054569960) index="0" unique_id=1690375132 node_paths=PackedStringArray("player")]
-skip_sequence = true
 player = NodePath("../../../../Player")
 
 [node name="Readables" type="Node2D" parent="." unique_id=571430683]

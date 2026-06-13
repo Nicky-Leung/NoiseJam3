@@ -58,6 +58,7 @@ func _ready():
 	sprint_tutorial()
 
 func _process(_delta: float) -> void:
+	if inputs_disabled: return
 	if velocity.length() > 0:
 		sprite.play("move")
 	else:
@@ -166,6 +167,7 @@ func handle_die_sequence():
 	HELPERS.play_audio(dieSFX)
 	red_filter.visible = true
 	red_filter.modulate = Color.TRANSPARENT
+	sprite.play("die")
 	var tween = create_tween()
 	tween.tween_property(red_filter, "modulate", Color.WHITE, 1)
 	tween.tween_interval(3)
