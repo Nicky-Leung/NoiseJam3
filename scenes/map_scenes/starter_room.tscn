@@ -24,6 +24,8 @@
 [ext_resource type="AudioStream" uid="uid://8jmx4trqr8i4" path="res://assets/sfx/ending_sequence/3.mp3" id="20_5grjp"]
 [ext_resource type="AudioStream" uid="uid://b3xu6daxqk2oe" path="res://assets/sfx/ending_sequence/4.mp3" id="21_ymwkn"]
 [ext_resource type="AudioStream" uid="uid://bug73exy24pm8" path="res://assets/sfx/ending_sequence/ed_music.mp3" id="22_ul2ax"]
+[ext_resource type="Texture2D" uid="uid://bmr2bqw641g61" path="res://assets/sprites/world_objects/body.png" id="25_un833"]
+[ext_resource type="Texture2D" uid="uid://b6idtmdeskrp6" path="res://assets/sprites/world_objects/body2.png" id="26_5grjp"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_5irx0"]
 vertices = PackedVector2Array(548, 212, 548, 108, 572, 100, 572, 508, 316, 100, 444, 108, 548, 484, 36, 508, 444, 484, 164, 484, 60, 484, 36, 100, 60, 380, 164, 212, 444, 212, 164, 380, 164, 108, 292, 100, 444, 380, 292, 84, 316, 84, 60, 108, 60, 212, 548, 380)
@@ -32,6 +34,9 @@ agent_radius = 20.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qqy6g"]
 size = Vector2(600, 530)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5grjp"]
+light_mode = 1
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mf5hm"]
 atlas = ExtResource("9_o8qwr")
@@ -69,6 +74,20 @@ script = ExtResource("3_13seb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Layout/RoomListener" unique_id=411528699]
 shape = SubResource("RectangleShape2D_qqy6g")
+
+[node name="Bodies" type="Node2D" parent="." unique_id=780730575]
+
+[node name="Darren" type="Sprite2D" parent="Bodies" unique_id=383168171]
+material = SubResource("CanvasItemMaterial_5grjp")
+position = Vector2(443, 485)
+scale = Vector2(0.065, 0.065)
+texture = ExtResource("25_un833")
+
+[node name="Ethan" type="Sprite2D" parent="Bodies" unique_id=1099460780]
+position = Vector2(69, 303.99997)
+rotation = -1.5707964
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("26_5grjp")
 
 [node name="Readables" type="Node2D" parent="." unique_id=947740803]
 

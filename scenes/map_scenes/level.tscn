@@ -54,6 +54,8 @@ shader_parameter/chromatic_aberration_strength = 0.015
 shader_parameter/vignette_strength = 0.8
 shader_parameter/vignette_radius = 0.9
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_v1gmj"]
+
 [node name="Level" type="Node2D" unique_id=931812444 node_paths=PackedStringArray("angel")]
 script = ExtResource("1_uetgf")
 angel = NodePath("Layout/Hallways/Angel")
@@ -124,6 +126,12 @@ metadata/_edit_lock_ = true
 [node name="StarterRoom" parent="Layout" unique_id=519425099 node_paths=PackedStringArray("player") instance=ExtResource("5_qi4jx")]
 player = NodePath("../../Player")
 metadata/_edit_lock_ = true
+
+[node name="Darren" parent="Layout/StarterRoom/Bodies" parent_id_path=PackedInt32Array(519425099, 780730575) index="0" unique_id=383168171]
+material = SubResource("CanvasItemMaterial_v1gmj")
+
+[node name="Ethan" parent="Layout/StarterRoom/Bodies" parent_id_path=PackedInt32Array(519425099, 780730575) index="1" unique_id=1099460780]
+position = Vector2(66.00001, 348)
 
 [node name="Flashlight" parent="Layout/StarterRoom/Pickups" parent_id_path=PackedInt32Array(519425099, 1344794497) index="0" unique_id=1314714567]
 tutorial = true

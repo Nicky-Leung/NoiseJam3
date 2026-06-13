@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://cfslgv17irrxe" path="res://scenes/environment_objects/pickup.tscn" id="4_vwprq"]
 [ext_resource type="AudioStream" uid="uid://crqfuy4ymws5y" path="res://assets/sfx/puzzles/GateOpen.mp3" id="6_7htlt"]
 [ext_resource type="Texture2D" uid="uid://co0w164ofa0fi" path="res://assets/sprites/items/zombie_icons.png" id="7_cmk56"]
+[ext_resource type="Texture2D" uid="uid://bmr2bqw641g61" path="res://assets/sprites/world_objects/body.png" id="8_yxog5"]
+[ext_resource type="Texture2D" uid="uid://b6idtmdeskrp6" path="res://assets/sprites/world_objects/body2.png" id="9_7htlt"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_yt72g"]
 vertices = PackedVector2Array(1015, -743, 841, -519, 841, -665, 279, -743, 679, -665, 185, -743, 185, -1111, 279, -1111, 679, -519, 137, -519, 137, -665, -681, -743, -25, -665, 1015, 89, 1559, 89, 1559, 183, 921, 183, 921, -409, 343, -409, 343, -25, 265, -25, 265, -409, -119, -409, -25, -519, -119, -649, -823, -649, -823, -1081, -681, -1175, -1175, -1175, -1175, -1081)
@@ -33,6 +35,9 @@ region = Rect2(1275.6609, 10.787857, 254.22119, 222.27708)
 [sub_resource type="AtlasTexture" id="AtlasTexture_lf4mn"]
 atlas = ExtResource("7_cmk56")
 region = Rect2(1023, 10, 248, 232)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mjr0x"]
+light_mode = 1
 
 [node name="Hallways" type="Node2D" unique_id=1870240753]
 script = ExtResource("1_1446t")
@@ -150,3 +155,17 @@ patrol_path = NodePath("../Path2D/PathFollow2D")
 is_active = true
 
 [node name="Readables" type="Node2D" parent="." unique_id=1311762866]
+
+[node name="Bodies" type="Node2D" parent="." unique_id=1161284946]
+
+[node name="Darren" type="Sprite2D" parent="Bodies" unique_id=1597469705]
+material = SubResource("CanvasItemMaterial_mjr0x")
+position = Vector2(-64, -491)
+scale = Vector2(0.065, 0.065)
+texture = ExtResource("8_yxog5")
+
+[node name="Ethan" type="Sprite2D" parent="Bodies" unique_id=992079658]
+position = Vector2(733.99994, -681)
+rotation = -1.5707964
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("9_7htlt")

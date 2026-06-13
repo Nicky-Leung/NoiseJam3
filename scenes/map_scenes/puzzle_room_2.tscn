@@ -176,7 +176,7 @@ position = Vector2(318, 89)
 in_world_sprite = ExtResource("16_2gssu")
 readable_menu = ExtResource("17_opi0u")
 
-[node name="Sprite2D" type="Sprite2D" parent="Layout/LeverPuzzle/PuzzleHint" unique_id=595044489]
+[node name="Darren" type="Sprite2D" parent="Layout/LeverPuzzle/PuzzleHint" unique_id=595044489]
 material = SubResource("CanvasItemMaterial_2gssu")
 position = Vector2(-8.999999, 12.999998)
 scale = Vector2(0.065, 0.065)
