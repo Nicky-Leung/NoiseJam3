@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://85onho8yin1f" path="res://scripts/menu_scripts/main_menu.gd" id="1_pvkhk"]
 [ext_resource type="Texture2D" uid="uid://lisbjrs4wgj7" path="res://assets/video/START_SELECT.png" id="2_gv756"]
 [ext_resource type="Texture2D" uid="uid://xooh1qv0b76e" path="res://assets/video/START.png" id="3_bt1pb"]
+[ext_resource type="FontFile" uid="uid://c155t83t8237k" path="res://assets/fonts/VCR.ttf" id="3_xysw7"]
 [ext_resource type="Texture2D" uid="uid://bfv56ut20bnf" path="res://assets/video/OPTIONS.png" id="4_xysw7"]
 [ext_resource type="Texture2D" uid="uid://d3xnx0d13qng5" path="res://assets/video/OPTIONS_SELECT.png" id="5_gosx4"]
 [ext_resource type="Texture2D" uid="uid://8mv82xr4ibn0" path="res://assets/video/CREDITS.png" id="6_2645v"]
@@ -46,6 +47,16 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_pvkhk")
+
+[node name="Label" type="Label" parent="ButtonManager" unique_id=1264898405]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 146.0
+offset_right = 759.0
+offset_bottom = 259.0
+theme_override_fonts/font = ExtResource("3_xysw7")
+theme_override_font_sizes/font_size = 128
+text = "Envoy"
 
 [node name="Start" type="TextureButton" parent="ButtonManager" unique_id=1698095337]
 layout_mode = 0
