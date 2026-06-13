@@ -34,6 +34,5 @@ position = Vector2(30, 14)
 shape = SubResource("RectangleShape2D_ccw7o")
 
 [node name="Interactable" parent="." unique_id=345271570 node_paths=PackedStringArray("parent_collider") instance=ExtResource("3_s4veb")]
-visible = false
 interact_type = 1
 parent_collider = NodePath("../Collision/Shape")
