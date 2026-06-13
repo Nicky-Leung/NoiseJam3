@@ -1,9 +1,10 @@
 # Asset compilation
-
 ## Fonts
 
 https://www.fontsquirrel.com/fonts/Berylium
-https://fonts.google.com/specimen/Cormorant+Garamond?preview.text=Radioactive&specimen.preview.text=Radioactive&categoryFilters=Serif:%2FSerif%2FOld+Style+Garalde
+
+
+https://fonts.google.com/specimen/Cormorant+Garamond
 https://fonts.google.com/specimen/Science+Gothic
 https://fonts.google.com/specimen/Roboto
 
@@ -16,12 +17,11 @@ https://opengameart.org/content/cold-night
 ## Shaders
 
 https://godotshaders.com/shader/glitch-effect-shader-for-godot-engine-4/
+https://godotshaders.com/shader/dissolve-add-details-pixel-art/
 https://godotshaders.com/shader/retro-gameps1-shader/
-https://godotshaders.com/shader/camera-vignette-shader/
+https://godotshaders.com/shader/2d-wind-sway-tree-grass-motion-shader/
 
 ## Sound Effects
-https://pixabay.com/sound-effects/horror-falling-man-scream-450793/
-https://pixabay.com/sound-effects/film-special-effects-heartbeat-loud-242421/
 https://pixabay.com/sound-effects/film-special-effects-rustling-bushes-dried-leaves-6-230205/
 https://pixabay.com/sound-effects/film-special-effects-large-monster-attack-195713/
 https://pixabay.com/sound-effects/film-special-effects-rustling-bushes-dried-leaves-2-230202/
@@ -83,4 +83,3 @@ https://opengameart.org/content/fast-food-benches-tables
 https://opengameart.org/content/lpc-animated-torch
 https://kenney.nl/assets/light-masks
 https://opengameart.org/content/switches
-https://kenney.nl/assets/input-prompts-pixel

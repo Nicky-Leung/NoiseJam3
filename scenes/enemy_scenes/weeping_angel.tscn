@@ -28,9 +28,7 @@ nav_agent = NodePath("Nav")
 animated_sprite = NodePath("Sprite")
 collision_box = NodePath("Hitbox")
 collides_with_others = true
-attack_damage = 25
 acceleration = 50
-base_speed = 250
 
 [node name="Hitbox" type="CollisionShape2D" parent="." unique_id=971928762]
 shape = SubResource("CircleShape2D_sj8lc")

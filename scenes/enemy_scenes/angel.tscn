@@ -65,8 +65,8 @@ ambience_sounds = Array[AudioStream]([ExtResource("4_40oym"), ExtResource("5_2hp
 nav_agent = NodePath("NavigationAgent2D")
 animated_sprite = NodePath("Body")
 collision_box = NodePath("CollisionShape2D")
-acceleration = 50
-base_speed = 125
+attack_damage = 5
+base_speed = 90
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1553818521]
 shape = SubResource("CircleShape2D_p4h1f")

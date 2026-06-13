@@ -30,6 +30,7 @@ script = ExtResource("1_nnxok")
 clickSFX = ExtResource("2_0ywi5")
 dieSFX = ExtResource("3_8j6qg")
 refillSFX = ExtResource("4_gve8v")
+max_battery_seconds = 80.0
 
 [node name="Cooldown" type="Timer" parent="." unique_id=110221100]
 wait_time = 0.25
