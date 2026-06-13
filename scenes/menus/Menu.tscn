@@ -42,13 +42,16 @@ autoplay = true
 expand = true
 loop = true
 
-[node name="ButtonManager" type="Control" parent="." unique_id=1387493838]
-anchors_preset = 0
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1272063177]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="ButtonManager" type="Control" parent="PanelContainer" unique_id=1387493838]
+layout_mode = 2
 script = ExtResource("1_pvkhk")
 
-[node name="Label" type="Label" parent="ButtonManager" unique_id=1264898405]
+[node name="Label" type="Label" parent="PanelContainer/ButtonManager" unique_id=1264898405]
 layout_mode = 0
 offset_left = 384.0
 offset_top = 146.0
@@ -58,7 +61,7 @@ theme_override_fonts/font = ExtResource("3_xysw7")
 theme_override_font_sizes/font_size = 128
 text = "Envoy"
 
-[node name="Start" type="TextureButton" parent="ButtonManager" unique_id=1698095337]
+[node name="Start" type="TextureButton" parent="PanelContainer/ButtonManager" unique_id=1698095337]
 layout_mode = 0
 offset_left = 432.0
 offset_top = 276.0
@@ -69,7 +72,7 @@ texture_normal = ExtResource("2_gv756")
 texture_pressed = ExtResource("2_gv756")
 texture_hover = ExtResource("3_bt1pb")
 
-[node name="Options" type="TextureButton" parent="ButtonManager" unique_id=944229493]
+[node name="Options" type="TextureButton" parent="PanelContainer/ButtonManager" unique_id=944229493]
 layout_mode = 0
 offset_left = 386.0
 offset_top = 366.0
@@ -80,7 +83,7 @@ texture_normal = ExtResource("4_xysw7")
 texture_pressed = ExtResource("4_xysw7")
 texture_hover = ExtResource("5_gosx4")
 
-[node name="Credits" type="TextureButton" parent="ButtonManager" unique_id=222915983]
+[node name="Credits" type="TextureButton" parent="PanelContainer/ButtonManager" unique_id=222915983]
 layout_mode = 0
 offset_left = 403.0
 offset_top = 474.0
@@ -91,7 +94,7 @@ texture_normal = ExtResource("6_2645v")
 texture_pressed = ExtResource("6_2645v")
 texture_hover = ExtResource("7_s5nif")
 
-[node name="Quit" type="TextureButton" parent="ButtonManager" unique_id=1527294607]
+[node name="Quit" type="TextureButton" parent="PanelContainer/ButtonManager" unique_id=1527294607]
 layout_mode = 0
 offset_left = 474.0
 offset_top = 567.0
