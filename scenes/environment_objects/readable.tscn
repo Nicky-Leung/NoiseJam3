@@ -60,3 +60,12 @@ grow_horizontal = 0
 theme = ExtResource("8_4gyic")
 theme_override_font_sizes/font_size = 96
 text = "X"
+
+[node name="Label" type="Label" parent="Menu" unique_id=546314395]
+offset_left = 30.0
+offset_top = 13.0
+offset_right = 738.0
+offset_bottom = 93.0
+theme = ExtResource("8_4gyic")
+theme_override_font_sizes/font_size = 18
+text = "Press E for for reader mode"
