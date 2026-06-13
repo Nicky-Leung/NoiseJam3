@@ -15,6 +15,9 @@ class_name Angel
 @onready var is_in_light: bool = false
 @onready var is_stunned: bool = false
 
+signal start_chase
+signal stop_chase
+
 var spawn_position: Vector2
 var scout_position: Vector2 = Vector2.ZERO
 var is_first_encounter: bool = true
@@ -88,6 +91,7 @@ func on_view(seen_player: Player) -> void:
 	if ai_state == State.CHASE: return
 	ai_state = State.CHASE
 	chase_target = seen_player
+	start_chase.emit()
 	reset_timer.stop()
 	if is_first_encounter:
 		HELPERS.play_audio(screech_audio, 1.67, 1.67, -10)
@@ -97,6 +101,7 @@ func _on_body_out_of_view() -> void:
 	if ai_state != State.CHASE: return
 	if reset_timer.time_left == 0: reset_timer.start()
 	ai_state = State.IDLE
+	stop_chase.emit()
 
 func _on_reset_timeout() -> void:
 	global_position = patrol_path.global_position
