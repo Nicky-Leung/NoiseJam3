@@ -42,7 +42,8 @@ var facing_direction: Vector2 = Vector2.ZERO
 var tutorial = {
 	"medkit": false,
 	"battery": false,
-	"flashlight": false
+	"flashlight": false,
+	"sprint": false,
 }
 
 func _ready():
@@ -52,6 +53,8 @@ func _ready():
 
 	flashlight.disable_light(false)
 	flashlight.battery_time = starting_flashlight_charge
+
+	sprint_tutorial()
 
 func _process(_delta: float) -> void:
 	if velocity.length() > 0:
@@ -151,3 +154,8 @@ func attack(amount: int, attacker: Enemy) -> bool: # called for enemy attacks (r
 		if !immortal:
 			SCENE_MANAGER.change_scene(SCENE_MANAGER.Scenes.GAME_OVER)
 	return true
+
+func sprint_tutorial():
+	if !tutorial["sprint"]:
+		await get_tree().create_timer(20.0).timeout
+		show_tutorial("sprint", "Hold Shift to Sprint, noise attracts enemies!")
