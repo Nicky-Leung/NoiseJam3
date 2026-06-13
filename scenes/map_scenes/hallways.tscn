@@ -9,8 +9,16 @@
 [ext_resource type="Texture2D" uid="uid://co0w164ofa0fi" path="res://assets/sprites/items/zombie_icons.png" id="7_cmk56"]
 [ext_resource type="Texture2D" uid="uid://bmr2bqw641g61" path="res://assets/sprites/world_objects/body.png" id="8_yxog5"]
 [ext_resource type="Texture2D" uid="uid://b6idtmdeskrp6" path="res://assets/sprites/world_objects/body2.png" id="9_7htlt"]
+[ext_resource type="AudioStream" uid="uid://clylcjcg1udkt" path="res://assets/sfx/enemies/titania_flee_sound.mp3" id="9_pij55"]
 [ext_resource type="PackedScene" uid="uid://c4whabkwhhiyp" path="res://scenes/components/scare_trigger.tscn" id="10_7htlt"]
+[ext_resource type="AudioStream" uid="uid://bapdmg5aiyiep" path="res://assets/sfx/enemies/mole_rat_attack.mp3" id="10_y5853"]
+[ext_resource type="PackedScene" uid="uid://blkdmem371i3" path="res://scenes/components/ambience_zone.tscn" id="11_lf4mn"]
 [ext_resource type="AudioStream" uid="uid://b5mp3r1xpb6o1" path="res://assets/sfx/jump_scares/Bottle Break.wav" id="11_mjr0x"]
+[ext_resource type="AudioStream" uid="uid://g4wo1uxd5kcy" path="res://assets/sfx/ambience/ambience-1.wav" id="12_lf4mn"]
+[ext_resource type="AudioStream" uid="uid://clsj8x672cr5" path="res://assets/sfx/ambience/ambience-2.wav" id="13_pj52a"]
+[ext_resource type="AudioStream" uid="uid://bbwgblqmo56nv" path="res://assets/sfx/ambience/ambience-3.wav" id="14_brvse"]
+[ext_resource type="AudioStream" uid="uid://co5hfk5dqsnlk" path="res://assets/sfx/ambience/ambience-4.wav" id="15_vgcll"]
+[ext_resource type="AudioStream" uid="uid://chlf7madvxwws" path="res://assets/sfx/ambience/ambience-5.wav" id="16_1g1nx"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_yt72g"]
 vertices = PackedVector2Array(1015, -743, 841, -519, 841, -665, 279, -743, 679, -665, 185, -743, 185, -1111, 279, -1111, 679, -519, 137, -519, 137, -665, -681, -743, -25, -665, 1015, 89, 1559, 89, 1559, 183, 921, 183, 921, -409, 343, -409, 343, -25, 265, -25, 265, -409, -119, -409, -25, -519, -119, -649, -823, -649, -823, -1081, -681, -1175, -1175, -1175, -1175, -1081)
@@ -39,7 +47,10 @@ atlas = ExtResource("7_cmk56")
 region = Rect2(1023, 10, 248, 232)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mjr0x"]
-size = Vector2(124, 73.5)
+size = Vector2(124, 135)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e1kja"]
+size = Vector2(1160, 348)
 
 [node name="Hallways" type="Node2D" unique_id=1870240753]
 script = ExtResource("1_1446t")
@@ -150,6 +161,52 @@ item_sprite = SubResource("AtlasTexture_eqycu")
 [node name="GateSound" type="AudioStreamPlayer2D" parent="Sounds" unique_id=1532854880]
 stream = ExtResource("6_7htlt")
 
+[node name="GlassTrigger" parent="Sounds" unique_id=372550792 instance=ExtResource("10_7htlt")]
+position = Vector2(297, -88)
+scare_noise = ExtResource("11_mjr0x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sounds/GlassTrigger" unique_id=327170913]
+position = Vector2(8, 11.25)
+shape = SubResource("RectangleShape2D_mjr0x")
+
+[node name="titania" parent="Sounds" unique_id=2089416204 instance=ExtResource("10_7htlt")]
+position = Vector2(1470, 119)
+scare_noise = ExtResource("9_pij55")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sounds/titania" unique_id=1066800823]
+position = Vector2(8, 18.5)
+shape = SubResource("RectangleShape2D_mjr0x")
+
+[node name="Weeping" parent="Sounds" unique_id=811099163 instance=ExtResource("10_7htlt")]
+position = Vector2(-1121, -1150)
+scare_noise = ExtResource("11_mjr0x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sounds/Weeping" unique_id=678567241]
+position = Vector2(8, 18.5)
+shape = SubResource("RectangleShape2D_mjr0x")
+
+[node name="Mole" parent="Sounds" unique_id=1539951670 instance=ExtResource("10_7htlt")]
+position = Vector2(227, -1066)
+scare_noise = ExtResource("10_y5853")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sounds/Mole" unique_id=1898906550]
+position = Vector2(8, 18.5)
+shape = SubResource("RectangleShape2D_mjr0x")
+
+[node name="Zone2" type="Area2D" parent="Sounds" unique_id=387423570]
+position = Vector2(156, -462)
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sounds/Zone2" unique_id=1450391126]
+position = Vector2(280, -126)
+shape = SubResource("RectangleShape2D_e1kja")
+
+[node name="AmbienceZone" parent="Sounds/Zone2" unique_id=173048634 node_paths=PackedStringArray("area2d_sound_zone") instance=ExtResource("11_lf4mn")]
+ambience_collection = Array[AudioStream]([ExtResource("12_lf4mn"), ExtResource("13_pj52a"), ExtResource("14_brvse"), ExtResource("15_vgcll"), ExtResource("16_1g1nx")])
+area2d_sound_zone = NodePath("..")
+
 [node name="Angel" parent="." unique_id=1599280180 node_paths=PackedStringArray("patrol_path") instance=ExtResource("2_0no2g")]
 position = Vector2(-68, -700)
 rotation = 0.006644421
@@ -170,11 +227,3 @@ position = Vector2(733.99994, -681)
 rotation = -1.5707964
 scale = Vector2(0.03, 0.03)
 texture = ExtResource("9_7htlt")
-
-[node name="ScareTrigger" parent="Bodies" unique_id=372550792 instance=ExtResource("10_7htlt")]
-position = Vector2(297, -88)
-scare_noise = ExtResource("11_mjr0x")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bodies/ScareTrigger" unique_id=327170913]
-position = Vector2(8, 11.25)
-shape = SubResource("RectangleShape2D_mjr0x")
