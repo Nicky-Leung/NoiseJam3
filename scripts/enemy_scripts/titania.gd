@@ -80,7 +80,7 @@ func move_away_from_player(delta: float) -> bool:
 		return false
 	var away_direction = global_position.direction_to(chase_target.global_position) * -1
 	var distances = [80]
-	var angles := [0.0, deg_to_rad(25), deg_to_rad(-25), deg_to_rad(50), deg_to_rad(-50), deg_to_rad(75), deg_to_rad(-75), deg_to_rad(100), deg_to_rad(-100)]
+	var angles := [0.0, deg_to_rad(50), deg_to_rad(-50),  deg_to_rad(100), deg_to_rad(-100)]
 
 	for distance in distances:
 		for angle in angles:
