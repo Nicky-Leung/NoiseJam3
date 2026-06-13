@@ -8,7 +8,7 @@ enum Scenes {
 	GAME_OVER
 }
 @onready var main_menu_scene = load("res://scenes/menus/menu.tscn") as PackedScene
-@onready var in_game_scene = load("res://scenes/main.tscn") as PackedScene # placeholder
+@onready var in_game_scene = load("res://scenes/map_scenes/level.tscn") as PackedScene # placeholder
 @onready var game_over_scene = load("res://scenes/menus/game_over.tscn") as PackedScene
 @onready var credits_scene = load("res://scenes/menus/credits.tscn") as PackedScene
 

@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://co0w164ofa0fi" path="res://assets/sprites/items/zombie_icons.png" id="7_cmk56"]
 [ext_resource type="Texture2D" uid="uid://bmr2bqw641g61" path="res://assets/sprites/world_objects/body.png" id="8_yxog5"]
 [ext_resource type="Texture2D" uid="uid://b6idtmdeskrp6" path="res://assets/sprites/world_objects/body2.png" id="9_7htlt"]
+[ext_resource type="PackedScene" uid="uid://c4whabkwhhiyp" path="res://scenes/components/scare_trigger.tscn" id="10_7htlt"]
+[ext_resource type="AudioStream" uid="uid://b5mp3r1xpb6o1" path="res://assets/sfx/jump_scares/Bottle Break.wav" id="11_mjr0x"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_yt72g"]
 vertices = PackedVector2Array(1015, -743, 841, -519, 841, -665, 279, -743, 679, -665, 185, -743, 185, -1111, 279, -1111, 679, -519, 137, -519, 137, -665, -681, -743, -25, -665, 1015, 89, 1559, 89, 1559, 183, 921, 183, 921, -409, 343, -409, 343, -25, 265, -25, 265, -409, -119, -409, -25, -519, -119, -649, -823, -649, -823, -1081, -681, -1175, -1175, -1175, -1175, -1081)
@@ -35,6 +37,9 @@ region = Rect2(1275.6609, 10.787857, 254.22119, 222.27708)
 [sub_resource type="AtlasTexture" id="AtlasTexture_lf4mn"]
 atlas = ExtResource("7_cmk56")
 region = Rect2(1023, 10, 248, 232)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mjr0x"]
+size = Vector2(124, 73.5)
 
 [node name="Hallways" type="Node2D" unique_id=1870240753]
 script = ExtResource("1_1446t")
@@ -165,3 +170,11 @@ position = Vector2(733.99994, -681)
 rotation = -1.5707964
 scale = Vector2(0.03, 0.03)
 texture = ExtResource("9_7htlt")
+
+[node name="ScareTrigger" parent="Bodies" unique_id=372550792 instance=ExtResource("10_7htlt")]
+position = Vector2(297, -88)
+scare_noise = ExtResource("11_mjr0x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bodies/ScareTrigger" unique_id=327170913]
+position = Vector2(8, 11.25)
+shape = SubResource("RectangleShape2D_mjr0x")
